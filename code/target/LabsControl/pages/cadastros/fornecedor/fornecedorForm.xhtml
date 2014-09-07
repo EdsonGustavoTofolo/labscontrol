@@ -87,9 +87,19 @@
                         <h:outputLabel value="#{form.tipoDeContato}"/>
                         <p:autoComplete value="#{fornecedorController.entityEmbedded.tipoDeContato}"
                                         converter="#{tipoDeContatoConverter}"
+                                        completeMethod="#{fornecedorController.completeTipoDeContato}"
                                         label="#{form.tipoDeContato}" id="tpDeContato" var="tipoDeContato"
                                         itemLabel="#{tipoDeContato.descricao}" itemValue="#{tipoDeContato}"
                                         dropdown="true" forceSelection="true"/>
+
+                        <h:outputLabel value="#{form.conteudo}"/>
+                        <p:inputText value="#{fornecedorController.entityEmbedded.conteudo}"/>
+                        <h:outputLabel value="#{form.obs}"/>
+                        <p:inputText value="#{fornecedorController.entityEmbedded.observacao}"/>
+                        <f:facet name="footer">
+                            <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
+                                             immediate="false" update=":form" process="@form" oncomplete="PF('viewForm').hide()" />
+                        </f:facet>
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>

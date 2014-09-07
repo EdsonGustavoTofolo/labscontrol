@@ -2,15 +2,18 @@ package br.edu.utfpr.labscontrol.web.controller;
 
 import br.edu.utfpr.labscontrol.model.entity.Contato;
 import br.edu.utfpr.labscontrol.model.entity.Fornecedor;
+import br.edu.utfpr.labscontrol.model.entity.TipoDeContato;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.ContatoService;
 import br.edu.utfpr.labscontrol.model.service.FornecedorService;
+import br.edu.utfpr.labscontrol.model.service.TipoDeContatoService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import java.util.List;
 
 /**
  * Created by edson on 23/08/2014.
@@ -23,6 +26,8 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
     private FornecedorService fornecedorService;
     @Autowired
     private ContatoService contatoService;
+    @Autowired
+    private TipoDeContatoService tipoDeContatoService;
 
     private Contato contato;
 
@@ -34,6 +39,10 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
     @Override
     protected String getUrlFormPage() {
         return "/pages/cadastros/fornecedor/fornecedorForm.xhtml?faces-redirect=true";
+    }
+
+    public List<TipoDeContato> completeTipoDeContato(String descricao) {
+        return this.tipoDeContatoService.complete(descricao);
     }
 
     public void novoContato() {

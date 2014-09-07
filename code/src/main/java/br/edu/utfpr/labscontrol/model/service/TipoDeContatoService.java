@@ -16,4 +16,11 @@ public interface TipoDeContatoService extends ICrudService<TipoDeContato, Intege
      * @return
      */
     List<TipoDeContato> findByDescricaoContaining(String descricao);
+
+    /**
+     * Retorna os 10 primeiros tipos de contatos conforme parâmetro
+     * @param descricao
+     * @return
+     */
+    List<TipoDeContato> complete(String descricao);
 }

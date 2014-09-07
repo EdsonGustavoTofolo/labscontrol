@@ -4,9 +4,11 @@ import br.edu.utfpr.labscontrol.model.data.TipoDeContatoData;
 import br.edu.utfpr.labscontrol.model.entity.TipoDeContato;
 import br.edu.utfpr.labscontrol.model.framework.CrudService;
 import br.edu.utfpr.labscontrol.model.service.TipoDeContatoService;
+import com.googlecode.ehcache.annotations.Cacheable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -26,5 +28,16 @@ public class TipoDeContatoServiceImpl extends CrudService<TipoDeContato, Integer
     @Override
     public List<TipoDeContato> findByDescricaoContaining(String descricao) {
         return this.tipoDeContatoData.findByDescricaoContaining(descricao);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    @Cacheable(cacheName = "tipoDeContato")
+    public List<TipoDeContato> complete(String descricao) {
+        if (descricao.equals("")) {
+            descricao = "";
+        }
+
+        return tipoDeContatoData.findByDescricaoContaining(descricao, getPageable());
     }
 }

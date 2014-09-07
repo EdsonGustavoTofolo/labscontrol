@@ -10,5 +10,11 @@
            eternal="false" 
            timeToLiveSeconds="1000"
            overflowToDisk="false" />
+
+    <cache name="tipoDeContato"
+           maxElementsInMemory="10"
+           eternal="false"
+           timeToLiveSeconds="1000"
+           overflowToDisk="false" />
            
 </ehcache>
