@@ -1,10 +1,13 @@
 package br.edu.utfpr.labscontrol.model.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by edson on 10/08/2014.
@@ -44,15 +47,19 @@ public class Fornecedor implements Serializable {
     @Length(max = 255, message = "Campo Observação: Não pode ultrapassar {max} caracteres!")
     @Column(name = "observacao", length = 255)
     private String observacao;
+    @OneToMany(mappedBy = "fornecedor", orphanRemoval = true, targetEntity = Contato.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.JOIN)
+    private List<Contato> contatos;
 
     public Fornecedor() {
 
     }
 
-    public Fornecedor(String razaoSocial, String nomeFantasia, String nomeDoContato) {
+    public Fornecedor(String razaoSocial, String nomeFantasia, String nomeDoContato, List<Contato> contatos) {
         this.razaoSocial = razaoSocial;
         this.nomeFantasia = nomeFantasia;
         this.nomeDoContato = nomeDoContato;
+        this.contatos = contatos;
     }
 
     public Integer getId() {
@@ -141,6 +148,14 @@ public class Fornecedor implements Serializable {
 
     public void setObservacao(String observacao) {
         this.observacao = observacao;
+    }
+
+    public List<Contato> getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(List<Contato> contatos) {
+        this.contatos = contatos;
     }
 
     @Override

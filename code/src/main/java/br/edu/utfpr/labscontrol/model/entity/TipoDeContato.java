@@ -67,8 +67,6 @@ public class TipoDeContato implements Serializable {
 
     @Override
     public String toString() {
-        return "TipoDeContato{" +
-                "descricao='" + descricao + '\'' +
-                '}';
+        return descricao;
     }
 }

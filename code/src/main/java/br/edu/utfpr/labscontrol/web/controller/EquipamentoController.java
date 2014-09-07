@@ -22,7 +22,6 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
 
     @Autowired
     private EquipamentoService equipamentoService;
-
     @Autowired
     private HistoricoDeManutencaoService historicoDeManutencaoService;
 

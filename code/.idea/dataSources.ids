@@ -791,6 +791,7 @@
       <column name="logradouro" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
       <column name="numero" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <column name="observacao" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cep" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="FK_8ydcy7nrcwms9fpsnfkmi1pts" table="contatos" schema="" catalog="labscontrol" columns="fornecedorId"/>
       <exported-key name="FK_i98gt3onc04epu0jwtepxoxi6" table="materiais" schema="" catalog="labscontrol" columns="fornecedorId"/>
