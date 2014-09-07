@@ -21,9 +21,13 @@
             <h:outputLabel value="#{form.descricao}"/>
             <p:inputText value="#{materialDeConsumoController.entity.descricao}" size="45" maxlength="60"/>
             <h:outputLabel value="#{form.quantidadeEmEstoque}"/>
-            <p:inputText value="#{materialDeConsumoController.entity.qtdAtual}" size="12"  maxlength="12"/>
+            <p:inputText value="#{materialDeConsumoController.entity.qtdAtual}" size="12"  maxlength="12">
+                <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+            </p:inputText>
             <h:outputLabel value="#{form.quantidadeMinima}"/>
-            <p:inputText value="#{materialDeConsumoController.entity.qtdMin}" size="12"  maxlength="12"/>
+            <p:inputText value="#{materialDeConsumoController.entity.qtdMin}" size="12"  maxlength="12">
+                <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+            </p:inputText>
         </p:panelGrid>
     </ui:define>
 

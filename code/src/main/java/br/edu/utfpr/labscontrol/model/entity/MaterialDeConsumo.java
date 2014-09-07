@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * Created by edson on 10/08/2014.
@@ -23,15 +24,16 @@ public class MaterialDeConsumo implements Serializable {
     @Column(name = "descricao", length = 60)
     private String descricao;
     @Column(name = "qtdAtual", length = 12, precision = 2)
-    private Double qtdAtual;
+    private BigDecimal qtdAtual;
     @Column(name = "qtdMin", length = 12, precision = 2)
-    private Double qtdMin;
+    private BigDecimal qtdMin;
 
     public MaterialDeConsumo() {
-
+        this.qtdAtual = BigDecimal.ZERO;
+        this.qtdMin = BigDecimal.ZERO;
     }
 
-    public MaterialDeConsumo(String nome, String descricao, Double qtdAtual, Double qtdMin) {
+    public MaterialDeConsumo(String nome, String descricao, BigDecimal qtdAtual, BigDecimal qtdMin) {
         this.nome = nome;
         this.descricao = descricao;
         this.qtdAtual = qtdAtual;
@@ -62,19 +64,19 @@ public class MaterialDeConsumo implements Serializable {
         this.descricao = descricao;
     }
 
-    public Double getQtdAtual() {
+    public BigDecimal getQtdAtual() {
         return qtdAtual;
     }
 
-    public void setQtdAtual(Double qtdAtual) {
+    public void setQtdAtual(BigDecimal qtdAtual) {
         this.qtdAtual = qtdAtual;
     }
 
-    public Double getQtdMin() {
+    public BigDecimal getQtdMin() {
         return qtdMin;
     }
 
-    public void setQtdMin(Double qtdMin) {
+    public void setQtdMin(BigDecimal qtdMin) {
         this.qtdMin = qtdMin;
     }
 

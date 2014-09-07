@@ -33,10 +33,14 @@
                 <h:outputText value="#{objeto.descricao}"/>
             </p:column>
             <p:column headerText="#{form.quantidadeEmEstoque}" sortBy="#{objeto.qtdAtual}" filterBy="#{objeto.qtdAtual}">
-                <h:outputText value="#{objeto.qtdAtual}"/>
+                <h:outputText value="#{objeto.qtdAtual}">
+                    <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                </h:outputText>
             </p:column>
             <p:column headerText="#{form.quantidadeMinima}" sortBy="#{objeto.qtdMin}" filterBy="#{objeto.qtdMin}">
-                <h:outputText value="#{objeto.qtdMin}"/>
+                <h:outputText value="#{objeto.qtdMin}">
+                    <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                </h:outputText>
             </p:column>
             <p:column headerText="#{form.acoes}" style="text-align: center" width="20%">
                 <labs:commandButtonSearch controller="#{materialDeConsumoController}"/>

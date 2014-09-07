@@ -58,6 +58,22 @@
                     <f:facet name="header">
                         <h:outputLabel value="#{form.historicosDasManutencoes}"/>
                     </f:facet>
+                    <p:column headerText="#{form.dataDoDefeito}" styleClass="columnData">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{historico.dataDoDefeito}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                                </h:outputText>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:calendar value="#{historico.dataDoDefeito}" pattern="dd/MM/yyyy" mask="true"
+                                            locale="pt_BR" navigator="true" showButtonPanel="true"/>
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+                    <p:column headerText="#{form.motivoDoDefeito}">
+                        <h:outputText value="#{historico.motivoDoDefeito}"/>
+                    </p:column>
                     <p:column headerText="#{form.dataDeEnvio}" styleClass="columnData">
                         <p:cellEditor>
                             <f:facet name="output">
@@ -83,22 +99,6 @@
                                             locale="pt_BR" navigator="true" showButtonPanel="true"/>
                             </f:facet>
                         </p:cellEditor>
-                    </p:column>
-                    <p:column headerText="#{form.dataDoDefeito}" styleClass="columnData">
-                        <p:cellEditor>
-                            <f:facet name="output">
-                                <h:outputText value="#{historico.dataDoDefeito}">
-                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
-                                </h:outputText>
-                            </f:facet>
-                            <f:facet name="input">
-                                <p:calendar value="#{historico.dataDoDefeito}" pattern="dd/MM/yyyy" mask="true"
-                                            locale="pt_BR" navigator="true" showButtonPanel="true"/>
-                            </f:facet>
-                        </p:cellEditor>
-                    </p:column>
-                    <p:column headerText="#{form.motivoDoDefeito}">
-                        <h:outputText value="#{historico.motivoDoDefeito}"/>
                     </p:column>
                     <p:column headerText="#{form.manutencaoRealizada}">
                         <p:cellEditor>

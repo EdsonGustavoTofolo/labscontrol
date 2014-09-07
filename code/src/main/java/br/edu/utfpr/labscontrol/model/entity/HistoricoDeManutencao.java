@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -34,18 +35,18 @@ public class HistoricoDeManutencao implements Serializable {
     @Column(name = "manutencaoRealizada", length = 255)
     private String manutencaoRealizada;
     @Column(name = "valorDaManutencao", length = 12, precision = 2)
-    private Double valorDaManutencao;
+    private BigDecimal valorDaManutencao;
     @NotNull(message = "Campo Equipamento: Preenchimento Obrigatório!")
     @ManyToOne
     @JoinColumn(name = "equipamentoId", referencedColumnName = "id", nullable = false)
     private Equipamento equipamento;
 
     public HistoricoDeManutencao() {
-
+        this.valorDaManutencao = BigDecimal.ZERO;
     }
 
     public HistoricoDeManutencao(String motivoDoDefeito, Date dataDoDefeito, Date dataDeEnvio, Date dataDeRetorno,
-                                 String manutencaoRealizada, Double valorDaManutencao, Equipamento equipamento) {
+                                 String manutencaoRealizada, BigDecimal valorDaManutencao, Equipamento equipamento) {
         this.motivoDoDefeito = motivoDoDefeito;
         this.dataDoDefeito = dataDoDefeito;
         this.dataDeEnvio = dataDeEnvio;
@@ -103,11 +104,11 @@ public class HistoricoDeManutencao implements Serializable {
         this.manutencaoRealizada = manutencaoRealizada;
     }
 
-    public Double getValorDaManutencao() {
+    public BigDecimal getValorDaManutencao() {
         return valorDaManutencao;
     }
 
-    public void setValorDaManutencao(Double valorDaManutencao) {
+    public void setValorDaManutencao(BigDecimal valorDaManutencao) {
         this.valorDaManutencao = valorDaManutencao;
     }
 

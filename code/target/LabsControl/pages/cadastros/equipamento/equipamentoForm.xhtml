@@ -54,6 +54,14 @@
                 <p:column headerText="#{form.id}" sortBy="#{entityEmbedded.id}" filterBy="#{entityEmbedded.id}" styleClass="columnId">
                     <h:outputText value="#{entityEmbedded.id}"/>
                 </p:column>
+                <p:column headerText="#{form.dataDoDefeito}" sortBy="#{entityEmbedded.dataDoDefeito}" styleClass="columnData">
+                    <h:outputText value="#{entityEmbedded.dataDoDefeito}">
+                        <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                    </h:outputText>
+                </p:column>
+                <p:column headerText="#{form.motivoDoDefeito}" filterBy="#{entityEmbedded.motivoDoDefeito}" filterMatchMode="contains">
+                    <h:outputText value="#{entityEmbedded.motivoDoDefeito}"/>
+                </p:column>
                 <p:column headerText="#{form.dataDeEnvio}" sortBy="#{entityEmbedded.dataDeEnvio}" styleClass="columnData">
                     <h:outputText value="#{entityEmbedded.dataDeEnvio}">
                         <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
@@ -64,16 +72,8 @@
                         <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
                     </h:outputText>
                 </p:column>
-                <p:column headerText="#{form.dataDoDefeito}" sortBy="#{entityEmbedded.dataDoDefeito}" styleClass="columnData">
-                    <h:outputText value="#{entityEmbedded.dataDoDefeito}">
-                        <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
-                    </h:outputText>
-                </p:column>
                 <p:column headerText="#{form.manutencaoRealizada}" filterBy="#{entityEmbedded.manutencaoRealizada}" filterMatchMode="contains">
                     <h:outputText value="#{entityEmbedded.manutencaoRealizada}"/>
-                </p:column>
-                <p:column headerText="#{form.motivoDoDefeito}" filterBy="#{entityEmbedded.motivoDoDefeito}" filterMatchMode="contains">
-                    <h:outputText value="#{entityEmbedded.motivoDoDefeito}"/>
                 </p:column>
                 <p:column headerText="#{form.valorDaManutencao}" styleClass="columnValor">
                     <h:outputText value="#{entityEmbedded.valorDaManutencao}">
@@ -95,19 +95,25 @@
                     <p:panelGrid columns="2" columnClasses="columnBold">
                         <h:outputLabel value="#{form.id}"/>
                         <p:inputText value="#{equipamentoController.entityEmbedded.id}" readonly="true" size="5"/>
-                        <h:outputLabel value="#{form.dataDeEnvio}"/>
-                        <p:calendar value="#{equipamentoController.entityEmbedded.dataDeEnvio}" pattern="dd/MM/yyyy" mask="true"
-                                    locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
-                        <h:outputLabel value="#{form.dataDeRetorno}"/>
-                        <p:calendar value="#{equipamentoController.entityEmbedded.dataDeRetorno}" pattern="dd/MM/yyyy" mask="true"
-                                    locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
+
                         <h:outputLabel value="#{form.dataDoDefeito}"/>
                         <p:calendar value="#{equipamentoController.entityEmbedded.dataDoDefeito}" pattern="dd/MM/yyyy" mask="true"
                                     locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
-                        <h:outputLabel value="#{form.manutencaoRealizada}"/>
-                        <p:inputText value="#{equipamentoController.entityEmbedded.manutencaoRealizada}" size="100" maxlength="255"/>
+
                         <h:outputLabel value="#{form.motivoDoDefeito}"/>
                         <p:inputText value="#{equipamentoController.entityEmbedded.motivoDoDefeito}" size="100" maxlength="100"/>
+
+                        <h:outputLabel value="#{form.dataDeEnvio}"/>
+                        <p:calendar value="#{equipamentoController.entityEmbedded.dataDeEnvio}" pattern="dd/MM/yyyy" mask="true"
+                                    locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
+
+                        <h:outputLabel value="#{form.dataDeRetorno}"/>
+                        <p:calendar value="#{equipamentoController.entityEmbedded.dataDeRetorno}" pattern="dd/MM/yyyy" mask="true"
+                                    locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
+
+                        <h:outputLabel value="#{form.manutencaoRealizada}"/>
+                        <p:inputText value="#{equipamentoController.entityEmbedded.manutencaoRealizada}" size="100" maxlength="255"/>
+
                         <h:outputLabel value="#{form.valorDaManutencao}"/>
                         <p:inputText value="#{equipamentoController.entityEmbedded.valorDaManutencao}">
                             <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
