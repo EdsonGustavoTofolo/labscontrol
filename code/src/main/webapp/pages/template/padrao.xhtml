@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>
+        <ui:insert name="titulo">
+            <h:outputText value="LabsControl - UTFPR/PB"/>
+        </ui:insert>
+    </title>
+    <link rel="stylesheet" href="/compress/grupoBase.css" type="text/css"/>
+    <h:outputScript name="locale-primefaces.js" library="js" />
+    <h:outputStylesheet library="css" name="menu.css"/>
+    <h:outputStylesheet library="css" name="customPrime.css"/>
+    <h:outputStylesheet library="css" name="default.css"/>
+</h:head>
+
+<h:body>
+    <f:view>
+
+        <f:metadata>
+            <ui:insert name="metadata">
+
+            </ui:insert>
+        </f:metadata>
+
+        <h:form id="form">
+
+            <p:focus/>
+
+            <p:menubar styleClass="vs-menu">
+                <p:submenu label="Cadastros" icon="ui-icon-document">
+                    <p:submenu label="#{form.ambiente}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/ambiente/ambienteForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/ambiente/ambienteSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:submenu label="#{form.categoria}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/categoria/categoriaForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/categoria/categoriaSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:submenu label="#{form.marca}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/marca/marcaForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/marca/marcaSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:submenu label="#{form.modelo}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/modelo/modeloForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/modelo/modeloSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:submenu label="#{form.materialDeConsumo}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                    <p:submenu label="#{form.equipamento}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/equipamento/equipamentoForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/equipamento/equipamentoSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
+                </p:submenu>
+
+                <p:submenu label="#{form.emprestimo}" icon="ui-icon-wrench">
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/emprestimos/emprestimoForm.xhtml?faces-redirect=true" />
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/emprestimos/emprestimoSearch.xhtml?faces-redirect=true" />
+                </p:submenu>
+            </p:menubar>
+
+            <p:panel>
+                <f:facet name="header">
+                    <ui:insert name="titulo">
+                        <h:outputText value="LabsControl"/>
+                    </ui:insert>
+                </f:facet>
+
+                <p:messages id="messages" closable="true" />
+
+                <ui:insert name="conteudo">
+
+                </ui:insert>
+
+                <f:facet name="footer">
+                    <ui:insert name="rodape">
+
+                    </ui:insert>
+                </f:facet>
+            </p:panel>
+
+            <ui:insert name="otherContent">
+
+            </ui:insert>
+
+        </h:form>
+
+        <ui:insert name="foraDoForm">
+
+        </ui:insert>
+    </f:view>
+</h:body>
+</html>

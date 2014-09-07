@@ -1,0 +1,23 @@
+.columnBold {
+    font-weight: bold;
+}
+
+.columnId {
+    width: 10%;
+    text-align: right;
+}
+
+.columnData {
+    width: 8%;
+    text-align: center;
+}
+
+.columnValor {
+    width: 10%;
+    text-align: right;
+}
+
+.columnAcoes {
+    width: 10%;
+    text-align: center;
+}

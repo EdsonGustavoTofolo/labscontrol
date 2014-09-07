@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite">
+
+<composite:interface>
+
+    <composite:attribute name="parentController" required="true"/>
+
+</composite:interface>
+
+<composite:implementation>
+
+    <p:commandButton icon="ui-icon-pencil" action="#{cc.attrs.parentController.setEntityEmbedded(entityEmbedded)}" process="@this" update=":formEmbedded:viewDetailForm" oncomplete="PF('viewForm').show()" title="Editar"/>
+    <p:commandButton icon="ui-icon-zoomin" action="#{cc.attrs.parentController.setEntityEmbedded(entityEmbedded)}" process="@this" update=":formEmbedded:viewDetail" oncomplete="PF('viewDlg').show()" title="Visualizar"/>
+    <p:commandButton icon="ui-icon-trash" action="#{cc.attrs.parentController.setEntityEmbedded(entityEmbedded)}" process="@this" update="@none" oncomplete="PF('confirm').show()" title="Excluir"/>
+
+</composite:implementation>
+
+</html>
