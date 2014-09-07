@@ -23,13 +23,13 @@
 
         <p:dataTable value="#{categoriaController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
                      paginator="true" rows="10" paginatorPosition="bottom">
-            <p:column headerText="Id" sortBy="#{objeto.id}" filterBy="#{objeto.id}">
+            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}">
                 <h:outputText value="#{objeto.id}" />
             </p:column>
-            <p:column headerText="Nome" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
+            <p:column headerText="#{form.nome}" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.nome}" />
             </p:column>
-            <p:column headerText="Descrição" sortBy="#{objeto.descricao}" filterBy="#{objeto.descricao}" filterMatchMode="contains">
+            <p:column headerText="#{form.descricao}" sortBy="#{objeto.descricao}" filterBy="#{objeto.descricao}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.descricao}" />
             </p:column>
             <p:column headerText="#{form.acoes}" style="text-align: center" width="20%">
