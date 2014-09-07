@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+<ui:decorate template="../../template/padrao.xhtml">
+    <ui:define name="titulo">
+        <h:outputText value="#{form.cadastroDeFornecedor}"/>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <p:panelGrid columns="2">
+            <h:outputLabel value="#{form.id}"/>
+            <p:inputText value="#{fornecedorController.entity.id}" readonly="true" size="5"/>
+            <h:outputLabel value="#{form.razaoSocial}"/>
+            <p:inputText value="#{fornecedorController.entity.razaoSocial}" size="60" maxlength="60" required="true" requiredMessage="#{msg.razaoSocialRequired}"/>
+            <h:outputLabel value="#{form.nomeFantasia}"/>
+            <p:inputText value="#{fornecedorController.entity.nomeFantasia}" size="60" maxlength="60" required="true" requiredMessage="#{msg.nomeFantasiaRequired}"/>
+            <h:outputLabel value="#{form.nomeDoContato}"/>
+            <p:inputText value="#{fornecedorController.entity.nomeDoContato}" size="60" maxlength="60"/>
+
+            <h:outputLabel value="#{form.endereco}" styleClass="columnBold"/><h:outputText value=""/>
+            <h:outputLabel value="#{form.cep}"/>
+            <p:inputMask value="#{fornecedorController.entity.cep}" mask="99.999-999" />
+            <h:outputLabel value="#{form.logradouro}"/>
+            <p:inputText value="#{fornecedorController.entity.logradouro}" size="60" maxlength="45"/>
+            <h:outputLabel value="#{form.numero}"/>
+            <p:inputText value="#{fornecedorController.entity.numero}" size="60" maxlength="20"/>
+            <h:outputLabel value="#{form.bairro}"/>
+            <p:inputText value="#{fornecedorController.entity.bairro}" size="60" maxlength="45"/>
+            <h:outputLabel value="#{form.cidade}"/>
+            <p:inputText value="#{fornecedorController.entity.cidade}" size="60" maxlength="45"/>
+            <h:outputLabel value="#{form.estado}"/>
+            <p:inputText value="#{fornecedorController.entity.estado}" size="2" maxlength="2"/>
+            <h:outputLabel value="#{form.obs}"/>
+            <p:inputText value="#{fornecedorController.entity.observacao}" size="100" maxlength="255"/>
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="rodape">
+        <labs:commandButtonForm update="@form" controller="#{fornecedorController}"/>
+
+        <p:commandButton value="#{form.voltar}" action="/pages/cadastros/fornecedor/fornecedorSearch.xhtml?faces-redirect=true" icon="ui-icon ui-icon-arrowthick-1-w"
+                         immediate="true" ajax="false" style="float: right"/>
+        <div style="clear: both"></div>
+    </ui:define>
+</ui:decorate>
+</html>

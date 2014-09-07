@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL" uuid="400518e4-6255-48fb-8ccd-6f7696dc0224">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="MySQL" version="5.6.19-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="information_schema"/>
     <schema name="" catalog="labscontrol"/>
     <schema name="" catalog="mysql"/>
@@ -755,8 +759,8 @@
       <column name="materialId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="toUsuarioId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_1vtngms7ghiwqhyb6q44pdnvv" columns="fromUsuarioId" ref-table="usuarios" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_b0v9ia9ndyhgrl5lgkyry9tdy" columns="toUsuarioId" ref-table="usuarios" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_1vtngms7ghiwqhyb6q44pdnvv" columns="fromUsuarioId" ref-table="usuarios" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_i1ewcx05snnen8nmbo5vyyqk1" columns="ambienteId" ref-table="ambientes" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_t7a76b41vuxrn1eo02pyp90gm" columns="materialId" ref-table="materiais" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="FK_1vtngms7ghiwqhyb6q44pdnvv" unique="false" columns="fromUsuarioId"/>
@@ -769,7 +773,7 @@
       <column name="codigoDeBarras" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
       <column name="dataDeAquisicao" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
       <column name="nome" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <column name="observacao" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observacao" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="partNumber" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
       <column name="patrimonio" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
@@ -781,6 +785,12 @@
       <column name="nomeDoContato" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
       <column name="nomeFantasia" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
       <column name="razaoSocial" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <column name="bairro" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cidade" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="estado" sqlType="VARCHAR" precision="2" scale="0" nullable="true" jdbcType="12"/>
+      <column name="logradouro" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="numero" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="observacao" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <exported-key name="FK_8ydcy7nrcwms9fpsnfkmi1pts" table="contatos" schema="" catalog="labscontrol" columns="fornecedorId"/>
       <exported-key name="FK_i98gt3onc04epu0jwtepxoxi6" table="materiais" schema="" catalog="labscontrol" columns="fornecedorId"/>
@@ -817,11 +827,11 @@
       <column name="materialDeConsumoId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="modeloId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="FK_s1hqkay1t8b5bjols57f1tadd" columns="modeloId" ref-table="modelos" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_6ruf9mteckocu51mwwy74i1ip" columns="equipamentoId" ref-table="equipamentos" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_ct9vltnvtfsadutvamh107fbl" columns="marcaId" ref-table="marcas" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_i98gt3onc04epu0jwtepxoxi6" columns="fornecedorId" ref-table="fornecedores" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_kfaf6es96c1arhtgul9o8v41f" columns="materialDeConsumoId" ref-table="materiais_de_consumo" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="FK_s1hqkay1t8b5bjols57f1tadd" columns="modeloId" ref-table="modelos" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_td1rx30axsbqstm1p0dwaynqa" columns="categoriaId" ref-table="categorias" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FK_t7a76b41vuxrn1eo02pyp90gm" table="emprestimos" schema="" catalog="labscontrol" columns="materialId"/>
       <index name="FK_6ruf9mteckocu51mwwy74i1ip" unique="false" columns="equipamentoId"/>
@@ -862,8 +872,8 @@
       <column name="nome" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
       <column name="senha" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_1vtngms7ghiwqhyb6q44pdnvv" table="emprestimos" schema="" catalog="labscontrol" columns="fromUsuarioId"/>
       <exported-key name="FK_b0v9ia9ndyhgrl5lgkyry9tdy" table="emprestimos" schema="" catalog="labscontrol" columns="toUsuarioId"/>
+      <exported-key name="FK_1vtngms7ghiwqhyb6q44pdnvv" table="emprestimos" schema="" catalog="labscontrol" columns="fromUsuarioId"/>
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="SYSTEM TABLE">
       <column name="Host" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>

@@ -25,6 +25,6 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
 
     @Override
     protected String getUrlFormPage() {
-        return "/pages/fornecedor/form.xhtml?faces-redirect=true";
+        return "/pages/cadastros/fornecedor/fornecedorForm.xhtml?faces-redirect=true";
     }
 }
