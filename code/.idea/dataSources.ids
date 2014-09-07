@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="MySQL" uuid="400518e4-6255-48fb-8ccd-6f7696dc0224">
-    <database-info product="MySQL" version="5.6.17-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
-    </database-info>
-    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
     <schema name="" catalog="information_schema"/>
     <schema name="" catalog="labscontrol"/>
     <schema name="" catalog="mysql"/>

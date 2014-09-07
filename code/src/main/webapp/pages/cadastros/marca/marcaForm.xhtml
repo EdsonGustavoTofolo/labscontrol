@@ -14,11 +14,11 @@
 
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
-            <h:outputLabel value="Id"/>
+            <h:outputLabel value="#{form.id}"/>
             <p:inputText value="#{marcaController.entity.id}" readonly="true" size="5" />
-            <h:outputLabel value="Nome"/>
-            <p:inputText value="#{marcaController.entity.nome}" size="45" maxlength="45"/>
-            <h:outputLabel value="Descrição"/>
+            <h:outputLabel value="#{form.nome}"/>
+            <p:inputText value="#{marcaController.entity.nome}" size="45" maxlength="45" required="true" requiredMessage="#{msg.nomeRequired}"/>
+            <h:outputLabel value="#{form.descricao}"/>
             <p:inputText value="#{marcaController.entity.descricao}" size="45" maxlength="60"/>
         </p:panelGrid>
     </ui:define>

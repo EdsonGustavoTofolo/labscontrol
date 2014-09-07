@@ -14,13 +14,13 @@
 
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
-            <h:outputLabel value="Id" />
+            <h:outputLabel value="#{form.id}" />
             <p:inputText value="#{ambienteController.entity.id}" readonly="true" size="5" />
-            <h:outputLabel value="Descrição" />
+            <h:outputLabel value="#{form.identificacao}" />
+            <p:inputText value="#{ambienteController.entity.identificacao}" size="20" maxlength="20" required="true" requiredMessage="#{msg.identificacaoRequired}"/>
+            <h:outputLabel value="#{form.descricao}" />
             <p:inputText value="#{ambienteController.entity.descricao}" size="60" maxlength="100"/>
-            <h:outputLabel value="Identificação" />
-            <p:inputText value="#{ambienteController.entity.identificacao}" size="20" maxlength="20"/>
-            <h:outputLabel value="Observação" />
+            <h:outputLabel value="#{form.obs}" />
             <p:inputText value="#{ambienteController.entity.observacao}" size="100" maxlength="255"/>
         </p:panelGrid>
     </ui:define>

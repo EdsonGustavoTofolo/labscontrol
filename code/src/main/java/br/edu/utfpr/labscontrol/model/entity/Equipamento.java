@@ -20,7 +20,6 @@ public class Equipamento implements Serializable {
     @GeneratedValue
     @Column(name = "id")
     private Integer id;
-    @NotEmpty(message = "Campo Nome: Preenchimento Obrigatório!")
     @Length(max = 45, message = "Campo Nome: Não pode ultrapassar {max} caracteres!")
     @Column(name = "nome", length = 45, nullable = false)
     private String nome;

@@ -33,7 +33,7 @@
                 <h:outputText value="#{objeto.descricao}"/>
             </p:column>
             <p:column headerText="#{form.acoes}" style="text-align: center" width="20%">
-                <lab:commandButtonSearch controller="#{marcaController}"/>
+                <labs:commandButtonSearch controller="#{marcaController}"/>
             </p:column>
         </p:dataTable>
     </ui:define>
@@ -43,7 +43,7 @@
     </ui:define>
 
     <ui:define name="foraDoForm">
-        <lab:confirmExclusaoSimples update=":form" action="#{marcaController.delete}"/>
+        <labs:confirmExclusaoSimples update=":form" action="#{marcaController.delete}"/>
         <h:form id="formDlg">
             <p:dialog header="#{form.marca}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetail">

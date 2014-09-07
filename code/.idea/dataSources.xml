@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="2203130824">
+  <component name="DataSourceManagerImpl" format="xml" hash="133797429">
     <data-source source="LOCAL" name="MySQL" uuid="400518e4-6255-48fb-8ccd-6f7696dc0224">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -12,7 +12,11 @@
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>
-      <libraries />
+      <libraries>
+        <library>
+          <url>file://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

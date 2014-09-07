@@ -16,7 +16,6 @@ public class Ambiente implements Serializable {
     @Column(name = "id")
     @GeneratedValue
     private Integer id;
-    @NotEmpty(message = "Campo Identificação: Preenchimento Obrigatório!")
     @Length(max = 20, message = "Campo Identificação: Não pode ultrapassar {max} caracteres!")
     @Column(name = "identificacao", length = 20, nullable = false)
     private String identificacao;

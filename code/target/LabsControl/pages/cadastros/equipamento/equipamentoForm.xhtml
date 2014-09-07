@@ -17,7 +17,7 @@
             <h:outputLabel value="#{form.id}"/>
             <p:inputText value="#{equipamentoController.entity.id}" readonly="true" size="5"/>
             <h:outputLabel value="#{form.nome}"/>
-            <p:inputText value="#{equipamentoController.entity.nome}" size="45" maxlength="45"/>
+            <p:inputText value="#{equipamentoController.entity.nome}" size="45" maxlength="45" required="true" requiredMessage="#{msg.nomeRequired}"/>
             <h:outputLabel value="#{form.codigoDeBarras}"/>
             <p:inputText value="#{equipamentoController.entity.codigoDeBarras}" size="45" maxlength="45"/>
             <h:outputLabel value="#{form.partNumber}"/>
@@ -41,7 +41,7 @@
     </ui:define>
 
     <ui:define name="otherContent">
-        <p:panel>
+        <p:panel rendered="#{equipamentoController.entity.id != null}">
             <f:facet name="header">
                 <h:outputLabel value="#{form.historicosDasManutencoes}"/>
             </f:facet>
