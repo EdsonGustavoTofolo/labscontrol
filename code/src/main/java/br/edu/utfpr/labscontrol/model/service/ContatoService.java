@@ -2,7 +2,7 @@ package br.edu.utfpr.labscontrol.model.service;
 
 import br.edu.utfpr.labscontrol.model.entity.Contato;
 import br.edu.utfpr.labscontrol.model.entity.Fornecedor;
-import br.edu.utfpr.labscontrol.model.entity.TipoDeContato;
+import br.edu.utfpr.labscontrol.model.enumeration.TiposDeContatoEnum;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 
 import java.util.List;
@@ -24,5 +24,5 @@ public interface ContatoService extends ICrudService<Contato, Integer> {
      * @param fornecedor
      * @return
      */
-    List<Contato> findByFornecedorAndTipoDeContato(Fornecedor fornecedor, TipoDeContato tipoDeContato);
+    List<Contato> findByFornecedorAndTipoDeContato(Fornecedor fornecedor, TiposDeContatoEnum tipoDeContato);
 }

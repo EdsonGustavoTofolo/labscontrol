@@ -83,22 +83,28 @@
         <h:form id="formEmbedded">
             <p:dialog header="#{form.contatos}" id="dialog" widgetVar="viewForm" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetailForm">
-                    <p:panelGrid columns="2" columnClasses="columnBold">
+                    <p:panelGrid columns="3" columnClasses="columnBold" id="grid">
                         <h:outputLabel value="#{form.tipoDeContato}"/>
-                        <p:autoComplete value="#{fornecedorController.entityEmbedded.tipoDeContato}"
-                                        converter="#{tipoDeContatoConverter}"
-                                        completeMethod="#{fornecedorController.completeTipoDeContato}"
-                                        label="#{form.tipoDeContato}" id="tpDeContato" var="tipoDeContato"
-                                        itemLabel="#{tipoDeContato.descricao}" itemValue="#{tipoDeContato}"
-                                        dropdown="true" forceSelection="true"/>
-
+                        <p:selectOneMenu value="#{fornecedorController.entityEmbedded.tipoDeContato}" label="#{form.tipoDeContato}"
+                                         valueChangeListener="#{fornecedorController.onChangeTipoDeContato}"
+                                         required="true" requiredMessage="#{msg.campoObrigatorio}"
+                                         id="tipoDeContato">
+                            <f:selectItem itemLabel="Selecione"/>
+                            <f:selectItems value="#{fornecedorController.tiposDeContatos}"/>
+                            <f:converter converterId="enumConverter"/>
+                            <p:ajax event="change" process="@this" update="maskConteudo"/>
+                        </p:selectOneMenu>
+                        <p:message for="tipoDeContato"/>
                         <h:outputLabel value="#{form.conteudo}"/>
-                        <p:inputText value="#{fornecedorController.entityEmbedded.conteudo}"/>
+                        <p:inputMask id="maskConteudo" value="#{fornecedorController.entityEmbedded.conteudo}" mask="#{fornecedorController.mascara}" required="true"
+                                     requiredMessage="#{msg.campoObrigatorio}"/>
+                        <p:message for="maskConteudo"/>
                         <h:outputLabel value="#{form.obs}"/>
                         <p:inputText value="#{fornecedorController.entityEmbedded.observacao}"/>
+                        <h:outputText value=""/>
                         <f:facet name="footer">
                             <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
-                                             immediate="false" update=":form" process="@form" oncomplete="PF('viewForm').hide()" />
+                                             ajax="true" validateClient="true" update="grid, :form" process="@form"/>
                         </f:facet>
                     </p:panelGrid>
                 </p:outputPanel>

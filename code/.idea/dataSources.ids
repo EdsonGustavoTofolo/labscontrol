@@ -8,6 +8,7 @@
     <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
     <schema name="" catalog="information_schema"/>
     <schema name="" catalog="labscontrol"/>
+    <schema name="" catalog="lojaweb"/>
     <schema name="" catalog="mysql"/>
     <schema name="" catalog="performance_schema"/>
     <schema name="" catalog="sakila"/>
@@ -742,6 +743,7 @@
       <column name="observacao" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <column name="fornecedorId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="tipoDeContatoId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="tipoDeContato" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
       <foreign-key name="FK_30777akcy1imbtjysqbg8xpd0" columns="tipoDeContatoId" ref-table="tipos_de_contatos" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_8ydcy7nrcwms9fpsnfkmi1pts" columns="fornecedorId" ref-table="fornecedores" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
@@ -759,8 +761,8 @@
       <column name="materialId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="toUsuarioId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_b0v9ia9ndyhgrl5lgkyry9tdy" columns="toUsuarioId" ref-table="usuarios" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_1vtngms7ghiwqhyb6q44pdnvv" columns="fromUsuarioId" ref-table="usuarios" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_b0v9ia9ndyhgrl5lgkyry9tdy" columns="toUsuarioId" ref-table="usuarios" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_i1ewcx05snnen8nmbo5vyyqk1" columns="ambienteId" ref-table="ambientes" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_t7a76b41vuxrn1eo02pyp90gm" columns="materialId" ref-table="materiais" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="FK_1vtngms7ghiwqhyb6q44pdnvv" unique="false" columns="fromUsuarioId"/>
@@ -828,11 +830,11 @@
       <column name="materialDeConsumoId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <column name="modeloId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="FK_s1hqkay1t8b5bjols57f1tadd" columns="modeloId" ref-table="modelos" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_6ruf9mteckocu51mwwy74i1ip" columns="equipamentoId" ref-table="equipamentos" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_ct9vltnvtfsadutvamh107fbl" columns="marcaId" ref-table="marcas" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_i98gt3onc04epu0jwtepxoxi6" columns="fornecedorId" ref-table="fornecedores" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_kfaf6es96c1arhtgul9o8v41f" columns="materialDeConsumoId" ref-table="materiais_de_consumo" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="FK_s1hqkay1t8b5bjols57f1tadd" columns="modeloId" ref-table="modelos" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <foreign-key name="FK_td1rx30axsbqstm1p0dwaynqa" columns="categoriaId" ref-table="categorias" ref-schema="" ref-catalog="labscontrol" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <exported-key name="FK_t7a76b41vuxrn1eo02pyp90gm" table="emprestimos" schema="" catalog="labscontrol" columns="materialId"/>
       <index name="FK_6ruf9mteckocu51mwwy74i1ip" unique="false" columns="equipamentoId"/>
@@ -873,8 +875,95 @@
       <column name="nome" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
       <column name="senha" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="FK_b0v9ia9ndyhgrl5lgkyry9tdy" table="emprestimos" schema="" catalog="labscontrol" columns="toUsuarioId"/>
       <exported-key name="FK_1vtngms7ghiwqhyb6q44pdnvv" table="emprestimos" schema="" catalog="labscontrol" columns="fromUsuarioId"/>
+      <exported-key name="FK_b0v9ia9ndyhgrl5lgkyry9tdy" table="emprestimos" schema="" catalog="labscontrol" columns="toUsuarioId"/>
+    </table>
+    <table name="categoria" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idcategoria" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="descricao" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idcategoria"/>
+      <exported-key name="fk_produto_categoria" table="produto" schema="" catalog="lojaweb" columns="idcategoria"/>
+    </table>
+    <table name="cliente" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idcliente" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cpf" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12"/>
+      <column name="telefone" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idcliente"/>
+      <exported-key name="fk_venda_cliente" table="venda" schema="" catalog="lojaweb" columns="idvenda"/>
+    </table>
+    <table name="compra" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idcompra" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="numerodocumento" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="datacompra" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="idfornecedor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="idcompra"/>
+      <foreign-key name="fk_compra_fornecedor" columns="idfornecedor" ref-table="fornecedor" ref-schema="" ref-catalog="lojaweb" ref-columns="idfornecedor" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_compraproduto_compra" table="compraproduto" schema="" catalog="lojaweb" columns="idcompra"/>
+      <index name="fk_compra_fornecedor" unique="false" columns="idfornecedor"/>
+    </table>
+    <table name="compraproduto" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idcompraproduto" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idcompra" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="idproduto" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="quantidade" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="valor" sqlType="DOUBLE" precision="10" scale="2" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="idcompraproduto"/>
+      <foreign-key name="fk_compraproduto_produto" columns="idproduto" ref-table="produto" ref-schema="" ref-catalog="lojaweb" ref-columns="idproduto" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_compraproduto_compra" columns="idcompra" ref-table="compra" ref-schema="" ref-catalog="lojaweb" ref-columns="idcompra" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_compraproduto_compra" unique="false" columns="idcompra"/>
+      <index name="fk_compraproduto_produto" unique="false" columns="idproduto"/>
+    </table>
+    <table name="fornecedor" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idfornecedor" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cnpj" sqlType="VARCHAR" precision="14" scale="0" nullable="true" jdbcType="12"/>
+      <column name="telefone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="idfornecedor"/>
+      <exported-key name="fk_compra_fornecedor" table="compra" schema="" catalog="lojaweb" columns="idfornecedor"/>
+    </table>
+    <table name="produto" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idproduto" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descricao" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="valor" sqlType="DOUBLE" precision="10" scale="2" nullable="false" jdbcType="8"/>
+      <column name="idcategoria" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="idproduto"/>
+      <foreign-key name="fk_produto_categoria" columns="idcategoria" ref-table="categoria" ref-schema="" ref-catalog="lojaweb" ref-columns="idcategoria" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_compraproduto_produto" table="compraproduto" schema="" catalog="lojaweb" columns="idproduto"/>
+      <exported-key name="fk_vendaproduto_produto" table="vendaproduto" schema="" catalog="lojaweb" columns="idproduto"/>
+      <index name="fk_produto_categoria" unique="false" columns="idcategoria"/>
+    </table>
+    <table name="usuario" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idusuario" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="nome" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="senha" sqlType="VARCHAR" precision="512" scale="0" nullable="false" jdbcType="12"/>
+      <column name="admin" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="idusuario"/>
+    </table>
+    <table name="venda" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idvenda" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="numerodocumento" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="datavenda" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="idcliente" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="idvenda"/>
+      <foreign-key name="fk_venda_cliente" columns="idvenda" ref-table="cliente" ref-schema="" ref-catalog="lojaweb" ref-columns="idcliente" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="fk_vendaproduto_venda" table="vendaproduto" schema="" catalog="lojaweb" columns="idvenda"/>
+    </table>
+    <table name="vendaproduto" schema="" catalog="lojaweb" type="TABLE">
+      <column name="idvendaproduto" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="idvenda" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="idproduto" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="quantidade" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="valor" sqlType="DECIMAL" precision="10" scale="2" nullable="false" jdbcType="3"/>
+      <primary-key name="PRIMARY" columns="idvendaproduto"/>
+      <foreign-key name="fk_vendaproduto_produto" columns="idproduto" ref-table="produto" ref-schema="" ref-catalog="lojaweb" ref-columns="idproduto" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_vendaproduto_venda" columns="idvenda" ref-table="venda" ref-schema="" ref-catalog="lojaweb" ref-columns="idvenda" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="fk_vendaproduto_produto" unique="false" columns="idproduto"/>
+      <index name="fk_vendaproduto_venda" unique="false" columns="idvenda"/>
     </table>
     <table name="columns_priv" schema="" catalog="mysql" type="SYSTEM TABLE">
       <column name="Host" sqlType="CHAR" precision="60" scale="0" nullable="false" jdbcType="1" def="Jyc="/>

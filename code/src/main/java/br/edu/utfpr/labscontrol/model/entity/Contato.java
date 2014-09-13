@@ -1,5 +1,6 @@
 package br.edu.utfpr.labscontrol.model.entity;
 
+import br.edu.utfpr.labscontrol.model.enumeration.TiposDeContatoEnum;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -17,10 +18,9 @@ public class Contato implements Serializable {
     @Column(name = "id")
     private Integer id;
     private String conteudo;
-    @NotNull(message = "Campo Tipo de Contato: Preenchimento Obrigatório!")
-    @ManyToOne
-    @JoinColumn(name = "tipoDeContatoId", referencedColumnName = "id", nullable = false)
-    private TipoDeContato tipoDeContato;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "tipoDeContato", nullable = false)
+    private TiposDeContatoEnum tipoDeContato;
     @NotNull(message = "Campo Fornecedor: Preenchimento Obrigatório!")
     @ManyToOne
     @JoinColumn(name = "fornecedorId", referencedColumnName = "id", nullable = false)
@@ -33,7 +33,7 @@ public class Contato implements Serializable {
 
     }
 
-    public Contato(String conteudo, TipoDeContato tipoDeContato, Fornecedor fornecedor, String observacao) {
+    public Contato(String conteudo, TiposDeContatoEnum tipoDeContato, Fornecedor fornecedor, String observacao) {
         this.conteudo = conteudo;
         this.tipoDeContato = tipoDeContato;
         this.fornecedor = fornecedor;
@@ -56,11 +56,11 @@ public class Contato implements Serializable {
         this.conteudo = conteudo;
     }
 
-    public TipoDeContato getTipoDeContato() {
+    public TiposDeContatoEnum getTipoDeContato() {
         return tipoDeContato;
     }
 
-    public void setTipoDeContato(TipoDeContato tipoDeContato) {
+    public void setTipoDeContato(TiposDeContatoEnum tipoDeContato) {
         this.tipoDeContato = tipoDeContato;
     }
 

@@ -3,7 +3,7 @@ package br.edu.utfpr.labscontrol.model.service.impl;
 import br.edu.utfpr.labscontrol.model.data.ContatoData;
 import br.edu.utfpr.labscontrol.model.entity.Contato;
 import br.edu.utfpr.labscontrol.model.entity.Fornecedor;
-import br.edu.utfpr.labscontrol.model.entity.TipoDeContato;
+import br.edu.utfpr.labscontrol.model.enumeration.TiposDeContatoEnum;
 import br.edu.utfpr.labscontrol.model.framework.CrudService;
 import br.edu.utfpr.labscontrol.model.service.ContatoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class ContatoServiceImpl extends CrudService<Contato, Integer> implements
 
     @Override
     @Transactional(readOnly = true)
-    public List<Contato> findByFornecedorAndTipoDeContato(Fornecedor fornecedor, TipoDeContato tipoDeContato) {
+    public List<Contato> findByFornecedorAndTipoDeContato(Fornecedor fornecedor, TiposDeContatoEnum tipoDeContato) {
         return this.contatoData.findByFornecedorAndTipoDeContato(fornecedor, tipoDeContato);
     }
 }
