@@ -92,35 +92,43 @@
         <h:form id="formEmbedded">
             <p:dialog header="#{form.historicoDeManutencao}" id="dialog" widgetVar="viewForm" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetailForm">
-                    <p:panelGrid columns="2" columnClasses="columnBold">
-                        <h:outputLabel value="#{form.id}"/>
-                        <p:inputText value="#{equipamentoController.entityEmbedded.id}" readonly="true" size="5"/>
-
+                    <p:panelGrid columns="3" columnClasses="columnBold" id="grid">
                         <h:outputLabel value="#{form.dataDoDefeito}"/>
                         <p:calendar value="#{equipamentoController.entityEmbedded.dataDoDefeito}" pattern="dd/MM/yyyy" mask="true"
-                                    locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
+                                    locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button" required="true" requiredMessage="#{msg.campoObrigatorio}"
+                                    id="dataDoDefeito"/>
+                        <p:message for="dataDoDefeito"/>
 
                         <h:outputLabel value="#{form.motivoDoDefeito}"/>
-                        <p:inputText value="#{equipamentoController.entityEmbedded.motivoDoDefeito}" size="100" maxlength="100"/>
+                        <p:inputText value="#{equipamentoController.entityEmbedded.motivoDoDefeito}" size="100" maxlength="100" required="true"
+                                     requiredMessage="#{msg.campoObrigatorio}"
+                                     id="motivo"/>
+                        <p:message for="motivo"/>
 
                         <h:outputLabel value="#{form.dataDeEnvio}"/>
                         <p:calendar value="#{equipamentoController.entityEmbedded.dataDeEnvio}" pattern="dd/MM/yyyy" mask="true"
                                     locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
+                        <h:outputText value=""/>
 
                         <h:outputLabel value="#{form.dataDeRetorno}"/>
                         <p:calendar value="#{equipamentoController.entityEmbedded.dataDeRetorno}" pattern="dd/MM/yyyy" mask="true"
                                     locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button"/>
+                        <h:outputText value=""/>
 
                         <h:outputLabel value="#{form.manutencaoRealizada}"/>
                         <p:inputText value="#{equipamentoController.entityEmbedded.manutencaoRealizada}" size="100" maxlength="255"/>
+                        <h:outputText value=""/>
 
                         <h:outputLabel value="#{form.valorDaManutencao}"/>
                         <p:inputText value="#{equipamentoController.entityEmbedded.valorDaManutencao}">
                             <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                         </p:inputText>
+                        <h:outputText value=""/>
+
                         <f:facet name="footer">
                             <p:commandButton value="#{form.salvar}" action="#{equipamentoController.saveHistoricoAndUpdateList}"
-                                             immediate="false" update=":form" process="@form" oncomplete="PF('viewForm').hide()" />
+                                             ajax="true" validateClient="true" update="grid, :form" process="@form"
+                                             oncomplete="complete(xhr, status, args, PF('viewForm'), 'dialog')" />
                         </f:facet>
                     </p:panelGrid>
                 </p:outputPanel>

@@ -81,7 +81,7 @@
     <ui:define name="foraDoForm">
         <labs:confirmExclusaoSimples update=":formEmbedded" action="#{fornecedorController.deleteContato}"/>
         <h:form id="formEmbedded">
-            <p:dialog header="#{form.contatos}" name="meuForm" id="formDialog" widgetVar="viewForm" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+            <p:dialog header="#{form.contatos}" name="meuForm" id="dialog" widgetVar="viewForm" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetailForm">
                     <p:panelGrid columns="3" columnClasses="columnBold" id="grid">
                         <h:outputLabel value="#{form.tipoDeContato}"/>
@@ -105,7 +105,7 @@
                         <f:facet name="footer">
                             <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
                                              ajax="true" validateClient="true" update="grid, :form" process="@form"
-                                             oncomplete="complete(xhr, status, args, PF('viewForm'), 'formDialog')"/>
+                                             oncomplete="complete(xhr, status, args, PF('viewForm'), 'dialog')"/>
                         </f:facet>
                     </p:panelGrid>
                 </p:outputPanel>
@@ -121,14 +121,4 @@
         </h:form>
     </ui:define>
 </ui:decorate>
-<h:outputScript library="js">
-    function complete(xhr, status, args, dialogWidget, dialogId) {
-        if (args.validationFailed || args.KEEP_DIALOG_OPENED) {
-            jQuery('#'+dialogId).effect("bounce", {times : 4, distance : 20}, 100);
-        }
-        else {
-            dialogWidget.hide();
-        }
-    }
-</h:outputScript>
 </html>

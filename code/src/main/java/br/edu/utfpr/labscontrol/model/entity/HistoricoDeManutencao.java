@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * Created by edson on 10/08/2014.
+ * Created by EdsonGustavo on 10/08/2014.
  */
 @Entity
 @Table(name = "historicos_de_manutencoes")
@@ -34,9 +34,8 @@ public class HistoricoDeManutencao implements Serializable {
     @Length(max = 255, message = "Campo Manutenção realizada: Não pode ultrapassar {max} caracteres!")
     @Column(name = "manutencaoRealizada", length = 255)
     private String manutencaoRealizada;
-    @Column(name = "valorDaManutencao", length = 12, precision = 2)
+    @Column(name = "valorDaManutencao", precision = 12, scale = 2)
     private BigDecimal valorDaManutencao;
-    @NotNull(message = "Campo Equipamento: Preenchimento Obrigatório!")
     @ManyToOne
     @JoinColumn(name = "equipamentoId", referencedColumnName = "id", nullable = false)
     private Equipamento equipamento;

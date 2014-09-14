@@ -60,11 +60,6 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
             this.contatoService.save(this.contato);
             this.entity.setContatos(this.contatoService.findByFornecedor(this.entity));
             addMessage("Contato salvo com sucesso!", FacesMessage.SEVERITY_INFO);
-            /**
-             * Para que eu possa fechar a dialog via js após o Contato ser salvo com sucesso
-
-            RequestContext context = RequestContext.getCurrentInstance();
-            context.addCallbackParam("sucesso", true);*/
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
         }
