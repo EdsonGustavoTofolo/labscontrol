@@ -8,6 +8,7 @@ import br.edu.utfpr.labscontrol.model.service.ContatoService;
 import br.edu.utfpr.labscontrol.model.service.FornecedorService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.EnumUtil;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -59,6 +60,11 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
             this.contatoService.save(this.contato);
             this.entity.setContatos(this.contatoService.findByFornecedor(this.entity));
             addMessage("Contato salvo com sucesso!", FacesMessage.SEVERITY_INFO);
+            /**
+             * Para que eu possa fechar a dialog via js após o Contato ser salvo com sucesso
+
+            RequestContext context = RequestContext.getCurrentInstance();
+            context.addCallbackParam("sucesso", true);*/
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
         }
@@ -66,9 +72,9 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
 
     public void deleteContato() {
         try {
-            this.entity.getContatos().remove(this.contato);
+            entity.getContatos().remove(this.contato);
             save();
-            this.entity.getContatos();
+            entity.setContatos(contatoService.findByFornecedor(this.entity));
             addMessage("Contato removido com sucesso!", FacesMessage.SEVERITY_INFO);
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
