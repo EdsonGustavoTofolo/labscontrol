@@ -4,8 +4,92 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+<ui:decorate template="../../template/padrao.xhtml">
+    <ui:define name="titulo">
+        <h:outputText value="#{form.pesquisaMaterial}"/>
+    </ui:define>
+
+    <ui:define name="metadata">
+        <f:event type="preRenderView" listener="#{materialController.find}"/>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <p><p:commandButton value="#{form.novo}" action="/pages/cadastros/material/materialForm.xhtml?faces-redirect=true"
+                            immediate="true" ajax="false" style="float: right"
+                            icon="ui-icon-plus"/></p>
+
+        <p:dataTable value="#{materialController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
+                     paginator="true" rows="10" paginatorPosition="bottom">
+            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
+                <h:outputText value="#{objeto.id}"/>
+            </p:column>
+            <p:column headerText="#{form.nome}" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.nome}"/>
+            </p:column>
+            <p:column headerText="#{form.categoria}" sortBy="#{objeto.categoria}" filterBy="#{objeto.categoria}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.categoria}"/>
+            </p:column>
+            <p:column headerText="#{form.marca}" sortBy="#{objeto.marca}" filterBy="#{objeto.marca}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.marca}"/>
+            </p:column>
+            <p:column headerText="#{form.modelo}" sortBy="#{objeto.modelo}" filterBy="#{objeto.modelo}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.modelo}"/>
+            </p:column>
+            <p:column headerText="#{form.fornecedor}" sortBy="#{objeto.fornecedor}" filterBy="#{objeto.fornecedor}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.fornecedor}"/>
+            </p:column>
+            <p:column headerText="#{form.materialDeConsumo}" sortBy="#{objeto.materialDeConsumo}" filterBy="#{objeto.materialDeConsumo}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.materialDeConsumo}"/>
+            </p:column>
+            <p:column headerText="#{form.equipamento}" sortBy="#{objeto.equipamento}" filterBy="#{objeto.equipamento}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.equipamento}"/>
+            </p:column>
+            <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
+                <labs:commandButtonSearch controller="#{materialController}"/>
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+
+    <ui:define name="rodape">
+        <div style="clear: both"></div>
+    </ui:define>
+
+    <ui:define name="foraDoForm">
+        <labs:confirmExclusaoSimples update=":form" action="#{materialController.delete}"/>
+        <h:form id="formDlg">
+            <p:dialog header="#{form.equipamento}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+                <p:outputPanel id="viewDetail">
+                    <p:panelGrid columns="2" columnClasses="columnBold">
+                        <h:outputText value="#{form.id}"/>
+                        <h:outputText value="#{materialController.entityView.id}"/>
+
+                        <h:outputText value="#{form.nome}"/>
+                        <h:outputText value="#{materialController.entityView.nome}"/>
+
+                        <h:outputText value="#{form.descricao}"/>
+                        <h:outputText value="#{materialController.entityView.descricao}"/>
+
+                        <h:outputText value="#{form.categoria}"/>
+                        <h:outputText value="#{materialController.entityView.categoria}"/>
+
+                        <h:outputText value="#{form.marca}"/>
+                        <h:outputText value="#{materialController.entityView.marca}"/>
+
+                        <h:outputText value="#{form.modelo}"/>
+                        <h:outputText value="#{materialController.entityView.modelo}"/>
+
+                        <h:outputText value="#{form.fornecedor}"/>
+                        <h:outputText value="#{materialController.entityView.fornecedor}"/>
+
+
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+    </ui:define>
+
+</ui:decorate>
 </html>

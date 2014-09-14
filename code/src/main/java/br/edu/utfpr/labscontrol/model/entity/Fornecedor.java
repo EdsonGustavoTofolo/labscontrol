@@ -180,8 +180,6 @@ public class Fornecedor implements Serializable {
 
     @Override
     public String toString() {
-        return "Fornecedor{" +
-                "razaoSocial='" + razaoSocial + '\'' +
-                '}';
+        return razaoSocial;
     }
 }

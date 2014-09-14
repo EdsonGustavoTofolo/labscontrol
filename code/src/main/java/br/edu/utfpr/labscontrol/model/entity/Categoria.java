@@ -78,8 +78,6 @@ public class Categoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Categoria{" +
-                "nome='" + nome + '\'' +
-                '}';
+        return nome;
     }
 }

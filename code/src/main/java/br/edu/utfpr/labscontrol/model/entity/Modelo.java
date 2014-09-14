@@ -78,8 +78,6 @@ public class Modelo implements Serializable {
 
     @Override
     public String toString() {
-        return "Modelo{" +
-                "nome='" + nome + '\'' +
-                '}';
+        return nome;
     }
 }

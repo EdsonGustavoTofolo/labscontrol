@@ -141,8 +141,6 @@ public class Equipamento implements Serializable {
 
     @Override
     public String toString() {
-        return "Equipamento{" +
-                "nome='" + nome + '\'' +
-                '}';
+        return nome;
     }
 }
