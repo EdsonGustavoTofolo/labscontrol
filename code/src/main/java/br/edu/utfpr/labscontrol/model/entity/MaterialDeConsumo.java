@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
- * Created by edson on 10/08/2014.
+ * Created by EdsonGustavo on 10/08/2014.
  */
 @Entity
 @Table(name = "materiais_de_consumo")

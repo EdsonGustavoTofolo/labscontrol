@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
- * Created by edson on 10/08/2014.
+ * Created by EdsonGustavo on 10/08/2014.
  */
 @Entity
 @Table(name = "materiais")
@@ -24,8 +24,7 @@ public class Material implements Serializable {
     @Length(max = 60, message = "Campo Descrição: Não pode ultrapassar {max} caracteres!")
     @Column(name = "descricao", length = 60)
     private String descricao;
-    @Length(max = 255, message = "Campo Foto: Não pode ultrapassar {max} caracteres!")
-    @Column(name = "foto", length = 255)
+    @Column(name = "foto", length = 512)
     private String foto;
     @ManyToOne
     @JoinColumn(name = "materialDeConsumoId", referencedColumnName = "id")
@@ -169,8 +168,6 @@ public class Material implements Serializable {
 
     @Override
     public String toString() {
-        return "Material{" +
-                "nome='" + nome + '\'' +
-                '}';
+        return nome;
     }
 }
