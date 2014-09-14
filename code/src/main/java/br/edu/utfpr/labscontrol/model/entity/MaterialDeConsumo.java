@@ -23,9 +23,9 @@ public class MaterialDeConsumo implements Serializable {
     @Length(max = 60, message = "Campo Descrição: Não pode ultrapassar {max} caracteres!")
     @Column(name = "descricao", length = 60)
     private String descricao;
-    @Column(name = "qtdAtual", length = 12, precision = 2)
+    @Column(name = "qtdAtual", precision = 12, scale = 2)
     private BigDecimal qtdAtual;
-    @Column(name = "qtdMin", length = 12, precision = 2)
+    @Column(name = "qtdMin", precision = 12, scale = 2)
     private BigDecimal qtdMin;
 
     public MaterialDeConsumo() {
