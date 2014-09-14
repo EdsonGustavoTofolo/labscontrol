@@ -23,6 +23,9 @@
 
         <p:dataTable value="#{fornecedorController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
                      paginator="true" rows="10" paginatorPosition="bottom">
+            <p:column style="width:2%">
+                <p:rowToggler />
+            </p:column>
             <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
                 <h:outputText value="#{objeto.id}"/>
             </p:column>
@@ -38,6 +41,23 @@
             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
                 <labs:commandButtonSearch controller="#{fornecedorController}"/>
             </p:column>
+            <p:rowExpansion>
+                <p:dataTable value="#{objeto.contatos}" var="contato" emptyMessage="#{form.nenhumRegistroEncontrado}"
+                             paginator="true" rows="10" paginatorPosition="bottom">
+                    <f:facet name="header">
+                        <h:outputLabel value="#{form.contatos}"/>
+                    </f:facet>
+                    <p:column headerText="#{form.tipoDeContato}" sortBy="#{contato.tipoDeContato}">
+                        <h:outputText value="#{contato.tipoDeContato}"/>
+                    </p:column>
+                    <p:column headerText="#{fom.conteudo}" sortBy="#{contato.conteudo}" filterBy="#{contato.conteudo}" filterMatchMode="contains">
+                        <h:outputText value="#{contato.conteudo}"/>
+                    </p:column>
+                    <p:column headerText="#{form.obs}" filterBy="#{contato.observacao}" filterMatchMode="contains">
+                        <h:outputText value="#{contato.observacao}"/>
+                    </p:column>
+                </p:dataTable>
+            </p:rowExpansion>
         </p:dataTable>
     </ui:define>
 

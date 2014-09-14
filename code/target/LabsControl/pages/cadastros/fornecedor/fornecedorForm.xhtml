@@ -114,7 +114,17 @@
             <p:dialog header="#{form.contatos}" id="dlgViewDetail" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetail">
                     <p:panelGrid columns="2" columnClasses="columnBold">
+                        <h:outputLabel value="#{form.id}"/>
+                        <h:outputText value="#{fornecedorController.entityEmbedded.id}"/>
 
+                        <h:outputLabel value="#{form.tipoDeContato}"/>
+                        <h:outputText value="#{fornecedorController.entityEmbedded.tipoDeContato}"/>
+
+                        <h:outputLabel value="#{form.conteudo}"/>
+                        <h:outputText value="#{fornecedorController.entityEmbedded.conteudo}"/>
+
+                        <h:outputLabel value="#{form.obs}"/>
+                        <h:outputText value="#{fornecedorController.entityEmbedded.observacao}"/>
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>

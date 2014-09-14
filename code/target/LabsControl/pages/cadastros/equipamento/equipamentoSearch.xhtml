@@ -53,7 +53,8 @@
                 <labs:commandButtonSearch controller="#{equipamentoController}"/>
             </p:column>
             <p:rowExpansion>
-                <p:dataTable value="#{objeto.historicoDeManutencoes}" var="historico" emptyMessage="#{form.nenhumHistorico}" editable="true">
+                <p:dataTable value="#{objeto.historicoDeManutencoes}" var="historico" emptyMessage="#{form.nenhumHistorico}" editable="true"
+                             paginator="true" rows="10" paginatorPosition="bottom">
                     <p:ajax event="rowEdit" update="@form" listener="#{equipamentoController.onEdit}"/>
                     <f:facet name="header">
                         <h:outputLabel value="#{form.historicosDasManutencoes}"/>
