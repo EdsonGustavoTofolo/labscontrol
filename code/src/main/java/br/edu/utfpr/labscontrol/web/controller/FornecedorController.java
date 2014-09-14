@@ -78,7 +78,9 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
 
     public void onChangeTipoDeContato(ValueChangeEvent e) {
         Enum obj = (Enum) e.getNewValue();
-        if (obj.ordinal() == 1 || obj.ordinal() == 3) {
+
+        if (obj.ordinal() == TiposDeContatoEnum.Celular.ordinal() ||
+            obj.ordinal() == TiposDeContatoEnum.Telefone.ordinal()) {
             this.mascara = "(99) 9999-9999?9";
         } else {
             this.mascara = "";

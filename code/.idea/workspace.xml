@@ -29,8 +29,18 @@
       <file leaf-file-name="fornecedorForm.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/fornecedor/fornecedorForm.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8280061" vertical-offset="1275" max-vertical-offset="2210">
-              <caret line="107" column="103" selection-start-line="107" selection-start-column="103" selection-end-line="107" selection-end-column="103" />
+            <state vertical-scroll-proportion="0.46575344" vertical-offset="1377" max-vertical-offset="2210">
+              <caret line="99" column="103" selection-start-line="99" selection-start-column="103" selection-end-line="99" selection-end-column="103" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FornecedorController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/FornecedorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1428">
+              <caret line="82" column="56" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -91,12 +101,12 @@
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Contato.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/template/padrao.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/js/application.js" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/FornecedorController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/labscontrol/commandButtonSearchEmbedded.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/equipamento/equipamentoForm.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/fornecedor/fornecedorForm.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/HistoricoDeManutencao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/FornecedorController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/fornecedor/fornecedorForm.xhtml" />
       </list>
     </option>
   </component>
@@ -888,15 +898,15 @@
       <workItem from="1410097704140" duration="1710000" />
       <workItem from="1410099418844" duration="18735000" />
       <workItem from="1410563109781" duration="15983000" />
-      <workItem from="1410669042585" duration="6215000" />
+      <workItem from="1410669042585" duration="6730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123349000" />
+    <option name="totallyTimeSpent" value="123864000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1322,25 +1332,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/FornecedorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04831625" vertical-offset="664" max-vertical-offset="1564">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <element signature="e#2947#2948#0" expanded="true" />
-            <element signature="e#2977#2978#0" expanded="true" />
-            <element signature="e#3031#3032#0" expanded="true" />
-            <element signature="e#3069#3070#0" expanded="true" />
-            <element signature="e#3117#3118#0" expanded="true" />
-            <element signature="e#3155#3156#0" expanded="true" />
-            <element signature="e#3189#3190#0" expanded="true" />
-            <element signature="e#3219#3220#0" expanded="true" />
-            <element signature="e#3265#3266#0" expanded="true" />
-            <element signature="e#3303#3304#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.40409955" vertical-offset="285" max-vertical-offset="1241">
@@ -1357,10 +1348,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/FornecedorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1428">
+          <caret line="82" column="56" selection-start-line="82" selection-start-column="56" selection-end-line="82" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/fornecedor/fornecedorForm.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8280061" vertical-offset="1275" max-vertical-offset="2210">
-          <caret line="107" column="103" selection-start-line="107" selection-start-column="103" selection-end-line="107" selection-end-column="103" />
+        <state vertical-scroll-proportion="0.46575344" vertical-offset="1377" max-vertical-offset="2210">
+          <caret line="99" column="103" selection-start-line="99" selection-start-column="103" selection-end-line="99" selection-end-column="103" />
           <folding />
         </state>
       </provider>

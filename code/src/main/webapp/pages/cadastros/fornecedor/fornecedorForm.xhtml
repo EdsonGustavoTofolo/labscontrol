@@ -96,11 +96,11 @@
                         </p:selectOneMenu>
                         <p:message for="tipoDeContato"/>
                         <h:outputLabel value="#{form.conteudo}"/>
-                        <p:inputMask id="maskConteudo" value="#{fornecedorController.entityEmbedded.conteudo}" mask="#{fornecedorController.mascara}" required="true"
-                                     requiredMessage="#{msg.campoObrigatorio}"/>
+                        <p:inputMask id="maskConteudo" value="#{fornecedorController.entityEmbedded.conteudo}" mask="#{fornecedorController.mascara}"
+                                     required="true" requiredMessage="#{msg.campoObrigatorio}" size="60"/>
                         <p:message for="maskConteudo"/>
                         <h:outputLabel value="#{form.obs}"/>
-                        <p:inputText value="#{fornecedorController.entityEmbedded.observacao}"/>
+                        <p:inputText value="#{fornecedorController.entityEmbedded.observacao}" size="60"/>
                         <h:outputText value=""/>
                         <f:facet name="footer">
                             <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
