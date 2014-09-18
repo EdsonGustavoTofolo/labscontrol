@@ -31,6 +31,8 @@ public class MaterialController extends CrudController<Material, Integer> {
     @Autowired
     private MaterialDeConsumoService materialDeConsumoService;
 
+    private String tipo;
+
     private boolean isEquipamento;
     private Equipamento equipamento;
     private MaterialDeConsumo materialDeConsumo;
@@ -75,5 +77,13 @@ public class MaterialController extends CrudController<Material, Integer> {
 
     public void setIsEquipamento(boolean isEquipamento) {
         this.isEquipamento = isEquipamento;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 }

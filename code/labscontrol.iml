@@ -11,24 +11,14 @@
         </webroots>
       </configuration>
     </facet>
-    <facet type="jpa" name="JPA">
-      <configuration>
-        <setting name="validation-enabled" value="true" />
-        <setting name="provider-name" value="" />
-        <datasource-mapping>
-          <factory-entry name="persistenceLabsControl" value="400518e4-6255-48fb-8ccd-6f7696dc0224" />
-        </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
-      </configuration>
-    </facet>
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/applicationContext-jpa.xml</file>
-          <file>file://$MODULE_DIR$/src/main/java/spring-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/applicationContext-mail.xml</file>
           <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/applicationContext-job.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/applicationContext-jpa.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/applicationContext-mail.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/spring-config.xml</file>
         </fileset>
       </configuration>
     </facet>

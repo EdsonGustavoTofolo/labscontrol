@@ -84,7 +84,8 @@
                         <h:outputText value="#{form.fornecedor}"/>
                         <h:outputText value="#{materialController.entityView.fornecedor}"/>
 
-
+                        <h:outputText value="#{materialController.entityView.equipamento != null ? form.equipamento : form.materialDeConsumo}"/>
+                        <h:outputText value="#{materialController.entityView.equipamento != null ? materialController.entityView.equipamento : materialController.entityView.materialDeConsumo}"/>
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>
