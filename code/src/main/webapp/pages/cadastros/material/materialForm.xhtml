@@ -14,22 +14,79 @@
 
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
+            <h:outputLabel value="#{form.tipo}"/>
+            <p:selectOneRadio id="tipo" value="#{materialController.tipo}" required="true" requiredMessage="#{msg.tipoMaterialRequired}">
+                <f:selectItem itemLabel="#{form.materialDeConsumo}" itemValue="M" />
+                <f:selectItem itemLabel="#{form.equipamento}" itemValue="E" />
+                <p:ajax event="change" update="@form"/>
+            </p:selectOneRadio>
+        </p:panelGrid>
+        <p:panelGrid columns="2" id="mainGrid" rendered="#{!materialController.tipo.equals('N')}">
             <h:outputLabel value="#{form.id}"/>
             <p:inputText value="#{materialController.entity.id}" readonly="true" size="5"/>
             <h:outputLabel value="#{form.foto}"/>
-            <p:fileUpload value="#{materialController.entity.foto}" mode="simple"/>
+            <p:fileUpload value="#{materialController.entity.foto}" mode="advanced" dragDropSupport="true" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" fileLimit="1"
+                          fileUploadListener="#{materialController.fileUploadListener}"  />
+            <p:commandButton id="btnSubmit" actionListener="#{materialController.insert}" ajax="true" icon="ui-icon-check" value="Save"/>
             <h:outputLabel value="#{form.nome}"/>
             <p:inputText value="#{materialController.entity.nome}" size="60" maxlength="45" required="true" requiredMessage="#{msg.nomeRequired}"/>
-            <h:outputLabel value="#{form.tipo}"/>
-            <p:selectOneRadio id="tipo" value="#{materialController.tipo}">
-                <f:selectItem itemLabel="#{form.materialDeConsumo}" itemValue="M" />
-                <f:selectItem itemLabel="#{form.equipamento}" itemValue="E" />
-            </p:selectOneRadio>
-            <h:outputLabel value="#{materialController.tipo.equals('M') ? form.materialDeConsumo : form.equipamento}"/>
-
-
-
         </p:panelGrid>
+        <p:panelGrid columns="2" rendered="#{materialController.tipo.equals('M')}">
+            <h:outputLabel value="#{form.materialDeConsumo}" for="materialDeConsumo"/>
+            <p:autoComplete value="#{materialController.entity.materialDeConsumo}"
+                            completeMethod="#{materialController.completeMaterialDeConsumo}"
+                            converter="#{materialDeConsumoConverter}"
+                            label="#{form.materialDeConsumo}" id="materialDeConsumo" var="materialDeConsumo"
+                            itemLabel="#{materialDeConsumo.nome}" itemValue="#{materialDeConsumo}"
+                            dropdown="true" forceSelection="true" size="60"/>
+        </p:panelGrid>
+        <p:panelGrid columns="2" rendered="#{materialController.tipo.equals('E')}">
+            <h:outputLabel value="#{form.equipamento}" for="equipamento"/>
+            <p:autoComplete value="#{materialController.entity.equipamento}"
+                            completeMethod="#{materialController.completeEquipamento}"
+                            converter="#{equipamentoConverter}"
+                            label="#{form.equipamento}" id="equipamento" var="equipamento"
+                            itemLabel="#{equipamento.nome}" itemValue="#{equipamento}"
+                            dropdown="true" forceSelection="true" size="60"/>
+        </p:panelGrid>
+        <p:panelGrid columns="2" rendered="#{!materialController.tipo.equals('N')}">
+            <h:outputLabel value="#{form.categoria}" for="categoria"/>
+            <p:autoComplete value="#{materialController.entity.categoria}"
+                            completeMethod="#{materialController.completeCategoria}"
+                            converter="#{categoriaConverter}"
+                            label="#{form.equipamento}" id="categoria" var="categoria"
+                            itemLabel="#{categoria.nome}" itemValue="#{categoria}"
+                            dropdown="true" forceSelection="true" size="60"/>
+            <h:outputLabel value="#{form.marca}" for="marca"/>
+            <p:autoComplete value="#{materialController.entity.marca}"
+                            completeMethod="#{materialController.completeMarca}"
+                            converter="#{marcaConverter}"
+                            label="#{form.marca}" id="marca" var="marca"
+                            itemLabel="#{marca.nome}" itemValue="#{marca}"
+                            dropdown="true" forceSelection="true" size="60"/>
+            <h:outputLabel value="#{form.modelo}" for="modelo"/>
+            <p:autoComplete value="#{materialController.entity.modelo}"
+                            completeMethod="#{materialController.completeModelo}"
+                            converter="#{modeloConverter}"
+                            label="#{form.modelo}" id="modelo" var="modelo"
+                            itemLabel="#{modelo.nome}" itemValue="#{modelo}"
+                            dropdown="true" forceSelection="true" size="60"/>
+            <h:outputLabel value="#{form.fornecedor}" for="fornecedor"/>
+            <p:autoComplete value="#{materialController.entity.fornecedor}"
+                            completeMethod="#{materialController.completeFornecedor}"
+                            converter="#{fornecedorConverter}"
+                            label="#{form.fornecedor}" id="fornecedor" var="fornecedor"
+                            itemLabel="#{fornecedor.nomeFantasia}" itemValue="#{fornecedor}"
+                            dropdown="true" forceSelection="true" size="60"/>
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="rodape">
+        <labs:commandButtonForm update="@form" controller="#{materialController}"/>
+
+        <p:commandButton value="#{form.voltar}" action="/pages/cadastros/material/materialSearch.xhtml?faces-redirect=true" icon="ui-icon ui-icon-arrowthick-1-w"
+                         immediate="true" ajax="false" style="float: right"/>
+        <div style="clear: both"></div>
     </ui:define>
 </ui:decorate>
 </html>

@@ -4,6 +4,8 @@ import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -32,10 +34,19 @@ public class MaterialController extends CrudController<Material, Integer> {
     private MaterialDeConsumoService materialDeConsumoService;
 
     private String tipo;
-
-    private boolean isEquipamento;
+    private UploadedFile uploadedFile;
     private Equipamento equipamento;
     private MaterialDeConsumo materialDeConsumo;
+
+    @Override
+    public void init() {
+        super.init();
+        this.tipo = "N";
+    }
+
+    public void insert() {
+
+    }
 
     public List<Categoria> completeCategoria(String nome) {
         return categoriaService.findByNomeContaining(nome);
@@ -71,19 +82,23 @@ public class MaterialController extends CrudController<Material, Integer> {
         return "/pages/cadastros/material/materialForm.xhtml?faces-redirect=true";
     }
 
-    public boolean isEquipamento() {
-        return isEquipamento;
-    }
-
-    public void setIsEquipamento(boolean isEquipamento) {
-        this.isEquipamento = isEquipamento;
-    }
-
     public String getTipo() {
         return tipo;
     }
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public UploadedFile getUploadedFile() {
+        return uploadedFile;
+    }
+
+    public void setUploadedFile(UploadedFile uploadedFile) {
+        this.uploadedFile = uploadedFile;
+    }
+
+    public void fileUploadListener(FileUploadEvent event){
+        uploadedFile = event.getFile();
     }
 }

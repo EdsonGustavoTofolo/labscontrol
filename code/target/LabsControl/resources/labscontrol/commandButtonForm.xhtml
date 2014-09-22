@@ -25,15 +25,6 @@
 
     <p:commandButton process="@this" value="#{form.cancelar}" action="#{cc.attrs.controller.reset}" update="#{cc.attrs.update}" immediate="true" />
 
-    <p:contextMenu rendered="#{cc.attrs.renderedContextMenu}">
-        <p:menuitem disabled="#{cc.attrs.disabledSave}" value="#{form.salvar}" action="#{cc.attrs.controller.save}"
-                    immediate="false" update="#{cc.attrs.update}" oncomplete="#{cc.attrs.saveComplete}"
-                    process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}" icon="ui-icon-disk"/>
-
-        <p:menuitem process="@this" value="#{form.cancelar}" action="#{cc.attrs.controller.reset}"
-                    update="#{cc.attrs.update}" immediate="true" icon="ui-icon-document" />
-    </p:contextMenu>
-
 </composite:implementation>
 
 </html>
