@@ -29,6 +29,9 @@
             <h:outputLabel value="#{form.nome}"/>
             <p:inputText value="#{materialController.entity.nome}" size="60" maxlength="45" required="true" requiredMessage="#{msg.nomeRequired}"/>
 
+            <h:outputLabel value="#{form.descricao}"/>
+            <p:inputText value="#{materialController.entity.descricao}" size="60" maxlength="60"/>
+
             <h:outputLabel value="#{form.tipo}"/>
             <p:selectOneRadio id="tipo" value="#{materialController.tipo}" required="true" requiredMessage="#{msg.tipoMaterialRequired}">
                 <f:selectItem itemLabel="#{form.materialDeConsumo}" itemValue="M" />

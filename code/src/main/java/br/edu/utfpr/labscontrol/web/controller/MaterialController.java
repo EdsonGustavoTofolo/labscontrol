@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -49,10 +50,6 @@ public class MaterialController extends CrudController<Material, Integer> {
         this.tipo = "N";
     }
 
-    public void insert() {
-        addMessage("HAOHAOHAO", FacesMessage.SEVERITY_INFO);
-    }
-
     public List<Categoria> completeCategoria(String nome) {
         return categoriaService.findByNomeContaining(nome);
     }
@@ -75,6 +72,10 @@ public class MaterialController extends CrudController<Material, Integer> {
 
     public List<MaterialDeConsumo> completeMaterialDeConsumo(String nome) {
         return materialDeConsumoService.findByNomeContaining(nome);
+    }
+
+    public void insert() {
+
     }
 
     @Override
@@ -105,8 +106,9 @@ public class MaterialController extends CrudController<Material, Integer> {
 
     public void fileUploadListener(FileUploadEvent event){
         try {
-            File targetFolder = new File("C:\\teste");
             String fileName = event.getFile().getFileName();
+            String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos\\" + fileName);
+            File targetFolder = new File(path);
             if (!targetFolder.exists()) {
                 targetFolder.mkdir();
             }
@@ -120,7 +122,8 @@ public class MaterialController extends CrudController<Material, Integer> {
             inputStream.close();
             outputStream.flush();
             outputStream.close();
-            entity.setFoto(fileName);
+
+            this.entity.setFoto(fileName);
         } catch (Exception e) {
             addMessage("Erro ao fazer upload da imagem! " + e.getMessage(), FacesMessage.SEVERITY_INFO);
             e.printStackTrace();
