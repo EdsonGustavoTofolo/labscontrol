@@ -10,6 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.application.FacesMessage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 /**
@@ -45,7 +50,7 @@ public class MaterialController extends CrudController<Material, Integer> {
     }
 
     public void insert() {
-
+        addMessage("HAOHAOHAO", FacesMessage.SEVERITY_INFO);
     }
 
     public List<Categoria> completeCategoria(String nome) {
@@ -99,6 +104,26 @@ public class MaterialController extends CrudController<Material, Integer> {
     }
 
     public void fileUploadListener(FileUploadEvent event){
-        uploadedFile = event.getFile();
+        try {
+            File targetFolder = new File("C:\\teste");
+            String fileName = event.getFile().getFileName();
+            if (!targetFolder.exists()) {
+                targetFolder.mkdir();
+            }
+            InputStream inputStream = event.getFile().getInputstream();
+            OutputStream outputStream = new FileOutputStream(new File(targetFolder, fileName));
+            int read = 0;
+            byte[] bytes = new byte[1024];
+            while ((read = inputStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+            inputStream.close();
+            outputStream.flush();
+            outputStream.close();
+            entity.setFoto(fileName);
+        } catch (Exception e) {
+            addMessage("Erro ao fazer upload da imagem! " + e.getMessage(), FacesMessage.SEVERITY_INFO);
+            e.printStackTrace();
+        }
     }
 }
