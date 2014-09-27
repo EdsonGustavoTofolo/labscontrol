@@ -74,10 +74,6 @@ public class MaterialController extends CrudController<Material, Integer> {
         return materialDeConsumoService.findByNomeContaining(nome);
     }
 
-    public void insert() {
-
-    }
-
     @Override
     protected ICrudService<Material, Integer> getService() {
         return this.materialService;
@@ -107,7 +103,7 @@ public class MaterialController extends CrudController<Material, Integer> {
     public void fileUploadListener(FileUploadEvent event){
         try {
             String fileName = event.getFile().getFileName();
-            String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos\\" + fileName);
+            String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos\\");
             File targetFolder = new File(path);
             if (!targetFolder.exists()) {
                 targetFolder.mkdir();
