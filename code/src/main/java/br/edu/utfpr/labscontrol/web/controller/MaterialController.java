@@ -47,7 +47,13 @@ public class MaterialController extends CrudController<Material, Integer> {
     @Override
     public void init() {
         super.init();
-        this.tipo = "N";
+        if (entity.getMaterialDeConsumo() != null) {
+            this.tipo = "M";
+        } else if (entity.getEquipamento() != null) {
+            this.tipo = "E";
+        } else {
+            this.tipo = "N";
+        }
     }
 
     public List<Categoria> completeCategoria(String nome) {

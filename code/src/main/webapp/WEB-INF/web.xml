@@ -94,12 +94,10 @@
     
     <!-- file upload -->
 
-    <context-param>
+    <!-- context-param>
         <param-name>primefaces.UPLOADER</param-name>
-        <!-- param-value>native</param-value --> <!-- O save do objeto não funciona mas faz upload da imagem -->
-        <!-- param-value>auto</param-value --><!-- O save do objeto não funciona mas faz upload da imagem -->
-        <param-value>commons</param-value> <!-- O save do objeto funciona mas nao faz upload da imagem -->
-    </context-param>
+        <param-value>commons</param-value>
+    </context-param -->
 
     <filter>
         <filter-name>PrimeFaces FileUpload Filter</filter-name>
@@ -110,7 +108,7 @@
         </init-param>
         <init-param>
             <param-name>uploadDirectory</param-name>
-            <param-value>\fotos</param-value>
+            <param-value>/fotos</param-value>
         </init-param>
     </filter>
 

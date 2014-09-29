@@ -25,17 +25,25 @@
             <default-locale>pt_BR</default-locale>
         </locale-config>
 
-        <system-event-listener>
+        <!-- system-event-listener>
             <system-event-listener-class>br.edu.utfpr.labscontrol.web.scope.ViewScopeCallbackRegistrar</system-event-listener-class>
             <system-event-class>javax.faces.event.PostConstructViewMapEvent</system-event-class>
             <source-class>javax.faces.component.UIViewRoot</source-class>
-        </system-event-listener>
+        </system-event-listener -->
 
-        <system-event-listener>
+        <!-- system-event-listener>
             <system-event-listener-class>br.edu.utfpr.labscontrol.web.scope.ViewScopeCallbackRegistrar</system-event-listener-class>
             <system-event-class>javax.faces.event.PreDestroyViewMapEvent</system-event-class>
             <source-class>javax.faces.component.UIViewRoot</source-class>
-        </system-event-listener>
+        </system-event-listener -->
     </application>
+
+    <render-kit>
+        <renderer>
+            <component-family>org.primefaces.component</component-family>
+            <renderer-type>org.primefaces.component.FileUploadRenderer</renderer-type>
+            <renderer-class>br.edu.utfpr.labscontrol.web.primefaces.FileUploadRenderer</renderer-class>
+        </renderer>
+    </render-kit>
 
 </faces-config>
