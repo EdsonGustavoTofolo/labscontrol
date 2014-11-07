@@ -25,17 +25,21 @@
 
             <h:outputLabel value="#{form.endereco}" styleClass="columnBold"/><h:outputText value=""/>
             <h:outputLabel value="#{form.cep}"/>
-            <p:inputMask value="#{fornecedorController.entity.cep}" mask="99.999-999" />
+            <p:inputMask value="#{fornecedorController.entity.cep}" mask="99.999-999">
+                <p:ajax event="keyup" update="logradouro,numero,bairro,cidade,estado" listener="#{fornecedorController.handleKeyEvent}"/>
+            </p:inputMask>
             <h:outputLabel value="#{form.logradouro}"/>
-            <p:inputText value="#{fornecedorController.entity.logradouro}" size="60" maxlength="45"/>
+            <p:inputText id="logradouro" value="#{fornecedorController.entity.logradouro}" size="60" maxlength="45"/>
             <h:outputLabel value="#{form.numero}"/>
-            <p:inputText value="#{fornecedorController.entity.numero}" size="60" maxlength="20"/>
+            <p:inputText id="numero" value="#{fornecedorController.entity.numero}" size="60" maxlength="20"/>
             <h:outputLabel value="#{form.bairro}"/>
-            <p:inputText value="#{fornecedorController.entity.bairro}" size="60" maxlength="45"/>
+            <p:inputText id="bairro" value="#{fornecedorController.entity.bairro}" size="60" maxlength="45"/>
             <h:outputLabel value="#{form.cidade}"/>
-            <p:inputText value="#{fornecedorController.entity.cidade}" size="60" maxlength="45"/>
+            <p:inputText id="cidade" value="#{fornecedorController.entity.cidade}" size="60" maxlength="45"/>
             <h:outputLabel value="#{form.estado}"/>
-            <p:inputText value="#{fornecedorController.entity.estado}" size="2" maxlength="2"/>
+            <p:inputText id="estado" value="#{fornecedorController.entity.estado}" size="2" maxlength="2">
+                <p:ajax event="keyup" update="estado" listener="#{fornecedorController.handleKeyEventUF}"/>
+            </p:inputText>
             <h:outputLabel value="#{form.obs}"/>
             <p:inputText value="#{fornecedorController.entity.observacao}" size="100" maxlength="255"/>
         </p:panelGrid>

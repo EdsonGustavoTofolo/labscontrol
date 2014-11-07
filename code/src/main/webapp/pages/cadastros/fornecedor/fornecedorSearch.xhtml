@@ -101,6 +101,17 @@
 
                         <h:outputText value="#{form.estado}"/>
                         <h:outputText value="#{fornecedorController.entityView.estado}"/>
+
+                        <h:outputLabel value="#{form.contatos}" styleClass="columnBold"/><h:outputText value=""/>
+                        <h:outputText value=""/>
+                        <p:dataTable value="#{fornecedorController.entityView.contatos}" var="contato">
+                            <p:column headerText="#{form.tipoDeContato}" sortBy="#{contato.tipoDeContato}" style="width: 10%;">
+                                <h:outputText value="#{contato.tipoDeContato}"/>
+                            </p:column>
+                            <p:column headerText="#{fom.conteudo}" style="width: 30%;">
+                                <h:outputText value="#{contato.conteudo}"/>
+                            </p:column>
+                        </p:dataTable>
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>

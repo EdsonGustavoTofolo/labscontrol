@@ -39,6 +39,13 @@
     </repositories>
 
     <dependencies>
+        <!-- usada para consumir o webservice do endereço -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+
         <!-- WRO -->
         <dependency>
 		  	<groupId>ro.isdc.wro4j</groupId>

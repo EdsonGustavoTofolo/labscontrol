@@ -5,6 +5,7 @@ import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultUploadedFile;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -107,6 +108,7 @@ public class MaterialController extends CrudController<Material, Integer> {
     }
 
     public void fileUploadListener(FileUploadEvent event){
+        this.uploadedFile = event.getFile();
         try {
             String fileName = event.getFile().getFileName();
             String path = FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos\\");
@@ -124,7 +126,6 @@ public class MaterialController extends CrudController<Material, Integer> {
             inputStream.close();
             outputStream.flush();
             outputStream.close();
-
             this.entity.setFoto(fileName);
         } catch (Exception e) {
             addMessage("Erro ao fazer upload da imagem! " + e.getMessage(), FacesMessage.SEVERITY_INFO);

@@ -7,6 +7,7 @@ import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.ContatoService;
 import br.edu.utfpr.labscontrol.model.service.FornecedorService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import br.edu.utfpr.labscontrol.web.util.CepWebService;
 import br.edu.utfpr.labscontrol.web.util.EnumUtil;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
+import java.awt.*;
 import java.util.EventListener;
 import java.util.List;
 
@@ -84,6 +87,30 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
             this.mascara = "(99) 9999-9999?9";
         } else {
             this.mascara = "";
+        }
+    }
+
+    public void handleKeyEventUF() {
+        entity.setEstado(entity.getEstado().toUpperCase());
+    }
+
+    public void handleKeyEvent() {
+        if (entity.getCep().matches("\\d{2}.\\d{3}-\\d{3}")) {
+            CepWebService cepWebService = new CepWebService(entity.getCep());
+
+            if (cepWebService.getResultado() > 0) {
+                //setTipoLogradouro(cepWebService.getTipoLogradouro());
+                entity.setLogradouro(cepWebService.getLogradouro());
+                entity.setEstado(cepWebService.getEstado());
+                entity.setCidade(cepWebService.getCidade());
+                entity.setBairro(cepWebService.getBairro());
+            } else {
+                entity.setLogradouro("");
+                entity.setEstado("");
+                entity.setCidade("");
+                entity.setBairro("");
+                addMessage("Servidor não está respondendo ou CEP não localizado!", FacesMessage.SEVERITY_ERROR);
+            }
         }
     }
 
