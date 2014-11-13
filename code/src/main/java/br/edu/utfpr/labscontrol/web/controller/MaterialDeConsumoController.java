@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.component.UIParameter;
 import javax.faces.event.ActionEvent;
 import javax.naming.Context;
 import java.math.BigDecimal;
@@ -22,6 +23,12 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
 
     private BigDecimal quantidade;
 
+    @Override
+    public void init() {
+        super.init();
+        this.quantidade = BigDecimal.ZERO;
+    }
+
     @Autowired
     private MaterialDeConsumoService materialDeConsumoService;
 
@@ -35,9 +42,12 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
         return "/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true";
     }
 
-    public void addQtd(ActionEvent actionEvent) {
-
-        entity.setQtdAtual(entity.getQtdAtual().add(this.quantidade, MathContext.DECIMAL64));
+    public void addQtdAction(ActionEvent actionEvent) {
+        UIParameter o =  (UIParameter)actionEvent.getComponent().findComponent("qtdParam");
+        o.getValue().toString();
+        BigDecimal t = new BigDecimal(actionEvent.getSource().toString());
+        BigDecimal soma =  entity.getQtdAtual().add(this.quantidade, MathContext.DECIMAL32);
+        entity.setQtdAtual(soma);
     }
 
     public BigDecimal getQuantidade() {
