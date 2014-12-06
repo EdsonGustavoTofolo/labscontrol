@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * Esta classe prove os metodos basicos utilizados para o CRUD da entidade passada por generics
  * ao extender esta classe.
- * @author Gaspar
  */
 public interface ICrudService<T extends Object, ID extends Serializable> {
 

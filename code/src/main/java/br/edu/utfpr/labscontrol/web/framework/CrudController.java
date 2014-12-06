@@ -16,7 +16,6 @@ import java.util.List;
  * utilizacao de um controller com acesso ao banco de dados
  * @param <T> entidade
  * @param <ID> identificacao da entidade
- * @author Gaspar
  */
 public abstract class CrudController<T extends Object, ID extends Serializable> extends BaseController {
 

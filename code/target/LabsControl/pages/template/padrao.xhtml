@@ -13,7 +13,6 @@
             <h:outputText value="LabsControl - UTFPR/PB"/>
         </ui:insert>
     </title>
-    <link rel="stylesheet" href="/compress/grupoBase.css" type="text/css"/>
     <h:outputScript name="locale-primefaces.js" library="js" />
     <h:outputScript name="application.js" library="js" />
     <h:outputStylesheet library="css" name="menu.css"/>
@@ -23,7 +22,16 @@
 
 <h:body>
     <f:view>
-
+        <div id="header">
+            <div id="imglogo">
+                <a href="../../principal/principal.xhtml">
+                    <p:graphicImage value="https://moodle.pb.utfpr.edu.br/moodle/theme/utfpr/logohome.png" alt="Home - UTFPR"/>
+                </a>
+            </div>
+            <div id="infoLogin">
+                Você ainda não está logado<a href="../../index.xhtml"> clique aqui</a>
+            </div>
+        </div>
         <f:metadata>
             <ui:insert name="metadata">
 

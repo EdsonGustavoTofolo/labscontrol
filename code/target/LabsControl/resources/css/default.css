@@ -21,3 +21,23 @@
     width: 10%;
     text-align: center;
 }
+
+#infoLogin {
+    float: right;
+}
+
+.reservasSchedule {
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+}
+
+#imglogo{
+    float: left;
+}
+
+#header {
+    background: url("../images/logo.png") no-repeat #D0D0D0;
+    height: 124px;
+    margin-bottom: 0.5%;
+}

@@ -43,15 +43,12 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     }
 
     public void addQtdAction(ActionEvent actionEvent) {
-        UIParameter o =  (UIParameter)actionEvent.getComponent().findComponent("qtdParam");
-        o.getValue().toString();
-        BigDecimal t = new BigDecimal(actionEvent.getSource().toString());
         BigDecimal soma =  entity.getQtdAtual().add(this.quantidade, MathContext.DECIMAL32);
         entity.setQtdAtual(soma);
     }
 
     public BigDecimal getQuantidade() {
-        return quantidade;
+        return this.quantidade;
     }
 
     public void setQuantidade(BigDecimal quantidade) {

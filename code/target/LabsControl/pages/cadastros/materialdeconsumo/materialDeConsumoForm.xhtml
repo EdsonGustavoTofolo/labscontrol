@@ -29,9 +29,7 @@
                 <p:inputText id="qtd" value="#{materialDeConsumoController.quantidade}" size="12"  maxlength="12">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </p:inputText>
-                <p:commandButton process="@this" update=":form:qtdAtual" actionListener="#{materialDeConsumoController.addQtdAction}" icon="ui-icon-plus">
-                    <f:param id="qtdParam" name="qtdParam" value="#{materialDeConsumoController.quantidade}"/>
-                </p:commandButton>
+                <p:commandButton process="@all" update=":form:qtdAtual" actionListener="#{materialDeConsumoController.addQtdAction}" icon="ui-icon-plus"/>
             </p:panelGrid>
             <h:outputLabel value="#{form.quantidadeMinima}"/>
             <p:inputText value="#{materialDeConsumoController.entity.qtdMin}" size="12"  maxlength="12">

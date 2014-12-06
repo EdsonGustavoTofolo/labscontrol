@@ -71,9 +71,6 @@
             <p:dialog header="#{form.fornecedor}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetail">
                     <p:panelGrid columns="2" columnClasses="columnBold">
-                        <h:outputText value="#{form.id}"/>
-                        <h:outputText value="#{fornecedorController.entityView.id}"/>
-
                         <h:outputText value="#{form.razaoSocial}"/>
                         <h:outputText value="#{fornecedorController.entityView.razaoSocial}"/>
 
@@ -104,8 +101,8 @@
 
                         <h:outputLabel value="#{form.contatos}" styleClass="columnBold"/><h:outputText value=""/>
                         <h:outputText value=""/>
-                        <p:dataTable value="#{fornecedorController.entityView.contatos}" var="contato">
-                            <p:column headerText="#{form.tipoDeContato}" sortBy="#{contato.tipoDeContato}" style="width: 10%;">
+                        <p:dataTable value="#{fornecedorController.entityView.contatos}" var="contato" style="width: 500px;">
+                            <p:column headerText="#{form.tipoDeContato}" sortBy="#{contato.tipoDeContato}" style="width: 15%;">
                                 <h:outputText value="#{contato.tipoDeContato}"/>
                             </p:column>
                             <p:column headerText="#{fom.conteudo}" style="width: 30%;">

@@ -14,7 +14,6 @@ import java.lang.reflect.ParameterizedType;
  * Esta classe prove metodos para fazer injecao de dependencia do entityManager
  * assim como fields para realizar queries.
  * @param <T> entidade
- * @author Gaspar
  */
 public abstract class BaseRepository<T extends Serializable> {
 

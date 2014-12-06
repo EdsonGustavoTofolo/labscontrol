@@ -9,9 +9,6 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * User: gaspar
- * Date: 16/08/13
- * Time: 10:47
  * Esta classe prove metodos basicos para salvar, editar, remover e buscar informacoes no banco de dados
  * referentes as entidades atribuidas por generics ao extender esta classe
  * @param <T> entidade

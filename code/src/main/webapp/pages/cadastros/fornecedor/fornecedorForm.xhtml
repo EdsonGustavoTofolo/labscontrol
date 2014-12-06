@@ -14,8 +14,6 @@
 
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
-            <h:outputLabel value="#{form.id}"/>
-            <p:inputText value="#{fornecedorController.entity.id}" readonly="true" size="5"/>
             <h:outputLabel value="#{form.razaoSocial}"/>
             <p:inputText value="#{fornecedorController.entity.razaoSocial}" size="60" maxlength="60" required="true" requiredMessage="#{msg.razaoSocialRequired}"/>
             <h:outputLabel value="#{form.nomeFantasia}"/>

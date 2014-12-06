@@ -9,7 +9,6 @@ import javax.faces.context.FacesContext;
  * Esta classe prove metodos utilizados em um projeto JSF, existem metodos responsaveis
  * por recuperar os contextos de request e faces e tambem adicionar mensagens aos contextos.
  * Algumas funcoes muito utilizadas em todos controllers tambem sao providas por esta classe.
- * @author
  */
 public abstract class BaseController {
 
