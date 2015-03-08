@@ -1,18 +1,27 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
-import br.edu.utfpr.labscontrol.model.entity.MaterialDeConsumo;
+import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
-import br.edu.utfpr.labscontrol.model.service.MaterialDeConsumoService;
+import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIParameter;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.naming.Context;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.List;
 
 /**
  * Created by edson on 23/08/2014.
@@ -20,17 +29,25 @@ import java.math.MathContext;
 @Controller
 @Scope("view")
 public class MaterialDeConsumoController extends CrudController<MaterialDeConsumo, Integer> {
+    @Autowired
+    private MaterialDeConsumoService materialDeConsumoService;
+    @Autowired
+    private CategoriaMaterialService categoriaMaterialService;
+    @Autowired
+    private MarcaMaterialService marcaMaterialService;
+    @Autowired
+    private ModeloMaterialService modeloMaterialService;
+    @Autowired
+    private FornecedorService fornecedorService;
 
     private BigDecimal quantidade;
+    private UploadedFile uploadedFile;
 
     @Override
     public void init() {
         super.init();
         this.quantidade = BigDecimal.ZERO;
     }
-
-    @Autowired
-    private MaterialDeConsumoService materialDeConsumoService;
 
     @Override
     protected ICrudService<MaterialDeConsumo, Integer> getService() {
@@ -42,9 +59,59 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
         return "/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true";
     }
 
+    public List<CategoriaMaterial> completeCategoria(String nome) {
+        return categoriaMaterialService.findByNomeContaining(nome);
+    }
+
+    public List<ModeloMaterial> completeModelo(String nome) {
+        return modeloMaterialService.findByNomeContaining(nome);
+    }
+
+    public List<MarcaMaterial> completeMarca(String nome) {
+        return marcaMaterialService.findByNomeContaining(nome);
+    }
+
+    public List<Fornecedor> completeFornecedor(String nomeFantasia) {
+        return fornecedorService.findByNomeFantasiaContaining(nomeFantasia);
+    }
+
     public void addQtdAction(ActionEvent actionEvent) {
         BigDecimal soma =  entity.getQtdAtual().add(this.quantidade, MathContext.DECIMAL32);
         entity.setQtdAtual(soma);
+    }
+
+    public String getRealPath() {
+        return FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos\\materiaisDeConsumo");
+    }
+
+    public String getFullPath() {
+        return "../../../fotos/materiaisDeConsumo/" + entity.getFoto();
+    }
+
+    public void fileUploadListener(FileUploadEvent event){
+        this.uploadedFile = event.getFile();
+        try {
+            String fileName = event.getFile().getFileName();
+            String path = getRealPath();
+            File targetFolder = new File(path);
+            this.entity.setFoto(fileName);
+            if (!targetFolder.exists()) {
+                targetFolder.mkdir();
+            }
+            InputStream inputStream = event.getFile().getInputstream();
+            OutputStream outputStream = new FileOutputStream(new File(targetFolder, fileName));
+            int read = 0;
+            byte[] bytes = new byte[1024];
+            while ((read = inputStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+            inputStream.close();
+            outputStream.flush();
+            outputStream.close();
+        } catch (Exception e) {
+            addMessage("Erro ao fazer upload da imagem! " + e.getMessage(), FacesMessage.SEVERITY_INFO);
+            e.printStackTrace();
+        }
     }
 
     public BigDecimal getQuantidade() {
@@ -53,5 +120,13 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public UploadedFile getUploadedFile() {
+        return uploadedFile;
+    }
+
+    public void setUploadedFile(UploadedFile uploadedFile) {
+        this.uploadedFile = uploadedFile;
     }
 }

@@ -19,11 +19,8 @@ public class HistoricoDeManutencao implements Serializable {
     @GeneratedValue
     @Column(name = "id")
     private Integer id;
-    @NotEmpty(message = "Campo Motivo do defeito: Preenchimento Obrigatório!")
-    @Length(max = 100, message = "Campo Motivo do defeito: Não pode ultrapassar {max} caracteres!")
     @Column(name = "motivoDoDefeito", length = 100, nullable = false)
     private String motivoDoDefeito;
-    @NotNull(message = "Campo Data do defeito: Preenchimento Obrigatório!")
     @Temporal(TemporalType.DATE)
     @Column(name = "dataDoDefeito", nullable = false)
     private Date dataDoDefeito;
@@ -31,7 +28,6 @@ public class HistoricoDeManutencao implements Serializable {
     private Date dataDeEnvio;
     @Temporal(TemporalType.DATE)
     private Date dataDeRetorno;
-    @Length(max = 255, message = "Campo Manutenção realizada: Não pode ultrapassar {max} caracteres!")
     @Column(name = "manutencaoRealizada", length = 255)
     private String manutencaoRealizada;
     @Column(name = "valorDaManutencao", precision = 12, scale = 2)

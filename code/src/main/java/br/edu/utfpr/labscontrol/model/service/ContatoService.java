@@ -25,4 +25,10 @@ public interface ContatoService extends ICrudService<Contato, Integer> {
      * @return
      */
     List<Contato> findByFornecedorAndTipoDeContato(Fornecedor fornecedor, TiposDeContatoEnum tipoDeContato);
+
+    /**
+     * Exclui um contato pelo seu Id
+     * @param id
+     */
+    void deleteById(Integer id);
 }

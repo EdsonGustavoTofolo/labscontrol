@@ -29,14 +29,14 @@
             <p:column headerText="#{form.nome}" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.nome}"/>
             </p:column>
-            <p:column headerText="#{form.categoria}" sortBy="#{objeto.categoria}" filterBy="#{objeto.categoria}" filterMatchMode="contains">
-                <h:outputText value="#{objeto.categoria}"/>
+            <p:column headerText="#{form.categoria}" sortBy="#{objeto.categoriaMaterial}" filterBy="#{objeto.categoriaMaterial}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.categoriaMaterial}"/>
             </p:column>
-            <p:column headerText="#{form.marca}" sortBy="#{objeto.marca}" filterBy="#{objeto.marca}" filterMatchMode="contains">
-                <h:outputText value="#{objeto.marca}"/>
+            <p:column headerText="#{form.marca}" sortBy="#{objeto.marcaMaterial}" filterBy="#{objeto.marcaMaterial}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.marcaMaterial}"/>
             </p:column>
-            <p:column headerText="#{form.modelo}" sortBy="#{objeto.modelo}" filterBy="#{objeto.modelo}" filterMatchMode="contains">
-                <h:outputText value="#{objeto.modelo}"/>
+            <p:column headerText="#{form.modelo}" sortBy="#{objeto.modeloMaterial}" filterBy="#{objeto.modeloMaterial}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.modeloMaterial}"/>
             </p:column>
             <p:column headerText="#{form.fornecedor}" sortBy="#{objeto.fornecedor}" filterBy="#{objeto.fornecedor}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.fornecedor}"/>
@@ -73,13 +73,13 @@
                         <h:outputText value="#{materialController.entityView.descricao}"/>
 
                         <h:outputText value="#{form.categoria}"/>
-                        <h:outputText value="#{materialController.entityView.categoria}"/>
+                        <h:outputText value="#{materialController.entityView.categoriaMaterial}"/>
 
                         <h:outputText value="#{form.marca}"/>
-                        <h:outputText value="#{materialController.entityView.marca}"/>
+                        <h:outputText value="#{materialController.entityView.marcaMaterial}"/>
 
                         <h:outputText value="#{form.modelo}"/>
-                        <h:outputText value="#{materialController.entityView.modelo}"/>
+                        <h:outputText value="#{materialController.entityView.modeloMaterial}"/>
 
                         <h:outputText value="#{form.fornecedor}"/>
                         <h:outputText value="#{materialController.entityView.fornecedor}"/>

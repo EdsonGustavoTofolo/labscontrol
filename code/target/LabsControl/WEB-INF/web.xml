@@ -36,7 +36,8 @@
     <!-- Inicio configuração Spring -->
     <context-param>  
         <param-name>contextConfigLocation</param-name>  
-        <param-value>/WEB-INF/applicationContext.xml</param-value>  
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+        <!-- param-value>/WEB-INF/spring/security.xml, /WEB-INF/applicationContext.xml</param-value -->
     </context-param>
 
     <listener>
@@ -46,6 +47,16 @@
     <listener>
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
+
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- Inicio configuração JSF -->
     <servlet>
@@ -159,6 +170,7 @@
 	  	<filter-name>WebResourceOptimizer</filter-name>
 	  	<filter-class>ro.isdc.wro.http.WroFilter</filter-class>
 	</filter>
+
 	<filter-mapping>
 	  	<filter-name>WebResourceOptimizer</filter-name>
 	  	<url-pattern>/compress/*</url-pattern>

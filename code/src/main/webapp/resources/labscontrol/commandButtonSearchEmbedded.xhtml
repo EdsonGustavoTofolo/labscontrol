@@ -8,6 +8,7 @@
 <composite:interface>
 
     <composite:attribute name="parentController" required="true"/>
+    <composite:attribute name="widgetVar" required="false" default="confirm" />
 
 </composite:interface>
 
@@ -20,7 +21,7 @@
                      update=":formEmbedded:viewDetail" oncomplete="PF('viewDlg').show()" title="Visualizar"/>
 
     <p:commandButton icon="ui-icon-trash" action="#{cc.attrs.parentController.setEntityEmbedded(entityEmbedded)}" process="@this"
-                     update="@none" oncomplete="PF('confirm').show()" title="Excluir"/>
+                     update="@none" oncomplete="PF('#{cc.attrs.widgetVar}').show()" title="Excluir"/>
 
 </composite:implementation>
 

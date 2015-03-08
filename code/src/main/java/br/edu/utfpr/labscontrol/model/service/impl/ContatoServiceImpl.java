@@ -38,4 +38,9 @@ public class ContatoServiceImpl extends CrudService<Contato, Integer> implements
     public List<Contato> findByFornecedorAndTipoDeContato(Fornecedor fornecedor, TiposDeContatoEnum tipoDeContato) {
         return this.contatoData.findByFornecedorAndTipoDeContato(fornecedor, tipoDeContato);
     }
+
+    @Override
+    public void deleteById(Integer id) {
+        this.contatoData.deleteById(id);
+    }
 }

@@ -14,6 +14,7 @@
     <composite:attribute name="saveComplete" required="false" />
     <composite:attribute name="disabledSave" required="false" default="false" />
     <composite:attribute name="renderedContextMenu" required="false" default="true"/>
+    <composite:attribute name="widgetVar" required="false" default="confirm" />
 
 </composite:interface>
 
@@ -21,9 +22,14 @@
 
     <p:commandButton disabled="#{cc.attrs.disabledSave}" value="#{form.salvar}" action="#{cc.attrs.controller.save}"
                      immediate="false" update="#{cc.attrs.update}" process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}"
-                     oncomplete="#{cc.attrs.saveComplete}" />
+                     oncomplete="#{cc.attrs.saveComplete}" icon="ui-icon-disk"/>
 
-    <p:commandButton process="@this" value="#{form.cancelar}" action="#{cc.attrs.controller.reset}" update="#{cc.attrs.update}" immediate="true" />
+    <p:commandButton process="@this" value="#{form.cancelar}" action="#{cc.attrs.controller.reset}" update="#{cc.attrs.update}" immediate="true"
+                     icon="ui-icon-closethick"/>
+
+    <p:commandButton process="@this" value="#{form.excluir}" action="#{cc.attrs.controller.setId(cc.attrs.controller.entity.id)}"
+                     update="@none" oncomplete="PF('#{cc.attrs.widgetVar}').show()" title="Excluir" rendered="#{cc.attrs.controller.entity.id != null}"
+                     icon="ui-icon-trash"/>
 
 </composite:implementation>
 

@@ -42,4 +42,9 @@ public class HistoricoDeManutencaoServiceImpl extends CrudService<HistoricoDeMan
     public List<HistoricoDeManutencao> findByManutencaoRealizadaContaining(String manutencaoRealizada) {
         return this.findByManutencaoRealizadaContaining(manutencaoRealizada);
     }
+
+    @Override
+    public void deleteById(Integer id) {
+        historicoDeManutencaoData.deleteById(id);
+    }
 }

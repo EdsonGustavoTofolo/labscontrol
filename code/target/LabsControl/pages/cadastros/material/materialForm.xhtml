@@ -58,25 +58,25 @@
                             disabled="#{!materialController.tipo.equals('E')}"/>
 
             <h:outputLabel value="#{form.categoria}" for="categoria"/>
-            <p:autoComplete value="#{materialController.entity.categoria}"
+            <p:autoComplete value="#{materialController.entity.categoriaMaterial}"
                             completeMethod="#{materialController.completeCategoria}"
-                            converter="#{categoriaConverter}"
+                            converter="#{categoriaMaterialConverter}"
                             label="#{form.equipamento}" id="categoria" var="categoria"
                             itemLabel="#{categoria.nome}" itemValue="#{categoria}"
                             dropdown="true" forceSelection="true" size="60"/>
 
             <h:outputLabel value="#{form.marca}" for="marca"/>
-            <p:autoComplete value="#{materialController.entity.marca}"
+            <p:autoComplete value="#{materialController.entity.marcaMaterial}"
                             completeMethod="#{materialController.completeMarca}"
-                            converter="#{marcaConverter}"
+                            converter="#{marcaMaterialConverter}"
                             label="#{form.marca}" id="marca" var="marca"
                             itemLabel="#{marca.nome}" itemValue="#{marca}"
                             dropdown="true" forceSelection="true" size="60"/>
 
             <h:outputLabel value="#{form.modelo}" for="modelo"/>
-            <p:autoComplete value="#{materialController.entity.modelo}"
+            <p:autoComplete value="#{materialController.entity.modeloMaterial}"
                             completeMethod="#{materialController.completeModelo}"
-                            converter="#{modeloConverter}"
+                            converter="#{modeloMaterialConverter}"
                             label="#{form.modelo}" id="modelo" var="modelo"
                             itemLabel="#{modelo.nome}" itemValue="#{modelo}"
                             dropdown="true" forceSelection="true" size="60"/>

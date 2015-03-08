@@ -17,16 +17,28 @@ public class MaterialDeConsumo implements Serializable {
     @Column(name = "id")
     @GeneratedValue
     private Integer id;
-    @Length(max = 45, message = "Campo Nome: Não pode ultrapassar {max} caracteres!")
     @Column(name = "nome", length = 45, nullable = false)
     private String nome;
-    @Length(max = 60, message = "Campo Descrição: Não pode ultrapassar {max} caracteres!")
     @Column(name = "descricao", length = 60)
     private String descricao;
     @Column(name = "qtdAtual", precision = 12, scale = 2)
     private BigDecimal qtdAtual;
     @Column(name = "qtdMin", precision = 12, scale = 2)
     private BigDecimal qtdMin;
+    @Column(name = "foto", length = 512)
+    private String foto;
+    @ManyToOne
+    @JoinColumn(name = "categoriaId", referencedColumnName = "id", nullable = false)
+    private CategoriaMaterial categoria;
+    @ManyToOne
+    @JoinColumn(name = "modeloId", referencedColumnName = "id", nullable = false)
+    private ModeloMaterial modelo;
+    @ManyToOne
+    @JoinColumn(name = "marcaId", referencedColumnName = "id", nullable = false)
+    private MarcaMaterial marca;
+    @ManyToOne
+    @JoinColumn(name = "fornecedorId", referencedColumnName = "id", nullable = false)
+    private Fornecedor fornecedor;
 
     public MaterialDeConsumo() {
         this.qtdAtual = BigDecimal.ZERO;
@@ -78,6 +90,46 @@ public class MaterialDeConsumo implements Serializable {
 
     public void setQtdMin(BigDecimal qtdMin) {
         this.qtdMin = qtdMin;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public CategoriaMaterial getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaMaterial categoria) {
+        this.categoria = categoria;
+    }
+
+    public ModeloMaterial getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(ModeloMaterial modelo) {
+        this.modelo = modelo;
+    }
+
+    public MarcaMaterial getMarca() {
+        return marca;
+    }
+
+    public void setMarca(MarcaMaterial marca) {
+        this.marca = marca;
+    }
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     @Override

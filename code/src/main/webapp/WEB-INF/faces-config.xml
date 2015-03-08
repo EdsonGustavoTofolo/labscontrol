@@ -24,7 +24,6 @@
         <locale-config>
             <default-locale>pt_BR</default-locale>
         </locale-config>
-
         <!-- system-event-listener>
             <system-event-listener-class>br.edu.utfpr.labscontrol.web.scope.ViewScopeCallbackRegistrar</system-event-listener-class>
             <system-event-class>javax.faces.event.PostConstructViewMapEvent</system-event-class>
@@ -37,6 +36,12 @@
             <source-class>javax.faces.component.UIViewRoot</source-class>
         </system-event-listener -->
     </application>
+
+    <!-- factory>
+        <exception-handler-factory>
+            br.edu.utfpr.labscontrol.web.exceptions.CustomExceptionHandlerFactory
+        </exception-handler-factory>
+    </factory -->
 
     <render-kit>
         <renderer>

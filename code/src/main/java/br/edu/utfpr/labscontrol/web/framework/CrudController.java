@@ -5,6 +5,7 @@ import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
+import javax.validation.ConstraintViolationException;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
@@ -180,14 +181,30 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
      * Método responsavel por invocar o servico responsavel por deletar a entidade do banco de dados.
      * Em caso de sucesso o método de pesquisa é invocado e uma mensagem de sucesso é adicionada ao contexto.
      * Caso ocorrer um erro uma mensagem contento o erro lancado é adicionado ao contexto.
+     * @return true - se o registro foi deletado com sucesso; false - se ocorreu erro ao deletar
      */
-    public void delete() {
+    public boolean delete() {
         try {
             getService().delete(getId());
             find();
             addMessage("Registro removido com sucesso!", FacesMessage.SEVERITY_INFO);
+            return true;
+        } catch (ConstraintViolationException e) {
+            addMessage("Registro não pôde ser excluído. Registro faz referência à outra tabela!", FacesMessage.SEVERITY_ERROR);
+            return false;
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
+            return false;
+        }
+    }
+
+    /**
+     * Faz o delete do objeto por dentro do formulário e logo após cria o objeto novamente para limpar os campos
+     * Caso não ocorram erros na deleção do mesmo é feito um reset, caso contrário mantém os dados em tela
+     */
+    public void deletePorForm() {
+        if ( delete() ) {
+            reset();
         }
     }
 

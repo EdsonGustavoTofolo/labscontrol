@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -20,26 +21,35 @@ public class Equipamento implements Serializable {
     @GeneratedValue
     @Column(name = "id")
     private Integer id;
-    @Length(max = 45, message = "Campo Nome: Não pode ultrapassar {max} caracteres!")
     @Column(name = "nome", length = 45, nullable = false)
     private String nome;
-    @Length(max = 45, message = "Campo Código de Barras: Não pode ultrapassar {max} caracteres!")
     @Column(name = "codigoDeBarras", length = 45)
     private String codigoDeBarras;
-    @Length(max = 45, message = "Campo Patrimônio: Não pode ultrapassar {max} caracteres!")
     @Column(name = "patrimonio", length = 45)
     private String patrimonio;
-    @Length(max = 45, message = "Campo Part Number: Não pode ultrapassar {max} caracteres!")
     @Column(name = "partNumber", length = 45)
     private String partNumber;
     @Temporal(TemporalType.DATE)
     private Date dataDeAquisicao;
-    @Length(max = 255, message = "Campo Observação: Não pode ultrapassar {max} caracteres!")
+    @Column(name = "foto", length = 512)
+    private String foto;
     @Column(name = "observacao", length = 255)
     private String observacao;
+    @ManyToOne
+    @JoinColumn(name = "categoriaId", referencedColumnName = "id", nullable = false)
+    private CategoriaEquipamento categoria;
+    @ManyToOne
+    @JoinColumn(name = "modeloId", referencedColumnName = "id", nullable = false)
+    private ModeloEquipamento modelo;
+    @ManyToOne
+    @JoinColumn(name = "marcaId", referencedColumnName = "id", nullable = false)
+    private MarcaEquipamento marca;
     @OneToMany(mappedBy = "equipamento", orphanRemoval = true, targetEntity = HistoricoDeManutencao.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
     private List<HistoricoDeManutencao> historicoDeManutencoes;
+    @ManyToOne
+    @JoinColumn(name = "fornecedorId", referencedColumnName = "id", nullable = false)
+    private Fornecedor fornecedor;
 
     public Equipamento() {
 
@@ -111,12 +121,52 @@ public class Equipamento implements Serializable {
         this.observacao = observacao;
     }
 
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public CategoriaEquipamento getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(CategoriaEquipamento categoria) {
+        this.categoria = categoria;
+    }
+
+    public ModeloEquipamento getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(ModeloEquipamento modelo) {
+        this.modelo = modelo;
+    }
+
+    public MarcaEquipamento getMarca() {
+        return marca;
+    }
+
+    public void setMarca(MarcaEquipamento marca) {
+        this.marca = marca;
+    }
+
     public List<HistoricoDeManutencao> getHistoricoDeManutencoes() {
         return historicoDeManutencoes;
     }
 
     public void setHistoricoDeManutencoes(List<HistoricoDeManutencao> historicoDeManutencoes) {
         this.historicoDeManutencoes = historicoDeManutencoes;
+    }
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     @Override

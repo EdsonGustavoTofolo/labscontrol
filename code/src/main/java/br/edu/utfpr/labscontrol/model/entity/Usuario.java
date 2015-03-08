@@ -17,16 +17,10 @@ public class Usuario implements Serializable {
 	@Column(name = "id")
     @GeneratedValue
     private Integer id;
-	@NotEmpty(message="Campo Nome: Preenchimento Obrigatório!")
-	@Length(max=60, message="Campo Nome: Não pode ultrapassar {max} caracteres!")
 	@Column(name = "nome", length = 60, nullable = false)
 	private String nome;
-    @NotEmpty(message="Campo Login: Preenchimento Obrigatório!")
-	@Length(max=45, message="Campo Login: Não pode ultrapassar {max} caracteres.")
 	@Column(name = "login", length = 45, nullable = false)
 	private String login;
-    @NotEmpty(message="Campo Senha: Preenchimento Obrigatório!")
-    @Length(min=4, message="Campo Senha: Deve ter no mínimo {min} caracteres.")
     @Column(name = "senha", length = 100, nullable = false)
     private String senha;
     @Column(name  = "identificacao", length = 20)

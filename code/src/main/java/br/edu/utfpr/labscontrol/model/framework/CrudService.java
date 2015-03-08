@@ -5,6 +5,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import javax.validation.ConstraintViolationException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -169,7 +170,11 @@ public abstract class CrudService<T, ID extends Serializable> implements ICrudSe
             afterSaveOrDelete();
         } catch (Exception e) {
             logger.error(e);
-            throw new Exception("Erro ao remover registro. " + e.getMessage());
+            if (e.getCause().getCause().getMessage().toUpperCase().contains("CONSTRAINTVIOLATION")) {
+                throw new Exception("Registro faz referência à outra tabela, impossível de remover!");
+            } else {
+                throw new Exception("Erro ao remover registro. " + e.getMessage());
+            }
         }
     }
 

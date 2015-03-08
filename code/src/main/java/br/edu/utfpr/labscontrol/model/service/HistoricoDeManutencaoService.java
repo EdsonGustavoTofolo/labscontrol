@@ -33,5 +33,9 @@ public interface HistoricoDeManutencaoService extends ICrudService<HistoricoDeMa
      */
     List<HistoricoDeManutencao> findByManutencaoRealizadaContaining(String manutencaoRealizada);
 
-    //TODO os find por data de envio, retorno e defeito
+    /**
+     * Excluir um histórico pelo seu Id
+     * @param id
+     */
+    void deleteById(Integer id);
 }

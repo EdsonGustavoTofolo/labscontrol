@@ -28,7 +28,6 @@ import java.util.List;
 @Controller
 @Scope("view")
 public class FornecedorController extends CrudController<Fornecedor, Integer> {
-
     @Autowired
     private FornecedorService fornecedorService;
     @Autowired
@@ -71,8 +70,8 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
     public void deleteContato() {
         try {
             entity.getContatos().remove(this.contato);
-            save();
-            entity.setContatos(contatoService.findByFornecedor(this.entity));
+            contatoService.deleteById(this.contato.getId());
+            entity.getContatos();
             addMessage("Contato removido com sucesso!", FacesMessage.SEVERITY_INFO);
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);

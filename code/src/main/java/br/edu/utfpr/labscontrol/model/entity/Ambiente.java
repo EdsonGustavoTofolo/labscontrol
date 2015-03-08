@@ -16,13 +16,10 @@ public class Ambiente implements Serializable {
     @Column(name = "id")
     @GeneratedValue
     private Integer id;
-    @Length(max = 20, message = "Campo Identificação: Não pode ultrapassar {max} caracteres!")
     @Column(name = "identificacao", length = 20, nullable = false)
     private String identificacao;
-    @Length(max = 100, message = "Campo Descrição: Não pode ultrapassar {max} caracteres!")
     @Column(name = "descricao", length = 100)
     private String descricao;
-    @Length(max = 255, message = "Campo Observação: Não pode ultrapassar {max} caracteres!")
     @Column(name = "observacao", length = 255)
     private String observacao;
 
