@@ -81,7 +81,7 @@
     </ui:define>
 
     <ui:define name="foraDoForm">
-        <labs:confirmExclusaoSimples widgetVar="confirmExcMaster" update=":form" action="#{fornecedorController.deletePorForm}"/>
+        <labs:confirmExclusaoSimples widgetVar="confirmExcMaster" update=":form" action="#{fornecedorController.deleteFromForm}"/>
         <labs:confirmExclusaoSimples widgetVar="confirmExcDetail" update=":formEmbedded" action="#{fornecedorController.deleteContato}"/>
         <h:form id="formEmbedded">
             <p:dialog header="#{form.contatos}" name="meuForm" id="dialog" widgetVar="viewForm" modal="true" resizable="false" showEffect="fade" hideEffect="fade">

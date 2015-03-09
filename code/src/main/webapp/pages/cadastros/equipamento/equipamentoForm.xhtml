@@ -15,7 +15,7 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
             <h:outputLabel value="#{form.foto}"/>
-            <p:fileUpload value="#{equipamentoController.uploadedFile}" mode="advanced" dragDropSupport="true" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" fileLimit="1"
+            <p:fileUpload value="#{equipamentoController.uploadedFile}" mode="advanced" dragDropSupport="true" allowTypes="/(\.|\/)(bmp|jpe?g|png)$/" fileLimit="1"
                           fileUploadListener="#{equipamentoController.fileUploadListener}"
                           invalidFileMessage="#{msg.arquivoInvalido}" fileLimitMessage="#{msg.nroMaxDeArquivo}"
                           cancelLabel="#{form.cancelar}" label="#{form.selecionarArquivo}"
@@ -125,7 +125,7 @@
     </ui:define>
 
     <ui:define name="foraDoForm">
-        <labs:confirmExclusaoSimples update=":form" action="#{equipamentoController.deletePorForm}" widgetVar="confirmExcMaster"/>
+        <labs:confirmExclusaoSimples update=":form" action="#{equipamentoController.deleteFromForm}" widgetVar="confirmExcMaster"/>
         <labs:confirmExclusaoSimples update=":formEmbedded" action="#{equipamentoController.deleteHistorico}" widgetVar="confirmExcDetail" />
         <h:form id="formEmbedded">
             <p:dialog header="#{form.historicoDeManutencao}" id="dialog" widgetVar="viewForm" modal="true" resizable="false" showEffect="fade" hideEffect="fade">

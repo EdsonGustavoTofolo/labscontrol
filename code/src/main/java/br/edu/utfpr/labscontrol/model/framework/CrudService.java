@@ -60,15 +60,6 @@ public abstract class CrudService<T, ID extends Serializable> implements ICrudSe
     }
 
     /**
-     * Metodo invocado antes de deletar a entidade corresponte ao id passado por parametro do banco de dados
-     * @param id identificador da entidade a ser removida
-     * @throws Exception retorna qualquer tipo de erro e atribui o mesmo ao log e passa pra frente
-     */
-    protected void preProcessorDelete(ID id) throws Exception {
-
-    }
-
-    /**
      * Metodo responsavel por persistir no banco de dados a entidade passada por parametro
      * invocando o metodo preProcessorSave antes de persistir a entidade e o metodo
      * postProcessorSave apos persistir a entidade no banco de dados
@@ -176,6 +167,15 @@ public abstract class CrudService<T, ID extends Serializable> implements ICrudSe
                 throw new Exception("Erro ao remover registro. " + e.getMessage());
             }
         }
+    }
+
+    /**
+     * Metodo invocado antes de deletar a entidade corresponte ao id passado por parametro do banco de dados
+     * @param id identificador da entidade a ser removida
+     * @throws Exception retorna qualquer tipo de erro e atribui o mesmo ao log e passa pra frente
+     */
+    protected void preProcessorDelete(ID id) throws Exception {
+
     }
 
     /**

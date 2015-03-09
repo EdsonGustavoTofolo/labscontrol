@@ -4,6 +4,7 @@ import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import org.apache.log4j.Logger;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,24 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     @Override
     protected String getUrlFormPage() {
         return "/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true";
+    }
+
+    @Override
+    protected void preProcessorDelete() {
+        removeImageFile();
+    }
+
+    private void removeImageFile() {
+        try {
+            String pathFile = getRealPath() + "\\" + this.materialDeConsumoService.findById(getId()).getFoto();
+            File imgFile = new File(pathFile);
+            if (!imgFile.delete()) {
+                Logger.getLogger(Equipamento.class).info("Não foi possível remover a imagem: " + pathFile);
+            }
+        } catch (Exception e) {
+            addMessage("Erro ao excluir imagem! " + e.getMessage(), FacesMessage.SEVERITY_INFO);
+            e.printStackTrace();
+        }
     }
 
     public List<CategoriaMaterial> completeCategoria(String nome) {
