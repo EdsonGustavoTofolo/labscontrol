@@ -31,6 +31,9 @@
                      update="@none" oncomplete="PF('#{cc.attrs.widgetVar}').show()" title="Excluir" rendered="#{cc.attrs.controller.entity.id != null}"
                      icon="ui-icon-trash"/>
 
+    <p:hotkey bind="ctrl+shift+s" action="#{cc.attrs.controller.save}" update="#{cc.attrs.update}" process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}"
+              oncomplete="#{cc.attrs.saveComplete}"/>
+
 </composite:implementation>
 
 </html>
