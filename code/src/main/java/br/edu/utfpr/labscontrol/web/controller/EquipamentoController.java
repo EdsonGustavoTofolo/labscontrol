@@ -4,6 +4,7 @@ import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import org.apache.log4j.Logger;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.RowEditEvent;
@@ -155,6 +156,16 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
             e.printStackTrace();
         }
     }
+
+    /*public String movimentaSaidaParaEquipamento() {
+        JsfUtil.setFlashParameter("tipo", "E");
+        return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
+    }
+
+    public String movimentaEntradaParaEquipamento() {
+        JsfUtil.setFlashParameter("tipo", "E");
+        return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
+    }*/
 
     public void setEntityEmbedded(HistoricoDeManutencao historicoDeManutencao) {
         this.historicoDeManutencao = historicoDeManutencao;

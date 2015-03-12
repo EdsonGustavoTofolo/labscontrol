@@ -14,7 +14,7 @@
 
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
-            <h:outputLabel value="#{form.data}" />
+            <h:outputLabel value="#{form.data}*" />
             <p:calendar value="#{saidaController.entity.data}" pattern="dd/MM/yyyy" mask="true"
                         locale="pt_BR" navigator="true" showButtonPanel="true" showOn="button" required="true" requiredMessage="#{msg.dataRequired}"
                         id="data"/>

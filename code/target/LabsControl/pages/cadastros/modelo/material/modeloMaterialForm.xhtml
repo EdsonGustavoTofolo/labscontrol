@@ -8,6 +8,18 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
 <ui:decorate template="../../../template/padrao.xhtml">
+    <ui:define name="botoesParaForm">
+        <p:panelGrid columns="2">
+            <p:commandButton process="@this" value="#{form.novo}" action="#{modeloMaterialController.reset}" update="@form" immediate="true"
+                             icon="ui-icon-plus"
+                             style="float: left"/>
+
+            <p:commandButton value="#{form.pesquisa}" action="/pages/cadastros/modelo/material/modeloMaterialSearch.xhtml?faces-redirect=true"
+                             immediate="true" ajax="false" style="float: left"
+                             icon="ui-icon ui-icon-search"/>
+        </p:panelGrid>
+    </ui:define>
+
     <ui:define name="titulo">
         <h:outputText value="#{form.cadastroDeModeloMaterial}"/>
     </ui:define>

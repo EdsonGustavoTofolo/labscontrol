@@ -1,3 +1,12 @@
+.loader {
+    background: url("../resources/images/ajax-loader.gif") center center no-repeat;
+    width: 220px !important;
+    height: 85px !important;
+    padding-top: 100px;
+    text-align: center;
+    top: 120px !important;
+}
+
 .columnBold {
     font-weight: bold;
 }

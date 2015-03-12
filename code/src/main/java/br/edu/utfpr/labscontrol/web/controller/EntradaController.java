@@ -1,12 +1,14 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
+import br.edu.utfpr.labscontrol.model.entity.Entrada;
 import br.edu.utfpr.labscontrol.model.entity.Equipamento;
+import br.edu.utfpr.labscontrol.model.entity.Fornecedor;
 import br.edu.utfpr.labscontrol.model.entity.MaterialDeConsumo;
-import br.edu.utfpr.labscontrol.model.entity.Saida;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
+import br.edu.utfpr.labscontrol.model.service.EntradaService;
 import br.edu.utfpr.labscontrol.model.service.EquipamentoService;
+import br.edu.utfpr.labscontrol.model.service.FornecedorService;
 import br.edu.utfpr.labscontrol.model.service.MaterialDeConsumoService;
-import br.edu.utfpr.labscontrol.model.service.SaidaService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +18,19 @@ import org.springframework.stereotype.Controller;
 import java.util.List;
 
 /**
- * Created by EdsonGustavo on 01/03/2015.
+ * Created by EdsonGustavo on 08/03/2015.
  */
 @Controller
 @Scope("view")
-public class SaidaController extends CrudController<Saida, Integer> {
+public class EntradaController extends CrudController<Entrada, Integer> {
     @Autowired
-    private SaidaService saidaService;
+    private EntradaService entradaService;
     @Autowired
     private EquipamentoService equipamentoService;
     @Autowired
     private MaterialDeConsumoService materialDeConsumoService;
+    @Autowired
+    private FornecedorService fornecedorService;
 
     private String tipo;
 
@@ -46,13 +50,13 @@ public class SaidaController extends CrudController<Saida, Integer> {
     }
 
     @Override
-    protected ICrudService<Saida, Integer> getService() {
-        return this.saidaService;
+    protected ICrudService<Entrada, Integer> getService() {
+        return entradaService;
     }
 
     @Override
     protected String getUrlFormPage() {
-        return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
+        return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
     }
 
     public List<Equipamento> completeEquipamento(String nome) {
@@ -61,6 +65,10 @@ public class SaidaController extends CrudController<Saida, Integer> {
 
     public List<MaterialDeConsumo> completeMaterialDeConsumo(String nome) {
         return materialDeConsumoService.findByNomeContaining(nome);
+    }
+
+    public List<Fornecedor> completeFornecedor(String nomeFantasia) {
+        return fornecedorService.findByNomeFantasiaContaining(nomeFantasia);
     }
 
     public String getTipo() {

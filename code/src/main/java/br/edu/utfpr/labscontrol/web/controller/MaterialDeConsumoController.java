@@ -4,6 +4,7 @@ import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import org.apache.log4j.Logger;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
@@ -76,6 +77,16 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
             addMessage("Erro ao excluir imagem! " + e.getMessage(), FacesMessage.SEVERITY_INFO);
             e.printStackTrace();
         }
+    }
+
+    public String movimentaSaida() {
+        JsfUtil.setFlashParameter("tipo", "MS");
+        return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
+    }
+
+    public String movimentaEntrada() {
+        JsfUtil.setFlashParameter("tipo", "M");
+        return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
     }
 
     public List<CategoriaMaterial> completeCategoria(String nome) {

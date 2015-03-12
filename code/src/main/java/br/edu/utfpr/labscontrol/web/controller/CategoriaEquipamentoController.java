@@ -26,4 +26,6 @@ public class CategoriaEquipamentoController extends CrudController<CategoriaEqui
     protected String getUrlFormPage() {
         return "/pages/cadastros/categoria/equipamento/categoriaEquipamentoForm.xhtml?faces-redirect=true";
     }
+
+
 }

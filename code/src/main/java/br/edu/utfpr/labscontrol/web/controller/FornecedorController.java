@@ -11,6 +11,7 @@ import br.edu.utfpr.labscontrol.web.util.CepWebService;
 import br.edu.utfpr.labscontrol.web.util.EnumUtil;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
