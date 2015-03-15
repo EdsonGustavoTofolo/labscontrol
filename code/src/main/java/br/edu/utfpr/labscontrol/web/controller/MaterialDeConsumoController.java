@@ -47,8 +47,8 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
 
     @Override
     public void init() {
-        super.init();
         this.quantidade = BigDecimal.ZERO;
+        super.init();
     }
 
     @Override
@@ -64,6 +64,15 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     @Override
     protected void preProcessorDelete() {
         removeImageFile();
+    }
+
+    @Override
+    protected MaterialDeConsumo preProcessorSave(MaterialDeConsumo entity) {
+        if (this.entity.getQtdMin().compareTo(this.entity.getQtdAtual()) == -1) {
+            addMessage("Quantidade Atual está abaixo da Quantidade Mínima!", FacesMessage.SEVERITY_WARN);
+            //TODO fazer exibir a mensagem
+        }
+        return super.preProcessorSave(entity);
     }
 
     private void removeImageFile() {
@@ -105,8 +114,8 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
         return fornecedorService.findByNomeFantasiaContaining(nomeFantasia);
     }
 
-    public void addQtdAction(ActionEvent actionEvent) {
-        BigDecimal soma =  entity.getQtdAtual().add(this.quantidade, MathContext.DECIMAL32);
+    public void handleKeyEvent() {
+        BigDecimal soma =  entity.getQtdAtual().add(this.quantidade, MathContext.DECIMAL64);
         entity.setQtdAtual(soma);
     }
 

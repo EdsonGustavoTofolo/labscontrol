@@ -11,7 +11,7 @@ import javax.faces.model.SelectItem;
 
 public class EnumUtil {
     
-    public static SelectItem[] populaSelectTiposDeContatos(Object[] values) {
+    public static SelectItem[] populaSelect(Object[] values) {
         SelectItem[] itens = new SelectItem[values.length];
         int i = 0;
         for (Object value : values) {
@@ -20,5 +20,4 @@ public class EnumUtil {
         }
         return itens;
     }
-    
 }

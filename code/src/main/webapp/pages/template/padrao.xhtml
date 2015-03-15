@@ -13,18 +13,22 @@
             <h:outputText value="LabsControl - UTFPR/PB"/>
         </ui:insert>
     </title>
-    <h:outputScript name="locale-primefaces.js" library="js" />
-    <h:outputScript name="application.js" library="js" />
+    <h:outputStylesheet library="css" name="alertify.core.css"/>
+    <h:outputStylesheet library="css" name="alertify.default.css"/>
     <h:outputStylesheet library="css" name="menu.css"/>
     <h:outputStylesheet library="css" name="customPrime.css"/>
     <h:outputStylesheet library="css" name="default.css"/>
+    <h:outputScript name="locale-primefaces.js" library="js" />
+    <h:outputScript name="alertify.min.js" library="js" />
+    <h:outputScript name="application.js" library="js" />
+    <h:outputScript name="bootstrap.min.js" library="js" />
 </h:head>
 
 <h:body>
     <f:view>
         <div id="header">
             <div id="imglogo">
-                <a href="../../principal/principal.xhtml">
+                <a href="../principal/principal.xhtml">
                     <p:graphicImage value="https://moodle.pb.utfpr.edu.br/moodle/theme/utfpr/logohome.png" alt="Home - UTFPR"/>
                 </a>
             </div>
@@ -32,6 +36,7 @@
                 Você ainda não está logado<a href="../../index.xhtml"> clique aqui</a>
             </div>
         </div>
+
         <f:metadata>
             <ui:insert name="metadata">
 
@@ -42,47 +47,38 @@
 
             <p:focus/>
 
-            <p:menubar styleClass="vs-menu">
+            <p:menubar autoDisplay="false" styleClass="vs-menu">
+
                 <p:submenu label="Cadastros" icon="ui-icon-document">
                     <p:submenu label="#{form.ambiente}" icon="ui-icon-wrench">
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/ambiente/ambienteForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/ambiente/ambienteSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
 
-                    <p:submenu label="#{form.categorias}" icon="ui-icon-wrench">
-                        <p:submenu label="#{form.equipamento}" icon="ui-icon-wrench">
-                            <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/categoria/equipamento/categoriaEquipamentoForm.xhtml?faces-redirect=true" />
-                            <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/categoria/equipamento/categoriaEquipamentoSearch.xhtml?faces-redirect=true" />
-                        </p:submenu>
-                        <p:submenu label="#{form.material}" icon="ui-icon-wrench">
-                            <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/categoria/material/categoriaMaterialForm.xhtml?faces-redirect=true" />
-                            <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/categoria/material/categoriaMaterialSearch.xhtml?faces-redirect=true" />
-                        </p:submenu>
-                    </p:submenu>
-
-                    <p:submenu label="#{form.marcas}" icon="ui-icon-wrench">
-                        <p:submenu label="#{form.equipamento}" icon="ui-icon-wrench">
-                            <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/marca/equipamento/marcaEquipamentoForm.xhtml?faces-redirect=true" />
-                            <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/marca/equipamento/marcaEquipamentoSearch.xhtml?faces-redirect=true" />
-                        </p:submenu>
-                        <p:submenu label="#{form.material}" icon="ui-icon-wrench">
-                            <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/marca/material/marcaMaterialForm.xhtml?faces-redirect=true" />
-                            <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/marca/material/marcaMaterialSearch.xhtml?faces-redirect=true" />
-                        </p:submenu>
-                    </p:submenu>
-
-                    <p:submenu label="#{form.modelos}" icon="ui-icon-wrench">
-                        <p:submenu label="#{form.equipamento}" icon="ui-icon-wrench">
-                            <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/modelo/equipamento/modeloEquipamentoForm.xhtml?faces-redirect=true" />
-                            <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/modelo/equipamento/modeloEquipamentoSearch.xhtml?faces-redirect=true" />
-                        </p:submenu>
-                        <p:submenu label="#{form.material}" icon="ui-icon-wrench">
-                            <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/modelo/material/modeloMaterialForm.xhtml?faces-redirect=true" />
-                            <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/modelo/material/modeloMaterialSearch.xhtml?faces-redirect=true" />
-                        </p:submenu>
+                    <p:submenu label="#{form.fornecedor}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/fornecedor/fornecedorForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/fornecedor/fornecedorSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
 
                     <p:submenu label="#{form.materialDeConsumo}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml?faces-redirect=true" />
+                        <p:separator />
+                        <p:submenu label="#{form.cadastros}" icon="ui-icon-wrench">
+                            <p:submenu label="#{form.marcas}" icon="ui-icon-wrench">
+                                <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/marca/material/marcaMaterialForm.xhtml?faces-redirect=true" />
+                                <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/marca/material/marcaMaterialSearch.xhtml?faces-redirect=true" />
+                            </p:submenu>
+                            <p:submenu label="#{form.modelos}" icon="ui-icon-wrench">
+                                <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/modelo/material/modeloMaterialForm.xhtml?faces-redirect=true" />
+                                <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/modelo/material/modeloMaterialSearch.xhtml?faces-redirect=true" />
+                            </p:submenu>
+                            <p:submenu label="#{form.categorias}" icon="ui-icon-wrench">
+                                <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/categoria/material/categoriaMaterialForm.xhtml?faces-redirect=true" />
+                                <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/categoria/material/categoriaMaterialSearch.xhtml?faces-redirect=true" />
+                            </p:submenu>
+                        </p:submenu>
+                        <p:separator />
                         <p:submenu label="#{form.movimentacao}" icon="ui-icon-wrench">
                             <p:submenu label="#{form.entrada}" icon="ui-icon-wrench">
                                 <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="#{materialDeConsumoController.movimentaEntrada()}" />
@@ -93,11 +89,27 @@
                                 <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/saida/saidaSearch.xhtml?faces-redirect=true" />
                             </p:submenu>
                         </p:submenu>
-                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true" />
-                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
 
                     <p:submenu label="#{form.equipamento}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/equipamento/equipamentoForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/equipamento/equipamentoSearch.xhtml?faces-redirect=true" />
+                        <p:separator />
+                        <p:submenu label="#{form.cadastros}" icon="ui-icon-wrench">
+                            <p:submenu label="#{form.marcas}" icon="ui-icon-wrench">
+                                <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/marca/equipamento/marcaEquipamentoForm.xhtml?faces-redirect=true" />
+                                <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/marca/equipamento/marcaEquipamentoSearch.xhtml?faces-redirect=true" />
+                            </p:submenu>
+                            <p:submenu label="#{form.modelos}" icon="ui-icon-wrench">
+                                <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/modelo/equipamento/modeloEquipamentoForm.xhtml?faces-redirect=true" />
+                                <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/modelo/equipamento/modeloEquipamentoSearch.xhtml?faces-redirect=true" />
+                            </p:submenu>
+                            <p:submenu label="#{form.categorias}" icon="ui-icon-wrench">
+                                <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/categoria/equipamento/categoriaEquipamentoForm.xhtml?faces-redirect=true" />
+                                <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/categoria/equipamento/categoriaEquipamentoSearch.xhtml?faces-redirect=true" />
+                            </p:submenu>
+                        </p:submenu>
+                        <p:separator />
                         <p:submenu label="#{form.movimentacao}" icon="ui-icon-wrench">
                             <p:submenu label="#{form.entrada}" icon="ui-icon-wrench">
                                 <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="#" />
@@ -108,12 +120,6 @@
                                 <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/saida/saidaSearch.xhtml?faces-redirect=true" />
                             </p:submenu>
                         </p:submenu>
-                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/equipamento/equipamentoForm.xhtml?faces-redirect=true" />
-                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/equipamento/equipamentoSearch.xhtml?faces-redirect=true" />
-                    </p:submenu>
-                    <p:submenu label="#{form.fornecedor}" icon="ui-icon-wrench">
-                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/fornecedor/fornecedorForm.xhtml?faces-redirect=true" />
-                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/fornecedor/fornecedorSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
                 </p:submenu>
 
@@ -132,13 +138,15 @@
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/saida/saidaSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
                 </p:submenu>
+
             </p:menubar>
 
             <ui:insert name="botoesParaForm">
 
             </ui:insert>
 
-            <p:panel>
+            <p:panel id="pnlMain">
+
                 <f:facet name="header">
                     <ui:insert name="titulo">
                         <h:outputText value="LabsControl"/>
@@ -164,7 +172,7 @@
 
             <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
 
-            <p:dialog widgetVar="statusDialog" draggable="false" closable="false" resizable="false" showHeader="false" styleClass="loader">
+            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false" styleClass="loader">
                 <h:outputText value="Trabalhando, aguarde!" />
             </p:dialog>
         </h:form>

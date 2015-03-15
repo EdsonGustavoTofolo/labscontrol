@@ -3,25 +3,20 @@ package br.edu.utfpr.labscontrol.web.controller;
 import br.edu.utfpr.labscontrol.model.entity.Contato;
 import br.edu.utfpr.labscontrol.model.entity.Fornecedor;
 import br.edu.utfpr.labscontrol.model.enumeration.TiposDeContatoEnum;
+import br.edu.utfpr.labscontrol.model.enumeration.UFsEnum;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.ContatoService;
 import br.edu.utfpr.labscontrol.model.service.FornecedorService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.CepWebService;
 import br.edu.utfpr.labscontrol.web.util.EnumUtil;
-import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
-import java.awt.*;
-import java.util.EventListener;
-import java.util.List;
 
 /**
  * Created by edson on 23/08/2014.
@@ -35,6 +30,7 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
     private ContatoService contatoService;
 
     private SelectItem[] tiposDeContatos;
+    private SelectItem[] ufs;
     private Contato contato;
     private String mascara;
 
@@ -45,7 +41,8 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
 
     @Override
     protected void inicializar() {
-        tiposDeContatos = EnumUtil.populaSelectTiposDeContatos(TiposDeContatoEnum.values());
+        tiposDeContatos = EnumUtil.populaSelect(TiposDeContatoEnum.values());
+        ufs = EnumUtil.populaSelect(UFsEnum.values());
     }
 
     @Override
@@ -90,10 +87,6 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
         }
     }
 
-    public void handleKeyEventUF() {
-        entity.setEstado(entity.getEstado().toUpperCase());
-    }
-
     public void handleKeyEvent() {
         if (entity.getCep().matches("\\d{2}.\\d{3}-\\d{3}")) {
             CepWebService cepWebService = new CepWebService(entity.getCep());
@@ -101,12 +94,12 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
             if (cepWebService.getResultado() > 0) {
                 //setTipoLogradouro(cepWebService.getTipoLogradouro());
                 entity.setLogradouro(cepWebService.getLogradouro());
-                entity.setEstado(cepWebService.getEstado());
+                entity.setEstado(UFsEnum.valueOf(cepWebService.getEstado()));
                 entity.setCidade(cepWebService.getCidade());
                 entity.setBairro(cepWebService.getBairro());
             } else {
                 entity.setLogradouro("");
-                entity.setEstado("");
+                entity.setEstado(null);
                 entity.setCidade("");
                 entity.setBairro("");
                 addMessage("Servidor não está respondendo ou CEP não localizado!", FacesMessage.SEVERITY_ERROR);
@@ -124,6 +117,14 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
 
     public SelectItem[] getTiposDeContatos() {
         return tiposDeContatos;
+    }
+
+    public SelectItem[] getUfs() {
+        return ufs;
+    }
+
+    public void setUfs(SelectItem[] ufs) {
+        this.ufs = ufs;
     }
 
     public String getMascara() {

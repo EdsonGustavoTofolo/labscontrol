@@ -22,11 +22,14 @@
 
     <p:commandButton disabled="#{cc.attrs.disabledSave}" value="#{form.salvar}" action="#{cc.attrs.controller.save}"
                      immediate="false" update="#{cc.attrs.update}" process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}"
-                     oncomplete="#{cc.attrs.saveComplete}" icon="ui-icon-disk"/>
+                     oncomplete="#{cc.attrs.saveComplete}" icon="ui-icon-disk" name="btnSalvar"/>
 
     <p:commandButton process="@this" value="#{form.excluir}" action="#{cc.attrs.controller.setId(cc.attrs.controller.entity.id)}"
                      update="@none" oncomplete="PF('#{cc.attrs.widgetVar}').show()" title="Excluir" rendered="#{cc.attrs.controller.entity.id != null}"
                      icon="ui-icon-trash"/>
+
+    <p:hotkey bind="ctrl+shift+s" update="#{cc.attrs.update}" actionListener="#{cc.attrs.controller.save}" immediate="false"
+              process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}" oncomplete="#{cc.attrs.saveComplete}"/>
 
 </composite:implementation>
 

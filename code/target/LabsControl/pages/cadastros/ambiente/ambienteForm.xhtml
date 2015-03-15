@@ -15,8 +15,7 @@
                              style="float: left"/>
 
             <p:commandButton value="#{form.pesquisa}" action="/pages/cadastros/ambiente/ambienteSearch.xhtml?faces-redirect=true"
-                             immediate="true" ajax="false" style="float: left"
-                             icon="ui-icon ui-icon-search"/>
+                             immediate="true" ajax="false" style="float: left"/>
         </p:panelGrid>
     </ui:define>
 
@@ -29,7 +28,7 @@
             <h:outputLabel value="#{form.identificacao}" />
             <p:inputText value="#{ambienteController.entity.identificacao}" size="20" maxlength="20" required="true" requiredMessage="#{msg.identificacaoRequired}"/>
             <h:outputLabel value="#{form.descricao}" />
-            <p:inputText value="#{ambienteController.entity.descricao}" size="60" maxlength="100"/>
+            <p:inputText value="#{ambienteController.entity.descricao}" size="60" maxlength="100" styleClass="validate[required]" />
             <h:outputLabel value="#{form.obs}" />
             <p:inputText value="#{ambienteController.entity.observacao}" size="100" maxlength="255"/>
         </p:panelGrid>

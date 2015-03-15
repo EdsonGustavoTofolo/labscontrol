@@ -44,10 +44,10 @@
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </p:inputText>
 
-                <p:inputText id="qtd" value="#{materialDeConsumoController.quantidade}" size="12"  maxlength="12">
+                <p:inputText id="qtd" value="#{materialDeConsumoController.quantidade}" size="12"  maxlength="12" title="adsa">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                    <p:ajax update="form:qtdAtual" event="change" listener="#{materialDeConsumoController.handleKeyEvent}" global="false"/>
                 </p:inputText>
-                <p:commandButton process="@all" update=":form:qtdAtual" actionListener="#{materialDeConsumoController.addQtdAction}" icon="ui-icon-plus"/>
             </p:panelGrid>
             <h:outputLabel value="#{form.quantidadeMinima}"/>
             <p:inputText value="#{materialDeConsumoController.entity.qtdMin}" size="12"  maxlength="12">

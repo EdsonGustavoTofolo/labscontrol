@@ -1,9 +1,8 @@
 package br.edu.utfpr.labscontrol.model.entity;
 
+import br.edu.utfpr.labscontrol.model.enumeration.UFsEnum;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -19,32 +18,25 @@ public class Fornecedor implements Serializable {
     @Column(name = "id")
     @GeneratedValue
     private Integer id;
-    @Length(max = 80, message = "Campo Razão Social: Preenchimento Obrigatório!")
     @Column(name = "razaoSocial", length = 80, nullable = false)
     private String razaoSocial;
-    @Length(max = 60, message = "Campo Nome Fantasia: Não pode ultrapassar {max} caracteres!")
     @Column(name = "nomeFantasia", length = 60, nullable = false)
     private String nomeFantasia;
-    @Length(max = 60, message = "Campo Nome do contato: Não pode ultrapassar {max} caracteres!")
     @Column(name = "nomeDoContato", length = 60)
     private String nomeDoContato;
-    @Length(max = 45, message = "Campo Logradouro: Não pode ultrapassar {max} caracteres!")
     @Column(name = "logradouro", length = 45)
     private String logradouro;
-    @Length(max = 20, message = "Campo Número: Não pode ultrapassar {max} caracteres!")
     @Column(name = "numero", length = 20)
     private String numero;
-    @Length(max = 45, message = "Campo Bairro: Não pode ultrapassar {max} caracteres!")
     @Column(name = "bairro", length = 45)
     private String bairro;
-    @Length(max = 45, message = "Campo Cidade: Não pode ultrapassar {max} caracteres!")
     @Column(name = "cidade", length = 45)
     private String cidade;
+    @Enumerated(EnumType.STRING)
     @Column(name = "estado", length = 2)
-    private String estado;
+    private UFsEnum estado;
     @Column(name = "cep", length = 10)
     private String cep;
-    @Length(max = 255, message = "Campo Observação: Não pode ultrapassar {max} caracteres!")
     @Column(name = "observacao", length = 255)
     private String observacao;
     @OneToMany(mappedBy = "fornecedor", orphanRemoval = true, targetEntity = Contato.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -134,11 +126,11 @@ public class Fornecedor implements Serializable {
         this.cidade = cidade;
     }
 
-    public String getEstado() {
+    public UFsEnum getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(UFsEnum estado) {
         this.estado = estado;
     }
 

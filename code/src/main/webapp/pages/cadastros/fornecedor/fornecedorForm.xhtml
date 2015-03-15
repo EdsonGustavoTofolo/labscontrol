@@ -47,9 +47,11 @@
             <h:outputLabel value="#{form.cidade}"/>
             <p:inputText id="cidade" value="#{fornecedorController.entity.cidade}" size="60" maxlength="45"/>
             <h:outputLabel value="#{form.estado}"/>
-            <p:inputText id="estado" value="#{fornecedorController.entity.estado}" size="2" maxlength="2">
-                <p:ajax event="keyup" update="estado" listener="#{fornecedorController.handleKeyEventUF}" global="false"/>
-            </p:inputText>
+            <p:selectOneMenu value="#{fornecedorController.entity.estado}" label="#{form.estado}" id="estado">
+                <f:selectItem itemLabel="Selecione"/>
+                <f:selectItems value="#{fornecedorController.ufs}"/>
+                <f:converter converterId="enumConverter"/>
+            </p:selectOneMenu>
             <h:outputLabel value="#{form.obs}"/>
             <p:inputText value="#{fornecedorController.entity.observacao}" size="100" maxlength="255"/>
         </p:panelGrid>
