@@ -21,7 +21,7 @@ public class Equipamento implements Serializable {
     @GeneratedValue
     @Column(name = "id")
     private Integer id;
-    @Column(name = "nome", length = 45, nullable = false)
+    @Column(name = "nome", length = 80, nullable = false)
     private String nome;
     @Column(name = "codigoDeBarras", length = 45)
     private String codigoDeBarras;

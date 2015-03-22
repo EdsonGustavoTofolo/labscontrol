@@ -99,8 +99,7 @@
                         <h:outputText value="#{form.estado}"/>
                         <h:outputText value="#{fornecedorController.entityView.estado}"/>
 
-                        <h:outputLabel value="#{form.contatos}" styleClass="columnBold"/><h:outputText value=""/>
-                        <h:outputText value=""/>
+                        <h:outputLabel value="#{form.contatos}" styleClass="columnBold"/>
                         <p:dataTable value="#{fornecedorController.entityView.contatos}" var="contato" style="width: 500px;">
                             <p:column headerText="#{form.tipoDeContato}" sortBy="#{contato.tipoDeContato}" style="width: 15%;">
                                 <h:outputText value="#{contato.tipoDeContato}"/>

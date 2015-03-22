@@ -17,9 +17,9 @@ public class MaterialDeConsumo implements Serializable {
     @Column(name = "id")
     @GeneratedValue
     private Integer id;
-    @Column(name = "nome", length = 45, nullable = false)
+    @Column(name = "nome", length = 80, nullable = false)
     private String nome;
-    @Column(name = "descricao", length = 60)
+    @Column(name = "descricao", length = 255)
     private String descricao;
     @Column(name = "qtdAtual", precision = 12, scale = 2)
     private BigDecimal qtdAtual;

@@ -6,7 +6,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="titulo">
         <h:outputText value="#{form.pesquisaEquipamento}"/>
@@ -143,25 +144,67 @@
             <p:dialog header="#{form.equipamento}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetail">
                     <p:panelGrid columns="2" columnClasses="columnBold">
-                        <h:outputText value="#{form.id}"/>
-                        <h:outputText value="#{equipamentoController.entityView.id}"/>
-
-                        <h:outputText value="#{form.nome}"/>
+                        <h:outputLabel value="#{form.nome}"/>
                         <h:outputText value="#{equipamentoController.entityView.nome}"/>
 
-                        <h:outputText value="#{form.codigoDeBarras}"/>
+                        <h:outputLabel value="#{form.codigoDeBarras}"/>
                         <h:outputText value="#{equipamentoController.entityView.codigoDeBarras}"/>
 
-                        <h:outputText value="#{form.partNumber}"/>
+                        <h:outputLabel value="#{form.partNumber}"/>
                         <h:outputText value="#{equipamentoController.entityView.partNumber}"/>
 
-                        <h:outputText value="#{form.patrimonio}"/>
+                        <h:outputLabel value="#{form.patrimonio}"/>
                         <h:outputText value="#{equipamentoController.entityView.patrimonio}"/>
 
-                        <h:outputText value="#{form.dataDeAquisicao}"/>
+                        <h:outputLabel value="#{form.dataDeAquisicao}"/>
                         <h:outputText value="#{equipamentoController.entityView.dataDeAquisicao}">
                             <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
                         </h:outputText>
+
+                        <h:outputLabel value="#{form.obs}"/>
+                        <h:outputText value="#{equipamentoController.entityView.observacao}"/>
+
+                        <h:outputLabel value="#{form.categoria}"/>
+                        <h:outputText value="#{equipamentoController.entityView.categoria}"/>
+
+                        <h:outputLabel value="#{form.marca}"/>
+                        <h:outputText value="#{equipamentoController.entityView.marca}"/>
+
+                        <h:outputLabel value="#{form.modelo}"/>
+                        <h:outputText value="#{equipamentoController.entityView.modelo}"/>
+
+                        <h:outputLabel value="#{form.fornecedor}"/>
+                        <h:outputText value="#{equipamentoController.entityView.fornecedor}"/>
+
+                        <h:outputLabel value="#{form.historicosDasManutencoes}"/>
+                        <p:dataTable value="#{equipamentoController.entityView.historicoDeManutencoes}" var="historico">
+                            <p:column headerText="#{form.dataDoDefeito}" sortBy="#{historico.dataDoDefeito}" styleClass="columnData">
+                                <h:outputText value="#{historico.dataDoDefeito}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="#{form.motivoDoDefeito}" filterBy="#{historico.motivoDoDefeito}" filterMatchMode="contains">
+                                <h:outputText value="#{historico.motivoDoDefeito}"/>
+                            </p:column>
+                            <p:column headerText="#{form.dataDeEnvio}" sortBy="#{historico.dataDeEnvio}" styleClass="columnData">
+                                <h:outputText value="#{historico.dataDeEnvio}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="#{form.dataDeRetorno}" sortBy="#{historico.dataDeRetorno}" styleClass="columnData">
+                                <h:outputText value="#{historico.dataDeRetorno}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="#{form.manutencaoRealizada}" filterBy="#{historico.manutencaoRealizada}" filterMatchMode="contains">
+                                <h:outputText value="#{historico.manutencaoRealizada}"/>
+                            </p:column>
+                            <p:column headerText="#{form.valorDaManutencao}" styleClass="columnValor">
+                                <h:outputText value="#{historico.valorDaManutencao}">
+                                    <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                                </h:outputText>
+                            </p:column>
+                        </p:dataTable>
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>

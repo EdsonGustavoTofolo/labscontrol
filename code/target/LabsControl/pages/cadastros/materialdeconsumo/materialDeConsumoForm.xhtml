@@ -11,12 +11,10 @@
     <ui:define name="botoesParaForm">
         <p:panelGrid columns="2">
             <p:commandButton process="@this" value="#{form.novo}" action="#{materialDeConsumoController.reset}" update="@form" immediate="true"
-                             icon="ui-icon-plus"
-                             style="float: left"/>
+                             icon="ui-icon-plus" style="float: left"/>
 
             <p:commandButton value="#{form.pesquisa}" action="/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml?faces-redirect=true"
-                             immediate="true" ajax="false" style="float: left"
-                             icon="ui-icon ui-icon-search"/>
+                             immediate="true" ajax="false" style="float: left" icon="ui-icon ui-icon-search"/>
         </p:panelGrid>
     </ui:define>
 
@@ -35,9 +33,9 @@
             <h:outputLabel value=""/>
             <p:graphicImage id="imgMaterial" value="#{materialDeConsumoController.getFullPath()}" width="15%" height="15%"/>
             <h:outputLabel value="#{form.nome}"/>
-            <p:inputText value="#{materialDeConsumoController.entity.nome}" size="45" maxlength="45" required="true" requiredMessage="#{msg.nomeRequired}"/>
+            <p:inputText value="#{materialDeConsumoController.entity.nome}" size="45" maxlength="80" required="true" requiredMessage="#{msg.nomeRequired}"/>
             <h:outputLabel value="#{form.descricao}"/>
-            <p:inputText value="#{materialDeConsumoController.entity.descricao}" size="45" maxlength="60"/>
+            <p:inputText value="#{materialDeConsumoController.entity.descricao}" size="100" maxlength="255"/>
             <h:outputLabel value="#{form.quantidadeEmEstoque}"/>
             <p:panelGrid columns="3">
                 <p:inputText id="qtdAtual" value="#{materialDeConsumoController.entity.qtdAtual}" size="12"  maxlength="12" readonly="true">

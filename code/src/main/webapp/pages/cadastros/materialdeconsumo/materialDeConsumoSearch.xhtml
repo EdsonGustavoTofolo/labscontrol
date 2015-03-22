@@ -58,20 +58,29 @@
             <p:dialog header="#{form.materialDeConsumo}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetail">
                     <p:panelGrid columns="2" columnClasses="columnBold">
-                        <h:outputText value="#{form.id}"/>
-                        <h:outputText value="#{materialDeConsumoController.entityView.id}"/>
-
-                        <h:outputText value="#{form.nome}"/>
+                        <h:outputLabel value="#{form.nome}"/>
                         <h:outputText value="#{materialDeConsumoController.entityView.nome}"/>
 
-                        <h:outputText value="#{form.descricao}"/>
+                        <h:outputLabel value="#{form.descricao}"/>
                         <h:outputText value="#{materialDeConsumoController.entityView.descricao}"/>
 
-                        <h:outputText value="#{form.quantidadeEmEstoque}"/>
+                        <h:outputLabel value="#{form.quantidadeEmEstoque}"/>
                         <h:outputText value="#{materialDeConsumoController.entityView.qtdAtual}"/>
 
-                        <h:outputText value="#{form.quantidadeMinima}"/>
+                        <h:outputLabel value="#{form.quantidadeMinima}"/>
                         <h:outputText value="#{materialDeConsumoController.entityView.qtdMin}"/>
+
+                        <h:outputLabel value="#{form.categoria}"/>
+                        <h:outputText value="#{materialDeConsumoController.entityView.categoria}"/>
+
+                        <h:outputLabel value="#{form.marca}"/>
+                        <h:outputText value="#{materialDeConsumoController.entityView.marca}"/>
+
+                        <h:outputLabel value="#{form.modelo}"/>
+                        <h:outputText value="#{materialDeConsumoController.entityView.modelo}"/>
+
+                        <h:outputLabel value="#{form.fornecedor}"/>
+                        <h:outputText value="#{materialDeConsumoController.entityView.fornecedor}"/>
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>
