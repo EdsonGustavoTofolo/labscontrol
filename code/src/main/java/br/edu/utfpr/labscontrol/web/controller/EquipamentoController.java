@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -157,15 +158,15 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
         }
     }
 
-    /*public String movimentaSaidaParaEquipamento() {
-        JsfUtil.setFlashParameter("tipo", "E");
-        return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
+    public void movimentaSaida() {
+        JsfUtil.setAttributeSession("tipo", "E");
+        JsfUtil.redirect("/labscontrol/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true");
     }
 
-    public String movimentaEntradaParaEquipamento() {
-        JsfUtil.setFlashParameter("tipo", "E");
-        return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
-    }*/
+    public void movimentaEntrada() {
+        JsfUtil.setAttributeSession("tipo", "E");
+        JsfUtil.redirect("/labscontrol/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true");
+    }
 
     public void setEntityEmbedded(HistoricoDeManutencao historicoDeManutencao) {
         this.historicoDeManutencao = historicoDeManutencao;

@@ -17,12 +17,14 @@ import javax.faces.component.UIParameter;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.naming.Context;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -68,9 +70,8 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
 
     @Override
     protected MaterialDeConsumo preProcessorSave(MaterialDeConsumo entity) {
-        if (this.entity.getQtdMin().compareTo(this.entity.getQtdAtual()) == -1) {
+        if ( this.entity.getQtdAtual().compareTo(this.entity.getQtdMin()) == -1 ) {
             addMessage("Quantidade Atual está abaixo da Quantidade Mínima!", FacesMessage.SEVERITY_WARN);
-            //TODO fazer exibir a mensagem
         }
         return super.preProcessorSave(entity);
     }
@@ -88,14 +89,14 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
         }
     }
 
-    public String movimentaSaida() {
-        JsfUtil.setFlashParameter("tipo", "MS");
-        return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
+    public void movimentaSaida() {
+        JsfUtil.setAttributeSession("tipo", "M");
+        JsfUtil.redirect("/labscontrol/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true");
     }
 
-    public String movimentaEntrada() {
-        JsfUtil.setFlashParameter("tipo", "M");
-        return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
+    public void movimentaEntrada() {
+        JsfUtil.setAttributeSession("tipo", "M");
+        JsfUtil.redirect("/labscontrol/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true");
     }
 
     public List<CategoriaMaterial> completeCategoria(String nome) {

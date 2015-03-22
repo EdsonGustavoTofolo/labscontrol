@@ -105,5 +105,4 @@ public class JsfUtil {
     public static void setFlashParameter(String name, Object value){
         FacesContext.getCurrentInstance().getExternalContext().getFlash().put(name, value);
     }
-
 }

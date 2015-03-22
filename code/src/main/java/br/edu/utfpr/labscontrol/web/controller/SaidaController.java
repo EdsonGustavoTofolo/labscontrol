@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -31,9 +33,8 @@ public class SaidaController extends CrudController<Saida, Integer> {
     private String tipo;
 
     @Override
-    public void init() {
-        super.init();
-        Object o = JsfUtil.getFlashParameter("tipo");
+    protected void inicializar() {
+        Object o = JsfUtil.getAttributeSession("tipo");
         if (o != null) {
             this.tipo = String.valueOf(o);
         } else if (entity.getMaterialDeConsumo() != null) {
