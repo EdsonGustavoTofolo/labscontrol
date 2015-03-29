@@ -7,4 +7,5 @@ import br.edu.utfpr.labscontrol.model.framework.ICrudService;
  * Created by edson on 23/08/2014.
  */
 public interface UsuarioService extends ICrudService<Usuario, Integer> {
+    Usuario findByUsername(String username);
 }

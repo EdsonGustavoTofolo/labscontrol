@@ -92,6 +92,12 @@
 
     <ui:define name="rodape">
         <labs:commandButtonForm update="@form" controller="#{materialDeConsumoController}"/>
+
+        <p:commandButton value="#{form.lancarSaida}" action="#{materialDeConsumoController.lancarSaida(materialDeConsumoController.entity)}"
+                         immediate="true" ajax="false" icon="ui-icon ui-icon-document" rendered="#{materialDeConsumoController.entity.id != null}"/>
+
+        <p:commandButton value="#{form.lancarEntrada}" action="#{materialDeConsumoController.lancarEntrada(materialDeConsumoController.entity)}"
+                         immediate="true" ajax="false" icon="ui-icon ui-icon-document" rendered="#{materialDeConsumoController.entity.id != null}"/>
         <div style="clear: both"></div>
     </ui:define>
 

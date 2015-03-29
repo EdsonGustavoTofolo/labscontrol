@@ -154,6 +154,18 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
         }
     }
 
+    public String lancarSaida(MaterialDeConsumo materialDeConsumo) {
+        JsfUtil.setAttributeSession("materialDeConsumo", materialDeConsumo);
+        JsfUtil.setAttributeSession("tipo", "M");
+        return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
+    }
+
+    public String lancarEntrada(Equipamento equipamento) {
+        JsfUtil.setAttributeSession("materialDeConsumo", equipamento);
+        JsfUtil.setAttributeSession("tipo", "M");
+        return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
+    }
+
     public BigDecimal getQuantidade() {
         return this.quantidade;
     }

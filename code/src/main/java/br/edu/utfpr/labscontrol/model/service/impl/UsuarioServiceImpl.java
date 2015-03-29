@@ -37,4 +37,8 @@ public class UsuarioServiceImpl extends CrudService<Usuario, Integer> implements
         return usuario;
     }
 
+    @Override
+    public Usuario findByUsername(String username) {
+        return usuarioData.findByUsername(username);
+    }
 }

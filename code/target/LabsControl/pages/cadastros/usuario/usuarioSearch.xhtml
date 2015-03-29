@@ -7,7 +7,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
-<ui:decorate template="../template/padrao.xhtml">
+<ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="titulo">
         <h:outputText value="#{form.pesquisaUsuario}"/>
     </ui:define>
@@ -17,7 +17,7 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <p><p:commandButton value="#{form.novo}" action="/pages/usuario/usuarioForm.xhtml?faces-redirect=true"
+        <p><p:commandButton value="#{form.novo}" action="/pages/cadastros/usuario/usuarioForm.xhtml?faces-redirect=true"
                             immediate="true" ajax="false" style="float: left"
                             icon="ui-icon-plus"/></p>
         <p:dataTable value="#{usuarioController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
@@ -30,12 +30,16 @@
                 <h:outputText value="#{objeto.nome}" />
             </p:column>
 
-            <p:column headerText="#{form.login}" sortBy="#{objeto.login}" filterBy="#{objeto.login}" filterMatchMode="contains">
-                <h:outputText value="#{objeto.login}" />
+            <p:column headerText="#{form.login}" sortBy="#{objeto.username}" filterBy="#{objeto.username}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.username}" />
             </p:column>
 
             <p:column headerText="#{form.email}" sortBy="#{objeto.email}" filterBy="#{objeto.email}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.email}" />
+            </p:column>
+
+            <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
+                <labs:commandButtonSearch controller="#{usuarioController}"/>
             </p:column>
         </p:dataTable>
     </ui:define>
@@ -54,7 +58,7 @@
                         <h:outputText value="#{usuarioController.entityView.nome}"/>
 
                         <h:outputText value="#{form.login}"/>
-                        <h:outputText value="#{usuarioController.entityView.login}"/>
+                        <h:outputText value="#{usuarioController.entityView.username}"/>
 
                         <h:outputText value="#{form.email}"/>
                         <h:outputText value="#{usuarioController.entityView.email}"/>

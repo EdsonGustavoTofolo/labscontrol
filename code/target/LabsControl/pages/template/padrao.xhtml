@@ -22,13 +22,25 @@
     <h:outputScript name="alertify.min.js" library="js" />
     <h:outputScript name="application.js" library="js" />
     <h:outputScript name="bootstrap.min.js" library="js" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = location.href;
+            if (url.indexOf("?") > 0) {
+                query = url.split("?");
+                param = query[1];
+                if (param.indexOf("logou") >= 0) {
+                    alertify.success("Usuário logado com sucesso!")
+                }
+            }
+        });
+    </script>
 </h:head>
 
 <h:body>
     <f:view>
         <div id="header">
             <div id="imglogo">
-                <a href="../index.xhtml">
+                <a href="/labscontrol/pages/index.xhtml">
                     <p:graphicImage value="https://moodle.pb.utfpr.edu.br/moodle/theme/utfpr/logohome.png" alt="Home - UTFPR"/>
                 </a>
             </div>
@@ -52,7 +64,7 @@
 
             <p:menubar autoDisplay="false" styleClass="vs-menu">
 
-                <p:submenu label="Cadastros" icon="ui-icon-document">
+                <p:submenu label="#{form.cadastros}" icon="ui-icon-document" rendered="#{usuarioController.isUsuarioLogadoAdmin()}">
 
                     <p:submenu label="#{form.ambiente}" icon="ui-icon-wrench">
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/ambiente/ambienteForm.xhtml?faces-redirect=true" />
@@ -125,6 +137,11 @@
                             </p:submenu>
                         </p:submenu>
                     </p:submenu>
+
+                    <p:submenu label="#{form.usuario}" icon="ui-icon-wrench">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/usuario/usuarioForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/usuario/usuarioSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
                 </p:submenu>
 
                 <p:submenu label="#{form.emprestimo}" icon="ui-icon-wrench">
@@ -132,7 +149,12 @@
                     <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/emprestimos/emprestimoSearch.xhtml?faces-redirect=true" />
                 </p:submenu>
 
-                <p:submenu label="#{form.movimentos}" icon="ui-icon-wrench">
+                <p:submenu label="#{form.reserva}" icon="ui-icon-wrench">
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="#" />
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="#" />
+                </p:submenu>
+
+                <p:submenu label="#{form.movimentos}" icon="ui-icon-wrench" rendered="#{usuarioController.isUsuarioLogadoAdmin()}">
                     <p:submenu label="#{form.entrada}" icon="ui-icon-wrench">
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/entrada/entradaSearch.xhtml?faces-redirect=true" />

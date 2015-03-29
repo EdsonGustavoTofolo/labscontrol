@@ -11,7 +11,22 @@
     <title>
         <h:outputText value="LabsControl"/>
     </title>
+    <h:outputStylesheet library="css" name="alertify.core.css"/>
+    <h:outputStylesheet library="css" name="alertify.default.css"/>
     <h:outputStylesheet library="css" name="default.css"/>
+    <h:outputScript name="alertify.min.js" library="js" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = location.href;
+            if (url.indexOf("?") > 0) {
+                query = url.split("?");
+                param = query[1];
+                if (param.indexOf("error") >= 0) {
+                    alertify.error("Usuário e/ou senha inválidos!")
+                }
+            }
+        });
+    </script>
 </h:head>
 
 <h:body>
@@ -42,4 +57,5 @@
         </form>
     </p:dialog>
 </h:body>
+
 </html>

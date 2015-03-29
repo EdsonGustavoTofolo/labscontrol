@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.application.FacesMessage;
 import java.util.List;
 
 /**
@@ -37,7 +38,7 @@ public class EntradaController extends CrudController<Entrada, Integer> {
     @Override
     public void init() {
         super.init();
-        Object o = JsfUtil.getFlashParameter("tipo");
+        Object o = JsfUtil.getAttributeSession("tipo");
         if (o != null) {
             this.tipo = String.valueOf(o);
         } else if (entity.getMaterialDeConsumo() != null) {
@@ -47,6 +48,26 @@ public class EntradaController extends CrudController<Entrada, Integer> {
         } else {
             this.tipo = "N";
         }
+        o = JsfUtil.getAttributeSession("equipamento");
+        if (o != null) {
+            this.entity.setEquipamento((Equipamento)o);
+        }
+        o = JsfUtil.getAttributeSession("materialDeConsumo");
+        if (o != null) {
+            this.entity.setMaterialDeConsumo((MaterialDeConsumo)o);
+        }
+        JsfUtil.removeAttributeSession("tipo");
+        JsfUtil.removeAttributeSession("equipamento");
+        JsfUtil.removeAttributeSession("materialDeConsumo");
+    }
+
+    @Override
+    protected Boolean validacaoSave(Entrada entity) {
+        Boolean valido = !(entity.getEquipamento() == null && entity.getMaterialDeConsumo() == null);
+        if (!valido) {
+            addMessage("Deve ser informado Material de Consumo ou Equipamento!", FacesMessage.SEVERITY_ERROR);
+        }
+        return valido;
     }
 
     @Override

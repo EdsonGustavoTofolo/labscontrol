@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -44,6 +45,26 @@ public class SaidaController extends CrudController<Saida, Integer> {
         } else {
             this.tipo = "N";
         }
+        o = JsfUtil.getAttributeSession("equipamento");
+        if (o != null) {
+            this.entity.setEquipamento((Equipamento)o);
+        }
+        o = JsfUtil.getAttributeSession("materialDeConsumo");
+        if (o != null) {
+            this.entity.setMaterialDeConsumo((MaterialDeConsumo)o);
+        }
+        JsfUtil.removeAttributeSession("tipo");
+        JsfUtil.removeAttributeSession("equipamento");
+        JsfUtil.removeAttributeSession("materialDeConsumo");
+    }
+
+    @Override
+    protected Boolean validacaoSave(Saida entity) {
+        Boolean valido = !(entity.getEquipamento() == null && entity.getMaterialDeConsumo() == null);
+        if (!valido) {
+            addMessage("Deve ser informado Material de Consumo ou Equipamento!", FacesMessage.SEVERITY_ERROR);
+        }
+        return valido;
     }
 
     @Override

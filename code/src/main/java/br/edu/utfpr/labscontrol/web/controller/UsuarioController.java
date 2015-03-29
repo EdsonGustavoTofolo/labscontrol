@@ -34,6 +34,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private PermissaoService permissaoService;
 
     private Usuario usuarioLogado;
+    private Boolean isAdmin;
 
     @Override
     protected ICrudService<Usuario, Integer> getService() {
@@ -56,9 +57,35 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         }
     }
 
+    public void criarUsuarioAdm() {
+        isAdmin = Boolean.TRUE;
+        Usuario adm = new Usuario();
+        adm.setNome("Administrador");
+        adm.setUsername("admin");
+        adm.setPassword(adm.getEncodePassword("admin"));
+        adm.setEmail("");
+        try {
+            adm.addPermissao(getPermissao());
+            usuarioService.save(adm);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        isAdmin = Boolean.FALSE;
+    }
+
+    public boolean isUserAdmExist() {
+        return usuarioService.findByUsername("admin") != null;
+    }
+
+    @Override
+    public void reset() {
+        this.isAdmin = Boolean.FALSE;
+        super.reset();
+    }
+
     @Override
     protected String getUrlFormPage() {
-        return "/pages/usuario/usuarioFrom.xhtml?faces-redirect=true";
+        return "/pages/cadastros/usuario/usuarioForm.xhtml?faces-redirect=true";
     }
 
     @Override
@@ -73,13 +100,18 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     }
 
     private Permissao getPermissao() throws Exception {
-        Permissao permissao = permissaoService.findByPermissao("ROLE_USER");
+        String role = (isAdmin) ? "ROLE_ADMIN" : "ROLE_USER";
+        Permissao permissao = permissaoService.findByPermissao(role);
         if (permissao == null) {
             permissao = new Permissao();
-            permissao.setPermissao("ROLE_USER");
+            permissao.setPermissao(role);
             permissaoService.save(permissao);
         }
         return permissao;
+    }
+
+    public boolean isUsuarioLogadoAdmin() {
+        return (usuarioLogado.getId() != null) ? usuarioLogado.getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN")) : false;
     }
 
     public Usuario getUsuarioLogado() {
@@ -88,5 +120,13 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
 
     public void setUsuarioLogado(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
+    }
+
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

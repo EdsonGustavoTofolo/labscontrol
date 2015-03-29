@@ -47,6 +47,11 @@
                         <p:outputPanel style="width: 100%; text-align: center" layout="block">
                             <p:commandButton ajax="true" validateClient="true" update=":form" process="@all" action="#{usuarioController.save}" value="#{form.salvar}"
                                              oncomplete="redirectToLoginAfterSaveUser(xhr, status, args)"/>
+
+                            <p:commandButton ajax="true" value="#{form.criarUsuarioAdm}" rendered="#{!usuarioController.isUserAdmExist()}"
+                                             oncomplete="window.location='/labscontrol/'">
+                                <p:ajax listener="#{usuarioController.criarUsuarioAdm}"/>
+                            </p:commandButton>
                         </p:outputPanel>
                     </p:row>
                 </f:facet>

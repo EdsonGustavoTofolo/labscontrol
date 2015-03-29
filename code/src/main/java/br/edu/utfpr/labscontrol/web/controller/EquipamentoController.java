@@ -170,6 +170,18 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
         JsfUtil.redirect("/labscontrol/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true");
     }
 
+    public String lancarSaida(Equipamento equipamento) {
+        JsfUtil.setAttributeSession("equipamento", equipamento);
+        JsfUtil.setAttributeSession("tipo", "E");
+        return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
+    }
+
+    public String lancarEntrada(Equipamento equipamento) {
+        JsfUtil.setAttributeSession("equipamento", equipamento);
+        JsfUtil.setAttributeSession("tipo", "E");
+        return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
+    }
+
     public void setEntityEmbedded(HistoricoDeManutencao historicoDeManutencao) {
         this.historicoDeManutencao = historicoDeManutencao;
     }
