@@ -28,12 +28,15 @@
     <f:view>
         <div id="header">
             <div id="imglogo">
-                <a href="../principal/principal.xhtml">
+                <a href="../index.xhtml">
                     <p:graphicImage value="https://moodle.pb.utfpr.edu.br/moodle/theme/utfpr/logohome.png" alt="Home - UTFPR"/>
                 </a>
             </div>
             <div id="infoLogin">
-                Você ainda não está logado<a href="../../index.xhtml"> clique aqui</a>
+                Você está logado como <h:outputText value="#{usuarioController.usuarioLogado.nome} " />
+                <h:outputLink value="#{request.contextPath}/j_spring_security_logout">
+                    <h:outputLabel value="#{form.sair}"/>
+                </h:outputLink>
             </div>
         </div>
 
@@ -138,6 +141,11 @@
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/saida/saidaSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
+                </p:submenu>
+
+                <p:submenu label="#{form.usuario}" icon="ui-icon-wrench">
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/usuario/usuarioForm.xhtml?faces-redirect=true" />
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/usuario/usuarioSearch.xhtml?faces-redirect=true" />
                 </p:submenu>
 
             </p:menubar>

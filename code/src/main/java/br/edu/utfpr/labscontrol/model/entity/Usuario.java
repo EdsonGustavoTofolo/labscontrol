@@ -1,190 +1,131 @@
 package br.edu.utfpr.labscontrol.model.entity;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.*;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements Serializable {
-	@Id
+public class Usuario implements Serializable, UserDetails {
+	private static final BCryptPasswordEncoder bcry = new BCryptPasswordEncoder();
+
+    @Id
 	@Column(name = "id")
     @GeneratedValue
     private Integer id;
-	@Column(name = "nome", length = 60, nullable = false)
-	private String nome;
-	@Column(name = "login", length = 45, nullable = false)
-	private String login;
-    @Column(name = "senha", length = 100, nullable = false)
-    private String senha;
-    @Column(name  = "identificacao", length = 20)
-	private String identificacao;
-    @Email(regexp = "[\\w\\.-]*[a-zA-Z0-9_]@[\\w\\.-]*[a-zA-Z0-9]\\.[a-zA-Z][a-zA-Z\\.]*[a-zA-Z]", message = "Email informado é inválido!")
-    @Column(name = "email", length = 100)
+    @Column(length = 80, nullable = false)
+    private String nome;
+    @Column(length = 80, nullable = false)
+    private String username;
+    @Column(nullable = false)
+    private String password;
+    @Column(length = 100, nullable = false)
     private String email;
-    @Column(name = "administrador", nullable = false)
-	private Boolean administrador;
-	
-	public Usuario() {
-		super();
-	}
-
-	public Usuario(Integer id, String nome, String login, String senha,
-			String identificacao, Boolean administrador) {
-		super();
-		this.id = id;
-		this.nome = nome;
-		this.login = login;
-		this.senha = senha;
-		this.identificacao = identificacao;
-		this.administrador = administrador;
-	}
-
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	/**
-	 * @return the nome
-	 */
-	public String getNome() {
-		return nome;
-	}
-
-	/**
-	 * @param nome the nome to set
-	 */
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	/**
-	 * @return the login
-	 */
-	public String getLogin() {
-		return login;
-	}
-
-	/**
-	 * @param login the login to set
-	 */
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	/**
-	 * @return the senha
-	 */
-	public String getSenha() {
-		return senha;
-	}
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Permissao> permissoes;
 
 
+    public Usuario() {
 
-	/**
-	 * @param senha the senha to set
-	 */
-	public void setSenha(String senha) {
-		MessageDigest algorithm;
-		try {
-			algorithm = MessageDigest.getInstance("SHA-256");
-			byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
-			StringBuilder hexString = new StringBuilder();
-			for (byte b : messageDigest) {
-				hexString.append(String.format("%02X", 0xFF & b));
-			}
-			this.senha = hexString.toString();
-		} catch (NoSuchAlgorithmException e) {
-			this.senha = "";
-			e.printStackTrace();
-		} catch (UnsupportedEncodingException e) {
-			this.senha = "";
-			e.printStackTrace();
-		}
-	}
+    }
 
-	/**
-	 * @return the identificacao
-	 */
-	public String getIdentificacao() {
-		return identificacao;
-	}
+    public Usuario(String nome, String username, String password, String email, Set<Permissao> permissoes) {
+        this.nome = nome;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.permissoes = permissoes;
+    }
 
-	/**
-	 * @param identificacao the identificacao to set
-	 */
-	public void setIdentificacao(String identificacao) {
-		this.identificacao = identificacao;
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> auto = new ArrayList<>();
+        auto.addAll(getPermissoes());
+        return auto;
+    }
 
-	/**
-	 * @return the administrador
-	 */
-	public Boolean getAdministrador() {
-		return administrador;
-	}
+    public void addPermissao(Permissao permissao){
+        if(permissoes == null){
+            permissoes = new HashSet<Permissao>();
+        }
+        permissoes.add(permissao);
+    }
 
-	/**
-	 * @param administrador the administrador to set
-	 */
-	public void setAdministrador(Boolean administrador) {
-		this.administrador = administrador;
-	}
+    @Override
+    public String getPassword() {
+        return this.password;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Usuario [nome=" + nome + "]";
-	}
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Set<Permissao> getPermissoes() {
+        return permissoes;
+    }
+
+    public void setPermissoes(Set<Permissao> permissoes) {
+        this.permissoes = permissoes;
+    }
 
     public String getEmail() {
         return email;
@@ -192,5 +133,26 @@ public class Usuario implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getEncodePassword(String password) {
+        if (StringUtils.isNotEmpty(password)) {
+            return bcry.encode(password);
+        }
+        return password;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Usuario)){
+            return false;
+        }
+        Usuario bean = (Usuario)obj;
+        return new EqualsBuilder().append(bean.getUsername(), this.getUsername()).isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(this.getUsername()).toHashCode();
     }
 }

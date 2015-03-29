@@ -9,10 +9,16 @@
  * @param dialogWidget - passar PF('nome_da_dialog_widget')
  * @param dialogId - passar o id da dialog
  */
-function complete(xhr, status, args, dialogWidget, dialogId) {
+function closeDialogOnComplete(xhr, status, args, dialogWidget, dialogId) {
     if (args.validationFailed || args.KEEP_DIALOG_OPENED) {
         jQuery('#'+dialogId).effect("bounce", {times : 4, distance : 20}, 100);
     } else {
         dialogWidget.hide();
+    }
+}
+
+function redirectToLoginAfterSaveUser(xhr, status, args) {
+    if (!(args.validationFailed || args.KEEP_DIALOG_OPENED)) {
+        window.location = "/labscontrol/"
     }
 }

@@ -17,10 +17,10 @@
     	<!-- <js>classpath:br/com/garbo/resources/js/gm-messages.js</js> -->
   	</group>
 
-  	<group name="error">
-    	<!-- <group-ref>base</group-ref>
-    	<css>/resources/css/capa.css</css>
-    	<css>/resources/css/error.css</css> -->
-  	</group>
+  	<!--<group name="error">-->
+    	<!--<group-ref>base</group-ref>-->
+    	<!--<css>/resources/css/capa.css</css>-->
+    	<!--<css>/resources/css/error.css</css>-->
+  	<!--</group>-->
 
 </groups>

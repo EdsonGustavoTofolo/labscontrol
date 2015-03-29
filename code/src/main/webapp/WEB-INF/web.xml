@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
     <context-param>
         <param-name>webAppRootKey</param-name>
         <param-value>utfpr.labscontrol</param-value>
     </context-param>
-    
+
     <!-- Estado do projeto -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Production</param-value>
     </context-param>
-    
+
     <context-param>
-        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>  
-        <param-value>server</param-value>  
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>server</param-value>
     </context-param>
 
     <context-param>
         <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
         <param-value>true</param-value>
     </context-param>
-    
+
     <!-- Utilizar para evitar um BUG no jsf 2.0 -->
     <context-param>
         <param-name>com.sun.faces.writeStateAtFormEnd</param-name>
         <param-value>false</param-value>
-    </context-param> 
-    
+    </context-param>
+
     <!-- Theme Roller Prime Faces + Jquery UI -->
     <context-param>
         <param-name>primefaces.THEME</param-name>
@@ -34,9 +35,12 @@
     </context-param>
 
     <!-- Inicio configuração Spring -->
-    <context-param>  
-        <param-name>contextConfigLocation</param-name>  
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/applicationContext.xml
+            /WEB-INF/applicationContext-security.xml
+        </param-value>
         <!-- param-value>/WEB-INF/spring/security.xml, /WEB-INF/applicationContext.xml</param-value -->
     </context-param>
 
@@ -48,15 +52,17 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
+    <!-- SPRING SECURITY -->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
     </filter>
-    
+
     <filter-mapping>
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <!-- SPRING SECURITY FIM -->
 
     <!-- Inicio configuração JSF -->
     <servlet>
@@ -77,7 +83,7 @@
 
     <!-- Página inicial do sistema -->
     <welcome-file-list>
-        <welcome-file>index.xhtml</welcome-file>
+        <welcome-file>login.xhtml</welcome-file>
     </welcome-file-list>
 
     <!-- Remover espacos em brancos de arquivos jsp -->
@@ -87,7 +93,7 @@
             <trim-directive-whitespaces>true</trim-directive-whitespaces>
         </jsp-property-group>
     </jsp-config>
-    
+
     <!-- expirar sessao -->
     <context-param>
         <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
@@ -96,14 +102,14 @@
 
     <error-page>
         <exception-type>javax.faces.application.ViewExpiredException</exception-type>
-        <location>/index.xhtml?faces-redirect=true</location>
+        <location>/login.xhtml?faces-redirect=true</location>
     </error-page>
 
     <error-page>
         <exception-type>org.springframework.beans.factory.BeanCreationException</exception-type>
-        <location>/index.xhtml?faces-redirect=true</location>
+        <location>/login.xhtml?faces-redirect=true</location>
     </error-page>
-    
+
     <!-- file upload -->
 
     <!-- context-param>
@@ -152,29 +158,29 @@
         <filter-name>OpenEntityManagerInViewFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
     <!--
     Para utilizar HTTPS
-    <security-constraint>  
-        <web-resource-collection>  
-            <web-resource-name>HTTP PAGES</web-resource-name>  
-            <url-pattern>/*</url-pattern>  
-            <http-method>GET</http-method>  
-            <http-method>POST</http-method>  
-        </web-resource-collection>  
-        <user-data-constraint>  
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>  
-        </user-data-constraint>  
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>HTTP PAGES</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
     </security-constraint>  -->
 
-	<filter>
-	  	<filter-name>WebResourceOptimizer</filter-name>
-	  	<filter-class>ro.isdc.wro.http.WroFilter</filter-class>
-	</filter>
+    <filter>
+        <filter-name>WebResourceOptimizer</filter-name>
+        <filter-class>ro.isdc.wro.http.WroFilter</filter-class>
+    </filter>
 
-	<filter-mapping>
-	  	<filter-name>WebResourceOptimizer</filter-name>
-	  	<url-pattern>/compress/*</url-pattern>
-	</filter-mapping>
-        
+    <filter-mapping>
+        <filter-name>WebResourceOptimizer</filter-name>
+        <url-pattern>/compress/*</url-pattern>
+    </filter-mapping>
+
 </web-app>

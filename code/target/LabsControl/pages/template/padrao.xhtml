@@ -28,12 +28,15 @@
     <f:view>
         <div id="header">
             <div id="imglogo">
-                <a href="../principal/principal.xhtml">
+                <a href="../index.xhtml">
                     <p:graphicImage value="https://moodle.pb.utfpr.edu.br/moodle/theme/utfpr/logohome.png" alt="Home - UTFPR"/>
                 </a>
             </div>
             <div id="infoLogin">
-                Você ainda não está logado<a href="../../index.xhtml"> clique aqui</a>
+                Você está logado como <h:outputText value="#{usuarioController.usuarioLogado.nome} " />
+                <h:outputLink value="#{request.contextPath}/j_spring_security_logout">
+                    <h:outputLabel value="#{form.sair}"/>
+                </h:outputLink>
             </div>
         </div>
 

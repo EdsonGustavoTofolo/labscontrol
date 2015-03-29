@@ -119,7 +119,7 @@
                         <f:facet name="footer">
                             <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
                                              ajax="true" validateClient="true" update="grid, :form" process="@form"
-                                             oncomplete="complete(xhr, status, args, PF('viewForm'), 'dialog')"/>
+                                             oncomplete="closeDialogOnComplete(xhr, status, args, PF('viewForm'), 'dialog')"/>
                         </f:facet>
                     </p:panelGrid>
                 </p:outputPanel>
