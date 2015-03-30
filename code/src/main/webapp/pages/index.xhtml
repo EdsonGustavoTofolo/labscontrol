@@ -13,7 +13,10 @@
 
         <div class="reservasSchedule">
             <p:schedule id="reservas" widgetVar="reservas" timeZone="GMT+2">
-
+                <p:ajax event="dateSelect" listener="#{reservaController.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                <p:ajax event="eventSelect" listener="#{reservaController.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+                <p:ajax event="eventMove" listener="#{reservaController.onEventMove}" update="messages" />
+                <p:ajax event="eventResize" listener="#{reservaController.onEventResize}" update="messages" />
             </p:schedule>
         </div>
     </ui:define>

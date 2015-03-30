@@ -41,7 +41,7 @@
         <div id="header">
             <div id="imglogo">
                 <a href="/labscontrol/pages/index.xhtml">
-                    <p:graphicImage value="https://moodle.pb.utfpr.edu.br/moodle/theme/utfpr/logohome.png" alt="Home - UTFPR"/>
+                    <p:graphicImage value="#" alt="Home - UTFPR"/>
                 </a>
             </div>
             <div id="infoLogin">
@@ -144,16 +144,6 @@
                     </p:submenu>
                 </p:submenu>
 
-                <p:submenu label="#{form.emprestimo}" icon="ui-icon-wrench">
-                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/emprestimos/emprestimoForm.xhtml?faces-redirect=true" />
-                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/emprestimos/emprestimoSearch.xhtml?faces-redirect=true" />
-                </p:submenu>
-
-                <p:submenu label="#{form.reserva}" icon="ui-icon-wrench">
-                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="#" />
-                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="#" />
-                </p:submenu>
-
                 <p:submenu label="#{form.movimentos}" icon="ui-icon-wrench" rendered="#{usuarioController.isUsuarioLogadoAdmin()}">
                     <p:submenu label="#{form.entrada}" icon="ui-icon-wrench">
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true" />
@@ -163,6 +153,16 @@
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/saida/saidaSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
+                </p:submenu>
+
+                <p:submenu label="#{form.emprestimo}" icon="ui-icon-wrench">
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/emprestimos/emprestimoForm.xhtml?faces-redirect=true" />
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/emprestimos/emprestimoSearch.xhtml?faces-redirect=true" />
+                </p:submenu>
+
+                <p:submenu label="#{form.reserva}" icon="ui-icon-wrench">
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="#" />
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="#" />
                 </p:submenu>
 
             </p:menubar>

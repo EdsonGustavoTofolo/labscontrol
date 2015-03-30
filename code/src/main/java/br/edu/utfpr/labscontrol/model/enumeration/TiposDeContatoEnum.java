@@ -5,7 +5,7 @@ package br.edu.utfpr.labscontrol.model.enumeration;
  */
 public enum TiposDeContatoEnum implements EnumLabel {
 
-    Email("Email"), Celular("Celular"), PaginaWeb("Página web"), Telefone("Telefone"), Fax("Fax"), Outro("Outro");
+    EMAIL("Email"), CELULAR("Celular"), PAGINAWEB("Página web"), TELEFONE("Telefone"), FAX("Fax"), OUTRO("Outro");
 
     private String label;
 
