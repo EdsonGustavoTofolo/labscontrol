@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  * Created by EdsonGustavo on 29/03/2015.
  */
@@ -19,5 +22,20 @@ public class ReservaServiceImpl extends CrudService<Reserva, Integer> implements
     @Override
     protected JpaRepository<Reserva, Integer> getData() {
         return reservaData;
+    }
+
+    /**
+     * Verifica se existe reserva na data e ambiente específicado, e se o horário de inicio e fim está contido
+     * em algum horário
+     *
+     * @param data
+     * @param horaInicio
+     * @param horaFim
+     * @param ambienteId
+     * @return
+     */
+    @Override
+    public List<Reserva> findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteId(Date data, Date horaInicio, Date horaFim, Integer ambienteId) {
+        return reservaData.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteId(data, horaInicio, horaFim, ambienteId);
     }
 }

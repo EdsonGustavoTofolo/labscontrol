@@ -17,6 +17,15 @@ function closeDialogOnComplete(xhr, status, args, dialogWidget, dialogId) {
     }
 }
 
+function updateScheduleAndCloseDialogOnComplete(xhr, status, args, widgetSchedule, dialogId, dialogToHide) {
+    if (args.validationFailed || args.KEEP_DIALOG_OPENED) {
+        jQuery(PrimeFaces.escapeClientId(dialogId)).effect("bounce", {times : 4, distance : 20}, 100);
+    } else {
+        widgetSchedule.update();
+        dialogToHide.hide();
+    }
+}
+
 function redirectToLoginAfterSaveUser(xhr, status, args) {
     if (!(args.validationFailed || args.KEEP_DIALOG_OPENED)) {
         window.location = "/labscontrol/"

@@ -86,10 +86,6 @@
         </p:panelGrid>
     </ui:define>
 
-    <ui:define name="foraDoForm">
-        <labs:confirmExclusaoSimples update=":form" action="#{materialDeConsumoController.deleteFromForm}"/>
-    </ui:define>
-
     <ui:define name="rodape">
         <labs:commandButtonForm update="@form" controller="#{materialDeConsumoController}"/>
 
@@ -101,5 +97,8 @@
         <div style="clear: both"></div>
     </ui:define>
 
+    <ui:define name="foraDoForm">
+        <labs:confirmExclusaoSimples update=":form" action="#{materialDeConsumoController.deleteFromForm}"/>
+    </ui:define>
 </ui:decorate>
 </html>

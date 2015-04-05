@@ -12,9 +12,7 @@
         <security:intercept-url pattern="/" access="permitAll" />
         <security:intercept-url pattern="/j_spring_security_check" access="permitAll" />
         <security:intercept-url pattern="/login.xhtml" access="permitAll" />
-        <security:intercept-url pattern="/pages**" access="permitAll" />
-        <!--<security:intercept-url pattern="/pages/cadastros" access="hasRole('ROLE_ADMIN')" />-->
-        <!--<security:intercept-url pattern="/**" access="isAuthenticated()" />-->
+        <security:intercept-url pattern="/pages/**" access="isAuthenticated()" />
 	</security:http>
 	
 	<!-- Classe responsável pela autenticação do usuário -->	

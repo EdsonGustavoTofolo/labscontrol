@@ -28,10 +28,12 @@ public class Reserva implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "ambienteId", referencedColumnName = "id")
     private Ambiente ambiente;
+    @Temporal(TemporalType.TIME)
     @Column(nullable = false)
-    private LocalTime horaInicio;
+    private Date horaInicio;
+    @Temporal(TemporalType.TIME)
     @Column(nullable = false)
-    private LocalTime horaFim;
+    private Date horaFim;
     @OneToMany(mappedBy = "reserva", targetEntity = ReservaItem.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ReservaItem> reservasItens;
     @Column(length = 255)
@@ -40,7 +42,7 @@ public class Reserva implements Serializable {
     public Reserva() {
     }
 
-    public Reserva(Usuario usuario, String outroUsuario, Date data, Boolean confirmada, Ambiente ambiente, LocalTime horaInicio, LocalTime horaFim, List<ReservaItem> reservasItens, String observacao) {
+    public Reserva(Usuario usuario, String outroUsuario, Date data, Boolean confirmada, Ambiente ambiente, Date horaInicio, Date horaFim, List<ReservaItem> reservasItens, String observacao) {
         this.usuario = usuario;
         this.outroUsuario = outroUsuario;
         this.data = data;
@@ -100,19 +102,19 @@ public class Reserva implements Serializable {
         this.ambiente = ambiente;
     }
 
-    public LocalTime getHoraInicio() {
+    public Date getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraInicio(LocalTime horaInicio) {
+    public void setHoraInicio(Date horaInicio) {
         this.horaInicio = horaInicio;
     }
 
-    public LocalTime getHoraFim() {
+    public Date getHoraFim() {
         return horaFim;
     }
 
-    public void setHoraFim(LocalTime horaFim) {
+    public void setHoraFim(Date horaFim) {
         this.horaFim = horaFim;
     }
 

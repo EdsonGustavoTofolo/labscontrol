@@ -43,15 +43,17 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
 
     @Override
     protected void inicializar() {
-        this.usuarioLogado = new Usuario();
-        SecurityContext context = SecurityContextHolder.getContext();
-        if (context instanceof SecurityContext) {
-            Authentication authentication = context.getAuthentication();
-            if (authentication instanceof Authentication) {
-                try {
-                    this.usuarioLogado = (Usuario) authentication.getPrincipal();
-                } catch (Exception e) {
-                    this.usuarioLogado.setUsername("Desconhecido");
+        if (this.usuarioLogado == null) {
+            this.usuarioLogado = new Usuario();
+            SecurityContext context = SecurityContextHolder.getContext();
+            if (context instanceof SecurityContext) {
+                Authentication authentication = context.getAuthentication();
+                if (authentication instanceof Authentication) {
+                    try {
+                        this.usuarioLogado = (Usuario) authentication.getPrincipal();
+                    } catch (Exception e) {
+                        this.usuarioLogado.setUsername("Desconhecido");
+                    }
                 }
             }
         }

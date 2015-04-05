@@ -12,13 +12,54 @@
         <h1>Calendário com as reservas</h1>
 
         <div class="reservasSchedule">
-            <p:schedule id="reservas" widgetVar="reservas" timeZone="GMT+2">
-                <p:ajax event="dateSelect" listener="#{reservaController.onDateSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
-                <p:ajax event="eventSelect" listener="#{reservaController.onEventSelect}" update="eventDetails" oncomplete="PF('eventDialog').show();" />
+            <p:schedule id="reservas" widgetVar="widgetReservasSchedule" value="#{reservaController.scheduleModel}" timeZone="GMT-3"
+                        timeFormat="HH:mm" draggable="false">
+                <p:ajax event="dateSelect" listener="#{reservaController.onDateSelect}" update=":formEvent:eventDetails" oncomplete="PF('eventDialog').show();" />
+                <p:ajax event="eventSelect" listener="#{reservaController.onEventSelect}" update=":formEvent:eventDetails" oncomplete="PF('eventDialog').show();" />
                 <p:ajax event="eventMove" listener="#{reservaController.onEventMove}" update="messages" />
                 <p:ajax event="eventResize" listener="#{reservaController.onEventResize}" update="messages" />
             </p:schedule>
         </div>
     </ui:define>
+
+    <ui:define name="foraDoForm">
+        <h:form id="formEvent" prependId="false">
+            <p:dialog id="eventDialogReserva" widgetVar="eventDialog" header="Reserva" showEffect="clip" hideEffect="clip" modal="true" resizable="false">
+                <p:panelGrid id="eventDetails" columns="3">
+                    <h:outputLabel for="otherUsuario" value="#{form.usuario}" />
+                    <p:inputText id="otherUsuario" value="#{reservaController.entity.outroUsuario}"/>
+                    <p:message for="otherUsuario"/>
+
+                    <h:outputLabel for="horaInicio" value="#{form.horaInicio}" />
+                    <p:calendar id="horaInicio" value="#{reservaController.entity.horaInicio}" pattern="HH:mm" timeOnly="true"  required="true" requiredMessage="#{msg.campoObrigatorio}"/>
+                    <p:message for="horaInicio"/>
+
+                    <h:outputLabel for="horaFim" value="#{form.horaFim}" />
+                    <p:calendar id="horaFim" value="#{reservaController.entity.horaFim}" pattern="HH:mm" timeOnly="true" required="true" requiredMessage="#{msg.campoObrigatorio}"/>
+                    <p:message for="horaFim"/>
+
+                    <h:outputLabel value="#{form.ambiente}" for="ambiente"/>
+                    <p:autoComplete value="#{reservaController.entity.ambiente}"
+                                    completeMethod="#{reservaController.completeAmbiente}"
+                                    converter="#{ambienteConverter}"
+                                    label="#{form.ambiente}" id="ambiente" var="ambiente"
+                                    itemLabel="#{ambiente.identificacao}" itemValue="#{ambiente}"
+                                    dropdown="true" forceSelection="true" size="60" required="true" requiredMessage="#{msg.campoObrigatorio}"/>
+                    <p:message for="ambiente"/>
+
+                    <h:outputLabel value="#{form.obs}" for="obs"/>
+                    <p:inputText id="obs" value="#{reservaController.entity.observacao}" />
+                    <p:message for="obs"/>
+
+                    <f:facet name="footer">
+                        <p:commandButton value="#{form.salvar}" action="#{reservaController.addEvent}" ajax="true" validateClient="true"
+                                         update=":form" process="@form"
+                                         oncomplete="updateScheduleAndCloseDialogOnComplete(xhr, status, args, PF('widgetReservasSchedule'), 'formEvent:eventDialogReserva', PF('eventDialog'))" />
+                    </f:facet>
+                </p:panelGrid>
+            </p:dialog>
+        </h:form>
+    </ui:define>
+
 </ui:decorate>
 </html>

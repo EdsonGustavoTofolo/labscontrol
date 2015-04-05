@@ -33,14 +33,13 @@
         </p:panelGrid>
     </ui:define>
 
-    <ui:define name="foraDoForm">
-        <labs:confirmExclusaoSimples update=":form" action="#{modeloMaterialController.deleteFromForm}"/>
-    </ui:define>
-
     <ui:define name="rodape">
         <labs:commandButtonForm update="@form" controller="#{modeloMaterialController}"/>
         <div style="clear: both"></div>
     </ui:define>
 
+    <ui:define name="foraDoForm">
+        <labs:confirmExclusaoSimples update=":form" action="#{modeloMaterialController.deleteFromForm}"/>
+    </ui:define>
 </ui:decorate>
 </html>
