@@ -38,6 +38,9 @@
             <p:column headerText="#{form.nomeDoContato}" sortBy="#{objeto.nomeDoContato}" filterBy="#{objeto.nomeDoContato}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.nomeDoContato}"/>
             </p:column>
+            <p:column headerText="#{form.cnpj}" sortBy="#{objeto.cnpj}" filterBy="#{objeto.cnpj}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.cnpj}"/>
+            </p:column>
             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
                 <labs:commandButtonSearch controller="#{fornecedorController}"/>
             </p:column>

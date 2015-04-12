@@ -14,16 +14,16 @@
         <security:intercept-url pattern="/login.xhtml" access="permitAll" />
         <security:intercept-url pattern="/pages/**" access="isAuthenticated()" />
 	</security:http>
-	
+	<!-- ROLES - ADMIN, USER, ATENDENTE -->
 	<!-- Classe responsável pela autenticação do usuário -->	
 	<beans:bean id="userDetailsService" class="br.edu.utfpr.labscontrol.model.service.impl.UsuarioServiceImpl"/>
 
-<beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
-        <!--user-service-ref="userDetailsService"-->
-<security:authentication-manager>
-<security:authentication-provider user-service-ref="userDetailsService">
-    <security:password-encoder ref="encoder" />
-</security:authentication-provider>
-</security:authentication-manager>
-        </beans:beans>
+            <!--user-service-ref="userDetailsService"-->
+    <security:authentication-manager>
+        <security:authentication-provider user-service-ref="userDetailsService">
+            <security:password-encoder ref="encoder" />
+        </security:authentication-provider>
+    </security:authentication-manager>
+</beans:beans>

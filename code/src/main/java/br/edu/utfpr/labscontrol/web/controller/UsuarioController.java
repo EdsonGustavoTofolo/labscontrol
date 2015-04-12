@@ -7,6 +7,7 @@ import br.edu.utfpr.labscontrol.model.service.PermissaoService;
 import br.edu.utfpr.labscontrol.model.service.UsuarioService;
 import br.edu.utfpr.labscontrol.model.service.impl.PermissaoServiceImpl;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import br.edu.utfpr.labscontrol.web.validator.LoginValidator;
 import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,6 +18,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.application.FacesMessage;
+import javax.print.attribute.standard.Severity;
 import java.security.Security;
 
 /**
@@ -29,7 +32,6 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     @Autowired
     @Qualifier("usuarioServiceImpl")
     private UsuarioService usuarioService;
-
     @Autowired
     private PermissaoService permissaoService;
 
@@ -93,6 +95,9 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     @Override
     protected Usuario preProcessorSave(Usuario entity) {
         try {
+            if (isAdmin == null) {
+                isAdmin = Boolean.FALSE;
+            }
             this.entity.addPermissao(getPermissao());
             this.entity.setPassword(this.entity.getEncodePassword(this.entity.getPassword()));
         } catch (Exception e) {
@@ -131,4 +136,5 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     public void setIsAdmin(Boolean isAdmin) {
         this.isAdmin = isAdmin;
     }
+
 }

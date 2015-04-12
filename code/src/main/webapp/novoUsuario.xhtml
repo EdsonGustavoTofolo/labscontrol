@@ -22,24 +22,26 @@
         <h:form id="form">
             <p:panelGrid columns="3">
                 <h:outputLabel value="#{form.nome}"/>
-                <p:inputText id="nome" value="#{usuarioController.entity.nome}" required="true" requiredMessage="#{form.campoObrigatorio}"/>
+                <p:inputText id="nome" value="#{usuarioController.entity.nome}" required="true" requiredMessage="Campo Obrigatório!"/>
                 <p:message for="nome"/>
 
                 <h:outputLabel value="#{form.email}"/>
-                <p:inputText id="email" value="#{usuarioController.entity.email}" required="true" requiredMessage="#{form.campoObrigatorio}"/>
+                <p:inputText id="email" value="#{usuarioController.entity.email}" required="true" requiredMessage="Campo Obrigatório!" validator="emailValidator" />
                 <p:message for="email"/>
 
                 <h:outputLabel value="#{form.login}"/>
-                <p:inputText id="username" value="#{usuarioController.entity.username}" required="true" requiredMessage="#{form.campoObrigatorio}"/>
+                <p:inputText id="username" value="#{usuarioController.entity.username}" required="true" requiredMessage="Campo Obrigatório!">
+                    <f:validator binding="#{loginValidator}"/>
+                </p:inputText>
                 <p:message for="username"/>
 
                 <h:outputLabel value="#{form.password}"/>
-                <p:password id="password" value="#{usuarioController.entity.password}" match="passConf" required="true"  requiredMessage="#{form.campoObrigatorio}"
+                <p:password id="password" value="#{usuarioController.entity.password}" match="passConf" required="true"  requiredMessage="Campo Obrigatório!"
                             validatorMessage="#{form.senhasNaoCombinam}"/>
                 <p:message for="password"/>
 
                 <h:outputLabel value="#{form.passwordConfirm}"/>
-                <p:password id="passConf" value="#{usuarioController.entity.password}" required="true" requiredMessage="#{form.campoObrigatorio}"/>
+                <p:password id="passConf" value="#{usuarioController.entity.password}" required="true" requiredMessage="Campo Obrigatório!"/>
                 <p:message for="passConf"/>
 
                 <f:facet name="footer">
@@ -47,6 +49,8 @@
                         <p:outputPanel style="width: 100%; text-align: center" layout="block">
                             <p:commandButton ajax="true" validateClient="true" update=":form" process="@all" action="#{usuarioController.save}" value="#{form.salvar}"
                                              oncomplete="redirectToLoginAfterSaveUser(xhr, status, args)"/>
+
+                            <p:commandButton value="#{form.voltar}" action="/labscontrol/" immediate="true" oncomplete="window.location='/labscontrol/'"/>
 
                             <p:commandButton ajax="true" value="#{form.criarUsuarioAdm}" rendered="#{!usuarioController.isUserAdmExist()}"
                                              oncomplete="window.location='/labscontrol/'">

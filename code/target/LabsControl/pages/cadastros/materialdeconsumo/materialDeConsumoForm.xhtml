@@ -42,7 +42,7 @@
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </p:inputText>
 
-                <p:inputText id="qtd" value="#{materialDeConsumoController.quantidade}" size="12"  maxlength="12" title="adsa">
+                <p:inputText id="qtd" value="#{materialDeConsumoController.quantidade}" size="12"  maxlength="12">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                     <p:ajax update="form:qtdAtual" event="change" listener="#{materialDeConsumoController.handleKeyEvent}" global="false"/>
                 </p:inputText>

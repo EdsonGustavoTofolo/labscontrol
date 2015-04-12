@@ -32,6 +32,8 @@
             <p:inputText value="#{fornecedorController.entity.nomeFantasia}" size="60" maxlength="60" required="true" requiredMessage="#{msg.nomeFantasiaRequired}"/>
             <h:outputLabel value="#{form.nomeDoContato}"/>
             <p:inputText value="#{fornecedorController.entity.nomeDoContato}" size="60" maxlength="60"/>
+            <h:outputLabel value="#{form.cnpj}"/>
+            <p:inputMask value="#{fornecedorController.entity.cnpj}" mask="99.999.999\/9999-99"/>
 
             <h:outputLabel value="#{form.endereco}" styleClass="columnBold"/><h:outputText value=""/>
             <h:outputLabel value="#{form.cep}"/>
@@ -118,7 +120,7 @@
                         <h:outputText value=""/>
                         <f:facet name="footer">
                             <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
-                                             ajax="true" validateClient="true" update="grid, :form" process="@form"
+                                             ajax="true" validateClient="true" update="grid" process="@form"
                                              oncomplete="closeDialogOnComplete(xhr, status, args, PF('viewForm'), 'dialog')"/>
                         </f:facet>
                     </p:panelGrid>

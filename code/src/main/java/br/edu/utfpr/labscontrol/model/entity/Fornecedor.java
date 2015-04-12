@@ -24,6 +24,8 @@ public class Fornecedor implements Serializable {
     private String nomeFantasia;
     @Column(name = "nomeDoContato", length = 60)
     private String nomeDoContato;
+    @Column(name = "cnpj", length = 14)
+    private String cnpj;
     @Column(name = "logradouro", length = 45)
     private String logradouro;
     @Column(name = "numero", length = 20)
@@ -84,6 +86,14 @@ public class Fornecedor implements Serializable {
 
     public void setNomeDoContato(String nomeDoContato) {
         this.nomeDoContato = nomeDoContato;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     public String getCep() {

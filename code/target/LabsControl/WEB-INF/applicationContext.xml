@@ -8,7 +8,7 @@
 
         <context:annotation-config/>
         <context:component-scan base-package="br.edu.utfpr.labscontrol.*"/>
-        
+
         <!-- Utilizado para ler arquivos .properties por anotação do spring -->
         <bean class="com.urbanmania.spring.beans.factory.config.annotations.PropertyAnnotationAndPlaceholderConfigurer">
             <property name="locations">

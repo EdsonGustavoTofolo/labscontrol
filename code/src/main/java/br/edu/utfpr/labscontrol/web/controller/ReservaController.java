@@ -1,12 +1,8 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
-import br.edu.utfpr.labscontrol.model.entity.Ambiente;
-import br.edu.utfpr.labscontrol.model.entity.Reserva;
-import br.edu.utfpr.labscontrol.model.entity.Usuario;
+import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
-import br.edu.utfpr.labscontrol.model.service.AmbienteService;
-import br.edu.utfpr.labscontrol.model.service.ReservaItemService;
-import br.edu.utfpr.labscontrol.model.service.ReservaService;
+import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.exceptions.IllegalHorarioException;
 import br.edu.utfpr.labscontrol.web.exceptions.ReservaException;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
@@ -26,6 +22,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -49,14 +46,24 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     private ReservaItemService reservaItemService;
     @Autowired
     private AmbienteService ambienteService;
+    @Autowired
+    private EquipamentoService equipamentoService;
+    @Autowired
+    private MaterialDeConsumoService materialDeConsumoService;
 
     private ScheduleModel scheduleModel;
     private ScheduleEvent scheduleEvent = new DefaultScheduleEvent();
 
     private final Calendar calendar = Calendar.getInstance();
 
+    private String tipo;
+    private MaterialDeConsumo materialDeConsumo;
+    private Equipamento equipamento;
+    private BigDecimal quantidade;
+
     @Override
     protected void inicializar() {
+        this.quantidade = BigDecimal.ZERO;
         populaSchedule();
     }
 
@@ -87,6 +94,14 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     @Override
     protected String getUrlFormPage() {
         return "/pages/reserva/reservaForm.xhtml?faces-redirect=true";
+    }
+
+    public List<Equipamento> completeEquipamento(String nome) {
+        return equipamentoService.findByNomeContaining(nome);
+    }
+
+    public List<MaterialDeConsumo> completeMaterialDeConsumo(String nome) {
+        return materialDeConsumoService.findByNomeContaining(nome);
     }
 
     public List<Ambiente> completeAmbiente(String identificacao) {
@@ -168,6 +183,14 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 //        addMessage(message);
     }
 
+    public void addItem() {
+
+    }
+
+    public void excluirItem(Integer id) {
+
+    }
+
     public ScheduleEvent getScheduleEvent() {
         return scheduleEvent;
     }
@@ -198,4 +221,35 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         return new SimpleDateFormat("HH:mm").format(date);
     }
 
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public MaterialDeConsumo getMaterialDeConsumo() {
+        return materialDeConsumo;
+    }
+
+    public void setMaterialDeConsumo(MaterialDeConsumo materialDeConsumo) {
+        this.materialDeConsumo = materialDeConsumo;
+    }
+
+    public Equipamento getEquipamento() {
+        return equipamento;
+    }
+
+    public void setEquipamento(Equipamento equipamento) {
+        this.equipamento = equipamento;
+    }
+
+    public BigDecimal getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(BigDecimal quantidade) {
+        this.quantidade = quantidade;
+    }
 }
