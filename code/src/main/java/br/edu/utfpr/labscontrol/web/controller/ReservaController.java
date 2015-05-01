@@ -22,12 +22,14 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -50,6 +52,8 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     private EquipamentoService equipamentoService;
     @Autowired
     private MaterialDeConsumoService materialDeConsumoService;
+    @Autowired
+    private PermissaoService permissaoService;
 
     private ScheduleModel scheduleModel;
     private ScheduleEvent scheduleEvent = new DefaultScheduleEvent();
@@ -60,6 +64,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     private MaterialDeConsumo materialDeConsumo;
     private Equipamento equipamento;
     private BigDecimal quantidade;
+    private List<ReservaItem> itens;
 
     @Override
     protected void inicializar() {
@@ -126,8 +131,12 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void onDateSelect(SelectEvent selectEvent) {
         reset();
+        this.itens = new ArrayList<>();
         this.entity.setData((Date) selectEvent.getObject());
         this.entity.setUsuario(getUsuarioLogado());
+        if (getUsuarioLogado().getPermissoes().contains(this.permissaoService.findByPermissao("ROLE_USER"))) {
+            this.entity.setOutroUsuario(getUsuarioLogado().getUsername());
+        }
         scheduleEvent = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject(), this.entity);
     }
 
@@ -135,6 +144,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         scheduleEvent = (ScheduleEvent) selectEvent.getObject();
         try {
             this.entity = (Reserva) scheduleEvent.getData();
+            this.itens = this.entity.getReservasItens();
         } catch (Exception e) {
             reset();
         }
@@ -144,6 +154,8 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         try {
             validaHorario();
             validaDisponibilidadeDaSalaNoHorario();
+            //TODO se usuario nào for USER deve-se informaá-lo
+            //TODO validar se os itens estão disponíveis
             this.entity.setConfirmada(Boolean.FALSE);
             if (scheduleEvent.getId() == null) {
                 scheduleModel.addEvent(scheduleEvent);
@@ -183,8 +195,22 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 //        addMessage(message);
     }
 
-    public void addItem() {
+    @Override
+    protected Reserva preProcessorSave(Reserva entity) {
+        entity.setReservasItens(this.itens);
+        return entity;
+    }
 
+    public void addItem() {
+        ReservaItem reservaItem = new ReservaItem();
+        reservaItem.setReserva(this.entity);
+        reservaItem.setQuantidade(this.quantidade);
+        if (this.tipo.equals("E")) {
+            reservaItem.setEquipamento(this.equipamento);
+        } else {
+            reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
+        }
+        itens.add(reservaItem);
     }
 
     public void excluirItem(Integer id) {
@@ -251,5 +277,13 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public List<ReservaItem> getItens() {
+        return itens;
+    }
+
+    public void setItens(List<ReservaItem> itens) {
+        this.itens = itens;
     }
 }

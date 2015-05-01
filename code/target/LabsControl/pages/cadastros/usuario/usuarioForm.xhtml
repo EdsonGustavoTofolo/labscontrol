@@ -32,14 +32,14 @@
             <p:inputText value="#{usuarioController.entity.username}" size="60" maxlength="80" required="true" requiredMessage="#{msg.loginRequired}"/>
 
             <h:outputLabel value="#{form.email}" />
-            <p:inputText value="#{usuarioController.entity.email}" size="100" maxlength="255"/>
+            <p:inputText value="#{usuarioController.entity.email}" size="60" maxlength="255"/>
 
             <h:outputLabel value="#{form.password}"/>
             <p:password id="password" value="#{usuarioController.entity.password}" match="passConf" required="true"  requiredMessage="#{form.passwordObrigatorio}"
-                        validatorMessage="#{form.senhasNaoCombinam}"/>
+                        validatorMessage="#{form.senhasNaoCombinam}" size="60"/>
 
             <h:outputLabel value="#{form.passwordConfirm}"/>
-            <p:password id="passConf" value="#{usuarioController.entity.password}"/>
+            <p:password id="passConf" value="#{usuarioController.entity.password}" size="60"/>
 
             <h:outputLabel value="#{form.isAdm}"/>
             <p:selectBooleanCheckbox value="#{usuarioController.isAdmin}" />

@@ -26,11 +26,11 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
             <h:outputLabel value="#{form.identificacao}" />
-            <p:inputText value="#{ambienteController.entity.identificacao}" size="20" maxlength="20" required="true" requiredMessage="#{msg.identificacaoRequired}"/>
+            <p:inputText value="#{ambienteController.entity.identificacao}" size="60" maxlength="20" required="true" requiredMessage="#{msg.identificacaoRequired}"/>
             <h:outputLabel value="#{form.descricao}" />
             <p:inputText value="#{ambienteController.entity.descricao}" size="60" maxlength="100" styleClass="validate[required]" />
             <h:outputLabel value="#{form.obs}" />
-            <p:inputText value="#{ambienteController.entity.observacao}" size="100" maxlength="255"/>
+            <p:inputText value="#{ambienteController.entity.observacao}" size="60" maxlength="255"/>
         </p:panelGrid>
     </ui:define>
 

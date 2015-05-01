@@ -160,8 +160,8 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
         return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
     }
 
-    public String lancarEntrada(Equipamento equipamento) {
-        JsfUtil.setAttributeSession("materialDeConsumo", equipamento);
+    public String lancarEntrada(MaterialDeConsumo materialDeConsumo) {
+        JsfUtil.setAttributeSession("materialDeConsumo", materialDeConsumo);
         JsfUtil.setAttributeSession("tipo", "M");
         return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
     }

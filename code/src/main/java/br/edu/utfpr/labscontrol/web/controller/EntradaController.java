@@ -51,10 +51,12 @@ public class EntradaController extends CrudController<Entrada, Integer> {
         o = JsfUtil.getAttributeSession("equipamento");
         if (o != null) {
             this.entity.setEquipamento((Equipamento)o);
+            this.entity.setFornecedor(((Equipamento)o).getFornecedor());
         }
         o = JsfUtil.getAttributeSession("materialDeConsumo");
         if (o != null) {
             this.entity.setMaterialDeConsumo((MaterialDeConsumo)o);
+            this.entity.setFornecedor(((MaterialDeConsumo)o).getFornecedor());
         }
         JsfUtil.removeAttributeSession("tipo");
         JsfUtil.removeAttributeSession("equipamento");

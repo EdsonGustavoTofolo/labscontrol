@@ -46,7 +46,7 @@
             <p:calendar value="#{equipamentoController.entity.dataDeAquisicao}" pattern="dd/MM/yyyy" mask="true"
                         locale="pt_BR" navigator="true" showButtonPanel="true" size="10" showOn="button"/>
             <h:outputLabel value="#{form.obs}"/>
-            <p:inputText value="#{equipamentoController.entity.observacao}" size="100" maxlength="255"/>
+            <p:inputText value="#{equipamentoController.entity.observacao}" size="60" maxlength="255"/>
 
             <h:outputLabel value="#{form.categoria}*" for="categoria"/>
             <p:autoComplete value="#{equipamentoController.entity.categoria}"

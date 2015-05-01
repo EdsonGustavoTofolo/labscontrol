@@ -55,7 +55,7 @@
                 <f:converter converterId="enumConverter"/>
             </p:selectOneMenu>
             <h:outputLabel value="#{form.obs}"/>
-            <p:inputText value="#{fornecedorController.entity.observacao}" size="100" maxlength="255"/>
+            <p:inputText value="#{fornecedorController.entity.observacao}" size="60" maxlength="255"/>
         </p:panelGrid>
     </ui:define>
 
@@ -120,7 +120,7 @@
                         <h:outputText value=""/>
                         <f:facet name="footer">
                             <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
-                                             ajax="true" validateClient="true" update="grid" process="@form"
+                                             ajax="true" validateClient="true" update=":form, grid" process="@form"
                                              oncomplete="closeDialogOnComplete(xhr, status, args, PF('viewForm'), 'dialog')"/>
                         </f:facet>
                     </p:panelGrid>

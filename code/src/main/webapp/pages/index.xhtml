@@ -24,12 +24,12 @@
 
     <ui:define name="foraDoForm">
         <h:form id="formEvent" prependId="false">
-            <p:dialog id="eventDialogReserva" widgetVar="eventDialog" header="Reserva" showEffect="clip" hideEffect="clip" modal="true" resizable="false">
+            <p:dialog id="eventDialogReserva" widgetVar="eventDialog" header="Reserva" showEffect="clip" hideEffect="clip" modal="true" resizable="false" width="45%">
                 <p:panelGrid columns="1">
-                    <p:fieldset legend="Dados" toggleable="true">
+                    <p:fieldset legend="#{form.dados}" toggleable="true">
                         <p:panelGrid id="eventDetails" columns="3">
                             <h:outputLabel for="otherUsuario" value="#{form.usuario}" />
-                            <p:inputText id="otherUsuario" value="#{reservaController.entity.outroUsuario}"/>
+                            <p:inputText id="otherUsuario" value="#{reservaController.entity.outroUsuario}" required="true" requiredMessage="#{msg.campoObrigatorio}"/>
                             <p:message for="otherUsuario"/>
 
                             <h:outputLabel for="horaInicio" value="#{form.horaInicio}" />
@@ -54,13 +54,13 @@
                             <p:message for="obs"/>
                         </p:panelGrid>
                     </p:fieldset>
-                    <p:fieldset legend="Itens" toggleable="true">
-                        <p:panelGrid columns="2">
+                    <p:fieldset legend="#{form.itens}" toggleable="true">
+                        <p:panelGrid columns="2" id="gridItens">
                             <h:outputLabel value="#{form.tipo}"/>
                             <p:selectOneRadio id="tipo" value="#{reservaController.tipo}" required="true" requiredMessage="#{msg.tipoMaterialRequired}">
                                 <f:selectItem itemLabel="#{form.materialDeConsumo}" itemValue="M" />
                                 <f:selectItem itemLabel="#{form.equipamento}" itemValue="E" />
-                                <p:ajax event="change" update="materialDeConsumo, equipamento"/>
+                                <p:ajax event="change" update=":formEvent:materialDeConsumo, :formEvent:equipamento" global="false"/>
                             </p:selectOneRadio>
 
                             <h:outputLabel value="#{form.materialDeConsumo}" for="materialDeConsumo"/>
@@ -82,18 +82,18 @@
                                             disabled="#{!reservaController.tipo.equals('E')}"/>
 
                             <h:outputLabel value="#{form.quantidade}"/>
-                            <p:inputText value="#{reservaController.quantidade}">
+                            <p:inputText value="#{reservaController.quantidade}" id="quantidade">
                                 <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                             </p:inputText>
 
                             <f:facet name="footer">
-                                <p:commandButton value="#{form.adicionar}" action="#{reservaController.addItem}" ajax="true" validateClient="true"
-                                                 update=":form" process="@form"/>
+                                <p:commandButton value="#{form.adicionar}" action="#{reservaController.addItem}" ajax="true"
+                                                 update="gridItens, tableItens" process="@this, tipo, materialDeConsumo, equipamento, quantidade"/>
                             </f:facet>
                         </p:panelGrid>
 
-                        <p:dataTable value="#{reservaController.entity.reservasItens}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                                     paginator="true" rows="10" paginatorPosition="bottom">
+                        <p:dataTable value="#{reservaController.itens}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
+                                     paginator="true" rows="3" paginatorPosition="bottom" id="tableItens">
                             <p:column headerText="#{form.equipamento}" sortBy="#{objeto.equipamento}" filterBy="#{objeto.equipamento}" filterMatchMode="contains">
                                 <h:outputText value="#{objeto.equipamento}"/>
                             </p:column>
