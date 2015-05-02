@@ -177,7 +177,7 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
         }
     }
 
-    protected void preProcessorDelete() {
+    protected void preProcessorDelete() throws Exception {
 
     }
 
@@ -185,18 +185,15 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
      * Método responsavel por invocar o servico responsavel por deletar a entidade do banco de dados.
      * Em caso de sucesso o método de pesquisa é invocado e uma mensagem de sucesso é adicionada ao contexto.
      * Caso ocorrer um erro uma mensagem contento o erro lancado é adicionado ao contexto.
-     * @return true - se o registro foi deletado com sucesso; false - se ocorreu erro ao deletar
      */
-    public boolean delete() {
+    public void delete() {
         try {
             preProcessorDelete();
             getService().delete(getId());
             find();
             addMessage("Registro removido com sucesso!", FacesMessage.SEVERITY_INFO);
-            return true;
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
-            return false;
         }
     }
 
@@ -205,8 +202,13 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
      * Caso não ocorram erros na deleção do mesmo é feito um reset, caso contrário mantém os dados em tela
      */
     public void deleteFromForm() {
-        if ( delete() ) {
+        try {
+            preProcessorDelete();
+            getService().delete(getId());
             reset();
+            addMessage("Registro removido com sucesso!", FacesMessage.SEVERITY_INFO);
+        } catch (Exception e) {
+            addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
         }
     }
 

@@ -64,7 +64,7 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     }
 
     @Override
-    protected void preProcessorDelete() {
+    protected void preProcessorDelete()throws Exception {
         removeImageFile();
     }
 

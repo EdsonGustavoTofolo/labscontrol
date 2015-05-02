@@ -16,7 +16,7 @@ public class Ambiente implements Serializable {
     @Column(name = "id")
     @GeneratedValue
     private Integer id;
-    @Column(name = "identificacao", length = 20, nullable = false)
+    @Column(name = "identificacao", length = 20, nullable = false, unique = true)
     private String identificacao;
     @Column(name = "descricao", length = 100)
     private String descricao;

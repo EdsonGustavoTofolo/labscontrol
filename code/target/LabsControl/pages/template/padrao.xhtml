@@ -45,7 +45,7 @@
                 </a>
             </div>
             <div id="infoLogin">
-                Você está logado como <h:outputText value="#{usuarioController.usuarioLogado.nome} " />
+                Você está logado como <h:outputText value="#{usuarioController.getUsuarioLogadoNome()} " />
                 <h:outputLink value="#{request.contextPath}/j_spring_security_logout">
                     <h:outputLabel value="#{form.sair}"/>
                 </h:outputLink>
@@ -139,7 +139,6 @@
                     </p:submenu>
 
                     <p:submenu label="#{form.usuario}" icon="ui-icon-wrench">
-                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/usuario/usuarioForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/usuario/usuarioSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
                 </p:submenu>

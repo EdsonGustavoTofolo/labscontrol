@@ -10,10 +10,6 @@
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="botoesParaForm">
         <p:panelGrid columns="2">
-            <p:commandButton process="@this" value="#{form.novo}" action="#{usuarioController.reset}" update="@form" immediate="true"
-                             icon="ui-icon-plus"
-                             style="float: left"/>
-
             <p:commandButton value="#{form.pesquisa}" action="/pages/cadastros/usuario/usuarioSearch.xhtml?faces-redirect=true"
                              immediate="true" ajax="false" style="float: left" icon="ui-icon ui-icon-search"/>
         </p:panelGrid>
@@ -26,35 +22,40 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
             <h:outputLabel value="#{form.nome}" />
-            <p:inputText value="#{usuarioController.entity.nome}" size="60" maxlength="80" required="true" requiredMessage="#{msg.nomeRequired}"/>
+            <p:inputText value="#{usuarioController.entity.nome}" size="60" maxlength="80" required="true" requiredMessage="#{msg.nomeRequired}"
+                         disabled="#{usuarioController.isAdmin}"/>
 
             <h:outputLabel value="#{form.login}" />
-            <p:inputText value="#{usuarioController.entity.username}" size="60" maxlength="80" required="true" requiredMessage="#{msg.loginRequired}"/>
+            <p:inputText value="#{usuarioController.entity.username}" size="60" maxlength="80" required="true" requiredMessage="#{msg.loginRequired}"
+                         disabled="true"/>
 
             <h:outputLabel value="#{form.email}" />
             <p:inputText value="#{usuarioController.entity.email}" size="60" maxlength="255"/>
 
-            <h:outputLabel value="#{form.password}"/>
-            <p:password id="password" value="#{usuarioController.entity.password}" match="passConf" required="true"  requiredMessage="#{form.passwordObrigatorio}"
-                        validatorMessage="#{form.senhasNaoCombinam}" size="60"/>
-
-            <h:outputLabel value="#{form.passwordConfirm}"/>
-            <p:password id="passConf" value="#{usuarioController.entity.password}" size="60"/>
-
-            <h:outputLabel value="#{form.isAdm}"/>
-            <p:selectBooleanCheckbox value="#{usuarioController.isAdmin}" />
+            <h:outputLabel value="#{form.papel}"/>
+            <p:selectOneMenu value="#{usuarioController.rolesEnum}" label="#{form.papel}" required="true" requiredMessage="#{msg.campoObrigatorio}"
+                             disabled="#{usuarioController.isAdmin}">
+                <f:selectItem itemLabel="Selecione"/>
+                <f:selectItems value="#{usuarioController.rolesItem}"/>
+                <f:converter converterId="enumConverter"/>
+            </p:selectOneMenu>
         </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="rodape">
+        <p:commandButton value="#{form.salvar}" action="#{usuarioController.save}" immediate="false" update=":form" process="@form"
+                         icon="ui-icon-disk" name="btnSalvar"/>
+
+        <p:commandButton process="@this" value="#{form.excluir}" action="#{usuarioController.setId(usuarioController.entity.id)}"
+                         update="@none" oncomplete="PF('confirm').show()" title="Excluir" rendered="#{!usuarioController.isAdmin}"
+                         icon="ui-icon-trash"/>
+        <div style="clear: both"></div>
     </ui:define>
 
     <ui:define name="foraDoForm">
         <labs:confirmExclusaoSimples update=":form" action="#{usuarioController.deleteFromForm}"/>
     </ui:define>
 
-    <ui:define name="rodape">
-        <labs:commandButtonForm update="@form" controller="#{usuarioController}"/>
-
-        <div style="clear: both"></div>
-    </ui:define>
 </ui:decorate>
 
 </html>

@@ -58,7 +58,7 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
     }
 
     @Override
-    protected void preProcessorDelete() {
+    protected void preProcessorDelete() throws Exception {
         removeImageFile();
     }
 
