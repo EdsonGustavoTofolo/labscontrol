@@ -29,7 +29,8 @@
                 query = url.split("?");
                 param = query[1];
                 if (param.indexOf("logou") >= 0) {
-                    alertify.success("Usuário logado com sucesso!")
+                    alertify.success("Usuário logado com sucesso!");
+                    window.location='/labscontrol/pages/index.xhtml';
                 }
             }
         });

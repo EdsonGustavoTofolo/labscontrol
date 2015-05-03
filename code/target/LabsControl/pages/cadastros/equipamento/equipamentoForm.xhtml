@@ -128,7 +128,7 @@
                 <p:column headerText="#{form.manutencaoRealizada}" filterBy="#{entityEmbedded.manutencaoRealizada}" filterMatchMode="contains">
                     <h:outputText value="#{entityEmbedded.manutencaoRealizada}"/>
                 </p:column>
-                <p:column headerText="#{form.valorDaManutencao}" styleClass="columnValor">
+                <p:column headerText="#{form.valorDaManutencao}" styleClass="columnNumeric">
                     <h:outputText value="#{entityEmbedded.valorDaManutencao}">
                         <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                     </h:outputText>

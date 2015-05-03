@@ -112,7 +112,7 @@
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
-                    <p:column headerText="#{form.valorDaManutencao}" styleClass="columnValor">
+                    <p:column headerText="#{form.valorDaManutencao}" styleClass="columnNumeric">
                         <p:cellEditor>
                             <f:facet name="output">
                                 <h:outputText value="#{historico.valorDaManutencao}">
@@ -199,7 +199,7 @@
                             <p:column headerText="#{form.manutencaoRealizada}" filterBy="#{historico.manutencaoRealizada}" filterMatchMode="contains">
                                 <h:outputText value="#{historico.manutencaoRealizada}"/>
                             </p:column>
-                            <p:column headerText="#{form.valorDaManutencao}" styleClass="columnValor">
+                            <p:column headerText="#{form.valorDaManutencao}" styleClass="columnNumeric">
                                 <h:outputText value="#{historico.valorDaManutencao}">
                                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                                 </h:outputText>

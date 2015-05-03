@@ -6,7 +6,9 @@ import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.exceptions.IllegalHorarioException;
 import br.edu.utfpr.labscontrol.web.exceptions.ReservaException;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import javafx.scene.paint.Material;
 import org.exolab.castor.types.DateTime;
+import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
@@ -64,7 +66,6 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     private MaterialDeConsumo materialDeConsumo;
     private Equipamento equipamento;
     private BigDecimal quantidade;
-    private List<ReservaItem> itens;
 
     @Override
     protected void inicializar() {
@@ -131,7 +132,6 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void onDateSelect(SelectEvent selectEvent) {
         reset();
-        this.itens = new ArrayList<>();
         this.entity.setData((Date) selectEvent.getObject());
         this.entity.setUsuario(getUsuarioLogado());
         if (getUsuarioLogado().getPermissoes().contains(this.permissaoService.findByPermissao("ROLE_USER"))) {
@@ -144,7 +144,6 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         scheduleEvent = (ScheduleEvent) selectEvent.getObject();
         try {
             this.entity = (Reserva) scheduleEvent.getData();
-            this.itens = this.entity.getReservasItens();
         } catch (Exception e) {
             reset();
         }
@@ -183,6 +182,49 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         }
     }
 
+    public void addItem() {
+        ReservaItem reservaItem = new ReservaItem();
+        reservaItem.setReserva(this.entity);
+        reservaItem.setQuantidade(this.quantidade);
+        if (this.tipo.equals("E")) {
+            reservaItem.setEquipamento(this.equipamento);
+        } else {
+            reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
+        }
+        if (this.entity.getReservasItens() == null) {
+            this.entity.setReservasItens(new ArrayList<>());
+        }
+        this.entity.getReservasItens().add(reservaItem);
+        this.quantidade = null;
+        this.equipamento = null;
+        this.materialDeConsumo = null;
+    }
+
+    public void excluirItem(ReservaItem reservaItem) {
+        this.entity.getReservasItens().remove(reservaItem);
+    }
+
+    public void onEdit(RowEditEvent event) {
+        ReservaItem reservaItem = (ReservaItem) event.getObject();
+        try {
+            reservaItemService.save(reservaItem);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String isConfirmada() {
+        if (this.entity != null && this.entity.getConfirmada() != null && this.entity.getConfirmada()) {
+            return "Confirmada";
+        } else {
+            return "Não Confirmada";
+        }
+    }
+
+    public void confirmaReserva() {
+        save();
+    }
+
     public void onEventMove(ScheduleEntryMoveEvent event) {
 //        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event moved", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
 //        addMessage(message);
@@ -193,28 +235,6 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 //        event.getScheduleEvent().getData();
 //        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Event resized", "Day delta:" + event.getDayDelta() + ", Minute delta:" + event.getMinuteDelta());
 //        addMessage(message);
-    }
-
-    @Override
-    protected Reserva preProcessorSave(Reserva entity) {
-        entity.setReservasItens(this.itens);
-        return entity;
-    }
-
-    public void addItem() {
-        ReservaItem reservaItem = new ReservaItem();
-        reservaItem.setReserva(this.entity);
-        reservaItem.setQuantidade(this.quantidade);
-        if (this.tipo.equals("E")) {
-            reservaItem.setEquipamento(this.equipamento);
-        } else {
-            reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
-        }
-        itens.add(reservaItem);
-    }
-
-    public void excluirItem(Integer id) {
-
     }
 
     public ScheduleEvent getScheduleEvent() {
@@ -277,13 +297,5 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
-    }
-
-    public List<ReservaItem> getItens() {
-        return itens;
-    }
-
-    public void setItens(List<ReservaItem> itens) {
-        this.itens = itens;
     }
 }

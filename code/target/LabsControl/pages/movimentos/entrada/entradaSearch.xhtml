@@ -32,7 +32,7 @@
                 </h:outputText>
             </p:column>
 
-            <p:column headerText="#{form.quantidade}" sortBy="#{objeto.quantidade}" styleClass="columnValor">
+            <p:column headerText="#{form.quantidade}" sortBy="#{objeto.quantidade}" styleClass="columnNumeric">
                 <h:outputText value="#{objeto.quantidade}">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </h:outputText>

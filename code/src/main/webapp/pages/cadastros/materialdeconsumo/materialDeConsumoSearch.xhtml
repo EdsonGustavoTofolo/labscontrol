@@ -32,12 +32,12 @@
             <p:column headerText="#{form.descricao}" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.descricao}"/>
             </p:column>
-            <p:column headerText="#{form.quantidadeEmEstoque}" sortBy="#{objeto.qtdAtual}" filterBy="#{objeto.qtdAtual}" styleClass="columnValor">
+            <p:column headerText="#{form.quantidadeEmEstoque}" sortBy="#{objeto.qtdAtual}" filterBy="#{objeto.qtdAtual}" styleClass="columnNumeric">
                 <h:outputText value="#{objeto.qtdAtual}">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </h:outputText>
             </p:column>
-            <p:column headerText="#{form.quantidadeMinima}" sortBy="#{objeto.qtdMin}" filterBy="#{objeto.qtdMin}" styleClass="columnValor">
+            <p:column headerText="#{form.quantidadeMinima}" sortBy="#{objeto.qtdMin}" filterBy="#{objeto.qtdMin}" styleClass="columnNumeric">
                 <h:outputText value="#{objeto.qtdMin}">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </h:outputText>
