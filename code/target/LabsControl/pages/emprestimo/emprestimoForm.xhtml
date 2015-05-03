@@ -4,8 +4,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+<ui:decorate template="../template/padrao.xhtml">
+    <ui:define name="botoesParaForm">
+        <p:panelGrid columns="2">
+            <p:commandButton process="@this" value="#{form.novo}" action="#{emprestimoController.reset}" update="@form" immediate="true"
+                             icon="ui-icon-plus" style="float: left"/>
+
+            <p:commandButton value="#{form.pesquisa}" action="/pages/emprestimo/emprestimoSearch.xhtml?faces-redirect=true"
+                             immediate="true" ajax="false" style="float: left"
+                             icon="ui-icon ui-icon-search"/>
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="titulo">
+        <h:outputText value="#{form.emprestimo}"/>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <p:panelGrid columns="2">
+            <h:outputLabel for="usuario" value="#{form.usuario}*" />
+            <p:inputText id="usuario" value="#{emprestimoController.entity.usuario}" disabled="true"/>
+
+            <h:outputLabel for="otherUsuario" value="#{form.usuario}*" />
+            <p:inputText id="otherUsuario" value="#{emprestimoController.entity.outroUsuario}" required="true" requiredMessage="#{msg.campoObrigatorio}" />
+
+            <h:outputLabel value="#{form.data}*" />
+            <p:calendar value="#{emprestimoController.entity.data}" pattern="dd/MM/yyyy" mask="true"
+                        locale="pt_BR" navigator="true" showButtonPanel="true" size="10" showOn="button"/>
+
+            <h:outputLabel value="#{form.obs}"/>
+            <p:inputText value="#{emprestimoController.entity.observacao}" size="60" maxlength="255"/>
+        </p:panelGrid>
+    </ui:define>
+
+    <ui:define name="rodape">
+        <labs:commandButtonForm update="@form" controller="#{emprestimoController}"/>
+    </ui:define>
+
+    <ui:define name="foraDoForm">
+        <labs:confirmExclusaoSimples update=":form" action="#{emprestimoController.deleteFromForm}"/>
+    </ui:define>
+</ui:decorate>
 </html>

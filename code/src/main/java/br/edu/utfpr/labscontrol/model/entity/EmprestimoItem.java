@@ -22,7 +22,7 @@ public class EmprestimoItem implements Serializable {
     private Equipamento equipamento;
     @Column(name = "quantidade", precision = 12, scale = 2)
     private BigDecimal quantidade;
-    @Column(name = "quantidade", precision = 12, scale = 2)
+    @Column(name = "quantidadeBaixada", precision = 12, scale = 2)
     private BigDecimal quantidadeBaixada;
     @Column
     private Boolean baixado;
@@ -32,7 +32,8 @@ public class EmprestimoItem implements Serializable {
     @JoinColumn(name = "emprestimoId", referencedColumnName = "id")
     private Emprestimo emprestimo;
 
-    public EmprestimoItem(MaterialDeConsumo materialDeConsumo, Equipamento equipamento, BigDecimal quantidade, BigDecimal quantidadeBaixada, Boolean baixado, Date dataDevolucao, Emprestimo emprestimo) {
+    public EmprestimoItem(MaterialDeConsumo materialDeConsumo, Equipamento equipamento, BigDecimal quantidade, BigDecimal quantidadeBaixada, Boolean baixado,
+                          Date dataDevolucao, Emprestimo emprestimo) {
         this.materialDeConsumo = materialDeConsumo;
         this.equipamento = equipamento;
         this.quantidade = quantidade;

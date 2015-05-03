@@ -19,22 +19,58 @@
 
     <ui:define name="conteudo">
         <p><p:commandButton value="#{form.novo}" action="/pages/emprestimo/emprestimoForm.xhtml?faces-redirect=true"
-                            immediate="true" ajax="false" style="float: right"
+                            immediate="true" ajax="false" style="float: left"
                             icon="ui-icon-plus"/></p>
         <p:dataTable value="#{emprestimoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
                      paginator="true" rows="10" paginatorPosition="bottom">
             <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
                 <h:outputText value="#{objeto.id}"/>
             </p:column>
-            <p:column headerText="#{form.dataEmprestimo}" sortBy="#{objeto.dataEmprestimo}">
-                <h:outputText value="#{objeto.dataEmprestimo}"/>
+            <p:column headerText="#{form.usuario}" sortBy="#{objeto.outroUsuario}" filterBy="#{objeto.outroUsuario}">
+                <h:outputText value="#{objeto.outroUsuario}"/>
             </p:column>
-            <p:column headerText="#{form.dataEmprestimo}" sortBy="#{objeto.dataEmprestimo}">
-                <h:outputText value="#{objeto.dataEmprestimo}"/>
+            <p:column headerText="#{form.data}" sortBy="#{objeto.data}">
+                <h:outputText value="#{objeto.data}"/>
             </p:column>
+            <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
+                <labs:commandButtonSearch controller="#{emprestimoController}"/>
+            </p:column>
+            <p:rowExpansion>
+                <p:dataTable value="#{objeto.emprestimoItens}" var="item" emptyMessage="#{form.nenhumRegistroEncontrado}"
+                             paginator="true" rows="10" paginatorPosition="bottom">
+                    <p:column headerText="#{form.item}">
+                        <h:outputText value="#{item.equipamento != null ? item.equipamento : item.materialDeConsumo}"/>
+                    </p:column>
+                    <p:column headerText="#{form.quantidade}">
+                        <h:outputText value="#{item.quantidade}">
+                            <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="#{form.quantidadeBaixada}">
+                        <h:outputText value="#{item.quantidadeBaixada}">
+                            <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="#{form.data}" sortBy="#{item.dataDevolucao}" styleClass="columnData">
+                        <h:outputText value="#{item.dataDevolucao}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="#{form.baixado}" sortBy="#{item.baixado}">
+                        <h:outputText value="#{item.baixado ? 'Sim' : 'Não'}"/>
+                    </p:column>
+                </p:dataTable>
+            </p:rowExpansion>
         </p:dataTable>
     </ui:define>
 
+    <ui:define name="rodape">
+        <div style="clear: both"></div>
+    </ui:define>
+
+    <ui:define name="foraDoForm">
+        <labs:confirmExclusaoSimples update=":form" action="#{emprestimoController.delete}"/>
+    </ui:define>
 </ui:decorate>
 
 </html>

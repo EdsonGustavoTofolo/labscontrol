@@ -64,6 +64,7 @@
             <p:focus/>
 
             <p:menubar autoDisplay="false" styleClass="vs-menu">
+                <p:menuitem url="/pages/index.xhtml?faces-redirect=true" icon="ui-icon-home" />
 
                 <p:submenu label="#{form.cadastros}" icon="ui-icon-document" rendered="#{usuarioController.isUsuarioLogadoAdmin()}">
 
@@ -156,8 +157,8 @@
                 </p:submenu>
 
                 <p:submenu label="#{form.emprestimo}" icon="ui-icon-wrench">
-                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/emprestimos/emprestimoForm.xhtml?faces-redirect=true" />
-                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/emprestimos/emprestimoSearch.xhtml?faces-redirect=true" />
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/emprestimo/emprestimoForm.xhtml?faces-redirect=true" />
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/emprestimo/emprestimoSearch.xhtml?faces-redirect=true" />
                 </p:submenu>
 
                 <p:submenu label="#{form.reserva}" icon="ui-icon-wrench">
