@@ -6,6 +6,7 @@ import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.exceptions.IllegalHorarioException;
 import br.edu.utfpr.labscontrol.web.exceptions.ReservaException;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import javafx.scene.paint.Material;
 import org.exolab.castor.types.DateTime;
 import org.primefaces.event.RowEditEvent;
@@ -115,28 +116,12 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         return ambienteService.findByIdentificacaoContaining(identificacao);
     }
 
-    private Usuario getUsuarioLogado() {
-        Usuario usuarioLogado = new Usuario();
-        SecurityContext context = SecurityContextHolder.getContext();
-        if (context instanceof SecurityContext) {
-            Authentication authentication = context.getAuthentication();
-            if (authentication instanceof Authentication) {
-                try {
-                    usuarioLogado = (Usuario) authentication.getPrincipal();
-                } catch (Exception e) {
-                    usuarioLogado.setUsername("Desconhecido");
-                }
-            }
-        }
-        return usuarioLogado;
-    }
-
     public void onDateSelect(SelectEvent selectEvent) {
         reset();
         this.entity.setData((Date) selectEvent.getObject());
-        this.entity.setUsuario(getUsuarioLogado());
-        if (getUsuarioLogado().getPermissoes().contains(this.permissaoService.findByPermissao("ROLE_USER"))) {
-            this.entity.setOutroUsuario(getUsuarioLogado().getUsername());
+        this.entity.setUsuario(JsfUtil.getUsuarioLogado());
+        if (JsfUtil.getUsuarioLogado().getPermissoes().contains(this.permissaoService.findByPermissao("ROLE_USER"))) {
+            this.entity.setOutroUsuario(JsfUtil.getUsuarioLogado().getUsername());
         }
         scheduleEvent = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject(), this.entity);
     }

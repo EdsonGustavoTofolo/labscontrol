@@ -8,6 +8,7 @@ import br.edu.utfpr.labscontrol.model.service.PermissaoService;
 import br.edu.utfpr.labscontrol.model.service.UsuarioService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.EnumUtil;
+import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -67,18 +68,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
 
     private void checkUsuarioLogado() {
         if (this.usuarioLogado == null) {
-            this.usuarioLogado = new Usuario();
-            SecurityContext context = SecurityContextHolder.getContext();
-            if (context instanceof SecurityContext) {
-                Authentication authentication = context.getAuthentication();
-                if (authentication instanceof Authentication) {
-                    try {
-                        this.usuarioLogado = (Usuario) authentication.getPrincipal();
-                    } catch (Exception e) {
-                        this.usuarioLogado.setUsername("Desconhecido");
-                    }
-                }
-            }
+            this.usuarioLogado = JsfUtil.getUsuarioLogado();
         }
     }
 

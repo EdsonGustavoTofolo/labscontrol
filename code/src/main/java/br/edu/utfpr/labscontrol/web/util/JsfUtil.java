@@ -4,6 +4,11 @@
  */
 package br.edu.utfpr.labscontrol.web.util;
 
+import br.edu.utfpr.labscontrol.model.entity.Usuario;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
 import javax.faces.application.FacesMessage;
@@ -13,8 +18,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- *
- * @author Gaspar
  */
 public class JsfUtil {
     
@@ -104,5 +107,22 @@ public class JsfUtil {
 
     public static void setFlashParameter(String name, Object value){
         FacesContext.getCurrentInstance().getExternalContext().getFlash().put(name, value);
+    }
+
+    public static Usuario getUsuarioLogado() {
+        Usuario usuario = new Usuario();
+        SecurityContext context = SecurityContextHolder.getContext();
+        if (context instanceof SecurityContext) {
+            Authentication authentication = context.getAuthentication();
+            if (authentication instanceof Authentication) {
+                try {
+                    usuario = (Usuario) authentication.getPrincipal();
+                } catch (Exception e) {
+                    usuario.setUsername("Desconhecido");
+                    usuario.setNome("Desconhecido");
+                }
+            }
+        }
+        return usuario;
     }
 }

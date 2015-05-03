@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/ReservaController.java" line="250" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/ReservaController.java" line="235" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81a2fbe4-635d-42ff-8a1c-530b125686c2" name="Default" comment="" />
@@ -37,29 +37,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.xhtml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.461538" vertical-offset="1729" max-vertical-offset="2601">
+            <state vertical-scroll-proportion="0.61009175" vertical-offset="1729" max-vertical-offset="2601">
               <caret line="133" column="77" selection-start-line="133" selection-start-column="77" selection-end-line="133" selection-end-column="77" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReservaController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/ReservaController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.8745763" vertical-offset="908" max-vertical-offset="4624">
-              <caret line="189" column="51" selection-start-line="189" selection-start-column="51" selection-end-line="189" selection-end-column="51" />
-              <folding>
-                <element signature="e#3817#3818#0" expanded="true" />
-                <element signature="e#3894#3895#0" expanded="true" />
-                <element signature="e#3959#3960#0" expanded="true" />
-                <element signature="e#4027#4028#0" expanded="true" />
-                <element signature="e#9363#9364#0" expanded="true" />
-                <element signature="e#9429#9430#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/ReservaItemService.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/ReservaItemServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/ReservaItemData.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/reserva/reservaForm.xhtml" />
@@ -114,7 +96,6 @@
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/MaterialDeConsumoController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/framework/CrudController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/UsuarioController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/usuario/usuarioForm.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/default.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/equipamento/equipamentoSearch.xhtml" />
@@ -124,7 +105,9 @@
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/ReservaData.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/ReservaService.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/util/JsfUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/ReservaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/UsuarioController.java" />
       </list>
     </option>
   </component>
@@ -979,12 +962,12 @@
       <workItem from="1427773142870" duration="32487000" />
       <workItem from="1428258759478" duration="47471000" />
       <workItem from="1430584084257" duration="7305000" />
-      <workItem from="1430595288498" duration="18804000" />
+      <workItem from="1430595288498" duration="20539000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="566339000" />
+    <option name="totallyTimeSpent" value="568074000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1031,6 +1014,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36471862" sideWeight="0.6214058" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
@@ -1041,7 +1025,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39935064" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1083,7 +1066,7 @@
           <option name="timeStamp" value="225" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="253" />
+      <option name="time" value="255" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -1103,13 +1086,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/3.1.1.RELEASE/spring-beans-3.1.1.RELEASE-sources.jar!/org/springframework/beans/factory/annotation/InitDestroyAnnotationBeanPostProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33275563" vertical-offset="1338" max-vertical-offset="5457">
-          <caret line="134" column="0" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/enumeration/RolesEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20623916" vertical-offset="0" max-vertical-offset="577">
@@ -1317,16 +1293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/UsuarioController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.022271715" vertical-offset="1085" max-vertical-offset="3213">
-          <caret line="67" column="17" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/labscontrol/confirmExclusaoSimples.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-11.923077" vertical-offset="64" max-vertical-offset="646">
@@ -1439,38 +1405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65625" vertical-offset="85" max-vertical-offset="629">
-          <caret line="37" column="98" selection-start-line="37" selection-start-column="98" selection-end-line="37" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/ReservaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53125" vertical-offset="0" max-vertical-offset="544">
-          <caret line="21" column="91" selection-start-line="21" selection-start-column="91" selection-end-line="21" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/ReservaData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6875" vertical-offset="0" max-vertical-offset="544">
-          <caret line="27" column="78" selection-start-line="27" selection-start-column="78" selection-end-line="27" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.461538" vertical-offset="1729" max-vertical-offset="2601">
-          <caret line="133" column="77" selection-start-line="133" selection-start-column="77" selection-end-line="133" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/MaterialDeConsumoController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3109756" vertical-offset="1275" max-vertical-offset="2533">
@@ -1490,18 +1424,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6057907" vertical-offset="0" max-vertical-offset="898">
+          <caret line="43" column="55" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+          <folding>
+            <element signature="e#1492#1493#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/ReservaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3596882" vertical-offset="0" max-vertical-offset="898">
+          <caret line="23" column="58" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/ReservaData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.454343" vertical-offset="0" max-vertical-offset="898">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="58" selection-end-line="29" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/util/JsfUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7825312" vertical-offset="1414" max-vertical-offset="2057">
+          <caret line="122" column="17" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#4701#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/UsuarioController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36363637" vertical-offset="646" max-vertical-offset="2737">
+          <caret line="70" column="60" selection-start-line="70" selection-start-column="60" selection-end-line="70" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/ReservaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8745763" vertical-offset="908" max-vertical-offset="4624">
-          <caret line="189" column="51" selection-start-line="189" selection-start-column="51" selection-end-line="189" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.28248587" vertical-offset="2130" max-vertical-offset="4386">
+          <caret line="177" column="26" selection-start-line="177" selection-start-column="26" selection-end-line="177" selection-end-column="26" />
           <folding>
-            <element signature="e#3817#3818#0" expanded="true" />
-            <element signature="e#3894#3895#0" expanded="true" />
-            <element signature="e#3959#3960#0" expanded="true" />
-            <element signature="e#4027#4028#0" expanded="true" />
-            <element signature="e#9363#9364#0" expanded="true" />
-            <element signature="e#9429#9430#0" expanded="true" />
+            <element signature="e#3775#3776#0" expanded="true" />
+            <element signature="e#3812#3813#0" expanded="true" />
+            <element signature="e#3867#3868#0" expanded="true" />
+            <element signature="e#3944#3945#0" expanded="true" />
+            <element signature="e#4009#4010#0" expanded="true" />
+            <element signature="e#4077#4078#0" expanded="true" />
+            <element signature="e#8815#8816#0" expanded="true" />
+            <element signature="e#8881#8882#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61009175" vertical-offset="1729" max-vertical-offset="2601">
+          <caret line="133" column="77" selection-start-line="133" selection-start-column="77" selection-end-line="133" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
