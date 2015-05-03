@@ -35,7 +35,8 @@ public class ReservaServiceImpl extends CrudService<Reserva, Integer> implements
      * @return
      */
     @Override
-    public List<Reserva> findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteId(Date data, Date horaInicio, Date horaFim, Integer ambienteId) {
-        return reservaData.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteId(data, horaInicio, horaFim, ambienteId);
+    public List<Reserva> findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(Date data, Date horaInicio, Date horaFim, Integer ambienteId) {
+        return reservaData.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(data, horaInicio, horaFim, ambienteId);
     }
+
 }

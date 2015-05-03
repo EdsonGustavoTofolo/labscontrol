@@ -19,5 +19,5 @@ public interface ReservaService extends ICrudService<Reserva, Integer> {
      * @param ambienteId
      * @return
      */
-    List<Reserva> findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteId(Date data, Date horaInicio, Date horaFim, Integer ambienteId);
+    List<Reserva> findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(Date data, Date horaInicio, Date horaFim, Integer ambienteId);
 }

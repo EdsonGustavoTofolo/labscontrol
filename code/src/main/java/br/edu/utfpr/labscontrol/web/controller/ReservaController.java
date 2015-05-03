@@ -26,6 +26,7 @@ import org.springframework.stereotype.Controller;
 import javax.faces.application.FacesMessage;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
@@ -153,8 +154,6 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         try {
             validaHorario();
             validaDisponibilidadeDaSalaNoHorario();
-            //TODO se usuario nào for USER deve-se informaá-lo
-            //TODO validar se os itens estão disponíveis
             this.entity.setConfirmada(Boolean.FALSE);
             if (scheduleEvent.getId() == null) {
                 scheduleModel.addEvent(scheduleEvent);
@@ -170,7 +169,11 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     private void validaDisponibilidadeDaSalaNoHorario() throws ReservaException {
-        List<Reserva> reservas = this.reservaService.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteId(this.entity.getData(), this.entity.getHoraInicio(), this.entity.getHoraFim(), this.entity.getAmbiente().getId());
+        //TODO verificar que o Confirmada não está funcionando
+        List<Reserva> reservas = this.reservaService.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(this.entity.getData(),
+                                                                                                                               this.entity.getHoraInicio(),
+                                                                                                                               this.entity.getHoraFim(),
+                                                                                                                               this.entity.getAmbiente().getId());
         if (!reservas.isEmpty()) {
             throw new ReservaException("Já existe Reserva nessa data, horário e ambiente!");
         }
@@ -183,18 +186,41 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     public void addItem() {
-        ReservaItem reservaItem = new ReservaItem();
-        reservaItem.setReserva(this.entity);
-        reservaItem.setQuantidade(this.quantidade);
-        if (this.tipo.equals("E")) {
-            reservaItem.setEquipamento(this.equipamento);
-        } else {
-            reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
+        Boolean isAlreadyExistsItem = Boolean.FALSE;
+        //Evitar que os registros fiquem duplicados
+        for (ReservaItem ri: this.entity.getReservasItens()) {
+            if (this.tipo.equals("E")) {
+                if (ri.getEquipamento() != null) {
+                    if (ri.getEquipamento().getId().equals(this.equipamento.getId())) {
+                        isAlreadyExistsItem = Boolean.TRUE;
+                        ri.setQuantidade(ri.getQuantidade().add(this.quantidade, MathContext.DECIMAL64));
+                        break;
+                    }
+                }
+            } else {
+                if (ri.getMaterialDeConsumo() != null) {
+                    if (ri.getMaterialDeConsumo().getId().equals(this.materialDeConsumo.getId())) {
+                        isAlreadyExistsItem = Boolean.TRUE;
+                        ri.setQuantidade(ri.getQuantidade().add(this.quantidade, MathContext.DECIMAL64));
+                        break;
+                    }
+                }
+            }
         }
-        if (this.entity.getReservasItens() == null) {
-            this.entity.setReservasItens(new ArrayList<>());
+        if (!isAlreadyExistsItem) {
+            ReservaItem reservaItem = new ReservaItem();
+            reservaItem.setReserva(this.entity);
+            reservaItem.setQuantidade(this.quantidade);
+            if (this.tipo.equals("E")) {
+                reservaItem.setEquipamento(this.equipamento);
+            } else {
+                reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
+            }
+            if (this.entity.getReservasItens() == null) {
+                this.entity.setReservasItens(new ArrayList<>());
+            }
+            this.entity.getReservasItens().add(reservaItem);
         }
-        this.entity.getReservasItens().add(reservaItem);
         this.quantidade = null;
         this.equipamento = null;
         this.materialDeConsumo = null;
@@ -222,6 +248,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     public void confirmaReserva() {
+        //TODO validar a quantidade dos materiais de consumo conforme existente em estoque, criar um relatório ou exibir em tela quais podem ou não ser gravados, e os que podem já devem ser descontados do estoque
         save();
     }
 

@@ -63,7 +63,7 @@
                     <p:fieldset legend="#{form.itens}" toggleable="true">
                         <p:panelGrid columns="2" id="gridItens">
                             <h:outputLabel value="#{form.tipo}"/>
-                            <p:selectOneRadio id="tipo" value="#{reservaController.tipo}" required="true" requiredMessage="#{msg.tipoMaterialRequired}" disabled="#{reservaController.entity.confirmada}">
+                            <p:selectOneRadio id="tipo" value="#{reservaController.tipo}" disabled="#{reservaController.entity.confirmada}">
                                 <f:selectItem itemLabel="#{form.materialDeConsumo}" itemValue="M" />
                                 <f:selectItem itemLabel="#{form.equipamento}" itemValue="E" />
                                 <p:ajax event="change" update="materialDeConsumo, equipamento" global="false"/>
@@ -131,7 +131,7 @@
 
                     <f:facet name="footer">
                         <p:commandButton value="#{form.salvar}" action="#{reservaController.addEvent}" ajax="true" validateClient="true"
-                                         update="eventDetails" process="@form"
+                                         update="eventDetails, :form:messages" process="@form"
                                          oncomplete="updateScheduleAndCloseDialogOnComplete(xhr, status, args, PF('widgetReservasSchedule'), 'formEvent:eventDialogReserva', PF('eventDialog'))"
                                          disabled="#{reservaController.entity.confirmada}"   />
                         <h:outputLabel value="#{form.confirmarReserva}" rendered="#{usuarioController.isUsuarioLogadoAdmin()}"/>
