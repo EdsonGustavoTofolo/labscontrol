@@ -249,6 +249,13 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public Boolean podeExcluir() {
         //TODO verificar quais usuarios fazem o  que ATENDENTE, USER, ADMIN
+        //O adm, atendente e o usuário que criou a reserva
+        if (this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() != this.entity.getUsuario().getId()) {
+            if ( !(JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN")) ||
+                   JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ATENDENTE"))) ) {
+                return Boolean.FALSE;
+            }
+        }
         //this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() == this.entity.getUsuario().getId();
         return Boolean.TRUE;
     }

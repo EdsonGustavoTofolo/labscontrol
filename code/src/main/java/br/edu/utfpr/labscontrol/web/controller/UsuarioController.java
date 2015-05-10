@@ -18,6 +18,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.model.SelectItem;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -120,6 +121,8 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
             if (isAdmin == null) {
                 isAdmin = Boolean.FALSE;
             }
+            //Evita que o usuário tenha mais de uma ROLE
+            this.entity.setPermissoes(new HashSet<>());
             this.entity.addPermissao(getPermissao());
             if (this.entity.getId() == null) {
                 this.entity.setPassword(this.entity.getEncodePassword(this.entity.getPassword()));
