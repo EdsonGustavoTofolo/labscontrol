@@ -22,7 +22,7 @@ function updateScheduleAndCloseDialogOnComplete(xhr, status, args, widgetSchedul
         jQuery(PrimeFaces.escapeClientId(dialogId)).effect("bounce", {times : 4, distance : 20}, 100);
     } else {
         widgetSchedule.update();
-        dialogToHide.hide();
+//        dialogToHide.hide();
     }
 }
 

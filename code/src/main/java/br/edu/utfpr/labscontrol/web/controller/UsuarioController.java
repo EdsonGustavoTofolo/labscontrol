@@ -37,6 +37,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private Boolean isAdmin;
     private SelectItem[] rolesItem;
     private RolesEnum rolesEnum;
+    //TODO implementar alteração de senha
 
     @Override
     protected ICrudService<Usuario, Integer> getService() {

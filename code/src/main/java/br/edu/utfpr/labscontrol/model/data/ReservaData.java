@@ -23,8 +23,9 @@ public interface ReservaData extends JpaRepository<Reserva, Integer> {
      */
     @Query("select r from Reserva r where r.data = ?1 and " +
             "((?2 > r.horaInicio and ?2 < r.horaFim) or (?3 > r.horaInicio and ?3 < r.horaFim)) or " +
-            "((r.horaInicio > ?2 and r.horaInicio < ?3) or (r.horaFim > ?2 and r.horaFim < ?3)) and " +
-            "r.ambiente.id = ?4 and r.confirmada = 1")
+            "((r.horaInicio > ?2 and r.horaInicio < ?3) or (r.horaFim > ?2 and r.horaFim < ?3)) or " +
+            "((?2 >= r.horaInicio and ?2 < r.horaFim) or (?3 > r.horaInicio and ?3 <= r.horaFim)) and " +
+            "r.ambiente.id = ?4 and r.confirmada = true")
     List<Reserva> findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(Date data, Date horaInicio, Date horaFim, Integer ambienteId);
 
     List<Reserva> findByDataBetween(Date start, Date end);

@@ -68,7 +68,8 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     private MaterialDeConsumo materialDeConsumo;
     private Equipamento equipamento;
     private BigDecimal quantidade;
-
+    private BigDecimal qtdEstoque;
+    //TODO criar método onde o usuario possa excluir a reserva que criou
     @Override
     protected void inicializar() {
         this.quantidade = BigDecimal.ZERO;
@@ -116,7 +117,16 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         return ambienteService.findByIdentificacaoContaining(identificacao);
     }
 
+    public void onItemSelect(SelectEvent event) {
+        Object o = event.getObject();
+        if (o instanceof MaterialDeConsumo) {
+            MaterialDeConsumo m = materialDeConsumoService.findById(((MaterialDeConsumo)o).getId());
+            this.qtdEstoque = m.getQtdAtual();
+        }
+    }
+
     public void onDateSelect(SelectEvent selectEvent) {
+        this.qtdEstoque = BigDecimal.ZERO;
         reset();
         this.entity.setData((Date) selectEvent.getObject());
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
@@ -127,9 +137,11 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     public void onEventSelect(SelectEvent selectEvent) {
+        this.qtdEstoque = BigDecimal.ZERO;
         scheduleEvent = (ScheduleEvent) selectEvent.getObject();
         try {
             this.entity = (Reserva) scheduleEvent.getData();
+            setId(this.entity.getId()); // utilizado para exclusão da reserva
         } catch (Exception e) {
             reset();
         }
@@ -139,6 +151,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         try {
             validaHorario();
             validaDisponibilidadeDaSalaNoHorario();
+            validaItens();
             this.entity.setConfirmada(Boolean.FALSE);
             if (scheduleEvent.getId() == null) {
                 scheduleModel.addEvent(scheduleEvent);
@@ -153,6 +166,12 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         }
     }
 
+    @Override
+    public void delete() {
+        super.delete();
+        populaSchedule();
+    }
+
     private void validaDisponibilidadeDaSalaNoHorario() throws ReservaException {
         //TODO verificar que o Confirmada não está funcionando
         List<Reserva> reservas = this.reservaService.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(this.entity.getData(),
@@ -164,20 +183,41 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         }
     }
 
+    private void validaItens() throws IllegalArgumentException {
+        if (this.entity != null && this.entity.getReservasItens() != null) {
+            Boolean invalid = Boolean.FALSE;
+            for (ReservaItem ri : this.entity.getReservasItens()) {
+                if (ri.getMaterialDeConsumo() != null) {
+                    invalid = (ri.getQuantidade().compareTo(ri.getMaterialDeConsumo().getQtdAtual()) == 1);
+                    break;
+                }
+            }
+            if (invalid) {
+                throw new IllegalArgumentException("Existem itens com quantidade informada superior à quantidade em estoque. Favor verificar!");
+            }
+        }
+    }
+
     private void validaHorario() throws IllegalHorarioException {
         if (this.entity.getHoraInicio().getTime() > this.entity.getHoraFim().getTime()) {
             throw new IllegalHorarioException("Hora de Início deve ser menor ou igual a Hora de Fim!");
         }
     }
 
-    public void addItem() {
-        Boolean isAlreadyExistsItem = Boolean.FALSE;
-        //Evitar que os registros fiquem duplicados
+    /**
+     * Evita que os itens dupliquem
+     * @return TRUE se já existe o item
+     */
+    private Boolean isAlreadyExistsItem() {
+        Boolean exists = Boolean.FALSE;
+        if (this.entity.getReservasItens() == null) {
+            return exists;
+        }
         for (ReservaItem ri: this.entity.getReservasItens()) {
             if (this.tipo.equals("E")) {
                 if (ri.getEquipamento() != null) {
                     if (ri.getEquipamento().getId().equals(this.equipamento.getId())) {
-                        isAlreadyExistsItem = Boolean.TRUE;
+                        exists = Boolean.TRUE;
                         ri.setQuantidade(ri.getQuantidade().add(this.quantidade, MathContext.DECIMAL64));
                         break;
                     }
@@ -185,30 +225,49 @@ public class ReservaController extends CrudController<Reserva, Integer> {
             } else {
                 if (ri.getMaterialDeConsumo() != null) {
                     if (ri.getMaterialDeConsumo().getId().equals(this.materialDeConsumo.getId())) {
-                        isAlreadyExistsItem = Boolean.TRUE;
+                        exists = Boolean.TRUE;
                         ri.setQuantidade(ri.getQuantidade().add(this.quantidade, MathContext.DECIMAL64));
                         break;
                     }
                 }
             }
         }
-        if (!isAlreadyExistsItem) {
-            ReservaItem reservaItem = new ReservaItem();
-            reservaItem.setReserva(this.entity);
-            reservaItem.setQuantidade(this.quantidade);
-            if (this.tipo.equals("E")) {
-                reservaItem.setEquipamento(this.equipamento);
-            } else {
-                reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
+        return exists;
+    }
+
+    public void addItem() {
+        try {
+            validaQuantidadeEmEstoque();
+            if (!isAlreadyExistsItem()) {
+                ReservaItem reservaItem = new ReservaItem();
+                reservaItem.setReserva(this.entity);
+                reservaItem.setQuantidade(this.quantidade);
+                if (this.tipo.equals("E")) {
+                    reservaItem.setEquipamento(this.equipamento);
+                } else {
+                    reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
+                }
+                if (this.entity.getReservasItens() == null) {
+                    this.entity.setReservasItens(new ArrayList<>());
+                }
+                this.entity.getReservasItens().add(reservaItem);
             }
-            if (this.entity.getReservasItens() == null) {
-                this.entity.setReservasItens(new ArrayList<>());
-            }
-            this.entity.getReservasItens().add(reservaItem);
+            this.qtdEstoque = BigDecimal.ZERO;
+            this.quantidade = null;
+            this.equipamento = null;
+            this.materialDeConsumo = null;
+        } catch (IllegalArgumentException e) {
+            addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
+            e.printStackTrace();
         }
-        this.quantidade = null;
-        this.equipamento = null;
-        this.materialDeConsumo = null;
+    }
+
+    private void validaQuantidadeEmEstoque() throws IllegalArgumentException {
+        if (this.tipo.equals("M")) {
+            if (this.materialDeConsumo.getQtdAtual().subtract(this.quantidade, MathContext.DECIMAL64).compareTo(BigDecimal.ZERO) == -1) {
+                throw new IllegalArgumentException("Não há quantidade em estoque o suficiente!");
+            }
+        }
     }
 
     public void excluirItem(ReservaItem reservaItem) {
@@ -220,6 +279,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         try {
             reservaItemService.save(reservaItem);
         } catch (Exception e) {
+            addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
             e.printStackTrace();
         }
     }
@@ -233,7 +293,9 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     public void confirmaReserva() {
-        //TODO validar a quantidade dos materiais de consumo conforme existente em estoque, criar um relatório ou exibir em tela quais podem ou não ser gravados, e os que podem já devem ser descontados do estoque
+        /* TODO Enviar email? se o usuário que está fazendo a reserva for um Atendente ou Adm, o campo Outro Usuário está
+         * apenas para informar um string, e não um Usuário, sendo assim nào tenho a informação necessária para mandar o email par ao usuário
+         */
         save();
     }
 
@@ -309,5 +371,13 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public BigDecimal getQtdEstoque() {
+        return qtdEstoque;
+    }
+
+    public void setQtdEstoque(BigDecimal qtdEstoque) {
+        this.qtdEstoque = qtdEstoque;
     }
 }

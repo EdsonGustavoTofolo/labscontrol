@@ -82,6 +82,10 @@ public class ReservaItem implements Serializable {
 
         ReservaItem that = (ReservaItem) o;
 
+        if (id == null && that.getId() == null) {
+            return this == that;
+        }
+
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
 
         return true;

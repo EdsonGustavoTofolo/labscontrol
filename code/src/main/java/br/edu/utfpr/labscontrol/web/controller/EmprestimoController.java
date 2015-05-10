@@ -44,4 +44,6 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
     public List<MaterialDeConsumo> completeMaterialDeConsumo(String nome) {
         return materialDeConsumoService.findByNomeContaining(nome);
     }
+
+    //TODO baixar em estoque automaticamente
 }

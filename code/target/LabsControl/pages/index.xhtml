@@ -27,6 +27,7 @@
             <p:dialog id="eventDialogReserva" widgetVar="eventDialog" header="#{form.reserva} - #{reservaController.isConfirmada()}" showEffect="clip"
                       hideEffect="clip" modal="true" resizable="false" width="45%">
                 <p:panelGrid columns="1">
+                    <p:messages id="msgsReserva" closable="true"/>
                     <p:fieldset legend="#{form.dados}" toggleable="true">
                         <p:panelGrid id="eventDetails" columns="3">
                             <h:outputLabel for="otherUsuario" value="#{form.usuario}*" />
@@ -76,7 +77,12 @@
                                             label="#{form.materialDeConsumo}" id="materialDeConsumo" var="materialDeConsumo"
                                             itemLabel="#{materialDeConsumo.nome}" itemValue="#{materialDeConsumo}"
                                             dropdown="true" forceSelection="true" size="60"
-                                            disabled="#{!reservaController.tipo.equals('M') || reservaController.entity.confirmada}" />
+                                            disabled="#{!reservaController.tipo.equals('M') || reservaController.entity.confirmada}">
+                                <p:ajax event="itemSelect" listener="#{reservaController.onItemSelect}" update="qtdEstoque" />
+                            </p:autoComplete>
+
+                            <h:outputLabel value="#{form.quantidadeEmEstoque}"/>
+                            <h:outputText id="qtdEstoque" value="#{reservaController.qtdEstoque}"/>
 
                             <h:outputLabel value="#{form.equipamento}" for="equipamento"/>
                             <p:autoComplete value="#{reservaController.equipamento}"
@@ -94,14 +100,14 @@
 
                             <f:facet name="footer">
                                 <p:commandButton value="#{form.adicionar}" action="#{reservaController.addItem}" ajax="true"
-                                                 update="gridItens, tableItens" process="@this, otherUsuario, horaInicio, horaFim, ambiente, tipo, materialDeConsumo, equipamento, quantidade"
+                                                 update="gridItens, tableItens, msgsReserva" process="@this, otherUsuario, horaInicio, horaFim, ambiente, tipo, materialDeConsumo, equipamento, quantidade"
                                                  disabled="#{reservaController.entity.confirmada}"/>
                             </f:facet>
                         </p:panelGrid>
 
                         <p:dataTable value="#{reservaController.entity.reservasItens}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
                                      paginator="true" rows="3" paginatorPosition="bottom" id="tableItens" editable="true">
-                            <p:ajax event="rowEdit" update="tableItens" listener="#{reservaController.onEdit}"/>
+                            <p:ajax event="rowEdit" update="tableItens, :formEvent:msgsReserva" listener="#{reservaController.onEdit}"/>
                             <p:column headerText="#{form.item}">
                                 <h:outputText value="#{objeto.equipamento != null ? objeto.equipamento : objeto.materialDeConsumo}"/>
                             </p:column>
@@ -131,9 +137,13 @@
 
                     <f:facet name="footer">
                         <p:commandButton value="#{form.salvar}" action="#{reservaController.addEvent}" ajax="true" validateClient="true"
-                                         update="eventDetails, :form:messages" process="@form"
+                                         update="eventDetails, :formEvent:msgsReserva" process="@form"
                                          oncomplete="updateScheduleAndCloseDialogOnComplete(xhr, status, args, PF('widgetReservasSchedule'), 'formEvent:eventDialogReserva', PF('eventDialog'))"
-                                         disabled="#{reservaController.entity.confirmada}"   />
+                                         disabled="#{reservaController.entity.confirmada}"/>
+
+                        <p:commandButton value="#{form.excluir}" action="#{reservaController.delete()}" immediate="true" oncomplete="PF('eventDialog').hide();PF('widgetReservasSchedule').update();"
+                                         rendered="#{reservaController.entity.id != null}" update="eventDetails"/>
+
                         <h:outputLabel value="#{form.confirmarReserva}" rendered="#{usuarioController.isUsuarioLogadoAdmin()}"/>
                         <p:selectBooleanCheckbox value="#{reservaController.entity.confirmada}" rendered="#{usuarioController.isUsuarioLogadoAdmin()}" id="chkConfirm">
                             <p:ajax listener="#{reservaController.confirmaReserva}" update="eventDialogReserva" />
