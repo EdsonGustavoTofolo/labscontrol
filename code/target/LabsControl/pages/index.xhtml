@@ -139,13 +139,14 @@
                         <p:commandButton value="#{form.salvar}" action="#{reservaController.addEvent}" ajax="true" validateClient="true"
                                          update="eventDetails, :formEvent:msgsReserva" process="@form"
                                          oncomplete="updateScheduleAndCloseDialogOnComplete(xhr, status, args, PF('widgetReservasSchedule'), 'formEvent:eventDialogReserva', PF('eventDialog'))"
-                                         disabled="#{reservaController.entity.confirmada}"/>
+                                         disabled="#{reservaController.entity.confirmada}"
+                                         rendered="#{reservaController.podeSalvar()}"/>
 
                         <p:commandButton value="#{form.excluir}" action="#{reservaController.delete()}" immediate="true" oncomplete="PF('eventDialog').hide();PF('widgetReservasSchedule').update();"
-                                         rendered="#{reservaController.entity.id != null}" update="eventDetails"/>
+                                         rendered="#{reservaController.podeExcluir()}" update="eventDetails"/>
 
                         <h:outputLabel value="#{form.confirmarReserva}" rendered="#{usuarioController.isUsuarioLogadoAdmin()}"/>
-                        <p:selectBooleanCheckbox value="#{reservaController.entity.confirmada}" rendered="#{usuarioController.isUsuarioLogadoAdmin()}" id="chkConfirm">
+                        <p:selectBooleanCheckbox value="#{reservaController.entity.confirmada}" rendered="#{reservaController.podeConfirmar()}" id="chkConfirm">
                             <p:ajax listener="#{reservaController.confirmaReserva}" update="eventDialogReserva" />
                         </p:selectBooleanCheckbox>
                     </f:facet>

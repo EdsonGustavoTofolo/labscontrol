@@ -168,18 +168,30 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     @Override
     public void delete() {
+        if (this.entity.getConfirmada()) {
+            estornaEstoque();
+        }
         super.delete();
         populaSchedule();
     }
 
     private void validaDisponibilidadeDaSalaNoHorario() throws ReservaException {
-        //TODO verificar que o Confirmada não está funcionando
         List<Reserva> reservas = this.reservaService.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(this.entity.getData(),
                                                                                                                                this.entity.getHoraInicio(),
                                                                                                                                this.entity.getHoraFim(),
-                                                                                                                               this.entity.getAmbiente().getId());
+                                                                                                                               this.entity.getAmbiente().getId(),
+                                                                                                                                Boolean.TRUE);
         if (!reservas.isEmpty()) {
-            throw new ReservaException("Já existe Reserva nessa data, horário e ambiente!");
+            throw new ReservaException("Já existe Reserva confirmada nesta data, horário e ambiente!");
+        } else {
+            reservas = this.reservaService.findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(this.entity.getData(),
+                                                                                                                     this.entity.getHoraInicio(),
+                                                                                                                     this.entity.getHoraFim(),
+                                                                                                                     this.entity.getAmbiente().getId(),
+                                                                                                                     Boolean.FALSE);
+            if (!reservas.isEmpty()) {
+                addMessage("Já existe Reserva não confirmada nesta data, horário e ambiente!", FacesMessage.SEVERITY_WARN);
+            }
         }
     }
 
@@ -233,6 +245,29 @@ public class ReservaController extends CrudController<Reserva, Integer> {
             }
         }
         return exists;
+    }
+
+    public Boolean podeExcluir() {
+        //TODO verificar quais usuarios fazem o  que ATENDENTE, USER, ADMIN
+        //this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() == this.entity.getUsuario().getId();
+        return Boolean.TRUE;
+    }
+
+    public Boolean podeSalvar() {
+        Boolean canSave = Boolean.TRUE;
+        //TODO verificar quais usuarios fazem o  que ATENDENTE, USER, ADMIN
+        /*if (this.entity != null) {
+            if (this.entity.getUsuario() != null) {
+                canSave = Boolean.TRUE;
+                //(this.entity.getUsuario().getId() == JsfUtil.getUsuarioLogado().getId() || JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ATENDENTE")));
+            }
+        }*/
+        return canSave;
+    }
+
+    public Boolean podeConfirmar() {
+        //TODO verificar quais usuarios fazem o  que ATENDENTE, USER, ADMIN
+        return Boolean.TRUE;
     }
 
     public void addItem() {
@@ -296,7 +331,41 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         /* TODO Enviar email? se o usuário que está fazendo a reserva for um Atendente ou Adm, o campo Outro Usuário está
          * apenas para informar um string, e não um Usuário, sendo assim nào tenho a informação necessária para mandar o email par ao usuário
          */
+        if (this.entity.getConfirmada()) {
+            baixarEstoque();
+        } else {
+            estornaEstoque();
+        }
         save();
+    }
+
+    private void estornaEstoque() {
+        addOrSubstractFromReserva(Boolean.FALSE);
+    }
+
+    private void baixarEstoque() {
+        addOrSubstractFromReserva(Boolean.TRUE);
+    }
+
+    private void addOrSubstractFromReserva(Boolean substract) {
+        if (this.entity.getReservasItens() != null) {
+            for(ReservaItem ri : this.entity.getReservasItens()) {
+                if (ri.getMaterialDeConsumo() != null) {
+                    MaterialDeConsumo m = ri.getMaterialDeConsumo();
+                    if (substract) {
+                        m.setQtdAtual(m.getQtdAtual().subtract(ri.getQuantidade()));
+                    } else {
+                        m.setQtdAtual(m.getQtdAtual().add(ri.getQuantidade()));
+                    }
+                    try {
+                        materialDeConsumoService.save(m);
+                    } catch (Exception e) {
+                        addMessage("Erro ao  baixar estoque!", FacesMessage.SEVERITY_FATAL);
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
     public void onEventMove(ScheduleEntryMoveEvent event) {
