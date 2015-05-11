@@ -247,34 +247,39 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         return exists;
     }
 
+    /**
+     * Somente Adm, Atendente e o usuário que criou a Reserva pode excluir
+     * @return TRUE se o usuário logado possuir ROLE de Administrador, Atendente ou for o Usuário que criou a Reserva
+     */
     public Boolean podeExcluir() {
-        //TODO verificar quais usuarios fazem o  que ATENDENTE, USER, ADMIN
-        //O adm, atendente e o usuário que criou a reserva
         if (this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() != this.entity.getUsuario().getId()) {
-            if ( !(JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN")) ||
-                   JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ATENDENTE"))) ) {
+            if ( JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")) ) {
                 return Boolean.FALSE;
             }
         }
-        //this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() == this.entity.getUsuario().getId();
         return Boolean.TRUE;
     }
 
+    /**
+     * Somente Adm, Atendente e o usuário que criou a Reserva pode salvar
+     * @return TRUE se o usuário logado possuir ROLE de Administrador, Atendente ou for o Usuário que criou a Reserva
+     */
     public Boolean podeSalvar() {
-        Boolean canSave = Boolean.TRUE;
-        //TODO verificar quais usuarios fazem o  que ATENDENTE, USER, ADMIN
-        /*if (this.entity != null) {
-            if (this.entity.getUsuario() != null) {
-                canSave = Boolean.TRUE;
-                //(this.entity.getUsuario().getId() == JsfUtil.getUsuarioLogado().getId() || JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ATENDENTE")));
+        if (this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() != this.entity.getUsuario().getId()) {
+            if ( JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")) ) {
+                return Boolean.FALSE;
             }
-        }*/
-        return canSave;
+        }
+        return Boolean.TRUE;
     }
 
+    /**
+     * Somente Adm e o Atendente pode confirmar a Reserva
+     * @return TRUE se o usuário logado possuir ROLE de Administrador ou Atendente
+     */
     public Boolean podeConfirmar() {
-        //TODO verificar quais usuarios fazem o  que ATENDENTE, USER, ADMIN
-        return Boolean.TRUE;
+        //Somente ADM e ATENDENTE
+        return !(JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")));
     }
 
     public void addItem() {

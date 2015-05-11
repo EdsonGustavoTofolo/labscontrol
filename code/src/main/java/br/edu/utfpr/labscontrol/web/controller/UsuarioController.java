@@ -168,6 +168,22 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         return (usuarioLogado.getId() != null) ? usuarioLogado.getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN")) : false;
     }
 
+    /**
+     * Somente Adm e Atendente
+     * @return TRUE se usuário logado possuir permissão de Administrador ou Atendente
+     */
+    public Boolean canShowCadastros() {
+        return !(JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")));
+    }
+
+    /**
+     * Somente Adm
+     * @return TRUE se usuário logado possuir permissão de Administrador
+     */
+    public Boolean canShowCadastroDeUsuario() {
+        return JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN"));
+    }
+
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }

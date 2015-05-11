@@ -145,7 +145,7 @@
                         <p:commandButton value="#{form.excluir}" action="#{reservaController.delete()}" immediate="true" oncomplete="PF('eventDialog').hide();PF('widgetReservasSchedule').update();"
                                          rendered="#{reservaController.podeExcluir()}" update="eventDetails"/>
 
-                        <h:outputLabel value="#{form.confirmarReserva}" rendered="#{usuarioController.isUsuarioLogadoAdmin()}"/>
+                        <h:outputLabel value="#{form.confirmarReserva}" rendered="#{reservaController.podeConfirmar()}"/>
                         <p:selectBooleanCheckbox value="#{reservaController.entity.confirmada}" rendered="#{reservaController.podeConfirmar()}" id="chkConfirm">
                             <p:ajax listener="#{reservaController.confirmaReserva}" update="eventDialogReserva" />
                         </p:selectBooleanCheckbox>
