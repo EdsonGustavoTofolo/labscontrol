@@ -10,6 +10,7 @@ import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
@@ -33,17 +34,12 @@ import java.util.List;
 @Controller
 @Scope("view")
 public class MaterialDeConsumoController extends CrudController<MaterialDeConsumo, Integer> {
-    @Autowired
-    private MaterialDeConsumoService materialDeConsumoService;
-    @Autowired
-    private CategoriaMaterialService categoriaMaterialService;
-    @Autowired
-    private MarcaMaterialService marcaMaterialService;
-    @Autowired
-    private ModeloMaterialService modeloMaterialService;
-    @Autowired
-    private FornecedorService fornecedorService;
-
+    @Autowired private MaterialDeConsumoService materialDeConsumoService;
+    @Autowired private CategoriaMaterialService categoriaMaterialService;
+    @Autowired private MarcaMaterialService marcaMaterialService;
+    @Autowired private ModeloMaterialService modeloMaterialService;
+    @Autowired private FornecedorService fornecedorService;
+    @Autowired private PermissaoService permissaoService;
     private BigDecimal quantidade;
     private UploadedFile uploadedFile;
 
@@ -65,6 +61,9 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
 
     @Override
     protected void preProcessorDelete()throws Exception {
+        if (JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER"))) {
+            throw new Exception("Você não possui permissão para excluir!");
+        }
         removeImageFile();
     }
 

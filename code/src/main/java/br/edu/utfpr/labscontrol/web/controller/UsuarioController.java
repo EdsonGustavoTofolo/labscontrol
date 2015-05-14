@@ -27,13 +27,11 @@ import java.util.List;
 @Controller
 @Scope("view")
 public class UsuarioController extends CrudController<Usuario, Integer> {
-
     @Autowired
     @Qualifier("usuarioServiceImpl")
     private UsuarioService usuarioService;
     @Autowired
     private PermissaoService permissaoService;
-
     private Usuario usuarioLogado;
     private Boolean isAdmin;
     private SelectItem[] rolesItem;
@@ -71,6 +69,9 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private void checkUsuarioLogado() {
         if (this.usuarioLogado == null) {
             this.usuarioLogado = JsfUtil.getUsuarioLogado();
+            for (Permissao p : this.usuarioLogado.getPermissoes()) {
+                JsfUtil.setAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO, p);
+            }
         }
     }
 
@@ -163,25 +164,12 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         return this.usuarioLogado.getNome();
     }
 
-    public boolean isUsuarioLogadoAdmin() {
-        checkUsuarioLogado();
-        return (usuarioLogado.getId() != null) ? usuarioLogado.getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN")) : false;
+    public Boolean somenteAdm() {
+        return ((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() == RolesEnum.ADM.ordinal() + 1;
     }
 
-    /**
-     * Somente Adm e Atendente
-     * @return TRUE se usuário logado possuir permissão de Administrador ou Atendente
-     */
-    public Boolean canShowCadastros() {
-        return !(JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")));
-    }
-
-    /**
-     * Somente Adm
-     * @return TRUE se usuário logado possuir permissão de Administrador
-     */
-    public Boolean canShowCadastroDeUsuario() {
-        return JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN"));
+    public Boolean somenteAdmEatendente() {
+        return ((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.USER.ordinal() + 1;
     }
 
     public Usuario getUsuarioLogado() {

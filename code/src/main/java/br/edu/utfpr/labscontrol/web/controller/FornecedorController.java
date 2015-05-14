@@ -24,11 +24,8 @@ import javax.faces.model.SelectItem;
 @Controller
 @Scope("view")
 public class FornecedorController extends CrudController<Fornecedor, Integer> {
-    @Autowired
-    private FornecedorService fornecedorService;
-    @Autowired
-    private ContatoService contatoService;
-
+    @Autowired private FornecedorService fornecedorService;
+    @Autowired private ContatoService contatoService;
     private SelectItem[] tiposDeContatos;
     private SelectItem[] ufs;
     private Contato contato;

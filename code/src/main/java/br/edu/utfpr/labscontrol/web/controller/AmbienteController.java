@@ -14,14 +14,11 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Scope("view")
 public class AmbienteController extends CrudController<Ambiente, Integer> {
-    @Autowired
-    private AmbienteService ambienteService;
-
+    @Autowired private AmbienteService ambienteService;
     @Override
     protected ICrudService<Ambiente, Integer> getService() {
         return this.ambienteService;
     }
-
     @Override
     protected String getUrlFormPage() {
         return "/pages/cadastros/ambiente/ambienteForm.xhtml?faces-redirect=true";

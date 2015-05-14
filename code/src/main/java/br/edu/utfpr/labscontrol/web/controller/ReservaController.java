@@ -1,6 +1,7 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
 import br.edu.utfpr.labscontrol.model.entity.*;
+import br.edu.utfpr.labscontrol.model.enumeration.RolesEnum;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.exceptions.IllegalHorarioException;
@@ -46,30 +47,20 @@ import java.util.concurrent.ExecutionException;
 @Controller
 @Scope("view")
 public class ReservaController extends CrudController<Reserva, Integer> {
-    @Autowired
-    private ReservaService reservaService;
-    @Autowired
-    private ReservaItemService reservaItemService;
-    @Autowired
-    private AmbienteService ambienteService;
-    @Autowired
-    private EquipamentoService equipamentoService;
-    @Autowired
-    private MaterialDeConsumoService materialDeConsumoService;
-    @Autowired
-    private PermissaoService permissaoService;
-
+    @Autowired private ReservaService reservaService;
+    @Autowired private ReservaItemService reservaItemService;
+    @Autowired private AmbienteService ambienteService;
+    @Autowired private EquipamentoService equipamentoService;
+    @Autowired private MaterialDeConsumoService materialDeConsumoService;
     private ScheduleModel scheduleModel;
     private ScheduleEvent scheduleEvent = new DefaultScheduleEvent();
-
     private final Calendar calendar = Calendar.getInstance();
-
     private String tipo;
     private MaterialDeConsumo materialDeConsumo;
     private Equipamento equipamento;
     private BigDecimal quantidade;
     private BigDecimal qtdEstoque;
-    //TODO criar método onde o usuario possa excluir a reserva que criou
+
     @Override
     protected void inicializar() {
         this.quantidade = BigDecimal.ZERO;
@@ -130,7 +121,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         reset();
         this.entity.setData((Date) selectEvent.getObject());
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
-        if (JsfUtil.getUsuarioLogado().getPermissoes().contains(this.permissaoService.findByPermissao("ROLE_USER"))) {
+        if (((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.USER.ordinal() + 1) {
             this.entity.setOutroUsuario(JsfUtil.getUsuarioLogado().getUsername());
         }
         scheduleEvent = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject(), this.entity);
@@ -253,7 +244,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
      */
     public Boolean podeExcluir() {
         if (this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() != this.entity.getUsuario().getId()) {
-            if ( JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")) ) {
+            if ( ((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() == RolesEnum.USER.ordinal() + 1 ) {
                 return Boolean.FALSE;
             }
         }
@@ -266,7 +257,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
      */
     public Boolean podeSalvar() {
         if (this.entity.getId() != null && JsfUtil.getUsuarioLogado().getId() != this.entity.getUsuario().getId()) {
-            if ( JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")) ) {
+            if ( ((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() == RolesEnum.USER.ordinal() + 1 ) {
                 return Boolean.FALSE;
             }
         }
@@ -279,7 +270,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
      */
     public Boolean podeConfirmar() {
         //Somente ADM e ATENDENTE
-        return !(JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER")));
+        return ((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.USER.ordinal() + 1;
     }
 
     public void addItem() {

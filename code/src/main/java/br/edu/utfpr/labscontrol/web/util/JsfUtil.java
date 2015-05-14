@@ -20,7 +20,8 @@ import java.io.IOException;
 /**
  */
 public class JsfUtil {
-    
+    public static final String PERMISSAO_USUARIO_LOGADO = "permissaoUsuarioLogado";
+
     public static void clearSession() {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);

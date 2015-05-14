@@ -30,20 +30,13 @@ import java.util.List;
 @Controller
 @Scope("view")
 public class EquipamentoController extends CrudController<Equipamento, Integer> {
-
-    @Autowired
-    private EquipamentoService equipamentoService;
-    @Autowired
-    private HistoricoDeManutencaoService historicoDeManutencaoService;
-    @Autowired
-    private CategoriaEquipamentoService categoriaEquipamentoService;
-    @Autowired
-    private ModeloEquipamentoService modeloEquipamentoService;
-    @Autowired
-    private MarcaEquipamentoService marcaEquipamentoService;
-    @Autowired
-    private FornecedorService fornecedorService;
-
+    @Autowired private EquipamentoService equipamentoService;
+    @Autowired private HistoricoDeManutencaoService historicoDeManutencaoService;
+    @Autowired private CategoriaEquipamentoService categoriaEquipamentoService;
+    @Autowired private ModeloEquipamentoService modeloEquipamentoService;
+    @Autowired private MarcaEquipamentoService marcaEquipamentoService;
+    @Autowired private FornecedorService fornecedorService;
+    @Autowired private PermissaoService permissaoService;
     private HistoricoDeManutencao historicoDeManutencao;
     private UploadedFile uploadedFile;
 
@@ -59,6 +52,9 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
 
     @Override
     protected void preProcessorDelete() throws Exception {
+        if (JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER"))) {
+            throw new Exception("Você não possui permissão para excluir!");
+        }
         removeImageFile();
     }
 

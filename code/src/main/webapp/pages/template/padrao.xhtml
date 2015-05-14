@@ -30,7 +30,7 @@
                 param = query[1];
                 if (param.indexOf("logou") >= 0) {
                     alertify.success("Usuário logado com sucesso!");
-                    window.location='/labscontrol/pages/index.xhtml';
+                    window.history.pushState('', '', '/labscontrol/pages/index.xhtml');
                 }
             }
         });
@@ -41,9 +41,7 @@
     <f:view>
         <div id="header">
             <div id="imglogo">
-                <a href="/labscontrol/pages/index.xhtml">
-                    <p:graphicImage value="#" alt="Home - UTFPR"/>
-                </a>
+                <p:graphicImage value="#" alt="Home - UTFPR"/>
             </div>
             <div id="infoLogin">
                 Você está logado como <h:outputText value="#{usuarioController.getUsuarioLogadoNome()} " />
@@ -66,23 +64,24 @@
             <p:menubar autoDisplay="false" styleClass="vs-menu">
                 <p:menuitem value="#{form.home}" url="/pages/index.xhtml?faces-redirect=true" icon="ui-icon-home" />
 
-                <p:submenu label="#{form.cadastros}" icon="ui-icon-document" rendered="#{usuarioController.canShowCadastros()}">
+                <p:submenu label="#{form.cadastros}" icon="ui-icon-document">
 
-                    <p:submenu label="#{form.ambiente}" icon="ui-icon-wrench">
+                    <p:submenu label="#{form.ambiente}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/ambiente/ambienteForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/ambiente/ambienteSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
 
-                    <p:submenu label="#{form.fornecedor}" icon="ui-icon-wrench">
+                    <p:submenu label="#{form.fornecedor}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/fornecedor/fornecedorForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/fornecedor/fornecedorSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
 
                     <p:submenu label="#{form.materialDeConsumo}" icon="ui-icon-wrench">
-                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml?faces-redirect=true"
+                                    rendered="#{usuarioController.somenteAdmEatendente()}"/>
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml?faces-redirect=true" />
                         <p:separator />
-                        <p:submenu label="#{form.cadastros}" icon="ui-icon-wrench">
+                        <p:submenu label="#{form.cadastros}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
                             <p:submenu label="#{form.marcas}" icon="ui-icon-wrench">
                                 <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/marca/material/marcaMaterialForm.xhtml?faces-redirect=true" />
                                 <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/marca/material/marcaMaterialSearch.xhtml?faces-redirect=true" />
@@ -97,7 +96,7 @@
                             </p:submenu>
                         </p:submenu>
                         <p:separator />
-                        <p:submenu label="#{form.movimentacao}" icon="ui-icon-wrench">
+                        <p:submenu label="#{form.movimentacao}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
                             <p:submenu label="#{form.entrada}" icon="ui-icon-wrench">
                                 <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" action="#{materialDeConsumoController.movimentaEntrada}" />
                                 <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/entrada/entradaSearch.xhtml?faces-redirect=true" />
@@ -110,10 +109,11 @@
                     </p:submenu>
 
                     <p:submenu label="#{form.equipamento}" icon="ui-icon-wrench">
-                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/equipamento/equipamentoForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/equipamento/equipamentoForm.xhtml?faces-redirect=true"
+                                    rendered="#{usuarioController.somenteAdmEatendente()}"/>
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/equipamento/equipamentoSearch.xhtml?faces-redirect=true" />
                         <p:separator />
-                        <p:submenu label="#{form.cadastros}" icon="ui-icon-wrench">
+                        <p:submenu label="#{form.cadastros}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
                             <p:submenu label="#{form.marcas}" icon="ui-icon-wrench">
                                 <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/marca/equipamento/marcaEquipamentoForm.xhtml?faces-redirect=true" />
                                 <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/marca/equipamento/marcaEquipamentoSearch.xhtml?faces-redirect=true" />
@@ -128,7 +128,7 @@
                             </p:submenu>
                         </p:submenu>
                         <p:separator />
-                        <p:submenu label="#{form.movimentacao}" icon="ui-icon-wrench">
+                        <p:submenu label="#{form.movimentacao}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
                             <p:submenu label="#{form.entrada}" icon="ui-icon-wrench">
                                 <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" action="#{equipamentoController.movimentaEntrada}" />
                                 <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/entrada/entradaSearch.xhtml?faces-redirect=true" />
@@ -140,12 +140,12 @@
                         </p:submenu>
                     </p:submenu>
 
-                    <p:submenu label="#{form.usuario}" icon="ui-icon-wrench" rendered="#{usuarioController.canShowCadastroDeUsuario()}">
+                    <p:submenu label="#{form.usuario}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdm()}">
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/usuario/usuarioSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
                 </p:submenu>
 
-                <p:submenu label="#{form.movimentos}" icon="ui-icon-wrench" rendered="#{usuarioController.isUsuarioLogadoAdmin()}">
+                <p:submenu label="#{form.movimentos}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
                     <p:submenu label="#{form.entrada}" icon="ui-icon-wrench">
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/movimentos/entrada/entradaSearch.xhtml?faces-redirect=true" />
@@ -166,7 +166,7 @@
                     <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="#" />
                 </p:submenu>
 
-                <p:submenu label="#{form.relatorios}" icon="ui-icon-document" rendered="#{usuarioController.isUsuarioLogadoAdmin()}">
+                <p:submenu label="#{form.relatorios}" icon="ui-icon-document" rendered="#{usuarioController.somenteAdmEatendente()}">
                     <p:menuitem value="#{form.relatorios}" icon="ui-icon-document" url="#" />
                 </p:submenu>
             </p:menubar>

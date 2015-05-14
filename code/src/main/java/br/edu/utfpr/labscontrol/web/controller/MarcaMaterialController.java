@@ -14,15 +14,11 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Scope("view")
 public class MarcaMaterialController extends CrudController<MarcaMaterial, Integer> {
-
-    @Autowired
-    private MarcaMaterialService marcaMaterialService;
-
+    @Autowired private MarcaMaterialService marcaMaterialService;
     @Override
     protected ICrudService<MarcaMaterial, Integer> getService() {
         return this.marcaMaterialService;
     }
-
     @Override
     protected String getUrlFormPage() {
         return "/pages/cadastros/marca/material/marcaMaterialForm.xhtml?faces-redirect=true";

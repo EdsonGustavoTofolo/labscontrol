@@ -14,15 +14,11 @@ import org.springframework.stereotype.Controller;
 @Controller
 @Scope("view")
 public class ModeloMaterialController extends CrudController<ModeloMaterial, Integer> {
-
-    @Autowired
-    private ModeloMaterialService modeloMaterialService;
-
+    @Autowired private ModeloMaterialService modeloMaterialService;
     @Override
     protected ICrudService<ModeloMaterial, Integer> getService() {
         return this.modeloMaterialService;
     }
-
     @Override
     protected String getUrlFormPage() {
         return "/pages/cadastros/modelo/material/modeloMaterialForm.xhtml?faces-redirect=true";
