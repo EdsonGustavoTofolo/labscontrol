@@ -41,4 +41,9 @@ public class UsuarioServiceImpl extends CrudService<Usuario, Integer> implements
     public Usuario findByUsername(String username) {
         return usuarioData.findByUsername(username);
     }
+
+    @Override
+    public Usuario findByEmail(String email) {
+        return usuarioData.findByEmail(email);
+    }
 }

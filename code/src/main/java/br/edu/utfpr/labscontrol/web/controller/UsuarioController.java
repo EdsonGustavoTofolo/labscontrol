@@ -1,25 +1,35 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
+import br.edu.utfpr.labscontrol.model.entity.PasswordResetToken;
 import br.edu.utfpr.labscontrol.model.entity.Permissao;
 import br.edu.utfpr.labscontrol.model.entity.Usuario;
 import br.edu.utfpr.labscontrol.model.enumeration.RolesEnum;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
+import br.edu.utfpr.labscontrol.model.service.PasswordResetTokenService;
 import br.edu.utfpr.labscontrol.model.service.PermissaoService;
 import br.edu.utfpr.labscontrol.model.service.UsuarioService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.EnumUtil;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
-import java.util.HashSet;
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 
 /**
  * Created by edson on 23/08/2014.
@@ -32,10 +42,17 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private UsuarioService usuarioService;
     @Autowired
     private PermissaoService permissaoService;
+    @Autowired
+    private PasswordResetTokenService passwordResetTokenService;
+
     private Usuario usuarioLogado;
     private Boolean isAdmin;
     private SelectItem[] rolesItem;
     private RolesEnum rolesEnum;
+    private String password;
+    private String email;
+    private String idUserToChangePass;
+    private String tokenToChangePass;
     //TODO implementar alteração de senha
 
     @Override
@@ -45,6 +62,9 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
 
     @Override
     protected void inicializar() {
+        HttpServletRequest request = JsfUtil.getRequest();
+        idUserToChangePass = request.getParameter("id");
+        tokenToChangePass = request.getParameter("token");
         rolesItem = EnumUtil.populaSelect(RolesEnum.values());
         if (this.entity instanceof Usuario) {
              setPermissao();
@@ -172,6 +192,83 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         return ((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.USER.ordinal() + 1;
     }
 
+    public void enviaEmail() {
+        Usuario u = usuarioService.findByEmail(this.email);
+        if (u == null) {
+            addMessage("Não existe usuário cadastrado com esse email!", FacesMessage.SEVERITY_ERROR);
+        } else {
+            String token = UUID.randomUUID().toString();
+
+            PasswordResetToken passwordResetToken = new PasswordResetToken();
+            passwordResetToken.setUser(u);
+            passwordResetToken.setToken(token);
+            Calendar c = Calendar.getInstance();
+            c.add(Calendar.DAY_OF_MONTH, 1);
+            passwordResetToken.setExpiryDate(c.getTime());
+            try {
+                passwordResetTokenService.save(passwordResetToken);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            HttpServletRequest request = JsfUtil.getRequest();
+            String appUrl = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+            try {
+                SimpleEmail email = constructResetTokenEmail(appUrl, token, u);
+                System.out.println("enviando...");
+                email.send();
+                System.out.println("Email enviado.");
+                addMessage("Email enviado com sucesso! Verifique sua caixa de entrada para proceder a alteração da senha.", FacesMessage.SEVERITY_INFO);
+            } catch (EmailException e) {
+                addMessage("Problemas ao enviar email. Entre em contato com o administrador!", FacesMessage.SEVERITY_ERROR);
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private SimpleEmail constructResetTokenEmail(String contextPath, String token, Usuario user) throws EmailException {
+        String url = contextPath + "/mudarSenha.xhtml?id=" + user.getId() + "&token=" + token;
+        String message = "Recuperação/Alteração de senha";
+        //TODO criar tabela de cfgs de servidor com um sómente que pode ficar ativo
+        SimpleEmail email = new SimpleEmail();
+        email.setHostName("smtp.gmail.com");
+        //Quando a porta utilizada não é a padrão (gmail = 465)
+        email.setSmtpPort(465);
+        //Adicione os destinatários
+        email.addTo("edsontofoloteste@hotmail.com", "Edson Tofolo");
+        //Configure o seu email do qual enviará
+        email.setFrom("edsontofolo@gmail.com", "Recuperação/Alteração de senha - LabsControl/UTFPR");
+        //Adicione um assunto
+        email.setSubject("Recuperação/Alteração de senha no sistema LabsControl - UTFPR");
+        //Adicione a mensagem do email
+        email.setMsg(message + "\n\n" + url);
+        //Para autenticar no servidor é necessário chamar os dois métodos abaixo
+        email.setSSL(true);
+        System.out.println("autenticando...");
+        email.setAuthenticator(new DefaultAuthenticator("edsontofolo@gmail.com", "edson5865"));
+        return email;
+    }
+
+    public void changePassword() {
+        PasswordResetToken byToken = passwordResetTokenService.findByToken(tokenToChangePass);
+        Usuario user = byToken.getUser();
+        if (byToken == null || user.getId() != Integer.valueOf(idUserToChangePass)) {
+            addMessage("Token inválido.", FacesMessage.SEVERITY_ERROR);
+        } else {
+            Calendar cal = Calendar.getInstance();
+            if ((byToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
+                addMessage("Token já expirou.", FacesMessage.SEVERITY_ERROR);
+            } else {
+                user.setPassword(user.getEncodePassword(this.password));
+                this.entity = user;
+                save();
+                addMessage("Senha alterada com sucesso!", FacesMessage.SEVERITY_INFO);
+                this.tokenToChangePass = null;
+                this.idUserToChangePass = null;
+            }
+        }
+    }
+
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
@@ -198,5 +295,21 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
 
     public void setRolesEnum(RolesEnum rolesEnum) {
         this.rolesEnum = rolesEnum;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
