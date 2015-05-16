@@ -23,7 +23,7 @@
                 <f:facet name="footer">
                     <p:row>
                         <p:outputPanel style="width: 100%; text-align: center" layout="block">
-                            <p:commandButton value="#{form.recuperar}" action="#{usuarioController.enviaEmail}" ajax="true" process="@form" update="msg"/>
+                            <p:commandButton value="Recuperar" action="#{usuarioController.enviaEmail}" ajax="true" process="@form" update="msg"/>
                             <p:separator />
                             <p:link value="#{form.login}" outcome="/login.xhtml?faces-redirect=true"/>
                         </p:outputPanel>
@@ -31,7 +31,6 @@
                 </f:facet>
             </h:panelGrid>
             <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
-
             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false" styleClass="loader">
                 <h:outputText value="Trabalhando, aguarde!" />
             </p:dialog>

@@ -1,10 +1,12 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
+import br.edu.utfpr.labscontrol.model.entity.CfgEnvioEmail;
 import br.edu.utfpr.labscontrol.model.entity.PasswordResetToken;
 import br.edu.utfpr.labscontrol.model.entity.Permissao;
 import br.edu.utfpr.labscontrol.model.entity.Usuario;
 import br.edu.utfpr.labscontrol.model.enumeration.RolesEnum;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
+import br.edu.utfpr.labscontrol.model.service.CfgEnvioEmailService;
 import br.edu.utfpr.labscontrol.model.service.PasswordResetTokenService;
 import br.edu.utfpr.labscontrol.model.service.PermissaoService;
 import br.edu.utfpr.labscontrol.model.service.UsuarioService;
@@ -44,6 +46,8 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private PermissaoService permissaoService;
     @Autowired
     private PasswordResetTokenService passwordResetTokenService;
+    @Autowired
+    private CfgEnvioEmailService cfgEnvioEmailService;
 
     private Usuario usuarioLogado;
     private Boolean isAdmin;
@@ -53,7 +57,6 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private String email;
     private String idUserToChangePass;
     private String tokenToChangePass;
-    //TODO implementar alteração de senha
 
     @Override
     protected ICrudService<Usuario, Integer> getService() {
@@ -198,7 +201,6 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
             addMessage("Não existe usuário cadastrado com esse email!", FacesMessage.SEVERITY_ERROR);
         } else {
             String token = UUID.randomUUID().toString();
-
             PasswordResetToken passwordResetToken = new PasswordResetToken();
             passwordResetToken.setUser(u);
             passwordResetToken.setToken(token);
@@ -229,15 +231,17 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private SimpleEmail constructResetTokenEmail(String contextPath, String token, Usuario user) throws EmailException {
         String url = contextPath + "/mudarSenha.xhtml?id=" + user.getId() + "&token=" + token;
         String message = "Recuperação/Alteração de senha";
-        //TODO criar tabela de cfgs de servidor com um sómente que pode ficar ativo
+
+        CfgEnvioEmail cfgEnvioEmail = cfgEnvioEmailService.findByAtiva(Boolean.TRUE);
+
         SimpleEmail email = new SimpleEmail();
-        email.setHostName("smtp.gmail.com");
+        email.setHostName(cfgEnvioEmail.getHostName());
         //Quando a porta utilizada não é a padrão (gmail = 465)
-        email.setSmtpPort(465);
-        //Adicione os destinatários
-        email.addTo("edsontofoloteste@hotmail.com", "Edson Tofolo");
+        email.setSmtpPort(cfgEnvioEmail.getPort());
         //Configure o seu email do qual enviará
-        email.setFrom("edsontofolo@gmail.com", "Recuperação/Alteração de senha - LabsControl/UTFPR");
+        email.setFrom(cfgEnvioEmail.getEmail(), "Recuperação/Alteração de senha - LabsControl/UTFPR");
+        //Adicione os destinatários
+        email.addTo(this.email, this.email);
         //Adicione um assunto
         email.setSubject("Recuperação/Alteração de senha no sistema LabsControl - UTFPR");
         //Adicione a mensagem do email
@@ -245,7 +249,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         //Para autenticar no servidor é necessário chamar os dois métodos abaixo
         email.setSSL(true);
         System.out.println("autenticando...");
-        email.setAuthenticator(new DefaultAuthenticator("edsontofolo@gmail.com", "edson5865"));
+        email.setAuthenticator(new DefaultAuthenticator(cfgEnvioEmail.getEmail(), cfgEnvioEmail.getSenha()));
         return email;
     }
 
