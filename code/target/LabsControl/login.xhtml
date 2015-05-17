@@ -11,6 +11,7 @@
     <title>
         <h:outputText value="LabsControl"/>
     </title>
+    <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"/>
     <h:outputStylesheet library="css" name="alertify.core.css"/>
     <h:outputStylesheet library="css" name="alertify.default.css"/>
     <h:outputStylesheet library="css" name="default.css"/>
@@ -28,14 +29,10 @@
         });
     </script>
 </h:head>
-
 <h:body>
-
     <p:dialog id="dialog" header="Login" minWidth="400" width="400" modal="true" closable="false" position="center"
               showEffect="slide" draggable="true" resizable="false" visible="true">
-
         <form name="login" action="j_spring_security_check" method="post">
-
             <h:panelGrid columns="2" cellpadding="5">
                 <h:outputLabel for="j_username" value="#{form.login}" />
                 <p:inputText id="j_username" required="true" label="username" />
@@ -46,18 +43,15 @@
                 <f:facet name="footer">
                     <p:row>
                         <p:outputPanel style="width: 100%; text-align: center" layout="block">
-                            <input name="submit" type="submit" value="#{form.login}"/>
+                            <p:link value="#{form.esqueciMinhaSenha}" outcome="/esqueciAsenha.xhtml?faces-redirect=true" styleClass="esqueciMinhaSenha"/>
+                            <input name="submit" type="submit" value="#{form.entrar}"/>
                             <p:separator />
                             <p:link value="#{form.souNovoUsuario}" outcome="/novoUsuario.xhtml?faces-redirect=true"/>
-                            <p:separator />
-                            <p:link value="#{form.esqueciMinhaSenha}" outcome="/esqueciAsenha.xhtml?faces-redirect=true"/>
                         </p:outputPanel>
                     </p:row>
                 </f:facet>
             </h:panelGrid>
-
         </form>
     </p:dialog>
 </h:body>
-
 </html>

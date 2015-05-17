@@ -103,8 +103,10 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private void checkUsuarioLogado() {
         if (this.usuarioLogado == null) {
             this.usuarioLogado = JsfUtil.getUsuarioLogado();
-            for (Permissao p : this.usuarioLogado.getPermissoes()) {
-                JsfUtil.setAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO, p);
+            if (this.usuarioLogado.getId() != null) {
+                for (Permissao p : this.usuarioLogado.getPermissoes()) {
+                    JsfUtil.setAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO, p);
+                }
             }
         }
     }

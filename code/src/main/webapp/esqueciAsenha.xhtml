@@ -10,20 +10,21 @@
     <title>
         <h:outputText value="LabsControl"/>
     </title>
+    <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"/>
     <h:outputStylesheet library="css" name="default.css"/>
 </h:head>
 <h:body>
-    <p:dialog id="dialog" header="Recuperação de Senha" minWidth="400" width="400" modal="true" closable="false" position="center"
+    <p:dialog id="dialog" header="Esqueci minha senha" minWidth="400" width="400" modal="true" closable="false" position="center"
               showEffect="slide" draggable="true" resizable="false" visible="true">
         <h:form>
             <p:messages id="msg" closable="true" />
             <h:panelGrid columns="2" cellpadding="5">
                 <h:outputLabel for="email" value="#{form.email}"/>
-                <p:inputText id="email" required="true" label="email" requiredMessage="#{form.campoObrigatorio}" value="#{usuarioController.email}"/>
+                <p:inputText id="email" required="true" label="email" requiredMessage="Informe o email!" value="#{usuarioController.email}"/>
                 <f:facet name="footer">
                     <p:row>
                         <p:outputPanel style="width: 100%; text-align: center" layout="block">
-                            <p:commandButton value="Recuperar" action="#{usuarioController.enviaEmail}" ajax="true" process="@form" update="msg"/>
+                            <p:commandButton value="Enviar" action="#{usuarioController.enviaEmail}" ajax="true" process="@form" update="msg"/>
                             <p:separator />
                             <p:link value="#{form.login}" outcome="/login.xhtml?faces-redirect=true"/>
                         </p:outputPanel>
