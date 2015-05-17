@@ -17,9 +17,11 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <p><p:commandButton value="#{form.novo}" action="/pages/cadastros/modelo/equipamento/modeloEquipamentoForm.xhtml?faces-redirect=true"
+        <p:panelGrid columns="1">
+            <p:commandButton value="#{form.novo}" action="/pages/cadastros/modelo/equipamento/modeloEquipamentoForm.xhtml?faces-redirect=true"
                             immediate="true" ajax="false" style="float: left;"
-                            icon="ui-icon-plus"/></p>
+                            icon="ui-icon-plus"/>
+        </p:panelGrid>
 
         <p:dataTable value="#{modeloEquipamentoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
                      paginator="true" rows="10" paginatorPosition="bottom">

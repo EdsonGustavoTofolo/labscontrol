@@ -17,8 +17,10 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <p><p:commandButton value="#{form.novo}" action="/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true"
-                            immediate="true" ajax="false" style="float: left;" icon="ui-icon-plus"/></p>
+        <p:panelGrid columns="1">
+            <p:commandButton value="#{form.novo}" action="/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true"
+                            immediate="true" ajax="false" style="float: left;" icon="ui-icon-plus"/>
+        </p:panelGrid>
 
         <p:dataTable value="#{saidaController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
                      paginator="true" rows="10" paginatorPosition="bottom">
