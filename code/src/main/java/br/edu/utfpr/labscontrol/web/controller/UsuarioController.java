@@ -65,12 +65,23 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
 
     @Override
     protected void inicializar() {
+        checkUsuarioLogado();
         HttpServletRequest request = JsfUtil.getRequest();
         idUserToChangePass = request.getParameter("id");
         tokenToChangePass = request.getParameter("token");
         rolesItem = EnumUtil.populaSelect(RolesEnum.values());
         if (this.entity instanceof Usuario) {
              setPermissao();
+        }
+    }
+
+    @Override
+    public void find() {
+        if (!somenteAdm()) {
+            lsEntity.clear();
+            lsEntity.add(usuarioService.findByUsername(usuarioLogado.getUsername()));
+        } else {
+            super.find();
         }
     }
 
@@ -136,6 +147,17 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         Usuario u = usuarioService.findById(getId());
         if (u.getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN"))) {
             throw new Exception("Usuário não pode ser excluído!");
+        } else if (!somenteAdm()) {
+            throw new Exception("Você não possui permissão para exclusão!");
+        }
+    }
+
+    @Override
+    protected void preProcessorDeleteFromForm() throws Exception {
+        if (somenteAdm()) {
+            super.preProcessorDeleteFromForm();
+        } else {
+            throw new Exception("Você não possui permissão para exclusão!");
         }
     }
 

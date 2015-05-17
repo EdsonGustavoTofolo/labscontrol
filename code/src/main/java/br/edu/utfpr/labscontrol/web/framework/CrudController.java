@@ -197,13 +197,17 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
         }
     }
 
+    protected void preProcessorDeleteFromForm() throws Exception {
+
+    }
+
     /**
      * Faz o delete do objeto por dentro do formulário e logo após cria o objeto novamente para limpar os campos
      * Caso não ocorram erros na deleção do mesmo é feito um reset, caso contrário mantém os dados em tela
      */
     public void deleteFromForm() {
         try {
-            preProcessorDelete();
+            preProcessorDeleteFromForm();
             getService().delete(getId());
             reset();
             addMessage("Registro removido com sucesso!", FacesMessage.SEVERITY_INFO);
