@@ -28,8 +28,7 @@
                 <f:facet name="footer">
                     <p:row>
                         <p:outputPanel style="width: 100%; text-align: center" layout="block">
-                            <p:commandButton update="form" process="@form" action="#{usuarioController.changePassword}" value="#{form.salvar}"
-                                             oncomplete="window.location='/labscontrol/'"/>
+                            <p:commandButton update="form" process="@form" action="#{usuarioController.changePassword}" value="#{form.salvar}"/>
                             <p:separator />
                             <p:link value="#{form.login}" outcome="/login.xhtml?faces-redirect=true"/>
                         </p:outputPanel>
