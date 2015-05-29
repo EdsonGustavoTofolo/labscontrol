@@ -150,6 +150,10 @@
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/cfgenvioemail/cfgEnvioEmailSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
 
+                    <p:submenu label="#{form.pais}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdm()}">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/pais/paisForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/pais/paisSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
                 </p:submenu>
 
                 <p:submenu label="#{form.movimentos}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">
