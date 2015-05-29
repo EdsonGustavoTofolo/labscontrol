@@ -38,6 +38,11 @@
             <p:column headerText="#{form.materialDeConsumo}" sortBy="#{objeto.materialDeConsumo}" filterBy="#{objeto.materialDeConsumo}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.materialDeConsumo}"/>
             </p:column>
+            <p:column headerText="#{form.quantidade}" sortBy="#{objeto.quantidade}" styleClass="columnNumeric">
+                <h:outputText value="#{objeto.quantidade}">
+                    <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                </h:outputText>
+            </p:column>
             <p:column headerText="#{form.obs}" filterBy="#{objeto.observacao}">
                 <h:outputText value="#{objeto.observacao}" />
             </p:column>

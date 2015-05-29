@@ -54,6 +54,11 @@
                             dropdown="true" forceSelection="true" size="60"
                             disabled="#{!saidaController.tipo.equals('E')}"/>
 
+            <h:outputLabel value="#{form.quantidade}"/>
+            <p:inputText value="#{saidaController.entity.quantidade}">
+                <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+            </p:inputText>
+
             <h:outputLabel value="#{form.obs}" />
             <p:inputText value="#{saidaController.entity.observacao}" size="100" maxlength="255"/>
         </p:panelGrid>

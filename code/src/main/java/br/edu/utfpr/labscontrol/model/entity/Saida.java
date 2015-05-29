@@ -2,6 +2,7 @@ package br.edu.utfpr.labscontrol.model.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -25,12 +26,15 @@ public class Saida implements Serializable {
     @ManyToOne
     @JoinColumn(name = "equipamentoId", referencedColumnName = "id")
     private Equipamento equipamento;
+    @Column(name = "quantidade", precision = 12, scale = 2)
+    private BigDecimal quantidade;
 
-    public Saida(Date data, String observacao, MaterialDeConsumo materialDeConsumo, Equipamento equipamento) {
+    public Saida(Date data, String observacao, MaterialDeConsumo materialDeConsumo, Equipamento equipamento, BigDecimal quantidade) {
         this.data = data;
         this.observacao = observacao;
         this.materialDeConsumo = materialDeConsumo;
         this.equipamento = equipamento;
+        this.quantidade = quantidade;
     }
 
     public Saida() {
@@ -75,6 +79,14 @@ public class Saida implements Serializable {
 
     public void setEquipamento(Equipamento equipamento) {
         this.equipamento = equipamento;
+    }
+
+    public BigDecimal getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(BigDecimal quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override
