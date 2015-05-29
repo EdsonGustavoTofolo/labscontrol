@@ -36,18 +36,7 @@
     <favorites_list name="curso" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SaidaController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/SaidaController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24324325" vertical-offset="187" max-vertical-offset="1275">
-              <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -57,13 +46,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/categoria/material/categoriaMaterialSearch.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/cfgenvioemail/cfgEnvioEmailSearch.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/marca/equipamento/marcaEquipamentoSearch.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/marca/material/marcaMaterialSearch.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/modelo/equipamento/modeloEquipamentoSearch.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/modelo/material/modeloMaterialSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/emprestimo/emprestimoSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/movimentos/entrada/entradaSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/login.xhtml" />
@@ -92,22 +74,29 @@
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/CidadeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/CidadeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/converter/EstadoConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/formulario.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/cidade/cidadeForm.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/template/padrao.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Pais.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Estado.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/cidade/cidadeSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Fornecedor.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/fornecedor/fornecedorSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/converter/CidadeConverter.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/fornecedor/fornecedorForm.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/FornecedorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Saida.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/movimentos/saida/saidaForm.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/movimentos/saida/saidaSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/SaidaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/CategoriaObservacao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/CategoriaObservacaoData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/CategoriaObservacaoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/CategoriaObservacaoServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/CategoriaObservacaoController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/observacao/categoria/categoriaObsSearch.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/resources/messages.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/observacao/categoria/categoriaObsForm.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/resources/formulario.properties" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/template/padrao.xhtml" />
       </list>
     </option>
   </component>
@@ -250,6 +239,238 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cadastros" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cadastros" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pais" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cadastros" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="observacao" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="categoria" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labscontrol" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -895,12 +1116,12 @@
       <workItem from="1430701870490" duration="622000" />
       <workItem from="1430775961471" duration="90823000" />
       <workItem from="1431874849917" duration="33724000" />
-      <workItem from="1432907431787" duration="8028000" />
+      <workItem from="1432907431787" duration="10708000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="709769000" />
+    <option name="totallyTimeSpent" value="712449000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -924,7 +1145,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -947,7 +1168,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29112554" sideWeight="0.6214058" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29112554" sideWeight="0.6214058" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20537125" sideWeight="0.50076807" order="4" side_tool="true" content_ui="tabs" />
@@ -1020,146 +1241,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/PaisData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20824054" vertical-offset="0" max-vertical-offset="898">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/PaisService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
-          <caret line="11" column="49" selection-start-line="11" selection-start-column="49" selection-end-line="11" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/PaisServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5111359" vertical-offset="0" max-vertical-offset="898">
-          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#737#738#0" expanded="false" />
-            <element signature="e#768#769#0" expanded="false" />
-            <element signature="e#841#842#0" expanded="false" />
-            <element signature="e#899#900#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/PaisController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43541202" vertical-offset="0" max-vertical-offset="898">
-          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/pais/paisSearch.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9025229" vertical-offset="46" max-vertical-offset="1071">
-          <caret line="49" column="77" selection-start-line="49" selection-start-column="77" selection-end-line="49" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/ambiente/ambienteForm.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7855505" vertical-offset="29" max-vertical-offset="901">
-          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="44" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Ambiente.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6403118" vertical-offset="462" max-vertical-offset="1360">
-          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="84" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/AmbienteData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18930958" vertical-offset="0" max-vertical-offset="898">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/AmbienteService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/AmbienteServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15144767" vertical-offset="0" max-vertical-offset="898">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/AmbienteController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="374">
-          <caret line="23" column="80" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/converter/PaisConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54899776" vertical-offset="0" max-vertical-offset="898">
-          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#644#645#0" expanded="false" />
-            <element signature="e#678#679#0" expanded="false" />
-            <element signature="e#740#741#0" expanded="false" />
-            <element signature="e#787#788#0" expanded="false" />
-            <element signature="e#852#853#0" expanded="false" />
-            <element signature="e#897#898#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/equipamento/equipamentoSearch.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19495413" vertical-offset="2244" max-vertical-offset="3791">
-          <caret line="142" column="4" selection-start-line="142" selection-start-column="4" selection-end-line="143" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/ambiente/ambienteSearch.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7603211" vertical-offset="0" max-vertical-offset="1309">
-          <caret line="39" column="33" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/pais/paisForm.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6043578" vertical-offset="0" max-vertical-offset="872">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="38" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/EstadoData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
@@ -1272,26 +1353,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/formulario.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35634744" vertical-offset="1788" max-vertical-offset="2686">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/estado/estadoForm.xhtml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-23.73077" vertical-offset="46" max-vertical-offset="918">
           <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="46" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/template/padrao.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54587156" vertical-offset="2295" max-vertical-offset="4114">
-          <caret line="163" column="121" selection-start-line="163" selection-start-column="121" selection-end-line="163" selection-end-column="121" />
           <folding />
         </state>
       </provider>
@@ -1337,7 +1402,7 @@
         <state vertical-scroll-proportion="0.20489977" vertical-offset="20" max-vertical-offset="1122">
           <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1401,14 +1466,6 @@
             <element signature="e#901#902#0" expanded="false" />
             <element signature="e#946#947#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3596882" vertical-offset="0" max-vertical-offset="898">
-          <caret line="19" column="55" selection-start-line="19" selection-start-column="55" selection-end-line="19" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1505,6 +1562,174 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24324325" vertical-offset="187" max-vertical-offset="1275">
           <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Ambiente.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6403118" vertical-offset="462" max-vertical-offset="1360">
+          <caret line="81" column="8" selection-start-line="81" selection-start-column="8" selection-end-line="84" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/CategoriaObservacao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#527#528#0" expanded="false" />
+            <element signature="e#569#570#0" expanded="false" />
+            <element signature="e#599#600#0" expanded="false" />
+            <element signature="e#624#625#0" expanded="false" />
+            <element signature="e#661#662#0" expanded="false" />
+            <element signature="e#689#690#0" expanded="false" />
+            <element signature="e#725#726#0" expanded="false" />
+            <element signature="e#757#758#0" expanded="false" />
+            <element signature="e#807#808#0" expanded="false" />
+            <element signature="e#849#850#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/PaisData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15144767" vertical-offset="0" max-vertical-offset="898">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/CategoriaObservacaoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20824054" vertical-offset="0" max-vertical-offset="898">
+          <caret line="11" column="74" selection-start-line="11" selection-start-column="74" selection-end-line="11" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/CategoriaEquipamentoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1325167" vertical-offset="0" max-vertical-offset="898">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/AmbienteService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1325167" vertical-offset="0" max-vertical-offset="898">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/CategoriaObservacaoData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323">
+          <caret line="11" column="74" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/AmbienteServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15144767" vertical-offset="0" max-vertical-offset="898">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/service/impl/CategoriaObservacaoServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5111359" vertical-offset="0" max-vertical-offset="898">
+          <caret line="27" column="38" selection-start-line="27" selection-start-column="38" selection-end-line="27" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/AmbienteController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2650334" vertical-offset="0" max-vertical-offset="898">
+          <caret line="23" column="80" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/CategoriaObservacaoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#823#824#0" expanded="false" />
+            <element signature="e#872#873#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/pais/paisSearch.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5905963" vertical-offset="199" max-vertical-offset="1071">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="54" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/pais/paisForm.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-24.846153" vertical-offset="0" max-vertical-offset="782">
+          <caret line="38" column="16" selection-start-line="10" selection-start-column="4" selection-end-line="38" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/messages.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28396437" vertical-offset="0" max-vertical-offset="898">
+          <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/formulario.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1282" max-vertical-offset="2771">
+          <caret line="94" column="28" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/template/padrao.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50912106" vertical-offset="2821" max-vertical-offset="4216">
+          <caret line="184" column="47" selection-start-line="184" selection-start-column="47" selection-end-line="184" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/observacao/categoria/categoriaObsForm.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76119405" vertical-offset="0" max-vertical-offset="782">
+          <caret line="27" column="164" selection-start-line="27" selection-start-column="164" selection-end-line="27" selection-end-column="164" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/observacao/categoria/categoriaObsSearch.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6434494" vertical-offset="156" max-vertical-offset="1054">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="41" selection-end-line="32" selection-end-column="41" />
           <folding />
         </state>
       </provider>
