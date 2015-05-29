@@ -29,9 +29,9 @@
         });
     </script>
 </h:head>
-<h:body>
+<h:body styleClass="bodyLogin">
     <p:dialog id="dialog" header="Login" minWidth="400" width="400" modal="true" closable="false" position="center"
-              showEffect="slide" draggable="true" resizable="false" visible="true">
+              showEffect="slide" draggable="true" resizable="false" visible="true" styleClass="dlgLogin">
         <form name="login" action="j_spring_security_check" method="post">
             <h:panelGrid columns="2" cellpadding="5">
                 <h:outputLabel for="j_username" value="#{form.login}" />

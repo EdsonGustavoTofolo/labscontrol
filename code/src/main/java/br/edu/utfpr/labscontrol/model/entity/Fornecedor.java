@@ -39,6 +39,8 @@ public class Fornecedor implements Serializable {
     private UFsEnum estado;
     @Column(name = "cep", length = 10)
     private String cep;
+    @Column(name = "site", length = 255)
+    private String site;
     @Column(name = "observacao", length = 255)
     private String observacao;
     @OneToMany(mappedBy = "fornecedor", orphanRemoval = true, targetEntity = Contato.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -49,10 +51,11 @@ public class Fornecedor implements Serializable {
 
     }
 
-    public Fornecedor(String razaoSocial, String nomeFantasia, String nomeDoContato, List<Contato> contatos) {
+    public Fornecedor(String razaoSocial, String nomeFantasia, String nomeDoContato, String site, List<Contato> contatos) {
         this.razaoSocial = razaoSocial;
         this.nomeFantasia = nomeFantasia;
         this.nomeDoContato = nomeDoContato;
+        this.site = site;
         this.contatos = contatos;
     }
 
@@ -158,6 +161,14 @@ public class Fornecedor implements Serializable {
 
     public void setContatos(List<Contato> contatos) {
         this.contatos = contatos;
+    }
+
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
     }
 
     @Override

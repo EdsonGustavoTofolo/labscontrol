@@ -30,7 +30,7 @@ body {
 }
 
 .columnAcoes {
-    width: 10%;
+    width: 15%;
     text-align: center;
 }
 
@@ -64,4 +64,7 @@ body {
 
 .esqueciMinhaSenha {
     font-size: 0.8em !important;
+}
+
+.dlgLogin {
 }
