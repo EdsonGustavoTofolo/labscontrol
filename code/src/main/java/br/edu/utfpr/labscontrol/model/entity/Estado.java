@@ -12,7 +12,7 @@ public class Estado implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(name = "nome", length = 80, nullable = false)
+    @Column(name = "nome", length = 80, nullable = false, unique = true)
     private String nome;
     @ManyToOne
     @JoinColumn(name = "paisId", referencedColumnName = "id", nullable = false)

@@ -159,6 +159,11 @@
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/estado/estadoForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/estado/estadoSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
+
+                    <p:submenu label="#{form.cidade}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdm()}">
+                        <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/cidade/cidadeForm.xhtml?faces-redirect=true" />
+                        <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/cidade/cidadeSearch.xhtml?faces-redirect=true" />
+                    </p:submenu>
                 </p:submenu>
 
                 <p:submenu label="#{form.movimentos}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}">

@@ -7,28 +7,23 @@ import java.io.Serializable;
  * Created by EdsonGustavo on 29/05/2015.
  */
 @Entity
-@Table(name = "paises")
-public class Pais implements Serializable {
+@Table(name = "cidades")
+public class Cidade implements Serializable {
     @Id
-    @Column(name = "id")
     @GeneratedValue
     private Integer id;
-    @Column(name = "nome", length = 80, nullable = false, unique = true)
+    @Column(name = "nome", length = 80, nullable = false)
     private String nome;
+    @ManyToOne
+    @JoinColumn(name = "estadoId", referencedColumnName = "id", nullable = false)
+    private Estado estado;
 
-    public Pais() {
+    public Cidade() {
     }
 
-    public Pais(String nome) {
+    public Cidade(String nome, Estado estado) {
         this.nome = nome;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
+        this.estado = estado;
     }
 
     public Integer getId() {
@@ -39,14 +34,30 @@ public class Pais implements Serializable {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Pais pais = (Pais) o;
+        Cidade cidade = (Cidade) o;
 
-        if (id != null ? !id.equals(pais.id) : pais.id != null) return false;
+        if (id != null ? !id.equals(cidade.id) : cidade.id != null) return false;
 
         return true;
     }
