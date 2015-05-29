@@ -1,10 +1,12 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
+import br.edu.utfpr.labscontrol.model.entity.CategoriaEquipamento;
+import br.edu.utfpr.labscontrol.model.entity.Cidade;
 import br.edu.utfpr.labscontrol.model.entity.Contato;
 import br.edu.utfpr.labscontrol.model.entity.Fornecedor;
 import br.edu.utfpr.labscontrol.model.enumeration.TiposDeContatoEnum;
-import br.edu.utfpr.labscontrol.model.enumeration.UFsEnum;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
+import br.edu.utfpr.labscontrol.model.service.CidadeService;
 import br.edu.utfpr.labscontrol.model.service.ContatoService;
 import br.edu.utfpr.labscontrol.model.service.FornecedorService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import javax.faces.application.FacesMessage;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
+import java.util.List;
 
 /**
  * Created by edson on 23/08/2014.
@@ -26,8 +29,8 @@ import javax.faces.model.SelectItem;
 public class FornecedorController extends CrudController<Fornecedor, Integer> {
     @Autowired private FornecedorService fornecedorService;
     @Autowired private ContatoService contatoService;
+    @Autowired private CidadeService cidadeService;
     private SelectItem[] tiposDeContatos;
-    private SelectItem[] ufs;
     private Contato contato;
     private String mascara;
 
@@ -39,7 +42,6 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
     @Override
     protected void inicializar() {
         tiposDeContatos = EnumUtil.populaSelect(TiposDeContatoEnum.values());
-        ufs = EnumUtil.populaSelect(UFsEnum.values());
     }
 
     @Override
@@ -50,6 +52,10 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
     public void novoContato() {
         this.contato = new Contato();
         this.contato.setFornecedor(this.entity);
+    }
+
+    public List<Cidade> completeCidade(String nome) {
+        return cidadeService.findByNomeContaining(nome);
     }
 
     public void saveContato() {
@@ -75,7 +81,6 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
 
     public void onChangeTipoDeContato(ValueChangeEvent e) {
         Enum obj = (Enum) e.getNewValue();
-
         if (obj.ordinal() == TiposDeContatoEnum.CELULAR.ordinal() ||
             obj.ordinal() == TiposDeContatoEnum.TELEFONE.ordinal()) {
             this.mascara = "(99) 9999-9999?9";
@@ -89,15 +94,17 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
             CepWebService cepWebService = new CepWebService(entity.getCep());
 
             if (cepWebService.getResultado() > 0) {
-                //setTipoLogradouro(cepWebService.getTipoLogradouro());
                 entity.setLogradouro(cepWebService.getLogradouro());
-                entity.setEstado(UFsEnum.valueOf(cepWebService.getEstado()));
-                entity.setCidade(cepWebService.getCidade());
+                List<Cidade> cidades = cidadeService.findByNomeContaining(cepWebService.getCidade());
+                Cidade cidade = null;
+                if (cidades != null && cidades.size() > 0) {
+                    cidade = cidades.get(0);
+                }
+                entity.setCidade(cidade);
                 entity.setBairro(cepWebService.getBairro());
             } else {
                 entity.setLogradouro("");
-                entity.setEstado(null);
-                entity.setCidade("");
+                entity.setCidade(null);
                 entity.setBairro("");
                 addMessage("Servidor não está respondendo ou CEP não localizado!", FacesMessage.SEVERITY_ERROR);
             }
@@ -114,14 +121,6 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
 
     public SelectItem[] getTiposDeContatos() {
         return tiposDeContatos;
-    }
-
-    public SelectItem[] getUfs() {
-        return ufs;
-    }
-
-    public void setUfs(SelectItem[] ufs) {
-        this.ufs = ufs;
     }
 
     public String getMascara() {

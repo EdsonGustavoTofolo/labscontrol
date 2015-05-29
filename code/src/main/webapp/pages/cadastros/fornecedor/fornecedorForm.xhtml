@@ -46,14 +46,20 @@
             <p:inputText id="numero" value="#{fornecedorController.entity.numero}" size="60" maxlength="20"/>
             <h:outputLabel value="#{form.bairro}"/>
             <p:inputText id="bairro" value="#{fornecedorController.entity.bairro}" size="60" maxlength="45"/>
+
             <h:outputLabel value="#{form.cidade}"/>
-            <p:inputText id="cidade" value="#{fornecedorController.entity.cidade}" size="60" maxlength="45"/>
+            <p:autoComplete value="#{fornecedorController.entity.cidade}"
+                            completeMethod="#{fornecedorController.completeCidade}"
+                            converter="#{cidadeConverter}"
+                            label="#{form.cidade}" id="cidade" var="cidade"
+                            itemLabel="#{cidade.nome}" itemValue="#{cidade}"
+                            dropdown="true" forceSelection="true" size="60" required="true" requiredMessage="#{msg.cidadeRequired}">
+                <p:ajax event="itemSelect" update="estado" />
+            </p:autoComplete>
+
             <h:outputLabel value="#{form.estado}"/>
-            <p:selectOneMenu value="#{fornecedorController.entity.estado}" label="#{form.estado}" id="estado">
-                <f:selectItem itemLabel="Selecione"/>
-                <f:selectItems value="#{fornecedorController.ufs}"/>
-                <f:converter converterId="enumConverter"/>
-            </p:selectOneMenu>
+            <p:inputText id="estado" value="#{fornecedorController.entity.cidade.estado.nome}" size="60" disabled="true"/>
+
             <h:outputLabel value="#{form.obs}"/>
             <p:inputText value="#{fornecedorController.entity.observacao}" size="60" maxlength="255"/>
             <h:outputLabel value="#{form.site}"/>

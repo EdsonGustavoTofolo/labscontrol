@@ -46,7 +46,7 @@
     <ui:define name="foraDoForm">
         <labs:confirmExclusaoSimples update=":form" action="#{cidadeController.delete}"/>
         <h:form id="formDlg">
-            <p:dialog header="#{form.estado}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+            <p:dialog header="#{form.cidade}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
                 <p:outputPanel id="viewDetail">
                     <p:panelGrid columns="2" columnClasses="columnBold">
                         <h:outputText value="#{form.nome}"/>

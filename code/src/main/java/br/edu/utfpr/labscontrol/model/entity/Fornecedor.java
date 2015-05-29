@@ -32,11 +32,6 @@ public class Fornecedor implements Serializable {
     private String numero;
     @Column(name = "bairro", length = 45)
     private String bairro;
-    @Column(name = "cidade", length = 45)
-    private String cidade;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "estado", length = 2)
-    private UFsEnum estado;
     @Column(name = "cep", length = 10)
     private String cep;
     @Column(name = "site", length = 255)
@@ -46,17 +41,21 @@ public class Fornecedor implements Serializable {
     @OneToMany(mappedBy = "fornecedor", orphanRemoval = true, targetEntity = Contato.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
     private List<Contato> contatos;
+    @ManyToOne
+    @JoinColumn(name = "cidadeId", referencedColumnName = "id", nullable = false)
+    private Cidade cidade;
 
     public Fornecedor() {
 
     }
 
-    public Fornecedor(String razaoSocial, String nomeFantasia, String nomeDoContato, String site, List<Contato> contatos) {
+    public Fornecedor(String razaoSocial, String nomeFantasia, String nomeDoContato, String site, List<Contato> contatos, Cidade cidade) {
         this.razaoSocial = razaoSocial;
         this.nomeFantasia = nomeFantasia;
         this.nomeDoContato = nomeDoContato;
         this.site = site;
         this.contatos = contatos;
+        this.cidade = cidade;
     }
 
     public Integer getId() {
@@ -131,20 +130,12 @@ public class Fornecedor implements Serializable {
         this.bairro = bairro;
     }
 
-    public String getCidade() {
+    public Cidade getCidade() {
         return cidade;
     }
 
-    public void setCidade(String cidade) {
+    public void setCidade(Cidade cidade) {
         this.cidade = cidade;
-    }
-
-    public UFsEnum getEstado() {
-        return estado;
-    }
-
-    public void setEstado(UFsEnum estado) {
-        this.estado = estado;
     }
 
     public String getObservacao() {
