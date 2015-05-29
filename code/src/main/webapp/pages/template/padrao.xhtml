@@ -183,7 +183,7 @@
                 </p:submenu>
 
                 <p:submenu label="#{form.reserva}" icon="ui-icon-wrench">
-                    <p:menuitem value="#{form.verCalendario}" icon="ui-icon-calendar" url="/labscontrol/pages/index.xhtml?faces-redirect=true" />
+                    <p:menuitem value="#{form.verCalendario}" icon="ui-icon-calendar" url="/pages/index.xhtml?faces-redirect=true" />
                 </p:submenu>
 
                 <p:submenu label="#{form.observacoes}" icon="ui-icon-document">
@@ -191,11 +191,9 @@
                         <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/observacao/categoria/categoriaObsForm.xhtml?faces-redirect=true" />
                         <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/observacao/categoria/categoriaObsSearch.xhtml?faces-redirect=true" />
                     </p:submenu>
-                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="#" />
-                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="#" />
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/observacao/observacaoForm.xhtml?faces-redirect=true" />
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/observacao/observacaoSearch.xhtml?faces-redirect=true" />
                 </p:submenu>
-
-
             </p:menubar>
 
             <ui:insert name="botoesParaForm">

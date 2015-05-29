@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+<ui:decorate template="../../template/padrao.xhtml">
+    <ui:define name="titulo">
+        <h:outputText value="#{form.pesquisaObservacao}"/>
+    </ui:define>
+
+    <ui:define name="metadata">
+        <f:event type="preRenderView" listener="#{observacaoController.find}"/>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <p:panelGrid columns="1">
+            <p:commandButton value="#{form.novo}" action="/pages/cadastros/observacao/observacaoForm.xhtml?faces-redirect=true"
+                             immediate="true" ajax="false" style="float: left;" icon="ui-icon-plus"/>
+        </p:panelGrid>
+
+        <p:dataTable value="#{observacaoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
+                     paginator="true" rows="10" paginatorPosition="bottom">
+            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
+                <h:outputText value="#{objeto.id}"/>
+            </p:column>
+            <p:column headerText="#{form.descricao}" sortBy="#{objeto.descricao}" filterBy="#{objeto.descricao}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.descricao}"/>
+            </p:column>
+            <p:column headerText="#{form.data}" sortBy="#{objeto.data}" styleClass="columnData">
+                <h:outputText value="#{objeto.data}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                </h:outputText>
+            </p:column>
+            <p:column headerText="#{form.categoriaObs}" sortBy="#{objeto.categoriaObservacao.descricao}" filterBy="#{objeto.categoriaObservacao.descricao}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.categoriaObservacao.descricao}"/>
+            </p:column>
+            <p:column headerText="#{form.ambiente}" sortBy="#{objeto.ambiente.identificacao}" filterBy="#{objeto.ambiente.identificacao}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.ambiente.identificacao}"/>
+            </p:column>
+            <p:column headerText="#{form.categoriaEquipamento}" sortBy="#{objeto.categoriaEquipamento.nome}" filterBy="#{objeto.categoriaEquipamento.nome}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.categoriaEquipamento.nome}"/>
+            </p:column>
+            <p:column headerText="#{form.equipamento}" sortBy="#{objeto.equipamento.nome}" filterBy="#{objeto.equipamento.nome}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.equipamento.nome}"/>
+            </p:column>
+            <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
+                <labs:commandButtonSearch controller="#{observacaoController}"/>
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+
+    <ui:define name="rodape">
+        <div style="clear: both"></div>
+    </ui:define>
+
+    <ui:define name="foraDoForm">
+        <labs:confirmExclusaoSimples update=":form" action="#{observacaoController.delete}"/>
+        <h:form id="formDlg">
+            <p:dialog header="#{form.observacoes}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+                <p:outputPanel id="viewDetail">
+                    <p:panelGrid columns="2" columnClasses="columnBold">
+                        <h:outputText value="#{form.descricao}"/>
+                        <h:outputText value="#{observacaoController.entityView.descricao}"/>
+
+                        <h:outputText value="#{form.data}"/>
+                        <h:outputText value="#{observacaoController.entityView.data}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                        </h:outputText>
+
+                        <h:outputText value="#{form.categoriaObs}"/>
+                        <h:outputText value="#{observacaoController.entityView.categoriaObservacao.descricao}"/>
+
+                        <h:outputText value="#{form.ambiente}"/>
+                        <h:outputText value="#{observacaoController.entityView.ambiente.identificacao}"/>
+
+                        <h:outputText value="#{form.categoriaEquipamento}"/>
+                        <h:outputText value="#{observacaoController.entityView.categoriaEquipamento.nome}"/>
+
+                        <h:outputText value="#{form.equipamento}"/>
+                        <h:outputText value="#{observacaoController.entityView.equipamento.nome}"/>
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
+    </ui:define>
+</ui:decorate>
+</html>
