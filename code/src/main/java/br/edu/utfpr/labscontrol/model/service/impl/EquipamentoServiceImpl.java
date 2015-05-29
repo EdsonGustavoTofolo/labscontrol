@@ -32,12 +32,6 @@ public class EquipamentoServiceImpl extends CrudService<Equipamento, Integer> im
 
     @Override
     @Transactional(readOnly = true)
-    public List<Equipamento> findByCodigoDeBarrasContaining(String codigoDeBarras) {
-        return this.equipamentoData.findByCodigoDeBarrasContaining(codigoDeBarras);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
     public List<Equipamento> findByPartNumberContaining(String partNumber) {
         return this.equipamentoData.findByPartNumberContaining(partNumber);
     }

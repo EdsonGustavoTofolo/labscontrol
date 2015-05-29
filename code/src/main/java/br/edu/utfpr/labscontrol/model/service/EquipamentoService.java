@@ -19,14 +19,6 @@ public interface EquipamentoService extends ICrudService<Equipamento, Integer> {
 
     /**
      * Método responsável por retornar uma lista de equipamentos
-     * onde o código de barras contenha o valor passado pelo parâmetro
-     * @param codigoDeBarras
-     * @return
-     */
-    List<Equipamento> findByCodigoDeBarrasContaining(String codigoDeBarras);
-
-    /**
-     * Método responsável por retornar uma lista de equipamentos
      * onde o part number contenha o valor passado pelo parâmetro
      * @param partNumber
      * @return

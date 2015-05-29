@@ -10,7 +10,6 @@ import java.util.List;
  */
 public interface EquipamentoData  extends JpaRepository<Equipamento, Integer> {
     List<Equipamento> findByNomeContaining(String nome);
-    List<Equipamento> findByCodigoDeBarrasContaining(String codigoDeBarras);
     List<Equipamento> findByPartNumberContaining(String partNumber);
     List<Equipamento> findByPatrimonioContaining(String patrimonio);
 }

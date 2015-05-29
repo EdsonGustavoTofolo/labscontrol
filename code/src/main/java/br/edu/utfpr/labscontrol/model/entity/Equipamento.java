@@ -23,8 +23,6 @@ public class Equipamento implements Serializable {
     private Integer id;
     @Column(name = "nome", length = 80, nullable = false)
     private String nome;
-    @Column(name = "codigoDeBarras", length = 45)
-    private String codigoDeBarras;
     @Column(name = "patrimonio", length = 45)
     private String patrimonio;
     @Column(name = "partNumber", length = 45)
@@ -55,9 +53,8 @@ public class Equipamento implements Serializable {
 
     }
 
-    public Equipamento(String nome, String codigoDeBarras, String patrimonio, String partNumber, Date dataDeAquisicao, String observacao, List<HistoricoDeManutencao> historicoDeManutencoes) {
+    public Equipamento(String nome, String patrimonio, String partNumber, Date dataDeAquisicao, String observacao, List<HistoricoDeManutencao> historicoDeManutencoes) {
         this.nome = nome;
-        this.codigoDeBarras = codigoDeBarras;
         this.patrimonio = patrimonio;
         this.partNumber = partNumber;
         this.dataDeAquisicao = dataDeAquisicao;
@@ -79,14 +76,6 @@ public class Equipamento implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCodigoDeBarras() {
-        return codigoDeBarras;
-    }
-
-    public void setCodigoDeBarras(String codigoDeBarras) {
-        this.codigoDeBarras = codigoDeBarras;
     }
 
     public String getPatrimonio() {
