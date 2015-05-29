@@ -27,6 +27,9 @@
             <p:column headerText="#{form.nome}" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.nome}"/>
             </p:column>
+            <p:column headerText="#{form.sigla}" sortBy="#{objeto.sigla}" filterBy="#{objeto.sigla}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.sigla}"/>
+            </p:column>
             <p:column headerText="#{form.pais}" sortBy="#{objeto.pais.nome}" filterBy="#{objeto.pais.nome}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.pais.nome}"/>
             </p:column>
@@ -48,6 +51,8 @@
                     <p:panelGrid columns="2" columnClasses="columnBold">
                         <h:outputText value="#{form.nome}"/>
                         <h:outputText value="#{estadoController.entityView.nome}"/>
+                        <h:outputText value="#{form.sigla}"/>
+                        <h:outputText value="#{estadoController.entityView.sigla}"/>
                         <h:outputText value="#{form.pais}"/>
                         <h:outputText value="#{estadoController.entityView.pais.nome}"/>
                     </p:panelGrid>

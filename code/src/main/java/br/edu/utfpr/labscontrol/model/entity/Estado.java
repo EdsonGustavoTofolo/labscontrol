@@ -14,6 +14,8 @@ public class Estado implements Serializable {
     private Integer id;
     @Column(name = "nome", length = 80, nullable = false, unique = true)
     private String nome;
+    @Column(name = "sigla", length = 2, unique = true)
+    private String sigla;
     @ManyToOne
     @JoinColumn(name = "paisId", referencedColumnName = "id", nullable = false)
     private Pais pais;
@@ -21,8 +23,9 @@ public class Estado implements Serializable {
     public Estado() {
     }
 
-    public Estado(String nome, Pais pais) {
+    public Estado(String nome, String sigla, Pais pais) {
         this.nome = nome;
+        this.sigla = sigla;
         this.pais = pais;
     }
 
@@ -40,6 +43,14 @@ public class Estado implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
     public Pais getPais() {

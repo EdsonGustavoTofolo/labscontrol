@@ -27,6 +27,9 @@
             <h:outputLabel value="#{form.nome}" />
             <p:inputText value="#{estadoController.entity.nome}" size="60" maxlength="80" required="true" requiredMessage="#{msg.nomeRequired}"/>
 
+            <h:outputLabel value="#{form.sigla}" />
+            <p:inputText value="#{estadoController.entity.sigla}" size="60" maxlength="2" required="true" requiredMessage="#{msg.siglaRequired}"/>
+
             <h:outputLabel value="#{form.pais}*" for="pais"/>
             <p:autoComplete value="#{estadoController.entity.pais}"
                             completeMethod="#{estadoController.completePais}"
