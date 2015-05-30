@@ -117,6 +117,10 @@ public class EmprestimoItem implements Serializable {
 
         EmprestimoItem that = (EmprestimoItem) o;
 
+        if (id == null && that.getId() == null) {
+            return this == that;
+        }
+
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
 
         return true;

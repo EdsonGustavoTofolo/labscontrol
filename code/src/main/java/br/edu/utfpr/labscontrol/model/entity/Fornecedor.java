@@ -1,6 +1,5 @@
 package br.edu.utfpr.labscontrol.model.entity;
 
-import br.edu.utfpr.labscontrol.model.enumeration.UFsEnum;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 

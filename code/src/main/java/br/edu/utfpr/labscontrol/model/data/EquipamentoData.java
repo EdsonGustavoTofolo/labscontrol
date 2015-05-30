@@ -12,4 +12,5 @@ public interface EquipamentoData  extends JpaRepository<Equipamento, Integer> {
     List<Equipamento> findByNomeContaining(String nome);
     List<Equipamento> findByPartNumberContaining(String partNumber);
     List<Equipamento> findByPatrimonioContaining(String patrimonio);
+    List<Equipamento> findByNomeContainingOrPatrimonioContaining(String nome, String patrimonio);
 }

@@ -121,7 +121,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         reset();
         this.entity.setData((Date) selectEvent.getObject());
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
-        if (((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.USER.ordinal() + 1) {
+        if (((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() == RolesEnum.USER.ordinal() + 1) {
             this.entity.setOutroUsuario(JsfUtil.getUsuarioLogado().getUsername());
         }
         scheduleEvent = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject(), this.entity);
@@ -309,7 +309,21 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     public void excluirItem(ReservaItem reservaItem) {
+        if (reservaItem.getMaterialDeConsumo() != null && reservaItem.getId() != null && reservaItem.getId() > 0) {
+            MaterialDeConsumo m = reservaItem.getMaterialDeConsumo();
+            m.setQtdAtual(m.getQtdAtual().add(reservaItem.getQuantidade()));
+            try {
+                materialDeConsumoService.save(m);
+            } catch (Exception e) {
+                addMessage("Erro ao  estornar estoque!", FacesMessage.SEVERITY_FATAL);
+                e.printStackTrace();
+            }
+        }
         this.entity.getReservasItens().remove(reservaItem);
+        if (reservaItem.getId() != null && reservaItem.getId() > 0) {
+            //TODO verificar pois se salvar assim da erro na hora de salver o reserva e se nao nao exclui o item
+            reservaItemService.deleteReservaItemById(reservaItem.getId());
+        }
     }
 
     public void onEdit(RowEditEvent event) {

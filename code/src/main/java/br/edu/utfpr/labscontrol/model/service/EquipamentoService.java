@@ -32,4 +32,6 @@ public interface EquipamentoService extends ICrudService<Equipamento, Integer> {
      * @return
      */
     List<Equipamento> findByPatrimonioContaining(String patrimonio);
+
+    List<Equipamento> findByNomeContainingOrPatrimonioContaining(String nome, String patrimonio);
 }

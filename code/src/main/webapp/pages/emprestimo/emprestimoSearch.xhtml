@@ -20,11 +20,13 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="1">
             <p:commandButton value="#{form.novo}" action="/pages/emprestimo/emprestimoForm.xhtml?faces-redirect=true"
-                            immediate="true" ajax="false" style="float: left"
-                            icon="ui-icon-plus"/>
+                            immediate="true" ajax="false" style="float: left" icon="ui-icon-plus"/>
         </p:panelGrid>
         <p:dataTable value="#{emprestimoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
                      paginator="true" rows="10" paginatorPosition="bottom">
+            <p:column style="width:2%">
+                <p:rowToggler />
+            </p:column>
             <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
                 <h:outputText value="#{objeto.id}"/>
             </p:column>
@@ -32,7 +34,9 @@
                 <h:outputText value="#{objeto.outroUsuario}"/>
             </p:column>
             <p:column headerText="#{form.data}" sortBy="#{objeto.data}">
-                <h:outputText value="#{objeto.data}"/>
+                <h:outputText value="#{objeto.data}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                </h:outputText>
             </p:column>
             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
                 <labs:commandButtonSearch controller="#{emprestimoController}"/>
@@ -40,6 +44,9 @@
             <p:rowExpansion>
                 <p:dataTable value="#{objeto.emprestimoItens}" var="item" emptyMessage="#{form.nenhumRegistroEncontrado}"
                              paginator="true" rows="10" paginatorPosition="bottom">
+                    <p:column headerText="#{form.id}">
+                        <h:outputText value="#{item.id}"/>
+                    </p:column>
                     <p:column headerText="#{form.item}">
                         <h:outputText value="#{item.equipamento != null ? item.equipamento : item.materialDeConsumo}"/>
                     </p:column>
@@ -53,7 +60,7 @@
                             <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                         </h:outputText>
                     </p:column>
-                    <p:column headerText="#{form.data}" sortBy="#{item.dataDevolucao}" styleClass="columnData">
+                    <p:column headerText="#{form.dataDevolEfetiva}" sortBy="#{item.dataDevolucao}" styleClass="columnData">
                         <h:outputText value="#{item.dataDevolucao}">
                             <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
                         </h:outputText>
@@ -72,6 +79,24 @@
 
     <ui:define name="foraDoForm">
         <labs:confirmExclusaoSimples update=":form" action="#{emprestimoController.delete}"/>
+        <h:form id="formDlg">
+            <p:dialog header="#{form.emprestimo}" id="dialog" widgetVar="viewDlg" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+                <p:outputPanel id="viewDetail">
+                    <p:panelGrid columns="2" columnClasses="columnBold">
+                        <h:outputText value="#{form.usuario}"/>
+                        <h:outputText value="#{emprestimoController.entityView.outroUsuario}"/>
+
+                        <h:outputText value="#{form.data}"/>
+                        <h:outputText value="#{emprestimoController.entityView.data}">
+                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                        </h:outputText>
+
+                        <h:outputText value="#{form.obs}"/>
+                        <h:outputText value="#{emprestimoController.entityView.observacao}"/>
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
     </ui:define>
 </ui:decorate>
 

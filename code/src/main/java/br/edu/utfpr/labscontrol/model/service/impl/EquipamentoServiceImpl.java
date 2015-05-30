@@ -42,5 +42,10 @@ public class EquipamentoServiceImpl extends CrudService<Equipamento, Integer> im
         return this.equipamentoData.findByPatrimonioContaining(patrimonio);
     }
 
+    @Override
+    public List<Equipamento> findByNomeContainingOrPatrimonioContaining(String nome, String patrimonio) {
+        return this.equipamentoData.findByNomeContainingOrPatrimonioContaining(nome, patrimonio);
+    }
+
 
 }

@@ -68,6 +68,11 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     }
 
     @Override
+    protected void preProcessorDeleteFromForm() throws Exception {
+        removeImageFile();
+    }
+
+    @Override
     protected MaterialDeConsumo preProcessorSave(MaterialDeConsumo entity) {
         if ( this.entity.getQtdAtual().compareTo(this.entity.getQtdMin()) == -1 ) {
             addMessage("Quantidade Atual está abaixo da Quantidade Mínima!", FacesMessage.SEVERITY_WARN);
@@ -77,7 +82,7 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
 
     private void removeImageFile() {
         try {
-            String pathFile = getRealPath() + "\\" + this.materialDeConsumoService.findById(getId()).getFoto();
+            String pathFile = getRealPath() + "\\materiaisDeConsumo\\" + this.materialDeConsumoService.findById(getId()).getFoto();
             File imgFile = new File(pathFile);
             if (!imgFile.delete()) {
                 Logger.getLogger(Equipamento.class).info("Não foi possível remover a imagem: " + pathFile);
@@ -120,7 +125,7 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     }
 
     public String getRealPath() {
-        return FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos\\materiaisDeConsumo");
+        return FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos");
     }
 
     public String getFullPath() {
@@ -134,6 +139,10 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
             String path = getRealPath();
             File targetFolder = new File(path);
             this.entity.setFoto(fileName);
+            if (!targetFolder.exists()) {
+                targetFolder.mkdir();
+            }
+            targetFolder = new File(path.concat("\\materiaisDeConsumo"));
             if (!targetFolder.exists()) {
                 targetFolder.mkdir();
             }

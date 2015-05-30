@@ -20,4 +20,9 @@ public class EmprestimoItemServiceImpl extends CrudService<EmprestimoItem, Integ
     protected JpaRepository<EmprestimoItem, Integer> getData() {
         return emprestimoItemData;
     }
+
+    @Override
+    public void deleteEmprestimoItemById(Integer id) {
+        emprestimoItemData.deleteEmprestimoItemById(id);
+    }
 }

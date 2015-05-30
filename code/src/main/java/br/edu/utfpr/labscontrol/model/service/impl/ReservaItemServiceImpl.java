@@ -20,4 +20,9 @@ public class ReservaItemServiceImpl extends CrudService<ReservaItem, Integer> im
     protected JpaRepository<ReservaItem, Integer> getData() {
         return reservaItemData;
     }
+
+    @Override
+    public void deleteReservaItemById(Integer id) {
+        reservaItemData.deleteReservaItemById(id);
+    }
 }
