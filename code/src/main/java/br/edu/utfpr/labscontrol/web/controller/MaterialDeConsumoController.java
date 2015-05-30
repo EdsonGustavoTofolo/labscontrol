@@ -82,7 +82,7 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
 
     private void removeImageFile() {
         try {
-            String pathFile = getRealPath() + "\\materiaisDeConsumo\\" + this.materialDeConsumoService.findById(getId()).getFoto();
+            String pathFile = getRealPath() + this.materialDeConsumoService.findById(getId()).getFoto();
             File imgFile = new File(pathFile);
             if (!imgFile.delete()) {
                 Logger.getLogger(Equipamento.class).info("Não foi possível remover a imagem: " + pathFile);
@@ -125,7 +125,7 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     }
 
     public String getRealPath() {
-        return FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos");
+        return FacesContext.getCurrentInstance().getExternalContext().getRealPath("/fotos/materiaisDeConsumo/");
     }
 
     public String getFullPath() {
@@ -140,11 +140,7 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
             File targetFolder = new File(path);
             this.entity.setFoto(fileName);
             if (!targetFolder.exists()) {
-                targetFolder.mkdir();
-            }
-            targetFolder = new File(path.concat("\\materiaisDeConsumo"));
-            if (!targetFolder.exists()) {
-                targetFolder.mkdir();
+                targetFolder.mkdirs();
             }
             InputStream inputStream = event.getFile().getInputstream();
             OutputStream outputStream = new FileOutputStream(new File(targetFolder, fileName));

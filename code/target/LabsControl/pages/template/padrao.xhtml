@@ -177,8 +177,8 @@
                     </p:submenu>
                 </p:submenu>
 
-                <p:submenu label="#{form.emprestimo}" icon="ui-icon-wrench">
-                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/emprestimo/emprestimoForm.xhtml?faces-redirect=true" rendered="#{usuarioController.somenteAdmEatendente()}" />
+                <p:submenu label="#{form.emprestimo}" icon="ui-icon-wrench" rendered="#{usuarioController.somenteAdmEatendente()}" >
+                    <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/emprestimo/emprestimoForm.xhtml?faces-redirect=true" />
                     <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/emprestimo/emprestimoSearch.xhtml?faces-redirect=true" />
                 </p:submenu>
 

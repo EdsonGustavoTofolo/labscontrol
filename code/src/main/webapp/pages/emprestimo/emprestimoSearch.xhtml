@@ -43,7 +43,8 @@
             </p:column>
             <p:rowExpansion>
                 <p:dataTable value="#{objeto.emprestimoItens}" var="item" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                             paginator="true" rows="10" paginatorPosition="bottom">
+                             paginator="true" rows="10" paginatorPosition="bottom" editable="true">
+                    <p:ajax event="rowEdit" update="@this, :form:messages" listener="#{emprestimoController.onEdit}"/>
                     <p:column headerText="#{form.id}">
                         <h:outputText value="#{item.id}"/>
                     </p:column>
@@ -55,18 +56,49 @@
                             <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                         </h:outputText>
                     </p:column>
+
                     <p:column headerText="#{form.quantidadeBaixada}">
-                        <h:outputText value="#{item.quantidadeBaixada}">
-                            <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
-                        </h:outputText>
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{item.quantidadeBaixada}">
+                                    <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                                </h:outputText>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:inputText value="#{item.quantidadeBaixada}">
+                                    <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
+                                </p:inputText>
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
-                    <p:column headerText="#{form.dataDevolEfetiva}" sortBy="#{item.dataDevolucao}" styleClass="columnData">
-                        <h:outputText value="#{item.dataDevolucao}">
-                            <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
-                        </h:outputText>
+
+                    <p:column headerText="#{form.dataDevolEfetiva}" sortBy="#{item.dataDevolucao}">
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{item.dataDevolucao}">
+                                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
+                                </h:outputText>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:calendar value="#{item.dataDevolucao}" pattern="dd/MM/yyyy" mask="true"
+                                            locale="pt_BR" navigator="true" showButtonPanel="true" size="10" showOn="button"/>
+                            </f:facet>
+                        </p:cellEditor>
                     </p:column>
+
                     <p:column headerText="#{form.baixado}" sortBy="#{item.baixado}">
-                        <h:outputText value="#{item.baixado ? 'Sim' : 'Não'}"/>
+                        <p:cellEditor>
+                            <f:facet name="output">
+                                <h:outputText value="#{item.baixado ? 'Sim' : 'Não'}"/>
+                            </f:facet>
+                            <f:facet name="input">
+                                <p:selectBooleanCheckbox value="#{item.baixado}" />
+                            </f:facet>
+                        </p:cellEditor>
+                    </p:column>
+
+                    <p:column style="width: 5%">
+                        <p:rowEditor />
                     </p:column>
                 </p:dataTable>
             </p:rowExpansion>

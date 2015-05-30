@@ -11,6 +11,7 @@ import br.edu.utfpr.labscontrol.model.service.EquipamentoService;
 import br.edu.utfpr.labscontrol.model.service.MaterialDeConsumoService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
+import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.SelectEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -19,8 +20,11 @@ import org.springframework.stereotype.Controller;
 import javax.faces.application.FacesMessage;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -57,7 +61,6 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
     @Override
     protected void postCreate() {
         super.postCreate();
-        this.entity.setData(Calendar.getInstance().getTime());
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
         this.qtdEstoque = BigDecimal.ZERO;
     }
@@ -103,6 +106,46 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
         if (emprestimoItem.getId() != null && emprestimoItem.getId() > 0) {
             //TODO verificar pois se salvar assim da erro na hora de salver o emprestimo e se nao nao exclui o item
             emprestimoItemService.deleteEmprestimoItemById(emprestimoItem.getId());
+        }
+    }
+
+    public void onEdit(RowEditEvent event) {
+        EmprestimoItem item = (EmprestimoItem) event.getObject();
+        try {
+            validaDataDeDevolucao(item);
+            validaQuantidadeBaixada(item);
+            if (item.getMaterialDeConsumo() != null) {
+                estornarQuantidadeBaixada(item);
+            }
+            emprestimoItemService.save(item);
+        } catch (Exception e) {
+            addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
+            e.printStackTrace();
+        }
+    }
+
+    private void estornarQuantidadeBaixada(EmprestimoItem item) {
+        MaterialDeConsumo m = item.getMaterialDeConsumo();
+        m.setQtdAtual(m.getQtdAtual().add(item.getQuantidadeBaixada()));
+        try {
+            materialDeConsumoService.save(m);
+        } catch (Exception e) {
+            addMessage("Erro ao estornar estoque!", FacesMessage.SEVERITY_ERROR);
+            e.printStackTrace();
+        }
+    }
+
+    private void validaDataDeDevolucao(EmprestimoItem item) throws IllegalArgumentException {
+        Long time1 = item.getEmprestimo().getData().getTime();
+        Long time2 = item.getDataDevolucao().getTime();
+        if (time1 > time2) {
+            throw new IllegalArgumentException("Data de Devolução deve ser maior ou igual a Data do Empréstimo");
+        }
+    }
+
+    private void validaQuantidadeBaixada(EmprestimoItem item) throws IllegalArgumentException {
+        if (item.getQuantidade().compareTo(item.getQuantidadeBaixada()) == -1) {
+            throw new IllegalArgumentException("Quantidade a ser baixada deve ser menor ou igual a Quantidade emprestada!");
         }
     }
 

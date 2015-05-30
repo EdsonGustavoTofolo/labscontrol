@@ -116,7 +116,7 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
 
     private void removeImageFile() {
         try {
-            String pathFile = getRealPath() + "\\equipamentos\\" + this.equipamentoService.findById(getId()).getFoto();
+            String pathFile = getRealPath() + this.equipamentoService.findById(getId()).getFoto();
             File imgFile = new File(pathFile);
             if (!imgFile.delete()) {
                 Logger.getLogger(Equipamento.class).info("Não foi possível remover a imagem: " + pathFile);
@@ -128,7 +128,7 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
     }
 
     public String getRealPath() {
-        return FacesContext.getCurrentInstance().getExternalContext().getRealPath("\\fotos");
+        return FacesContext.getCurrentInstance().getExternalContext().getRealPath("/fotos/equipamentos/");
     }
 
     public String getFullPath() {
@@ -142,11 +142,7 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
             String path = getRealPath();
             File targetFolder = new File(path);
             if (!targetFolder.exists()) {
-                targetFolder.mkdir();
-            }
-            targetFolder = new File(path.concat("\\equipamentos"));
-            if (!targetFolder.exists()) {
-                targetFolder.mkdir();
+                targetFolder.mkdirs();
             }
             this.entity.setFoto(fileName);
             InputStream inputStream = event.getFile().getInputstream();
