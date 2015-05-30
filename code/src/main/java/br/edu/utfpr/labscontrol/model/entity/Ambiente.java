@@ -20,7 +20,7 @@ public class Ambiente implements Serializable {
     private String identificacao;
     @Column(name = "descricao", length = 100)
     private String descricao;
-    @Column(name = "observacao", length = 255)
+    @Column(columnDefinition = "text")
     private String observacao;
 
     public Ambiente() {

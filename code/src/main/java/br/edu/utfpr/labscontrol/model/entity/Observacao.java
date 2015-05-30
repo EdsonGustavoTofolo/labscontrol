@@ -16,7 +16,7 @@ public class Observacao implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(name = "data", nullable = false)
     private Date data;
-    @Column(name = "descricao", length = 255)
+    @Column(columnDefinition = "text")
     private String descricao;
     @ManyToOne
     @JoinColumn(name = "categoriaObsId", referencedColumnName = "id", nullable = false)

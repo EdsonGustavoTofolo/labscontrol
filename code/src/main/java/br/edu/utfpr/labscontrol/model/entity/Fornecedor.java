@@ -35,7 +35,7 @@ public class Fornecedor implements Serializable {
     private String cep;
     @Column(name = "site", length = 255)
     private String site;
-    @Column(name = "observacao", length = 255)
+    @Column(columnDefinition = "text")
     private String observacao;
     @OneToMany(mappedBy = "fornecedor", orphanRemoval = true, targetEntity = Contato.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)

@@ -28,7 +28,7 @@ public class HistoricoDeManutencao implements Serializable {
     private Date dataDeEnvio;
     @Temporal(TemporalType.DATE)
     private Date dataDeRetorno;
-    @Column(name = "manutencaoRealizada", length = 255)
+    @Column(columnDefinition = "text")
     private String manutencaoRealizada;
     @Column(name = "valorDaManutencao", precision = 12, scale = 2)
     private BigDecimal valorDaManutencao;
