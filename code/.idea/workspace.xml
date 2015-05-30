@@ -40,8 +40,8 @@
       <file leaf-file-name="index.xhtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.xhtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7178899" vertical-offset="1890" max-vertical-offset="2788">
-              <caret line="148" column="95" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="95" />
+            <state vertical-scroll-proportion="1.8058608" vertical-offset="0" max-vertical-offset="2771">
+              <caret line="58" column="120" selection-start-line="58" selection-start-column="120" selection-end-line="58" selection-end-column="120" />
               <folding />
             </state>
           </provider>
@@ -57,8 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/cadastros/fornecedor/fornecedorForm.xhtml" />
-        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/FornecedorController.java" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Saida.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/movimentos/saida/saidaSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/SaidaController.java" />
@@ -108,6 +106,8 @@
         <option value="$PROJECT_DIR$/src/main/webapp/pages/emprestimo/emprestimoSearch.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-security.xml" />
         <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/EmprestimoController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/index.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Reserva.java" />
       </list>
     </option>
   </component>
@@ -1023,12 +1023,12 @@
       <workItem from="1431874849917" duration="33724000" />
       <workItem from="1432907431787" duration="28554000" />
       <workItem from="1432998655953" duration="13542000" />
-      <workItem from="1433018872625" duration="1639000" />
+      <workItem from="1433018872625" duration="2428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="745476000" />
+    <option name="totallyTimeSpent" value="746265000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1076,7 +1076,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32960597" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35281384" sideWeight="0.6214058" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35281384" sideWeight="0.6214058" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32900432" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20537125" sideWeight="0.50076807" order="4" side_tool="true" content_ui="tabs" />
@@ -1150,13 +1150,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/cadastros/equipamento/equipamentoForm.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51357734" vertical-offset="381" max-vertical-offset="3978">
-          <caret line="48" column="71" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Estado.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5135135" vertical-offset="340" max-vertical-offset="1309">
@@ -1232,6 +1225,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33227345" vertical-offset="1780" max-vertical-offset="2754">
           <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,6 +1282,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1325167" vertical-offset="0" max-vertical-offset="898">
           <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1401,6 +1396,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37861916" vertical-offset="0" max-vertical-offset="898">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1517,10 +1513,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/entity/Reserva.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.743007" vertical-offset="153" max-vertical-offset="2006">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.xhtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7178899" vertical-offset="1890" max-vertical-offset="2788">
-          <caret line="148" column="95" selection-start-line="148" selection-start-column="24" selection-end-line="148" selection-end-column="95" />
+        <state vertical-scroll-proportion="1.8058608" vertical-offset="0" max-vertical-offset="2771">
+          <caret line="58" column="120" selection-start-line="58" selection-start-column="120" selection-end-line="58" selection-end-column="120" />
           <folding />
         </state>
       </provider>
