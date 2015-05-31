@@ -7,6 +7,9 @@ import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.exceptions.IllegalHorarioException;
 import br.edu.utfpr.labscontrol.web.exceptions.ReservaException;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import br.edu.utfpr.labscontrol.web.util.HorariosManha;
+import br.edu.utfpr.labscontrol.web.util.HorariosNoite;
+import br.edu.utfpr.labscontrol.web.util.HorariosTarde;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import javafx.scene.paint.Material;
 import org.exolab.castor.types.DateTime;
@@ -30,14 +33,12 @@ import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 
@@ -56,10 +57,15 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     private ScheduleEvent scheduleEvent = new DefaultScheduleEvent();
     private final Calendar calendar = Calendar.getInstance();
     private String tipo;
+    private String horaDeInicio;
+    private String horaDeFim;
     private MaterialDeConsumo materialDeConsumo;
     private Equipamento equipamento;
     private BigDecimal quantidade;
     private BigDecimal qtdEstoque;
+    private HorariosManha horariosManha;
+    private HorariosTarde horariosTarde;
+    private HorariosNoite horariosNoite;
 
     @Override
     protected void inicializar() {
@@ -108,6 +114,55 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         return ambienteService.findByIdentificacaoContaining(identificacao);
     }
 
+    public void iniciaHorarios() {
+        this.horaDeInicio = "";
+        this.horaDeFim = "";
+        this.horariosManha = new HorariosManha();
+        this.horariosTarde = new HorariosTarde();
+        this.horariosNoite = new HorariosNoite();
+    }
+
+    public void incluirHorario() {
+        List<Date> hrsManha = this.horariosManha.getSelectedHorarios();
+        List<Date> hrsTarde = this.horariosTarde.getSelectedHorarios();
+        List<Date> hrsNoite = this.horariosNoite.getSelectedHorarios();
+
+        List<Date> allListas = new ArrayList<>();
+        allListas.addAll(hrsManha);
+        allListas.addAll(hrsTarde);
+        allListas.addAll(hrsNoite);
+
+        Date[] horas = getMenorEmaiorHora(allListas);
+
+        this.horaDeInicio = getHorario(horas[0]);
+        this.horaDeFim = getHorario(horas[1]);
+
+        this.entity.setHoraInicio(horas[0]);
+        this.entity.setHoraFim(horas[1]);
+    }
+
+    private Date[] getMenorEmaiorHora(List<Date> lista) {
+        Date horas[] = new Date[2];
+        try {
+            Date menor = new SimpleDateFormat("HH:mm").parse("24:00");
+            Date maior = new SimpleDateFormat("HH:mm").parse("00:00");
+
+            for(Date hora : lista) {
+                if (hora.before(menor)) {
+                    menor = hora;
+                }
+                if (hora.after(maior)) {
+                    maior = hora;
+                }
+            }
+            horas[0] = menor;
+            horas[1] = maior;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return horas;
+    }
+
     public void onItemSelect(SelectEvent event) {
         Object o = event.getObject();
         if (o instanceof MaterialDeConsumo) {
@@ -118,6 +173,8 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void onDateSelect(SelectEvent selectEvent) {
         this.qtdEstoque = BigDecimal.ZERO;
+        this.horaDeInicio = "__:__";
+        this.horaDeFim = "__:__";
         reset();
         this.entity.setData((Date) selectEvent.getObject());
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
@@ -132,6 +189,8 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         scheduleEvent = (ScheduleEvent) selectEvent.getObject();
         try {
             this.entity = (Reserva) scheduleEvent.getData();
+            this.horaDeInicio = getHorario(this.entity.getHoraInicio());
+            this.horaDeFim = getHorario(this.entity.getHoraFim());
             setId(this.entity.getId()); // utilizado para exclusão da reserva
         } catch (Exception e) {
             reset();
@@ -465,5 +524,45 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void setQtdEstoque(BigDecimal qtdEstoque) {
         this.qtdEstoque = qtdEstoque;
+    }
+
+    public String getHoraDeInicio() {
+        return horaDeInicio;
+    }
+
+    public void setHoraDeInicio(String horaDeInicio) {
+        this.horaDeInicio = horaDeInicio;
+    }
+
+    public String getHoraDeFim() {
+        return horaDeFim;
+    }
+
+    public void setHoraDeFim(String horaDeFim) {
+        this.horaDeFim = horaDeFim;
+    }
+
+    public HorariosManha getHorariosManha() {
+        return horariosManha;
+    }
+
+    public void setHorariosManha(HorariosManha horariosManha) {
+        this.horariosManha = horariosManha;
+    }
+
+    public HorariosNoite getHorariosNoite() {
+        return horariosNoite;
+    }
+
+    public void setHorariosNoite(HorariosNoite horariosNoite) {
+        this.horariosNoite = horariosNoite;
+    }
+
+    public HorariosTarde getHorariosTarde() {
+        return horariosTarde;
+    }
+
+    public void setHorariosTarde(HorariosTarde horariosTarde) {
+        this.horariosTarde = horariosTarde;
     }
 }

@@ -35,15 +35,11 @@
                                          disabled="#{reservaController.entity.confirmada}" />
                             <p:message for="otherUsuario"/>
 
-                            <h:outputLabel for="horaInicio" value="#{form.horaInicio}*" />
-                            <p:calendar id="horaInicio" value="#{reservaController.entity.horaInicio}" pattern="HH:mm" timeOnly="true"  required="true" requiredMessage="#{msg.campoObrigatorio}"
-                                        disabled="#{reservaController.entity.confirmada}"/>
-                            <p:message for="horaInicio"/>
-
-                            <h:outputLabel for="horaFim" value="#{form.horaFim}*" />
-                            <p:calendar id="horaFim" value="#{reservaController.entity.horaFim}" pattern="HH:mm" timeOnly="true" required="true" requiredMessage="#{msg.campoObrigatorio}"
-                                        disabled="#{reservaController.entity.confirmada}" />
-                            <p:message for="horaFim"/>
+                            <h:outputLabel value="#{form.horario}" />
+                            <p:commandLink actionListener="#{reservaController.iniciaHorarios}" process="@this" oncomplete="PF('dialogHorarios').show();" disabled="#{reservaController.entity.confirmada}">
+                                <h:outputText value="#{reservaController.horaDeInicio} até #{reservaController.horaDeFim}" id="horario" />
+                            </p:commandLink>
+                            <p:message for="horario"/>
 
                             <h:outputLabel value="#{form.ambiente}*" for="ambiente"/>
                             <p:autoComplete value="#{reservaController.entity.ambiente}"
@@ -99,7 +95,7 @@
 
                             <f:facet name="footer">
                                 <p:commandButton value="#{form.adicionar}" action="#{reservaController.addItem}" ajax="true"
-                                                 update="gridItens, tableItens, msgsReserva" process="@this, otherUsuario, horaInicio, horaFim, ambiente, tipo, materialDeConsumo, equipamento, quantidade"
+                                                 update="gridItens, tableItens, msgsReserva" process="@this, otherUsuario, horario, ambiente, tipo, materialDeConsumo, equipamento, quantidade"
                                                  disabled="#{reservaController.entity.confirmada}"/>
                             </f:facet>
                         </p:panelGrid>
@@ -148,6 +144,71 @@
                         <p:selectBooleanCheckbox value="#{reservaController.entity.confirmada}" rendered="#{reservaController.podeConfirmar()}" id="chkConfirm">
                             <p:ajax listener="#{reservaController.confirmaReserva}" update="eventDialogReserva" />
                         </p:selectBooleanCheckbox>
+                    </f:facet>
+                </p:panelGrid>
+            </p:dialog>
+        </h:form>
+
+        <h:form id="formHorarios">
+            <p:dialog id="dlgHorarios" widgetVar="dialogHorarios" header="#{form.horariosDasAulas}" showEffect="clip" hideEffect="clip" modal="true" resizable="false">
+                <p:panelGrid columns="3">
+                    <p:panel>
+                        <f:facet name="header">
+                            <h:outputText value="#{form.manha}"/>
+                        </f:facet>
+                        <p:panelGrid columns="2" id="pnlManha">
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosManha.primeiro}" />
+                            <h:outputLabel value="#{form.manha1}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosManha.segundo}" />
+                            <h:outputLabel value="#{form.manha2}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosManha.terceiro}" />
+                            <h:outputLabel value="#{form.manha3}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosManha.quarto}" />
+                            <h:outputLabel value="#{form.manha4}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosManha.quinto}" />
+                            <h:outputLabel value="#{form.manha5}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosManha.sexto}" />
+                            <h:outputLabel value="#{form.manha6}"/>
+                        </p:panelGrid>
+                    </p:panel>
+                    <p:panel>
+                        <f:facet name="header">
+                            <h:outputText value="#{form.tarde}"/>
+                        </f:facet>
+                        <p:panelGrid columns="2">
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosTarde.primeiro}" />
+                            <h:outputLabel value="#{form.tarde1}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosTarde.segundo}" />
+                            <h:outputLabel value="#{form.tarde2}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosTarde.terceiro}" />
+                            <h:outputLabel value="#{form.tarde3}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosTarde.quarto}" />
+                            <h:outputLabel value="#{form.tarde4}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosTarde.quinto}" />
+                            <h:outputLabel value="#{form.tarde5}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosTarde.sexto}" />
+                            <h:outputLabel value="#{form.tarde6}"/>
+                        </p:panelGrid>
+                    </p:panel>
+                    <p:panel>
+                        <f:facet name="header">
+                            <h:outputText value="#{form.noite}"/>
+                        </f:facet>
+                        <p:panelGrid columns="2">
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosNoite.primeiro}" />
+                            <h:outputLabel value="#{form.noite1}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosNoite.segundo}" />
+                            <h:outputLabel value="#{form.noite2}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosNoite.terceiro}" />
+                            <h:outputLabel value="#{form.noite3}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosNoite.quarto}" />
+                            <h:outputLabel value="#{form.noite4}"/>
+                            <p:selectBooleanCheckbox value="#{reservaController.horariosNoite.quinto}" />
+                            <h:outputLabel value="#{form.noite5}"/>
+                        </p:panelGrid>
+                    </p:panel>
+                    <f:facet name="footer">
+                        <p:commandButton value="#{form.ok}" action="#{reservaController.incluirHorario}" process="@form" update=":formEvent:horario" oncomplete="PF('dialogHorarios').hide();" />
                     </f:facet>
                 </p:panelGrid>
             </p:dialog>
