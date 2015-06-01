@@ -184,6 +184,10 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         scheduleEvent = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject(), this.entity);
     }
 
+    public void cancelarReserva() {
+        reset();
+    }
+
     public void onEventSelect(SelectEvent selectEvent) {
         this.qtdEstoque = BigDecimal.ZERO;
         scheduleEvent = (ScheduleEvent) selectEvent.getObject();

@@ -25,7 +25,7 @@
     <ui:define name="foraDoForm">
         <h:form id="formEvent" prependId="false">
             <p:dialog id="eventDialogReserva" widgetVar="eventDialog" header="#{form.reserva} - #{reservaController.isConfirmada()}" showEffect="clip"
-                      hideEffect="clip" modal="true" resizable="false" width="45%">
+                      hideEffect="clip" modal="true" resizable="false" width="70%">
                 <p:panelGrid columns="1">
                     <p:messages id="msgsReserva" closable="true"/>
                     <p:fieldset legend="#{form.dados}" toggleable="true">
@@ -140,6 +140,8 @@
                         <p:commandButton value="#{form.excluir}" action="#{reservaController.delete()}" immediate="true" oncomplete="PF('eventDialog').hide();PF('widgetReservasSchedule').update();"
                                          rendered="#{reservaController.podeExcluir()}" update="eventDetails"/>
 
+                        <p:commandButton value="#{form.sair}" immediate="true" oncomplete="PF('eventDialog').hide();" />
+
                         <h:outputLabel value="#{form.confirmarReserva}" rendered="#{reservaController.podeConfirmar()}"/>
                         <p:selectBooleanCheckbox value="#{reservaController.entity.confirmada}" rendered="#{reservaController.podeConfirmar()}" id="chkConfirm">
                             <p:ajax listener="#{reservaController.confirmaReserva}" update="eventDialogReserva" />
@@ -208,7 +210,7 @@
                         </p:panelGrid>
                     </p:panel>
                     <f:facet name="footer">
-                        <p:commandButton value="#{form.ok}" action="#{reservaController.incluirHorario}" process="@form" update=":formHorarios:pnlManha, :formEvent:horario" oncomplete="PF('dialogHorarios').hide();" />
+                        <p:commandButton value="#{form.ok}" action="#{reservaController.incluirHorario}" process="@form" update=":formEvent:horario" oncomplete="PF('dialogHorarios').hide();" />
                     </f:facet>
                 </p:panelGrid>
             </p:dialog>
