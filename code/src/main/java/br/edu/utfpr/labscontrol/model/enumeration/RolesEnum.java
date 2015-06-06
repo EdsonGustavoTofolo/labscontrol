@@ -5,7 +5,7 @@ package br.edu.utfpr.labscontrol.model.enumeration;
  */
 public enum RolesEnum implements EnumLabel {
 
-    ADM("Administrador"), USER("Usuário"), ATENDENTE("Atendente");
+    ADM("Administrador"), USER("Professor"), ATENDENTE("Atendente");
 
     private String label;
 

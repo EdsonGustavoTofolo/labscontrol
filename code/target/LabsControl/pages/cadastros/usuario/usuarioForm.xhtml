@@ -34,7 +34,7 @@
 
             <h:outputLabel value="#{form.papel}"/>
             <p:selectOneMenu value="#{usuarioController.rolesEnum}" label="#{form.papel}" required="true" requiredMessage="#{msg.campoObrigatorio}"
-                             disabled="#{!usuarioController.isAdmin}">
+                             disabled="#{!usuarioController.somenteAdm()}">
                 <f:selectItem itemLabel="Selecione"/>
                 <f:selectItems value="#{usuarioController.rolesItem}"/>
                 <f:converter converterId="enumConverter"/>
