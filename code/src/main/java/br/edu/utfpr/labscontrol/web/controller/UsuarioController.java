@@ -95,6 +95,8 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
                     rolesEnum = RolesEnum.ATENDENTE;
                 } else if (p.getId() == (RolesEnum.USER.ordinal() + 1)) {
                     rolesEnum = RolesEnum.USER;
+                } else if (p.getId() == (RolesEnum.NONE.ordinal() + 1)) {
+                    rolesEnum = RolesEnum.NONE;
                 }
             }
         }
@@ -184,7 +186,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     private Permissao getPermissao() throws Exception {
         Permissao permissao = null;
         if (rolesEnum == null) {
-            String role = (isAdmin) ? "ROLE_ADMIN" : "ROLE_USER";
+            String role = (isAdmin) ? "ROLE_ADMIN" : "ROLE_NONE";
             permissao = permissaoService.findByPermissao(role);
             if (permissao == null) {
                 permissao = new Permissao();
@@ -198,7 +200,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     }
 
     private void criarPermissoes() throws Exception {
-        String[] roles = {"ROLE_ADMIN", "ROLE_USER", "ROLE_ATENDENTE"};
+        String[] roles = {"ROLE_ADMIN", "ROLE_USER", "ROLE_ATENDENTE", "ROLE_NONE"};
         for(String r : roles) {
             Permissao permissao = new Permissao();
             permissao.setPermissao(r);
@@ -216,7 +218,8 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     }
 
     public Boolean somenteAdmEatendente() {
-        return ((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.USER.ordinal() + 1;
+        return ( (((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.USER.ordinal() + 1) &&
+                 (((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() != RolesEnum.NONE.ordinal() + 1) );
     }
 
     public void enviaEmail() {

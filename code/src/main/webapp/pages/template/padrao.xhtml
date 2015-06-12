@@ -24,6 +24,17 @@
     <h:outputScript name="application.js" library="js" />
     <h:outputScript name="bootstrap.min.js" library="js" />
     <script type="text/javascript">
+        function bloquearCtrlJ(){   // Verificação das Teclas
+            $('#form\\:equipamento_input').focus();
+            var tecla=window.event.keyCode;   //Para controle da tecla pressionada
+            var ctrl=window.event.ctrlKey;    //Para controle da Tecla CTRL
+            if (ctrl){    //Evita teclar ctrl + j
+                if (tecla==74) {
+                    event.keyCode=0;
+                    event.returnValue=false;
+                }
+            }
+        }
         $(document).ready(function () {
             var url = location.href;
             if (url.indexOf("?") > 0) {
@@ -34,6 +45,12 @@
                     window.history.pushState('', '', '/labscontrol/pages/index.xhtml');
                 }
             }
+            //Evitar evento de Enter nas páginas
+            $("form").bind("keypress", function(e) {
+                if (e.keyCode == 13) {
+                    return false;
+                }
+            });
         });
     </script>
 </h:head>

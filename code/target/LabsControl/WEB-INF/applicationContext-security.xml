@@ -13,7 +13,11 @@
         <security:intercept-url pattern="/j_spring_security_logout" access="permitAll" />
         <security:intercept-url pattern="/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE')" />
         <security:intercept-url pattern="/pages/cadastros/equipamento/equipamentoForm.xhtml" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE')" />
-
+        <security:intercept-url pattern="/pages/*" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
+        <security:intercept-url pattern="/pages/cadastros/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
+        <security:intercept-url pattern="/pages/emprestimo/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
+        <security:intercept-url pattern="/pages/movimentos/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
+        <security:intercept-url pattern="/pages/reserva/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
         <security:intercept-url pattern="/pages/**" access="isAuthenticated()" />
 
         <security:logout logout-url="/j_spring_security_logout" invalidate-session="true"/>

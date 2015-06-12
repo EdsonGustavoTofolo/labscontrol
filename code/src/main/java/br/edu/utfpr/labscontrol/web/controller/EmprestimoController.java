@@ -126,25 +126,29 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
 
     private void estornarQuantidadeBaixada(EmprestimoItem item) {
         MaterialDeConsumo m = item.getMaterialDeConsumo();
-        m.setQtdAtual(m.getQtdAtual().add(item.getQuantidadeBaixada()));
-        try {
-            materialDeConsumoService.save(m);
-        } catch (Exception e) {
-            addMessage("Erro ao estornar estoque!", FacesMessage.SEVERITY_ERROR);
-            e.printStackTrace();
+        if (item.getQuantidadeBaixada() != null) {
+            m.setQtdAtual(m.getQtdAtual().add(item.getQuantidadeBaixada()));
+            try {
+                materialDeConsumoService.save(m);
+            } catch (Exception e) {
+                addMessage("Erro ao estornar estoque!", FacesMessage.SEVERITY_ERROR);
+                e.printStackTrace();
+            }
         }
     }
 
     private void validaDataDeDevolucao(EmprestimoItem item) throws IllegalArgumentException {
-        Long time1 = item.getEmprestimo().getData().getTime();
-        Long time2 = item.getDataDevolucao().getTime();
-        if (time1 > time2) {
-            throw new IllegalArgumentException("Data de Devolução deve ser maior ou igual a Data do Empréstimo");
+        if (item.getDataDevolucao() != null) {
+            Long time1 = item.getEmprestimo().getData().getTime();
+            Long time2 = item.getDataDevolucao().getTime();
+            if (time1 > time2) {
+                throw new IllegalArgumentException("Data de Devolução deve ser maior ou igual a Data do Empréstimo");
+            }
         }
     }
 
     private void validaQuantidadeBaixada(EmprestimoItem item) throws IllegalArgumentException {
-        if (item.getQuantidade().compareTo(item.getQuantidadeBaixada()) == -1) {
+        if (item.getQuantidadeBaixada() != null && item.getQuantidade().compareTo(item.getQuantidadeBaixada()) == -1) {
             throw new IllegalArgumentException("Quantidade a ser baixada deve ser menor ou igual a Quantidade emprestada!");
         }
     }

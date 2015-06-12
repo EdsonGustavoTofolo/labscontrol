@@ -31,3 +31,4 @@ function redirectToLoginAfterSaveUser(xhr, status, args) {
         window.location = "/labscontrol/"
     }
 }
+

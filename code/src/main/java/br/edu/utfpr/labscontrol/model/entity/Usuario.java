@@ -35,7 +35,7 @@ public class Usuario implements Serializable, UserDetails {
     private String password;
     @Column(length = 100, nullable = false)
     private String email;
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Permissao> permissoes;
 
 
