@@ -13,6 +13,7 @@ import br.edu.utfpr.labscontrol.model.service.UsuarioService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.EnumUtil;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
+import br.edu.utfpr.labscontrol.web.util.StringEncrypt;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
@@ -248,14 +249,14 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
                 email.send();
                 System.out.println("Email enviado.");
                 addMessage("Email enviado com sucesso! Verifique sua caixa de entrada para proceder a alteração da senha.", FacesMessage.SEVERITY_INFO);
-            } catch (EmailException e) {
+            } catch (Exception e) {
                 addMessage("Problemas ao enviar email. Entre em contato com o administrador!", FacesMessage.SEVERITY_ERROR);
                 e.printStackTrace();
             }
         }
     }
 
-    private SimpleEmail constructResetTokenEmail(String contextPath, String token, Usuario user) throws EmailException {
+    private SimpleEmail constructResetTokenEmail(String contextPath, String token, Usuario user) throws Exception {
         String url = contextPath + "/mudarSenha.xhtml?id=" + user.getId() + "&token=" + token;
         String message = "Recuperação/Alteração de senha";
 
@@ -276,7 +277,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         //Para autenticar no servidor é necessário chamar os dois métodos abaixo
         email.setSSL(true);
         System.out.println("autenticando...");
-        email.setAuthenticator(new DefaultAuthenticator(cfgEnvioEmail.getEmail(), cfgEnvioEmail.getSenha()));
+        email.setAuthenticator(new DefaultAuthenticator(cfgEnvioEmail.getEmail(), StringEncrypt.decrypt(StringEncrypt.KEY, StringEncrypt.IV, cfgEnvioEmail.getSenha())));
         return email;
     }
 

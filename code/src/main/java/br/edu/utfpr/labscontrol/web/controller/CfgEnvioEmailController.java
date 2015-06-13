@@ -4,6 +4,8 @@ import br.edu.utfpr.labscontrol.model.entity.CfgEnvioEmail;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.CfgEnvioEmailService;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
+import br.edu.utfpr.labscontrol.web.util.JsfUtil;
+import br.edu.utfpr.labscontrol.web.util.StringEncrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -38,5 +40,15 @@ public class CfgEnvioEmailController extends CrudController<CfgEnvioEmail, Integ
         } else {
             return Boolean.TRUE;
         }
+    }
+
+    @Override
+    protected CfgEnvioEmail preProcessorSave(CfgEnvioEmail entity) {
+        try {
+            this.entity.setSenha(StringEncrypt.encrypt(StringEncrypt.KEY, StringEncrypt.IV, this.entity.getSenha()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return super.preProcessorSave(entity);
     }
 }
