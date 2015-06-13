@@ -31,8 +31,10 @@
             <p:inputText value="#{cfgEnvioEmailController.entity.port}" size="60" maxlength="5" required="true" requiredMessage="#{msg.portRequired}" />
             <h:outputLabel value="#{form.email}" />
             <p:inputText value="#{cfgEnvioEmailController.entity.email}" size="60" maxlength="256" required="true" requiredMessage="#{msg.emailRequired}" />
-            <h:outputLabel value="#{form.password}" />
-            <p:password value="#{cfgEnvioEmailController.entity.senha}" size="60" maxlength="256" required="true" requiredMessage="#{msg.passwordConfirm}"/>
+            <h:outputLabel value="#{form.password}"/>
+            <p:password id="password" value="#{cfgEnvioEmailController.entity.senha}" size="60" maxlength="256" match="passConf" required="true"  requiredMessage="#{msg.passwordObrigatorio}" validatorMessage="#{form.senhasNaoCombinam}"/>
+            <h:outputLabel value="#{form.passwordConfirm}"/>
+            <p:password id="passConf" value="#{cfgEnvioEmailController.entity.senha}" size="60" maxlength="256" required="true" requiredMessage="#{msg.passwordConfObrigatorio}"/>
             <h:outputLabel value="#{form.ativa}" />
             <p:selectBooleanCheckbox value="#{cfgEnvioEmailController.entity.ativa}"/>
         </p:panelGrid>
