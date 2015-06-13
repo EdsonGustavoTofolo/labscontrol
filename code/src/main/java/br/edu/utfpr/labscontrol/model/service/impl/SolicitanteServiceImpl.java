@@ -28,4 +28,9 @@ public class SolicitanteServiceImpl extends CrudService<Solicitante, Integer> im
     public List<Solicitante> findByIdentificacaoContaining(String identificacao) {
         return solicitanteData.findByIdentificacaoContaining(identificacao);
     }
+
+    @Override
+    public List<Solicitante> findByNomeContainingOrIdentificacaoContaining(String nome, String identificacao) {
+        return solicitanteData.findByNomeContainingOrIdentificacaoContaining(nome, identificacao);
+    }
 }

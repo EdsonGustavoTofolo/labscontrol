@@ -18,20 +18,44 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <p:panelGrid columns="1">
+        <p:panelGrid columns="2">
             <p:commandButton value="#{form.novo}" action="/pages/emprestimo/emprestimoForm.xhtml?faces-redirect=true"
                             immediate="true" ajax="false" style="float: left" icon="ui-icon-plus"/>
+
+            <p:panelGrid columns="3">
+                <h:outputLabel value="#{form.pendenciasSolicitante}"/>
+                <p:autoComplete value="#{emprestimoController.solicitantePesquisado}"
+                                completeMethod="#{emprestimoController.completeSolicitante}"
+                                converter="#{solicitanteConverter}"
+                                label="#{form.solicitante}" id="solicitante" var="solicitante"
+                                itemLabel="#{solicitante.nome}" itemValue="#{solicitante}"
+                                dropdown="true" forceSelection="true" size="60"
+                                placeholder="#{form.placeHolderNomeOuIdentificacaoSolicitante}"
+                                onkeydown="bloquearCtrlJ();">
+                    <p:ajax event="itemSelect" listener="#{emprestimoController.onSolicitanteSelect}" update="tabelaEmprestimos" />
+                    <p:column>
+                        <h:outputText value="#{solicitante.nome}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{solicitante.identificacao}"/>
+                    </p:column>
+                </p:autoComplete>
+                <p:panelGrid columns="1" style="margin-left: 20px;">
+                    <p:commandButton value="#{form.buscarTodos}" actionListener="#{emprestimoController.find}" update="solicitante, tabelaEmprestimos"
+                                     oncomplete="$('#form\\:solicitante_input').focus();" />
+                </p:panelGrid>
+            </p:panelGrid>
         </p:panelGrid>
         <p:dataTable value="#{emprestimoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom">
+                     paginator="true" rows="10" paginatorPosition="bottom" id="tabelaEmprestimos">
             <p:column style="width:2%">
                 <p:rowToggler />
             </p:column>
             <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
                 <h:outputText value="#{objeto.id}"/>
             </p:column>
-            <p:column headerText="#{form.solicitante}" sortBy="#{objeto.outroUsuario}" filterBy="#{objeto.outroUsuario}">
-                <h:outputText value="#{objeto.outroUsuario}"/>
+            <p:column headerText="#{form.solicitante}" sortBy="#{objeto.solicitante}" filterBy="#{objeto.solicitante}">
+                <h:outputText value="#{objeto.solicitante.nome} - #{objeto.solicitante.identificacao}"/>
             </p:column>
             <p:column headerText="#{form.data}" sortBy="#{objeto.data}">
                 <h:outputText value="#{objeto.data}">

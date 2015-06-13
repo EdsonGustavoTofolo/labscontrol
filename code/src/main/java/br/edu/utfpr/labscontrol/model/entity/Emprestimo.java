@@ -17,8 +17,9 @@ public class Emprestimo implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuarioId", referencedColumnName = "id")
     private Usuario usuario;
-    @Column(length = 60)
-    private String outroUsuario;
+    @ManyToOne
+    @JoinColumn(name = "solicitanteId", referencedColumnName = "id", nullable = false)
+    private Solicitante solicitante;
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date data;
@@ -27,9 +28,9 @@ public class Emprestimo implements Serializable {
     @Column(length = 255)
     private String observacao;
 
-    public Emprestimo(Usuario usuario, String outroUsuario, Date data, List<EmprestimoItem> emprestimoItens, String observacao) {
+    public Emprestimo(Usuario usuario, Solicitante solicitante, Date data, List<EmprestimoItem> emprestimoItens, String observacao) {
         this.usuario = usuario;
-        this.outroUsuario = outroUsuario;
+        this.solicitante = solicitante;
         this.data = data;
         this.emprestimoItens = emprestimoItens;
         this.observacao = observacao;
@@ -54,12 +55,12 @@ public class Emprestimo implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getOutroUsuario() {
-        return outroUsuario;
+    public Solicitante getSolicitante() {
+        return solicitante;
     }
 
-    public void setOutroUsuario(String outroUsuario) {
-        this.outroUsuario = outroUsuario;
+    public void setSolicitante(Solicitante solicitante) {
+        this.solicitante = solicitante;
     }
 
     public Date getData() {

@@ -1,14 +1,8 @@
 package br.edu.utfpr.labscontrol.web.controller;
 
-import br.edu.utfpr.labscontrol.model.entity.Emprestimo;
-import br.edu.utfpr.labscontrol.model.entity.EmprestimoItem;
-import br.edu.utfpr.labscontrol.model.entity.Equipamento;
-import br.edu.utfpr.labscontrol.model.entity.MaterialDeConsumo;
+import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
-import br.edu.utfpr.labscontrol.model.service.EmprestimoItemService;
-import br.edu.utfpr.labscontrol.model.service.EmprestimoService;
-import br.edu.utfpr.labscontrol.model.service.EquipamentoService;
-import br.edu.utfpr.labscontrol.model.service.MaterialDeConsumoService;
+import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import org.primefaces.event.RowEditEvent;
@@ -41,12 +35,16 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
     private MaterialDeConsumoService materialDeConsumoService;
     @Autowired
     private EmprestimoItemService emprestimoItemService;
+    @Autowired
+    private SolicitanteService solicitanteService;
 
     private String tipo;
     private MaterialDeConsumo materialDeConsumo;
     private Equipamento equipamento;
     private BigDecimal qtdEstoque;
     private BigDecimal quantidade;
+    private Boolean pesquisandoPorSolicitante;
+    private Solicitante solicitantePesquisado;
 
     @Override
     protected ICrudService<Emprestimo, Integer> getService() {
@@ -63,6 +61,7 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
         super.postCreate();
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
         this.qtdEstoque = BigDecimal.ZERO;
+        this.pesquisandoPorSolicitante = Boolean.FALSE;
     }
 
     public void addItem() {
@@ -206,8 +205,31 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
         return equipamentoService.findByNomeContainingOrPatrimonioContaining(value, value);
     }
 
+    public List<Solicitante> completeSolicitante(String value) {
+        return solicitanteService.findByNomeContainingOrIdentificacaoContaining(value, value);
+    }
+
     public List<MaterialDeConsumo> completeMaterialDeConsumo(String nome) {
         return materialDeConsumoService.findByNomeContaining(nome);
+    }
+
+    public void onSolicitanteSelect(SelectEvent event) {
+        this.pesquisandoPorSolicitante = Boolean.TRUE;
+        Object o = event.getObject();
+        if (o instanceof Solicitante) {
+            this.lsEntity.clear();
+            this.lsEntity.addAll(this.emprestimoService.findByPendenciasDoSolicitanteId(((Solicitante) o).getId()));
+        }
+    }
+
+    @Override
+    public void find() {
+        if (!pesquisandoPorSolicitante) {
+            super.find();
+            this.solicitantePesquisado = null;
+        } else {
+            this.pesquisandoPorSolicitante = Boolean.FALSE;
+        }
     }
 
     public void onItemSelect(SelectEvent event) {
@@ -256,5 +278,13 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
 
     public void setQuantidade(BigDecimal quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public Solicitante getSolicitantePesquisado() {
+        return solicitantePesquisado;
+    }
+
+    public void setSolicitantePesquisado(Solicitante solicitantePesquisado) {
+        this.solicitantePesquisado = solicitantePesquisado;
     }
 }

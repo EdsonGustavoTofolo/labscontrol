@@ -29,8 +29,22 @@
                 <h:outputLabel for="usuario" value="#{form.usuario}" />
                 <p:inputText id="usuario" value="#{emprestimoController.entity.usuario.nome}" disabled="true"/>
 
-                <h:outputLabel for="otherUsuario" value="#{form.solicitante}*" />
-                <p:inputText id="otherUsuario" value="#{emprestimoController.entity.outroUsuario}" required="true" requiredMessage="Campo Usuário: Preenchimento Obrigatório!"/>
+                <h:outputLabel for="solicitante" value="#{form.solicitante}*" />
+                <p:autoComplete value="#{emprestimoController.entity.solicitante}"
+                                completeMethod="#{emprestimoController.completeSolicitante}"
+                                converter="#{solicitanteConverter}"
+                                label="#{form.solicitante}" id="solicitante" var="solicitante"
+                                itemLabel="#{solicitante.nome}" itemValue="#{solicitante}"
+                                dropdown="true" forceSelection="true" size="60"
+                                placeholder="#{form.placeHolderNomeOuIdentificacaoSolicitante}"
+                                onkeydown="bloquearCtrlJ();">
+                    <p:column>
+                        <h:outputText value="#{solicitante.nome}"/>
+                    </p:column>
+                    <p:column>
+                        <h:outputText value="#{solicitante.identificacao}"/>
+                    </p:column>
+                </p:autoComplete>
 
                 <h:outputLabel value="#{form.data}*" />
                 <p:calendar value="#{emprestimoController.entity.data}" pattern="dd/MM/yyyy" mask="true"

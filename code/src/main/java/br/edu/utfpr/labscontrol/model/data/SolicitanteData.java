@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface SolicitanteData extends JpaRepository<Solicitante, Integer> {
     List<Solicitante> findByIdentificacaoContaining(String identificacao);
+    List<Solicitante> findByNomeContainingOrIdentificacaoContaining(String nome, String identificacao);
 }
