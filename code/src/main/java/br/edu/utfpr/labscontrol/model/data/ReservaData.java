@@ -29,4 +29,6 @@ public interface ReservaData extends JpaRepository<Reserva, Integer> {
     List<Reserva> findByDataAndHoraInicioBetweenAndHoraFimBetweenAndAmbienteIdAndConfirmada(Date data, Date horaInicio, Date horaFim, Integer ambienteId, Boolean confirmada);
 
     List<Reserva> findByDataBetween(Date start, Date end);
+
+    List<Reserva> findByData(Date data);
 }

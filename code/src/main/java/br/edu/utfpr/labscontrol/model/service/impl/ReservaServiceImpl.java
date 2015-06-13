@@ -44,5 +44,10 @@ public class ReservaServiceImpl extends CrudService<Reserva, Integer> implements
         return reservaData.findByDataBetween(start, end);
     }
 
+    @Override
+    public List<Reserva> findByData(Date data) {
+        return reservaData.findByData(data);
+    }
+
 
 }

@@ -17,10 +17,7 @@ import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
-import org.primefaces.model.DefaultScheduleEvent;
-import org.primefaces.model.DefaultScheduleModel;
-import org.primefaces.model.ScheduleEvent;
-import org.primefaces.model.ScheduleModel;
+import org.primefaces.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.Authentication;
@@ -29,6 +26,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.event.ActionEvent;
 import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -74,18 +72,22 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     private void populaSchedule() {
-        scheduleModel = new DefaultScheduleModel();
-        for (Reserva reserva : reservaService.findAll()) {
-            Calendar inicio = Calendar.getInstance();
-            inicio.setTime(reserva.getData());
-            inicio.set(inicio.get(Calendar.YEAR), inicio.get(Calendar.MONTH), inicio.get(Calendar.DATE), getHour(reserva.getHoraInicio()), getMinute(reserva.getHoraInicio()));
+        this.scheduleModel = new LazyScheduleModel() {
+            @Override
+            public void loadEvents(Date start, Date end) {
+                for (Reserva reserva : reservaService.findByDataBetween(start, end)) {
+                    Calendar inicio = Calendar.getInstance();
+                    inicio.setTime(reserva.getData());
+                    inicio.set(inicio.get(Calendar.YEAR), inicio.get(Calendar.MONTH), inicio.get(Calendar.DATE), getHour(reserva.getHoraInicio()), getMinute(reserva.getHoraInicio()));
 
-            Calendar fim = Calendar.getInstance();
-            fim.setTime(reserva.getData());
-            fim.set(fim.get(Calendar.YEAR), fim.get(Calendar.MONTH), fim.get(Calendar.DATE), getHour(reserva.getHoraFim()), getMinute(reserva.getHoraFim()));
+                    Calendar fim = Calendar.getInstance();
+                    fim.setTime(reserva.getData());
+                    fim.set(fim.get(Calendar.YEAR), fim.get(Calendar.MONTH), fim.get(Calendar.DATE), getHour(reserva.getHoraFim()), getMinute(reserva.getHoraFim()));
 
-            scheduleModel.addEvent(new DefaultScheduleEvent(getTitle(reserva), inicio.getTime(), fim.getTime(), reserva));
-        }
+                    addEvent(new DefaultScheduleEvent(getTitle(reserva), inicio.getTime(), fim.getTime(), reserva));
+                }
+            }
+        };
     }
 
     private String getTitle(Reserva reserva) {
