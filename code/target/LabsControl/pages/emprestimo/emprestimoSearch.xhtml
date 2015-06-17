@@ -32,7 +32,7 @@
                                 dropdown="true" forceSelection="true" size="60"
                                 placeholder="#{form.placeHolderNomeOuIdentificacaoSolicitante}"
                                 onkeydown="bloquearCtrlJ();">
-                    <p:ajax event="itemSelect" listener="#{emprestimoController.onSolicitanteSelect}" update="tabelaEmprestimos" />
+                    <p:ajax event="itemSelect" listener="#{emprestimoController.onSolicitanteSelect}"  update="@form"/>
                     <p:column>
                         <h:outputText value="#{solicitante.nome}"/>
                     </p:column>
@@ -41,8 +41,10 @@
                     </p:column>
                 </p:autoComplete>
                 <p:panelGrid columns="1" style="margin-left: 20px;">
-                    <p:commandButton value="#{form.buscarTodos}" actionListener="#{emprestimoController.find}" update="solicitante, tabelaEmprestimos" oncomplete="$('#form\\:solicitante_input').focus();" />
+                    <p:commandButton value="#{form.buscarTodos}" actionListener="#{emprestimoController.buscarTodos}" update="@form, solicitante, tabelaEmprestimos"
+                                     oncomplete="$('#form\\:solicitante_input').focus();" />
                 </p:panelGrid>
+
             </p:panelGrid>
         </p:panelGrid>
         <p:dataTable value="#{emprestimoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
@@ -66,7 +68,7 @@
             </p:column>
             <p:rowExpansion>
                 <p:dataTable value="#{objeto.emprestimoItens}" var="item" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                             paginator="true" rows="10" paginatorPosition="bottom" editable="true">
+                             paginator="true" rows="10" paginatorPosition="bottom" editable="true" id="tabelaItens">
                     <p:ajax event="rowEdit" update="@this, :form:messages" listener="#{emprestimoController.onEdit}"/>
                     <p:column headerText="#{form.id}">
                         <h:outputText value="#{item.id}"/>

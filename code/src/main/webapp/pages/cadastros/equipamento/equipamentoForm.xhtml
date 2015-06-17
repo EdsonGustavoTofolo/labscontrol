@@ -70,13 +70,13 @@
                             itemLabel="#{modelo.nome}" itemValue="#{modelo}"
                             dropdown="true" forceSelection="true" size="60" required="true" requiredMessage="#{msg.modeloRequired}"/>
 
-            <h:outputLabel value="#{form.fornecedor}*" for="fornecedor"/>
+            <h:outputLabel value="#{form.fornecedor}" for="fornecedor"/>
             <p:autoComplete value="#{equipamentoController.entity.fornecedor}"
                             completeMethod="#{equipamentoController.completeFornecedor}"
                             converter="#{fornecedorConverter}"
                             label="#{form.fornecedor}" id="fornecedor" var="fornecedor"
                             itemLabel="#{fornecedor.nomeFantasia}" itemValue="#{fornecedor}"
-                            dropdown="true" forceSelection="true" size="60" required="true" requiredMessage="#{msg.fornecedorRequired}"/>
+                            dropdown="true" forceSelection="true" size="60" />
         </p:panelGrid>
     </ui:define>
 

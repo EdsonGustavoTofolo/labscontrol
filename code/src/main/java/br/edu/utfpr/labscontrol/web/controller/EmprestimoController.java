@@ -7,11 +7,13 @@ import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.SelectEvent;
+import org.primefaces.event.ToggleEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.text.ParseException;
@@ -224,12 +226,17 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
 
     @Override
     public void find() {
-        if (!pesquisandoPorSolicitante) {
-            super.find();
-            this.solicitantePesquisado = null;
-        } else {
+        if (this.pesquisandoPorSolicitante) {
+            this.lsEntity.clear();
+            this.lsEntity.addAll(this.emprestimoService.findByPendenciasDoSolicitanteId(solicitantePesquisado.getId()));
             this.pesquisandoPorSolicitante = Boolean.FALSE;
+        } else if (!FacesContext.getCurrentInstance().isPostback()) { // Evita que nas chamadas ajax seja executado o find()
+            super.find();
         }
+    }
+
+    public void buscarTodos() {
+        super.find();
     }
 
     public void onItemSelect(SelectEvent event) {

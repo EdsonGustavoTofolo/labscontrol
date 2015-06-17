@@ -37,7 +37,7 @@ public class MaterialDeConsumo implements Serializable {
     @JoinColumn(name = "marcaId", referencedColumnName = "id", nullable = false)
     private MarcaMaterial marca;
     @ManyToOne
-    @JoinColumn(name = "fornecedorId", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "fornecedorId", referencedColumnName = "id")
     private Fornecedor fornecedor;
 
     public MaterialDeConsumo() {

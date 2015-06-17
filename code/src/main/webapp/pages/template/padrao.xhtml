@@ -216,6 +216,11 @@
                     <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/observacao/observacaoForm.xhtml?faces-redirect=true" />
                     <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/observacao/observacaoSearch.xhtml?faces-redirect=true" />
                 </p:submenu>
+
+                <p:submenu label="#{form.bkp}" rendered="#{usuarioController.somenteAdmEatendente()}" >
+                    <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/backup/backupSearch.xhtml?faces-redirect=true" />
+                </p:submenu>
+
             </p:menubar>
 
             <ui:insert name="botoesParaForm">

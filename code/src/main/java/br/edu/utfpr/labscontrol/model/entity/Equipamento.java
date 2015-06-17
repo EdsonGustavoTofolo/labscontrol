@@ -46,7 +46,7 @@ public class Equipamento implements Serializable {
     @Fetch(FetchMode.JOIN)
     private List<HistoricoDeManutencao> historicoDeManutencoes;
     @ManyToOne
-    @JoinColumn(name = "fornecedorId", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "fornecedorId", referencedColumnName = "id")
     private Fornecedor fornecedor;
 
     public Equipamento() {

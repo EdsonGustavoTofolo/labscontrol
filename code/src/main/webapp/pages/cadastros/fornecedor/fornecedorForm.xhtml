@@ -78,9 +78,10 @@
             <f:facet name="header">
                 <h:outputLabel value="#{form.contatos}"/>
             </f:facet>
-            <p><p:commandButton value="#{form.novo}"
-                                immediate="true" style="float: left" icon="ui-icon-plus"
-                                action="#{fornecedorController.novoContato}" process="@this" update=":formEmbedded:viewDetailForm" oncomplete="PF('viewForm').show()" /></p>
+            <p:panelGrid columns="1">
+                <p:commandButton value="#{form.novo}" immediate="true" style="float: left" icon="ui-icon-plus"
+                                 action="#{fornecedorController.novoContato}" process="@this" update=":formEmbedded:viewDetailForm" oncomplete="PF('viewForm').show()" />
+            </p:panelGrid>
             <p:dataTable value="#{fornecedorController.entity.contatos}" var="entityEmbedded" emptyMessage="#{form.nenhumRegistroEncontrado}"
                          paginator="true" rows="10" paginatorPosition="bottom">
                 <p:column headerText="#{form.id}" sortBy="#{entityEmbedded.id}" filterBy="#{entityEmbedded.id}" styleClass="columnId">

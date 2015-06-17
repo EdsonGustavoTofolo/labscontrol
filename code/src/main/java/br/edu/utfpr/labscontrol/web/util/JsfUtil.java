@@ -16,13 +16,17 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
 import javax.el.ELContext;
 import javax.el.ExpressionFactory;
+import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
+import javax.faces.application.ProjectStage;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  */
@@ -137,4 +141,44 @@ public class JsfUtil {
         }
         return usuario;
     }
+
+    /**
+     * Retorna o estágio em que o projeto foi definido no web.xml
+     * @return ProjectStage.Development ou ProjectStage.Production
+     */
+    public static ProjectStage getProjectStage() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        Application application = facesContext.getApplication();
+        return application.getProjectStage();
+    }
+
+    /**
+     * Se o projeto estvier no estágio de Desenvolvimento
+     * @return TRUE se o projeto estiver no estágio de Desenvolvimento conforme definido no web.xml
+     */
+    public static Boolean isDevelopmentProjectStage() {
+        return getProjectStage() == ProjectStage.Development;
+    }
+
+    /**
+     * Retorna os seguintes dados conforme estágio do projeto:
+     * Se em Desenvolvimento:      Se em Produção:
+     * dbName = labscontrol        edson
+     * dbUser = root               edson
+     * dbPass = root               edson123
+     */
+    public static Map<String, String> getDadosDBforBkp() {
+        Map<String, String> dados = new HashMap<>();
+        if (isDevelopmentProjectStage()) {
+            dados.put("dbName", "labscontrol");
+            dados.put("dbUser", "root");
+            dados.put("dbPass", "root");
+        } else {
+            dados.put("dbName", "edson");
+            dados.put("dbUser", "edson");
+            dados.put("dbPass", "edson123");
+        }
+        return dados;
+    }
+
 }

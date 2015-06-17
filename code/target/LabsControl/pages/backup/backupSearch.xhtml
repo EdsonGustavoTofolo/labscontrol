@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+<ui:decorate template="../template/padrao.xhtml">
+    <ui:define name="titulo">
+        <h:outputText value="#{form.pesquisaBackup}"/>
+    </ui:define>
+
+    <ui:define name="metadata">
+        <f:event type="preRenderView" listener="#{backupController.find}"/>
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <p:panelGrid columns="1">
+            <p:commandButton value="#{form.efetuarBkp}" icon="ui-icon-disk" actionListener="#{backupController.efetuarBkp}" update="@form" />
+        </p:panelGrid>
+        <p:dataTable value="#{backupController.arquivos}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
+                     paginator="true" rows="10" paginatorPosition="bottom" id="tabelaBkps">
+            <p:column headerText="#{form.arquivo}" >
+                <h:outputText value="#{objeto.name}" />
+            </p:column>
+            <p:column headerText="#{form.dataHora}" >
+                <h:outputText value="#{backupController.getDataDoArquivo(objeto.name)}" />
+            </p:column>
+            <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
+                <p:commandButton icon="ui-icon-transferthick-e-w" action="#{backupController.restore(objeto)}" title="Restaurar" process="@this" update="@form"/>
+                <p:commandButton icon="ui-icon-trash" action="#{backupController.excluir(objeto)}" process="@this" update="@none" oncomplete="PF('confirm').show()" title="Excluir"/>
+            </p:column>
+        </p:dataTable>
+    </ui:define>
+
+    <ui:define name="rodape">
+        <div style="clear: both"></div>
+    </ui:define>
+
+    <ui:define name="foraDoForm">
+        <labs:confirmExclusaoSimples update=":form" action="#{backupController.delete}"/>
+    </ui:define>
+</ui:decorate>
+</html>

@@ -1,5 +1,8 @@
 package br.edu.utfpr.labscontrol.model.entity;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -24,6 +27,7 @@ public class Emprestimo implements Serializable {
     @Column(nullable = false)
     private Date data;
     @OneToMany(mappedBy = "emprestimo", targetEntity = EmprestimoItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.JOIN)
     private List<EmprestimoItem> emprestimoItens;
     @Column(length = 255)
     private String observacao;
