@@ -29,17 +29,11 @@ import java.util.List;
 @Controller
 @Scope("view")
 public class EmprestimoController extends CrudController<Emprestimo, Integer> {
-    @Autowired
-    private EmprestimoService emprestimoService;
-    @Autowired
-    private EquipamentoService equipamentoService;
-    @Autowired
-    private MaterialDeConsumoService materialDeConsumoService;
-    @Autowired
-    private EmprestimoItemService emprestimoItemService;
-    @Autowired
-    private SolicitanteService solicitanteService;
-
+    @Autowired private EmprestimoService emprestimoService;
+    @Autowired private EquipamentoService equipamentoService;
+    @Autowired private MaterialDeConsumoService materialDeConsumoService;
+    @Autowired private EmprestimoItemService emprestimoItemService;
+    @Autowired private SolicitanteService solicitanteService;
     private String tipo;
     private MaterialDeConsumo materialDeConsumo;
     private Equipamento equipamento;
@@ -162,27 +156,37 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
 
     @Override
     public void delete() {
-        estornarEstoque();
+        estornarEstoque(this.emprestimoService.findById(getId()));
         super.delete();
     }
 
-    private void estornarEstoque() {
-        baixarOrEstornar(Boolean.FALSE);
+    @Override
+    public void deleteFromForm() {
+        estornarEstoque(this.entity);
+        super.deleteFromForm();
+    }
+
+    private void estornarEstoque(Emprestimo emprestimo) {
+        baixarOrEstornar(Boolean.FALSE, emprestimo);
     }
 
     private void baixarEstoque() {
-        baixarOrEstornar(Boolean.TRUE);
+        baixarOrEstornar(Boolean.TRUE, this.entity);
     }
 
-    private void baixarOrEstornar(Boolean baixar) {
-        if (this.entity.getEmprestimoItens() != null) {
-            for (EmprestimoItem ei : this.entity.getEmprestimoItens()) {
+    private void baixarOrEstornar(Boolean baixar, Emprestimo emprestimo) {
+        if (emprestimo.getEmprestimoItens() != null) {
+            for (EmprestimoItem ei : emprestimo.getEmprestimoItens()) {
                 if (ei.getMaterialDeConsumo() != null) {
                     MaterialDeConsumo m = ei.getMaterialDeConsumo();
                     if (baixar) {
                         m.setQtdAtual(m.getQtdAtual().subtract(ei.getQuantidade()));
-                    } else {
-                        m.setQtdAtual(m.getQtdAtual().add(ei.getQuantidade()));
+                    } else
+                    // Se ainda não foi dado Baixa e se existe quantidade baixada e a mesma é menor que a quantidade emprestada
+                    if (!ei.getBaixado() && ((ei.getQuantidadeBaixada() == null) || (ei.getQuantidadeBaixada() != null && ei.getQuantidadeBaixada().compareTo(ei.getQuantidade()) == -1))) {
+                        //Pega a diferença entre a quantidade emprestada e a quantidade baixada
+                        BigDecimal qtdDiff = ei.getQuantidade().subtract( ei.getQuantidadeBaixada() == null ? BigDecimal.ZERO : ei.getQuantidadeBaixada() ) ;
+                        m.setQtdAtual(m.getQtdAtual().add(qtdDiff));
                     }
                     try {
                         materialDeConsumoService.save(m);
@@ -230,12 +234,13 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
             this.lsEntity.clear();
             this.lsEntity.addAll(this.emprestimoService.findByPendenciasDoSolicitanteId(solicitantePesquisado.getId()));
             this.pesquisandoPorSolicitante = Boolean.FALSE;
-        } else if (!FacesContext.getCurrentInstance().isPostback()) { // Evita que nas chamadas ajax seja executado o find()
+        } else if (!FacesContext.getCurrentInstance().isPostback() || (getId() != null && getId() > 0)) { // Evita que nas chamadas ajax seja executado o find()
             super.find();
         }
     }
 
     public void buscarTodos() {
+        this.solicitantePesquisado = null;
         super.find();
     }
 
@@ -244,6 +249,14 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
         if (o instanceof MaterialDeConsumo) {
             MaterialDeConsumo m = materialDeConsumoService.findById(((MaterialDeConsumo)o).getId());
             this.qtdEstoque = m.getQtdAtual();
+        }
+    }
+
+    public void onEquipamentoSelect(SelectEvent event) {
+        Object o = event.getObject();
+        if (o instanceof Equipamento) {
+            this.quantidade = BigDecimal.ONE;
+            addItem();
         }
     }
 

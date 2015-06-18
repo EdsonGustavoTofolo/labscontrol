@@ -71,7 +71,7 @@
                                 itemLabel="#{materialDeConsumo.nome}" itemValue="#{materialDeConsumo}"
                                 dropdown="true" forceSelection="true" size="60"
                                 disabled="#{!emprestimoController.tipo.equals('M')}" onkeydown="bloquearCtrlJ();">
-                    <p:ajax event="itemSelect" listener="#{emprestimoController.onItemSelect}" update="qtdEstoque" />
+                    <p:ajax event="itemSelect" listener="#{emprestimoController.onItemSelect}" update="qtdEstoque" oncomplete="$('#form\\:quantidade').focus();" />
                 </p:autoComplete>
 
                 <h:outputLabel value="#{form.quantidadeEmEstoque}"/>
@@ -87,6 +87,7 @@
                                 disabled="#{!emprestimoController.tipo.equals('E')}"
                                 placeholder="#{form.placeHolderEquipamentoEmprestimo}"
                                 onkeydown="bloquearCtrlJ();">
+                    <p:ajax event="itemSelect" listener="#{emprestimoController.onEquipamentoSelect}" update="quantidade, tableItens" />
                     <p:column>
                         <h:outputText value="#{equipamento.nome}"/>
                     </p:column>
@@ -96,13 +97,12 @@
                 </p:autoComplete>
 
                 <h:outputLabel value="#{form.quantidade}"/>
-                <p:inputText value="#{emprestimoController.quantidade}">
+                <p:inputText value="#{emprestimoController.quantidade}" id="quantidade">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </p:inputText>
 
                 <f:facet name="footer">
-                    <p:commandButton value="#{form.adicionar}" action="#{emprestimoController.addItem}" ajax="true"
-                                     update="form" process="@form"/>
+                    <p:commandButton value="#{form.adicionar}" action="#{emprestimoController.addItem}" ajax="true" update="form" process="@form"/>
                 </f:facet>
             </p:panelGrid>
 

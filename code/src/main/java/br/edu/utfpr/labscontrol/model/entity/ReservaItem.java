@@ -19,8 +19,8 @@ public class ReservaItem implements Serializable {
     @JoinColumn(name = "materialDeConsumoId", referencedColumnName = "id")
     private MaterialDeConsumo materialDeConsumo;
     @ManyToOne
-    @JoinColumn(name = "equipamentoId", referencedColumnName = "id")
-    private Equipamento equipamento;
+    @JoinColumn(name = "categoriaEquipamentoId", referencedColumnName = "id")
+    private CategoriaEquipamento categoriaEquipamento;
     @ManyToOne
     @JoinColumn(name = "reservaId", referencedColumnName = "id")
     private Reserva reserva;
@@ -28,10 +28,10 @@ public class ReservaItem implements Serializable {
     public ReservaItem() {
     }
 
-    public ReservaItem(BigDecimal quantidade, MaterialDeConsumo materialDeConsumo, Equipamento equipamento, Reserva reserva) {
+    public ReservaItem(BigDecimal quantidade, MaterialDeConsumo materialDeConsumo, CategoriaEquipamento categoriaEquipamento, Reserva reserva) {
         this.quantidade = quantidade;
         this.materialDeConsumo = materialDeConsumo;
-        this.equipamento = equipamento;
+        this.categoriaEquipamento = categoriaEquipamento;
         this.reserva = reserva;
     }
 
@@ -59,12 +59,12 @@ public class ReservaItem implements Serializable {
         this.materialDeConsumo = materialDeConsumo;
     }
 
-    public Equipamento getEquipamento() {
-        return equipamento;
+    public CategoriaEquipamento getCategoriaEquipamento() {
+        return categoriaEquipamento;
     }
 
-    public void setEquipamento(Equipamento equipamento) {
-        this.equipamento = equipamento;
+    public void setCategoriaEquipamento(CategoriaEquipamento categoriaEquipamento) {
+        this.categoriaEquipamento = categoriaEquipamento;
     }
 
     public Reserva getReserva() {

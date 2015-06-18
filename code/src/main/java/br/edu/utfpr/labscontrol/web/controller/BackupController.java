@@ -103,9 +103,13 @@ public class BackupController extends BaseController {
             } else {
                 executeCmd = "mysqldump --single-transaction -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
             }
-            Process runtimeProcess = null;
+//            runtimeProcess = Runtime.getRuntime().exec(executeCmd);
 
-            runtimeProcess = Runtime.getRuntime().exec(executeCmd);
+            ProcessBuilder processBuilder = new ProcessBuilder(executeCmd);
+
+            processBuilder.redirectErrorStream(true);
+
+            Process runtimeProcess = processBuilder.start();
 
             int processComplete = runtimeProcess.waitFor();
 

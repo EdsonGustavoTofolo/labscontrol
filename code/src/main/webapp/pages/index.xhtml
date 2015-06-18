@@ -61,8 +61,8 @@
                             <h:outputLabel value="#{form.tipo}"/>
                             <p:selectOneRadio id="tipo" value="#{reservaController.tipo}" disabled="#{reservaController.entity.confirmada}">
                                 <f:selectItem itemLabel="#{form.materialDeConsumo}" itemValue="M" />
-                                <f:selectItem itemLabel="#{form.equipamento}" itemValue="E" />
-                                <p:ajax event="change" update="materialDeConsumo, equipamento" global="false"/>
+                                <f:selectItem itemLabel="#{form.categoriaEquipamento}" itemValue="E" />
+                                <p:ajax event="change" update="materialDeConsumo, categoriaEquipamento" global="false"/>
                             </p:selectOneRadio>
 
                             <h:outputLabel value="#{form.materialDeConsumo}" for="materialDeConsumo"/>
@@ -79,12 +79,12 @@
                             <h:outputLabel value="#{form.quantidadeEmEstoque}"/>
                             <h:outputText id="qtdEstoque" value="#{reservaController.qtdEstoque}"/>
 
-                            <h:outputLabel value="#{form.equipamento}" for="equipamento"/>
-                            <p:autoComplete value="#{reservaController.equipamento}"
-                                            completeMethod="#{reservaController.completeEquipamento}"
-                                            converter="#{equipamentoConverter}"
-                                            label="#{form.equipamento}" id="equipamento" var="equipamento"
-                                            itemLabel="#{equipamento.nome}" itemValue="#{equipamento}"
+                            <h:outputLabel value="#{form.categoriaEquipamento}" for="categoriaEquipamento"/>
+                            <p:autoComplete value="#{reservaController.categoriaEquipamento}"
+                                            completeMethod="#{reservaController.completeCategoriaEquipamento}"
+                                            converter="#{categoriaEquipamentoConverter}"
+                                            label="#{form.categoriaEquipamento}" id="categoriaEquipamento" var="categoria"
+                                            itemLabel="#{categoria.nome}" itemValue="#{categoria}"
                                             dropdown="true" forceSelection="true" size="60"
                                             disabled="#{!reservaController.tipo.equals('E') || reservaController.entity.confirmada}"/>
 
@@ -95,7 +95,7 @@
 
                             <f:facet name="footer">
                                 <p:commandButton value="#{form.adicionar}" action="#{reservaController.addItem}" ajax="true"
-                                                 update="gridItens, tableItens, msgsReserva" process="@this, otherUsuario, horario, ambiente, tipo, materialDeConsumo, equipamento, quantidade"
+                                                 update="gridItens, tableItens, msgsReserva" process="@this, otherUsuario, horario, ambiente, tipo, materialDeConsumo, categoriaEquipamento, quantidade"
                                                  disabled="#{reservaController.entity.confirmada}"/>
                             </f:facet>
                         </p:panelGrid>
@@ -104,7 +104,7 @@
                                      paginator="true" rows="3" paginatorPosition="bottom" id="tableItens" editable="true">
                             <p:ajax event="rowEdit" update="tableItens, :formEvent:msgsReserva" listener="#{reservaController.onEdit}"/>
                             <p:column headerText="#{form.item}">
-                                <h:outputText value="#{objeto.equipamento != null ? objeto.equipamento : objeto.materialDeConsumo}"/>
+                                <h:outputText value="#{objeto.categoriaEquipamento != null ? objeto.categoriaEquipamento : objeto.materialDeConsumo}"/>
                             </p:column>
                             <p:column headerText="#{form.quantidade}" sortBy="#{objeto.quantidade}" styleClass="columnNumeric">
                                 <p:cellEditor>

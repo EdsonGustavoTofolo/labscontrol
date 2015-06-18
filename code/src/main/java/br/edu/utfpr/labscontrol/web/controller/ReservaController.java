@@ -49,7 +49,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     @Autowired private ReservaService reservaService;
     @Autowired private ReservaItemService reservaItemService;
     @Autowired private AmbienteService ambienteService;
-    @Autowired private EquipamentoService equipamentoService;
+    @Autowired private CategoriaEquipamentoService categoriaEquipamentoService;
     @Autowired private MaterialDeConsumoService materialDeConsumoService;
     private ScheduleModel scheduleModel;
     private ScheduleEvent scheduleEvent = new DefaultScheduleEvent();
@@ -58,7 +58,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     private String horaDeInicio;
     private String horaDeFim;
     private MaterialDeConsumo materialDeConsumo;
-    private Equipamento equipamento;
+    private CategoriaEquipamento categoriaEquipamento;
     private BigDecimal quantidade;
     private BigDecimal qtdEstoque;
     private HorariosManha horariosManha;
@@ -104,8 +104,8 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         return "/pages/reserva/reservaForm.xhtml?faces-redirect=true";
     }
 
-    public List<Equipamento> completeEquipamento(String nome) {
-        return equipamentoService.findByNomeContaining(nome);
+    public List<CategoriaEquipamento> completeCategoriaEquipamento(String nome) {
+        return categoriaEquipamentoService.findByNomeContaining(nome);
     }
 
     public List<MaterialDeConsumo> completeMaterialDeConsumo(String nome) {
@@ -184,10 +184,6 @@ public class ReservaController extends CrudController<Reserva, Integer> {
             this.entity.setOutroUsuario(JsfUtil.getUsuarioLogado().getUsername());
         }
         scheduleEvent = new DefaultScheduleEvent("", (Date) selectEvent.getObject(), (Date) selectEvent.getObject(), this.entity);
-    }
-
-    public void cancelarReserva() {
-        reset();
     }
 
     public void onEventSelect(SelectEvent selectEvent) {
@@ -283,8 +279,8 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         }
         for (ReservaItem ri: this.entity.getReservasItens()) {
             if (this.tipo.equals("E")) {
-                if (ri.getEquipamento() != null) {
-                    if (ri.getEquipamento().getId().equals(this.equipamento.getId())) {
+                if (ri.getCategoriaEquipamento() != null) {
+                    if (ri.getCategoriaEquipamento().getId().equals(this.categoriaEquipamento.getId())) {
                         exists = Boolean.TRUE;
                         ri.setQuantidade(ri.getQuantidade().add(this.quantidade, MathContext.DECIMAL64));
                         break;
@@ -346,7 +342,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
                 reservaItem.setReserva(this.entity);
                 reservaItem.setQuantidade(this.quantidade);
                 if (this.tipo.equals("E")) {
-                    reservaItem.setEquipamento(this.equipamento);
+                    reservaItem.setCategoriaEquipamento(this.categoriaEquipamento);
                 } else {
                     reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
                 }
@@ -357,7 +353,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
             }
             this.qtdEstoque = BigDecimal.ZERO;
             this.quantidade = null;
-            this.equipamento = null;
+            this.categoriaEquipamento = null;
             this.materialDeConsumo = null;
         } catch (IllegalArgumentException e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
@@ -508,12 +504,12 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         this.materialDeConsumo = materialDeConsumo;
     }
 
-    public Equipamento getEquipamento() {
-        return equipamento;
+    public CategoriaEquipamento getCategoriaEquipamento() {
+        return categoriaEquipamento;
     }
 
-    public void setEquipamento(Equipamento equipamento) {
-        this.equipamento = equipamento;
+    public void setCategoriaEquipamento(CategoriaEquipamento categoriaEquipamento) {
+        this.categoriaEquipamento = categoriaEquipamento;
     }
 
     public BigDecimal getQuantidade() {
