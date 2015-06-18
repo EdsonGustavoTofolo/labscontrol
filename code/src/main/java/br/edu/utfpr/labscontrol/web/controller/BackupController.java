@@ -47,6 +47,28 @@ public class BackupController extends BaseController {
             this.arquivos.add(file);
             System.out.println(file.getName());
         }
+        Collections.sort(this.arquivos, comparatorFile());
+    }
+
+    private Comparator<File> comparatorFile() {
+        return new Comparator<File>() {
+            @Override
+            public int compare(File file, File file2) {
+                SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                try {
+                    Date date1 = f.parse(getDataDoArquivo(file.getName()));
+                    Date date2 = f.parse(getDataDoArquivo(file2.getName()));
+                    if (date1.before(date2)) {
+                        return 1;
+                    } else {
+                        return -1;
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                return 0;
+            }
+        };
     }
 
     /**
@@ -65,12 +87,13 @@ public class BackupController extends BaseController {
                 executeCmd = new String[]{"mysql", dbName, "-u" + dbUser, "-p" + dbPass, "-e", " source " + restorePath};
 //                executeCmd = new String[]{"mysql", "-u" + dbUser, "-p" + dbPass, dbName, " < " + restorePath};
             }
-//            Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
-            ProcessBuilder processBuilder = new ProcessBuilder(executeCmd);
+            Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
 
-            processBuilder.redirectErrorStream(true);
-
-            Process runtimeProcess = processBuilder.start();
+//            ProcessBuilder processBuilder = new ProcessBuilder(executeCmd);
+//
+//            processBuilder.redirectErrorStream(true);
+//
+//            Process runtimeProcess = processBuilder.start();
 
             int processComplete = runtimeProcess.waitFor();
 
@@ -94,7 +117,7 @@ public class BackupController extends BaseController {
                 f1.mkdir();
             }
 
-            String savePath = folderPath + "/" + getFileName() + ".sql";
+            String savePath = folderPath + getFileName() + ".sql";
 
             String executeCmd = "";
 
@@ -103,13 +126,7 @@ public class BackupController extends BaseController {
             } else {
                 executeCmd = "mysqldump --single-transaction -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
             }
-//            runtimeProcess = Runtime.getRuntime().exec(executeCmd);
-
-            ProcessBuilder processBuilder = new ProcessBuilder(executeCmd);
-
-            processBuilder.redirectErrorStream(true);
-
-            Process runtimeProcess = processBuilder.start();
+            Process runtimeProcess = Runtime.getRuntime().exec(executeCmd);
 
             int processComplete = runtimeProcess.waitFor();
 
