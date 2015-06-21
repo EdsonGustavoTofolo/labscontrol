@@ -29,17 +29,15 @@
                 <p:panelGrid columns="1">
                     <p:messages id="msgsReserva" closable="true"/>
                     <p:fieldset legend="#{form.dados}" toggleable="true">
-                        <p:panelGrid id="eventDetails" columns="3">
+                        <p:panelGrid id="eventDetails" columns="2">
                             <h:outputLabel for="otherUsuario" value="#{form.usuario}*" />
-                            <p:inputText id="otherUsuario" value="#{reservaController.entity.outroUsuario}" required="true" requiredMessage="#{msg.campoObrigatorio}"
+                            <p:inputText id="otherUsuario" value="#{reservaController.entity.outroUsuario}" required="true" requiredMessage="#{msg.campoOutroUsuarioRequired}"
                                          disabled="#{reservaController.entity.confirmada}" />
-                            <p:message for="otherUsuario"/>
 
                             <h:outputLabel value="#{form.horario}" />
                             <p:commandLink actionListener="#{reservaController.iniciaHorarios}" process="@this" oncomplete="PF('dialogHorarios').show();" disabled="#{reservaController.entity.confirmada}">
                                 <h:outputText value="#{reservaController.horaDeInicio} até #{reservaController.horaDeFim}" id="horario" />
                             </p:commandLink>
-                            <p:message for="horario"/>
 
                             <h:outputLabel value="#{form.ambiente}*" for="ambiente"/>
                             <p:autoComplete value="#{reservaController.entity.ambiente}"
@@ -47,13 +45,11 @@
                                             converter="#{ambienteConverter}"
                                             label="#{form.ambiente}" id="ambiente" var="ambiente"
                                             itemLabel="#{ambiente.identificacao}" itemValue="#{ambiente}"
-                                            dropdown="true" forceSelection="true" size="60" required="true" requiredMessage="#{msg.campoObrigatorio}"
+                                            dropdown="true" forceSelection="true" size="60" required="true" requiredMessage="#{msg.campoAmbienteRequired}"
                                             disabled="#{reservaController.entity.confirmada}"/>
-                            <p:message for="ambiente"/>
 
                             <h:outputLabel value="#{form.obs}" for="obs"/>
                             <p:inputTextarea id="obs" value="#{reservaController.entity.observacao}" rows="6" cols="75" disabled="#{reservaController.entity.confirmada}"/>
-                            <p:message for="obs"/>
                         </p:panelGrid>
                     </p:fieldset>
                     <p:fieldset legend="#{form.itens}" toggleable="true">
@@ -95,7 +91,7 @@
 
                             <f:facet name="footer">
                                 <p:commandButton value="#{form.adicionar}" action="#{reservaController.addItem}" ajax="true"
-                                                 update="gridItens, tableItens, msgsReserva" process="@this, otherUsuario, horario, ambiente, tipo, materialDeConsumo, categoriaEquipamento, quantidade"
+                                                 update="gridItens, tableItens, msgsReserva" process="@this, msgsReserva, otherUsuario, horario, ambiente, tipo, materialDeConsumo, categoriaEquipamento, quantidade"
                                                  disabled="#{reservaController.entity.confirmada}"/>
                             </f:facet>
                         </p:panelGrid>

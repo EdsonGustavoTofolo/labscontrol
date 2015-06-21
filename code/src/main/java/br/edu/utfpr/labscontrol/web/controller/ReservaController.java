@@ -180,6 +180,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         reset();
         this.entity.setData((Date) selectEvent.getObject());
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
+        this.entity.setReservasItens(new ArrayList<>());
         if (((Permissao)JsfUtil.getAttributeSession(JsfUtil.PERMISSAO_USUARIO_LOGADO)).getId() == RolesEnum.USER.ordinal() + 1) {
             this.entity.setOutroUsuario(JsfUtil.getUsuarioLogado().getUsername());
         }
@@ -269,37 +270,6 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     /**
-     * Evita que os itens dupliquem
-     * @return TRUE se já existe o item
-     */
-    private Boolean isAlreadyExistsItem() {
-        Boolean exists = Boolean.FALSE;
-        if (this.entity.getReservasItens() == null) {
-            return exists;
-        }
-        for (ReservaItem ri: this.entity.getReservasItens()) {
-            if (this.tipo.equals("E")) {
-                if (ri.getCategoriaEquipamento() != null) {
-                    if (ri.getCategoriaEquipamento().getId().equals(this.categoriaEquipamento.getId())) {
-                        exists = Boolean.TRUE;
-                        ri.setQuantidade(ri.getQuantidade().add(this.quantidade, MathContext.DECIMAL64));
-                        break;
-                    }
-                }
-            } else {
-                if (ri.getMaterialDeConsumo() != null) {
-                    if (ri.getMaterialDeConsumo().getId().equals(this.materialDeConsumo.getId())) {
-                        exists = Boolean.TRUE;
-                        ri.setQuantidade(ri.getQuantidade().add(this.quantidade, MathContext.DECIMAL64));
-                        break;
-                    }
-                }
-            }
-        }
-        return exists;
-    }
-
-    /**
      * Somente Adm, Atendente e o usuário que criou a Reserva pode excluir
      * @return TRUE se o usuário logado possuir ROLE de Administrador, Atendente ou for o Usuário que criou a Reserva
      */
@@ -336,28 +306,39 @@ public class ReservaController extends CrudController<Reserva, Integer> {
 
     public void addItem() {
         try {
+            validaCabecalho();
             validaQuantidadeEmEstoque();
-            if (!isAlreadyExistsItem()) {
-                ReservaItem reservaItem = new ReservaItem();
-                reservaItem.setReserva(this.entity);
-                reservaItem.setQuantidade(this.quantidade);
-                if (this.tipo.equals("E")) {
-                    reservaItem.setCategoriaEquipamento(this.categoriaEquipamento);
-                } else {
-                    reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
-                }
-                if (this.entity.getReservasItens() == null) {
-                    this.entity.setReservasItens(new ArrayList<>());
-                }
-                this.entity.getReservasItens().add(reservaItem);
+
+            ReservaItem reservaItem = new ReservaItem();
+            reservaItem.setReserva(this.entity);
+            reservaItem.setQuantidade(this.quantidade);
+            if (this.tipo.equals("E")) {
+                reservaItem.setCategoriaEquipamento(this.categoriaEquipamento);
+            } else {
+                reservaItem.setMaterialDeConsumo(this.materialDeConsumo);
             }
+
+            this.entity.getReservasItens().add(reservaItem);
+            this.reservaItemService.save(reservaItem);
+
             this.qtdEstoque = BigDecimal.ZERO;
             this.quantidade = null;
             this.categoriaEquipamento = null;
             this.materialDeConsumo = null;
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
             e.printStackTrace();
+        }
+    }
+
+    private void validaCabecalho() throws Exception {
+        if (this.entity.getId() == null) {
+            if (this.entity.getOutroUsuario() == null || this.entity.getHoraInicio() == null || this.entity.getHoraFim() == null || this.entity.getAmbiente() == null) {
+                throw new IllegalArgumentException("Informe os dados do cabeçalho antes de inserir um item!");
+            } else {
+                this.entity.setConfirmada(Boolean.FALSE);
+                getService().save(this.entity);
+            }
         }
     }
 
@@ -370,21 +351,7 @@ public class ReservaController extends CrudController<Reserva, Integer> {
     }
 
     public void excluirItem(ReservaItem reservaItem) {
-        if (reservaItem.getMaterialDeConsumo() != null && reservaItem.getId() != null && reservaItem.getId() > 0) {
-            MaterialDeConsumo m = reservaItem.getMaterialDeConsumo();
-            m.setQtdAtual(m.getQtdAtual().add(reservaItem.getQuantidade()));
-            try {
-                materialDeConsumoService.save(m);
-            } catch (Exception e) {
-                addMessage("Erro ao  estornar estoque!", FacesMessage.SEVERITY_FATAL);
-                e.printStackTrace();
-            }
-        }
         this.entity.getReservasItens().remove(reservaItem);
-        if (reservaItem.getId() != null && reservaItem.getId() > 0) {
-            //TODO verificar pois se salvar assim da erro na hora de salver o reserva e se nao nao exclui o item
-            reservaItemService.deleteReservaItemById(reservaItem.getId());
-        }
     }
 
     public void onEdit(RowEditEvent event) {

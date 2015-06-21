@@ -34,7 +34,7 @@ public class Reserva implements Serializable {
     @Temporal(TemporalType.TIME)
     @Column(nullable = false)
     private Date horaFim;
-    @OneToMany(mappedBy = "reserva", targetEntity = ReservaItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "reserva", targetEntity = ReservaItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ReservaItem> reservasItens;
     @Column(columnDefinition = "text")
     private String observacao;

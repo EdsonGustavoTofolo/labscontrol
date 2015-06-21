@@ -56,16 +56,16 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
     protected void postCreate() {
         super.postCreate();
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
+        this.entity.setEmprestimoItens(new ArrayList<>());
         this.qtdEstoque = BigDecimal.ZERO;
         this.pesquisandoPorSolicitante = Boolean.FALSE;
     }
 
     public void addItem() {
         try {
+            validaCabecalho();
             validaQuantidadeEmEstoque();
-            if (this.entity.getEmprestimoItens() == null) {
-                this.entity.setEmprestimoItens(new ArrayList<>());
-            }
+
             EmprestimoItem emprestimoItem = new EmprestimoItem();
             emprestimoItem.setEmprestimo(this.entity);
             emprestimoItem.setBaixado(Boolean.FALSE);
@@ -75,14 +75,28 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
             } else {
                 emprestimoItem.setEquipamento(this.equipamento);
             }
+            emprestimoItem.setQuantidadeBaixada(BigDecimal.ZERO);
+            emprestimoItem.setBaixado(Boolean.FALSE);
+
             this.entity.getEmprestimoItens().add(emprestimoItem);
+            this.emprestimoItemService.save(emprestimoItem);
 
             this.materialDeConsumo = null;
             this.equipamento = null;
             this.quantidade = BigDecimal.ZERO;
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
             e.printStackTrace();
+        }
+    }
+
+    private void validaCabecalho() throws Exception {
+        if (this.entity.getId() == null) {
+            if (this.entity.getSolicitante() == null || this.entity.getData() == null) {
+                throw new IllegalArgumentException("Informe os dados do cabeçalho antes de inserir um item!");
+            } else {
+                getService().save(this.entity);
+            }
         }
     }
 
@@ -98,10 +112,6 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
             }
         }
         this.entity.getEmprestimoItens().remove(emprestimoItem);
-        if (emprestimoItem.getId() != null && emprestimoItem.getId() > 0) {
-            //TODO verificar pois se salvar assim da erro na hora de salver o emprestimo e se nao nao exclui o item
-            emprestimoItemService.deleteEmprestimoItemById(emprestimoItem.getId());
-        }
     }
 
     public void onEdit(RowEditEvent event) {
@@ -137,6 +147,7 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
             Long time1 = item.getEmprestimo().getData().getTime();
             Long time2 = item.getDataDevolucao().getTime();
             if (time1 > time2) {
+                item.setDataDevolucao(null);
                 throw new IllegalArgumentException("Data de Devolução deve ser maior ou igual a Data do Empréstimo");
             }
         }
@@ -144,6 +155,7 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
 
     private void validaQuantidadeBaixada(EmprestimoItem item) throws IllegalArgumentException {
         if (item.getQuantidadeBaixada() != null && item.getQuantidade().compareTo(item.getQuantidadeBaixada()) == -1) {
+            item.setQuantidadeBaixada(BigDecimal.ZERO);
             throw new IllegalArgumentException("Quantidade a ser baixada deve ser menor ou igual a Quantidade emprestada!");
         }
     }
@@ -221,11 +233,6 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
 
     public void onSolicitanteSelect(SelectEvent event) {
         this.pesquisandoPorSolicitante = Boolean.TRUE;
-        Object o = event.getObject();
-        if (o instanceof Solicitante) {
-            this.lsEntity.clear();
-            this.lsEntity.addAll(this.emprestimoService.findByPendenciasDoSolicitanteId(((Solicitante) o).getId()));
-        }
     }
 
     @Override

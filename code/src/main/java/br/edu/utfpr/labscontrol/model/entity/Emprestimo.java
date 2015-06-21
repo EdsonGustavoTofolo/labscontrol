@@ -26,7 +26,7 @@ public class Emprestimo implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     private Date data;
-    @OneToMany(mappedBy = "emprestimo", targetEntity = EmprestimoItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "emprestimo", targetEntity = EmprestimoItem.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @Fetch(FetchMode.JOIN)
     private List<EmprestimoItem> emprestimoItens;
     @Column(length = 255)

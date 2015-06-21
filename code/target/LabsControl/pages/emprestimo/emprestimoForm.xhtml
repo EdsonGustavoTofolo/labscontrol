@@ -37,7 +37,7 @@
                                 itemLabel="#{solicitante.nome}" itemValue="#{solicitante}"
                                 dropdown="true" forceSelection="true" size="60"
                                 placeholder="#{form.placeHolderNomeOuIdentificacaoSolicitante}"
-                                onkeydown="bloquearCtrlJ();">
+                                onkeydown="bloquearCtrlJ();" required="true" requiredMessage="#{msg.campoSolicitanteRequired}">
                     <p:column>
                         <h:outputText value="#{solicitante.nome}"/>
                     </p:column>
@@ -48,7 +48,7 @@
 
                 <h:outputLabel value="#{form.data}*" />
                 <p:calendar value="#{emprestimoController.entity.data}" pattern="dd/MM/yyyy" mask="true"
-                            locale="pt_BR" navigator="true" showButtonPanel="true" size="10" showOn="button" required="true" requiredMessage="Campo Data: Preenchimento Obrigatório!"/>
+                            locale="pt_BR" navigator="true" showButtonPanel="true" size="10" showOn="button" required="true" requiredMessage="#{msg.campoDataRequired}"/>
 
                 <h:outputLabel value="#{form.obs}"/>
                 <p:inputText value="#{emprestimoController.entity.observacao}" size="60" maxlength="255"/>
@@ -87,7 +87,7 @@
                                 disabled="#{!emprestimoController.tipo.equals('E')}"
                                 placeholder="#{form.placeHolderEquipamentoEmprestimo}"
                                 onkeydown="bloquearCtrlJ();">
-                    <p:ajax event="itemSelect" listener="#{emprestimoController.onEquipamentoSelect}" update="quantidade, tableItens" />
+                    <p:ajax event="itemSelect" listener="#{emprestimoController.onEquipamentoSelect}" process="@form" update="@this, quantidade, tableItens, messages" />
                     <p:column>
                         <h:outputText value="#{equipamento.nome}"/>
                     </p:column>
