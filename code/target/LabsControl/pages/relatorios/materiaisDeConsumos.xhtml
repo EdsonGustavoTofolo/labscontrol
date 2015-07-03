@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+<ui:decorate template="../template/padrao.xhtml">
+    <ui:define name="titulo">
+        <h:outputText value="#{form.relatorioMaterialDeConsumo}"/>
+    </ui:define>
+    <ui:define name="conteudo">
+        <p:commandLink value="Imprimir" action="#{relatoriosController.printMateriaisDeConsumos()}" ajax="false" process="@all"/>
+        <p:panelGrid columns="2">
+            <h:outputLabel value="#{form.materialDeConsumo}" for="materialDeConsumo"/>
+            <p:autoComplete value="#{relatoriosController.materialDeConsumo}"
+                            completeMethod="#{relatoriosController.completeMaterialDeConsumo}"
+                            converter="#{materialDeConsumoConverter}"
+                            label="#{form.materialDeConsumo}" id="materialDeConsumo" var="materialDeConsumo"
+                            itemLabel="#{materialDeConsumo.nome}" itemValue="#{materialDeConsumo}"
+                            dropdown="true" forceSelection="true" size="60"/>
+
+            <h:outputLabel value="#{form.categoria}*" for="categoria"/>
+            <p:autoComplete value="#{relatoriosController.categoriaMaterial}"
+                            completeMethod="#{relatoriosController.completeCategoriaMaterial}"
+                            converter="#{categoriaMaterialConverter}"
+                            label="#{form.categoriaMaterialDeConsumo}" id="categoria" var="categoria"
+                            itemLabel="#{categoria.nome}" itemValue="#{categoria}"
+                            dropdown="true" forceSelection="true" size="60" />
+        </p:panelGrid>
+    </ui:define>
+</ui:decorate>
+</html>

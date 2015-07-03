@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+<ui:decorate template="../template/padrao.xhtml">
+    <ui:define name="titulo">
+        <h:outputText value="#{form.relatorioEquipamento}"/>
+    </ui:define>
+    <ui:define name="conteudo">
+        <p:commandLink value="Imprimir" action="#{relatoriosController.printEquipamentos()}" ajax="false" process="@all"/>
+        <p:panelGrid columns="2">
+            <h:outputLabel value="#{form.equipamento}" for="equipamento"/>
+            <p:autoComplete value="#{relatoriosController.equipamento}"
+                            completeMethod="#{relatoriosController.completeEquipamento}"
+                            converter="#{equipamentoConverter}"
+                            label="#{form.equipamento}" id="equipamento" var="equipamento"
+                            itemLabel="#{equipamento.nome}" itemValue="#{equipamento}"
+                            dropdown="true" forceSelection="true" size="60" />
+
+            <h:outputLabel value="#{form.categoria}" for="categoria"/>
+            <p:autoComplete value="#{relatoriosController.categoriaEquipamento}"
+                            completeMethod="#{relatoriosController.completeCategoriaEquipamento}"
+                            converter="#{categoriaEquipamentoConverter}"
+                            label="#{form.equipamento}" id="categoria" var="categoria"
+                            itemLabel="#{categoria.nome}" itemValue="#{categoria}"
+                            dropdown="true" forceSelection="true" size="60"/>
+
+
+        </p:panelGrid>
+    </ui:define>
+</ui:decorate>
+</html>

@@ -1,8 +1,11 @@
 package br.edu.utfpr.labscontrol.model.service;
 
+import br.edu.utfpr.labscontrol.model.entity.CategoriaMaterial;
+import br.edu.utfpr.labscontrol.model.entity.Equipamento;
 import br.edu.utfpr.labscontrol.model.entity.MaterialDeConsumo;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,4 +19,7 @@ public interface MaterialDeConsumoService extends ICrudService<MaterialDeConsumo
      * @return
      */
     List<MaterialDeConsumo> findByNomeContaining(String nome);
+    List<MaterialDeConsumo> findByIdOrCategoria(Integer id, CategoriaMaterial categoria);
+    List<MaterialDeConsumo> getMaterialDataBetweenDataIniAndDataFim(Date dataIni, Date dataFim);
+    List<MaterialDeConsumo> findByQtdAtualLessThanQtdMin();
 }

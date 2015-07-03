@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MateriaisDeConsumoEmFaltaReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f0b92ca-f753-4544-8ba8-c6be2e4ad484">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="qtdAtual" class="java.math.BigDecimal"/>
+	<field name="qtdMin" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="163" y="24" width="243" height="20" uuid="df1b1990-d2f1-4eae-9460-4bb9064a50a7"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MATERIAIS DE CONSUMO EM FALTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="467" y="44" width="27" height="20" uuid="606353c3-025d-418f-a0c8-a75fbbd8803d"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="494" y="44" width="61" height="20" uuid="50db4bc4-c695-4ef4-bb13-b484669005f9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="65" width="555" height="1" uuid="7ecec382-c716-4406-ad7c-32d092b5a8fc"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="33" width="555" height="1" uuid="f78d431d-3b02-48fb-80cc-604c20d4151f"/>
+			</line>
+			<staticText>
+				<reportElement x="16" y="0" width="147" height="20" uuid="d1e43310-7e2a-48d4-8507-7678aaf9653c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="1" width="100" height="20" uuid="5e7816a0-1972-47c3-afa0-31a983253c8d"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Qtd Mínima]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="1" width="100" height="20" uuid="48c10a62-76ce-4fab-8205-c0b48573a0ad"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Qtd Atual]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="16" y="0" width="147" height="20" uuid="c6be1f76-d736-4278-b161-a2d1916ca79f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="0" width="100" height="20" uuid="434f3de3-4a0a-4940-adeb-d99e1e2539f8"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qtdMin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="417" y="0" width="100" height="20" uuid="eaa199f3-c240-4554-86f1-8100f75c0c6c"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{qtdAtual}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="436" y="10" width="80" height="20" uuid="a22bf73f-6791-4207-9d6b-bcf2a4b52079"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="516" y="10" width="40" height="20" uuid="d4260c81-9156-4237-91e5-87ef7cda28c9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

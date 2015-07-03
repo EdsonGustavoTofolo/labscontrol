@@ -56,7 +56,6 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
     protected void postCreate() {
         super.postCreate();
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
-        this.entity.setEmprestimoItens(new ArrayList<>());
         this.qtdEstoque = BigDecimal.ZERO;
         this.pesquisandoPorSolicitante = Boolean.FALSE;
     }
@@ -78,12 +77,16 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
             emprestimoItem.setQuantidadeBaixada(BigDecimal.ZERO);
             emprestimoItem.setBaixado(Boolean.FALSE);
 
+            if (this.entity.getEmprestimoItens() == null) {
+                this.entity.setEmprestimoItens(new ArrayList<>());
+            }
             this.entity.getEmprestimoItens().add(emprestimoItem);
             this.emprestimoItemService.save(emprestimoItem);
 
             this.materialDeConsumo = null;
             this.equipamento = null;
             this.quantidade = BigDecimal.ZERO;
+            this.qtdEstoque = BigDecimal.ZERO;
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
             e.printStackTrace();

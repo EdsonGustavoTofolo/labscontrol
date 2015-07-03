@@ -21,6 +21,7 @@ import java.util.*;
 @Controller
 @Scope("view")
 public class BackupController extends BaseController {
+//    private static String PATH_BKP = "/var/www/html/edson/bkps_labscontrol_dainf/";
     private static String PATH_BKP = "/var/www/html/edson/bkps_labscontrol/";
     private List<File> arquivos = new ArrayList<>();
     private String dbName;

@@ -18,6 +18,7 @@
         <security:intercept-url pattern="/pages/emprestimo/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
         <security:intercept-url pattern="/pages/movimentos/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
         <security:intercept-url pattern="/pages/reserva/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE', 'ROLE_USER')" />
+        <security:intercept-url pattern="/pages/relatorios/**" access="hasAnyRole('ROLE_ADMIN', 'ROLE_ATENDENTE')" />
         <security:intercept-url pattern="/pages/**" access="isAuthenticated()" />
 
         <security:logout logout-url="/j_spring_security_logout" invalidate-session="true"/>

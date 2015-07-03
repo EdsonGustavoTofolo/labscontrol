@@ -42,6 +42,7 @@
                 param = query[1];
                 if (param.indexOf("logou") >= 0) {
                     alertify.success("Usuário logado com sucesso!");
+//                    window.history.pushState('', '', '/dainf/labscontrol/pages/index.xhtml');
                     window.history.pushState('', '', '/labscontrol/pages/index.xhtml');
                 }
             }
@@ -215,6 +216,16 @@
                     </p:submenu>
                     <p:menuitem value="#{form.cadastro}" icon="ui-icon-plusthick" url="/pages/cadastros/observacao/observacaoForm.xhtml?faces-redirect=true" />
                     <p:menuitem value="#{form.pesquisa}" icon="ui-icon-search" url="/pages/cadastros/observacao/observacaoSearch.xhtml?faces-redirect=true" />
+                </p:submenu>
+
+                <p:submenu label="#{form.relatorios}" rendered="#{usuarioController.somenteAdmEatendente()}">
+                    <p:menuitem value="#{form.equipamento}" url="/pages/relatorios/equipamentos.xhtml?faces-redirect=true"/>
+                    <p:menuitem value="#{form.materialDeConsumo}" url="/pages/relatorios/materiaisDeConsumos.xhtml?faces-redirect=true"/>
+                    <p:menuitem value="#{form.equipamentoEmprestado}" url="/pages/relatorios/equipamentosEmprestados.xhtml?faces-redirect=true"/>
+                    <p:menuitem value="#{form.materialDeConsumoEmprestado}" url="/pages/relatorios/materiaisDeConsumoEmprestados.xhtml?faces-redirect=true"/>
+                    <p:menuitem value="#{form.materialDeConsumoEmFalta}" url="/pages/relatorios/materiaisEmFalta.xhtml?faces-redirect=true"/>
+                    <p:menuitem value="#{form.equipamentosEmManutencao}" url="/pages/relatorios/equipamentosEmManutencao.xhtml?faces-redirect=true"/>
+                    <p:menuitem value="#{form.reservaAmbientes}" url="/pages/relatorios/ambientes.xhtml?faces-redirect=true"/>
                 </p:submenu>
 
                 <p:submenu label="#{form.bkp}" rendered="#{usuarioController.somenteAdmEatendente()}" >

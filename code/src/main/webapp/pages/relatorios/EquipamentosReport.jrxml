@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EquipamentosReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="283f7411-c407-4644-b17f-4f8c6c5271be">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="patrimonio" class="java.lang.String"/>
+	<field name="partNumber" class="java.lang.String"/>
+	<field name="categoria.nome" class="java.lang.String"/>
+	<field name="marca.nome" class="java.lang.String"/>
+	<field name="modelo.nome" class="java.lang.String"/>
+	<field name="fornecedor.nomeFantasia" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="228" y="10" width="120" height="20" uuid="f6a080b6-04bb-404d-bddd-d6664d998b6e"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EQUIPAMENTOS]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="504" y="22" width="51" height="20" uuid="33cbf4e3-33c4-414b-827c-7d119357f999"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="470" y="22" width="34" height="20" uuid="fbcb0fbc-449e-400c-8df6-b009f9893522"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="39" width="555" height="1" uuid="a508b9ba-6242-4b67-bf69-d631499c06df"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="96" height="20" uuid="e2e80f0e-e4b4-4540-a893-90f46865034b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="96" y="0" width="68" height="20" uuid="17cf42cc-63dc-4048-9d53-ac507d170088"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Patrimônio]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="1881e042-0c31-4f84-b832-8c5967e6d813"/>
+			</line>
+			<staticText>
+				<reportElement x="164" y="0" width="69" height="20" uuid="5dd40604-5f15-4836-bc3a-ea5a5a2e6371"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Part Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="233" y="2" width="75" height="20" uuid="29b6ca78-f7c5-43d2-8876-a6b767fc0a77"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Categoria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="1" width="66" height="20" uuid="794efe95-fc16-4361-94a5-1e5690e5e2b2"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="2" width="71" height="20" uuid="25db9ecc-f203-4f3a-8ec3-1150e27d2d45"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="0" width="100" height="20" uuid="23e2b82a-019c-442d-b051-52aa91d07ab1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Fornecedor]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="96" height="20" uuid="0a295557-9214-40d4-9353-6c4d784430c0"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="0" width="68" height="20" uuid="95aec74e-9ef7-403b-b9cd-7e699db548f5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patrimonio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="69" height="20" uuid="7ac6a350-723c-4431-af64-a4378fdcddc3"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{partNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="233" y="1" width="75" height="20" uuid="51f69231-202b-4f82-9e1f-4d47b6c9afaf"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{categoria.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="308" y="2" width="66" height="20" uuid="e928857c-595e-4f99-bb29-6d01f9fe43c1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marca.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="374" y="1" width="71" height="20" uuid="79e2e267-ccd2-4cb1-845e-3901831eb51e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modelo.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="3" width="100" height="20" uuid="5598ab59-14cf-44c9-a670-54a48dd891a9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fornecedor.nomeFantasia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" uuid="0c776151-723b-4e17-90e4-596f06f8d23c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="006e3f91-0c75-4c01-9bb1-19ffe22f7e8d"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

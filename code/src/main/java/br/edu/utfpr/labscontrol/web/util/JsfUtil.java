@@ -4,7 +4,10 @@
  */
 package br.edu.utfpr.labscontrol.web.util;
 
+import br.edu.utfpr.labscontrol.model.entity.Equipamento;
 import br.edu.utfpr.labscontrol.model.entity.Usuario;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -20,12 +23,16 @@ import javax.faces.application.Application;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.ProjectStage;
 import javax.faces.context.FacesContext;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -174,11 +181,74 @@ public class JsfUtil {
             dados.put("dbUser", "root");
             dados.put("dbPass", "root");
         } else {
+//            dados.put("dbName", "edsondainf");
             dados.put("dbName", "edson");
             dados.put("dbUser", "edson");
             dados.put("dbPass", "edson123");
         }
         return dados;
+    }
+
+    /**
+     * Faz o download direto do arquivo.pdf
+     */
+    public static void printAndDownloadPdf(List list, String reportName, Map parameters, String pdfName) {
+//        List<Equipamento> lista = this.equipamentoService.findAll();
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(list);
+//        String reportPath = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/pages/relatorios/EquipamentosReport.jasper");
+        String reportPath = FacesContext.getCurrentInstance().getExternalContext().getRealPath("/pages/relatorios/" + reportName);
+        try {
+//            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, new HashMap(), dataSource);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(reportPath, parameters, dataSource);
+
+            HttpServletResponse httpServletResponse = (HttpServletResponse) FacesContext.getCurrentInstance().getExternalContext().getResponse();
+            httpServletResponse.setContentType("application/pdf");
+            httpServletResponse.addHeader("Content-Disposition", "attachment; filename=" + pdfName + ".pdf");
+            ServletOutputStream servletOutputStream = httpServletResponse.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(jasperPrint, servletOutputStream);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            FacesContext.getCurrentInstance().responseComplete();
+        }
+    }
+
+    /**
+     * Exibe o arquivo no browser
+     * @param list - Lista dos registros que serão apresentados no relatório
+     * @param reportName - Nome do arquivo .jasper
+     * @param parameters - Parâmetros
+     * @param pdfName - Nome do arquivo que será gerado pdf
+     */
+    public static void printAndShowOnBrowser(List list, String reportName, Map parameters, String pdfName) {
+//        List<Equipamento> lista = this.equipamentoService.findAll();
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+
+        HttpServletResponse response = (HttpServletResponse) facesContext.getExternalContext().getResponse();
+
+//        InputStream reportStream = facesContext.getExternalContext().getResourceAsStream("/pages/relatorios/EquipamentosReport.jasper");
+        InputStream reportStream = facesContext.getExternalContext().getResourceAsStream("/pages/relatorios/" + reportName);
+
+        response.setContentType("application/pdf");
+
+        response.setHeader("Content-Disposition", "inline;filename=" + pdfName + ".pdf");
+
+        try {
+            ServletOutputStream servletOutputStream = response.getOutputStream();
+
+            JRBeanCollectionDataSource datasource = new JRBeanCollectionDataSource(list);
+
+            JasperRunManager.runReportToPdfStream(reportStream, servletOutputStream, parameters, datasource);
+
+            servletOutputStream.flush();
+            servletOutputStream.close();
+        } catch (JRException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally{
+            facesContext.responseComplete();
+        }
     }
 
 }

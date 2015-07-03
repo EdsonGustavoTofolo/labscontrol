@@ -1,8 +1,10 @@
 package br.edu.utfpr.labscontrol.model.service;
 
+import br.edu.utfpr.labscontrol.model.entity.CategoriaEquipamento;
 import br.edu.utfpr.labscontrol.model.entity.Equipamento;
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -34,4 +36,10 @@ public interface EquipamentoService extends ICrudService<Equipamento, Integer> {
     List<Equipamento> findByPatrimonioContaining(String patrimonio);
 
     List<Equipamento> findByNomeContainingOrPatrimonioContaining(String nome, String patrimonio);
+
+    List<Equipamento> findByIdOrCategoria(Integer id, CategoriaEquipamento categoriaEquipamento);
+
+    List<Equipamento> getEquipamentoDataBetweenDataIniAndDataFim(Date dataIni, Date dataFim);
+
+    List<Equipamento> getEquipamentoEmManutencao(Date dataIni, Date dataFim, Boolean semRetorno);
 }

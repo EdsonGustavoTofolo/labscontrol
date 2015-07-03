@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EquipamentosEmManutencaoReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="655ad57a-156e-4433-b3d6-dc876302bec0">
+	<property name="ireport.zoom" value="1.2100000000000002"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="patrimonio" class="java.lang.String"/>
+	<field name="partNumber" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="66" splitType="Stretch">
+			<staticText>
+				<reportElement x="165" y="22" width="244" height="20" uuid="35133dd0-60b5-4038-974c-7490e7829887"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EQUIPAMENTOS EM MANUTENÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="446" y="42" width="30" height="20" uuid="30dc46cf-f72d-4141-a4f0-2c0ef7dcc106"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="476" y="42" width="79" height="20" uuid="20d0c3fc-085a-4f06-82f9-3a471468dea5"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="65" width="555" height="1" uuid="2be37d76-4d0b-4f1b-a0b8-b9d2cd663266"/>
+			</line>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="1" width="133" height="20" uuid="1c87bf49-f637-4bdf-8fa9-ff37ef0fc289"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="1" width="130" height="20" uuid="d81d61ed-6e13-4fec-baf1-ee881eafe032"/>
+				<text><![CDATA[Patrimônio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="1" width="118" height="20" uuid="93471996-cb0d-47a5-af3c-66a204a88a4d"/>
+				<text><![CDATA[Part Number]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="25" width="555" height="1" uuid="e1891374-45c8-4732-bde9-9749d5f54943"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="11" y="0" width="133" height="20" uuid="7e07429e-5d7b-46d6-b8a8-102b5273abf9"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="0" width="130" height="20" uuid="56c29fd9-8f63-4983-9e90-2c617ecdcebf"/>
+				<textFieldExpression><![CDATA[$F{patrimonio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="0" width="118" height="20" uuid="e16cf882-5500-4b91-be55-fea6373cb645"/>
+				<textFieldExpression><![CDATA[$F{partNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="440" y="15" width="80" height="20" uuid="64649993-8aed-496c-8c7c-0dc9dcc21faf"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="520" y="15" width="40" height="20" uuid="d41ce985-dffe-4e36-a266-2a3295b42ca5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -12,7 +12,6 @@ import br.edu.utfpr.labscontrol.web.util.HorariosNoite;
 import br.edu.utfpr.labscontrol.web.util.HorariosTarde;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
 import javafx.scene.paint.Material;
-import org.exolab.castor.types.DateTime;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
