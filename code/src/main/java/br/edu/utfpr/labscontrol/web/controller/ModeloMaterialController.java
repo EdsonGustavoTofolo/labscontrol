@@ -23,4 +23,9 @@ public class ModeloMaterialController extends CrudController<ModeloMaterial, Int
     protected String getUrlFormPage() {
         return "/pages/cadastros/modelo/material/modeloMaterialForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/modelo/material/modeloMaterialSearch.xhtml?faces-redirect=true";
+    }
 }

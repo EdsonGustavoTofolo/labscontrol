@@ -9,7 +9,7 @@
       xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="titulo">
-        <h:outputText value="#{form.pesquisaCfgEnvioEmail}"/>
+        <h:outputText value="#{form.listaCfgEnvioEmail}"/>
     </ui:define>
 
     <ui:define name="metadata">
@@ -19,14 +19,11 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="1">
             <p:commandButton value="#{form.novo}" action="/pages/cadastros/cfgenvioemail/cfgEnvioEmailForm.xhtml?faces-redirect=true"
-                            immediate="true" ajax="false" style="float: left" icon="ui-icon-plus"/>
+                            immediate="true" ajax="false" style="float: left" icon="fa fa-file-o"/>
         </p:panelGrid>
 
         <p:dataTable value="#{cfgEnvioEmailController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom">
-            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
-                <h:outputText value="#{objeto.id}" />
-            </p:column>
+                     paginator="true" rows="10" paginatorPosition="bottom" filterEvent="enter">
             <p:column headerText="#{form.host}" sortBy="#{objeto.hostName}" filterBy="#{objeto.hostName}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.hostName}" />
             </p:column>

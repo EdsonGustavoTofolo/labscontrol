@@ -6,10 +6,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <ui:decorate template="../template/padrao.xhtml">
     <ui:define name="titulo">
-        <h:outputText value="#{form.pesquisaBackup}"/>
+        <h:outputText value="#{form.listaBackup}"/>
     </ui:define>
 
     <ui:define name="metadata">
@@ -18,10 +19,10 @@
 
     <ui:define name="conteudo">
         <p:panelGrid columns="1">
-            <p:commandButton value="#{form.efetuarBkp}" icon="ui-icon-disk" actionListener="#{backupController.efetuarBkp}" update="@form" />
+            <p:commandButton value="#{form.efetuarBkp}" icon="fa fa-floppy-o" actionListener="#{backupController.efetuarBkp}" update="@form" />
         </p:panelGrid>
         <p:dataTable value="#{backupController.arquivos}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom" id="tabelaBkps">
+                     paginator="true" rows="10" paginatorPosition="bottom" id="tabelaBkps" filterEvent="enter">
             <p:column headerText="#{form.arquivo}" >
                 <h:outputText value="#{objeto.name}" />
             </p:column>
@@ -29,14 +30,17 @@
                 <h:outputText value="#{backupController.getDataDoArquivo(objeto.name)}" />
             </p:column>
             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
-                <p:commandButton icon="ui-icon-transferthick-e-w" action="#{backupController.restore(objeto)}" title="Restaurar" process="@this" update="@form"/>
-                <p:commandButton icon="ui-icon-trash" action="#{backupController.excluir(objeto)}" process="@this" update="@none" oncomplete="PF('confirm').show()" title="Excluir"/>
+                <p:commandButton icon="fa fa-exchange" action="#{backupController.restore(objeto)}" title="Restaurar" process="@this" update="@form"/>
+                <p:commandButton icon="fa fa-trash-o" action="#{backupController.excluir(objeto)}" process="@this" update="@none" oncomplete="PF('confirm').show()" title="Excluir"/>
             </p:column>
+            <f:facet name="footer">
+                #{fn:length(backupController.arquivos)} registros encontrados.
+            </f:facet>
         </p:dataTable>
     </ui:define>
 
     <ui:define name="rodape">
-        <div style="clear: both"></div>
+
     </ui:define>
 
     <ui:define name="foraDoForm">

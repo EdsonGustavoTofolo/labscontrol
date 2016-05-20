@@ -3,8 +3,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:composite="http://java.sun.com/jsf/composite"
-        >
+      xmlns:composite="http://java.sun.com/jsf/composite">
 
 <composite:interface>
 
@@ -15,22 +14,18 @@
     <composite:attribute name="disabledSave" required="false" default="false" />
     <composite:attribute name="renderedContextMenu" required="false" default="true"/>
     <composite:attribute name="widgetVar" required="false" default="confirm" />
+    <composite:attribute name="renderedBtnExcluir" required="false" default="true" />
 
 </composite:interface>
 
 <composite:implementation>
+    <p:commandButton disabled="#{cc.attrs.disabledSave}" action="#{cc.attrs.controller.save}"
+                     immediate="false" update="#{cc.attrs.update}" title="#{form.salvar}" process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}"
+                     oncomplete="#{cc.attrs.saveComplete}" name="btnSalvar" icon="fa fa-save" />
 
-    <p:commandButton disabled="#{cc.attrs.disabledSave}" value="#{form.salvar}" action="#{cc.attrs.controller.save}"
-                     immediate="false" update="#{cc.attrs.update}" process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}"
-                     oncomplete="#{cc.attrs.saveComplete}" icon="ui-icon-disk" name="btnSalvar"/>
-
-    <p:commandButton process="@this" value="#{form.excluir}" action="#{cc.attrs.controller.setId(cc.attrs.controller.entity.id)}"
-                     update="@none" oncomplete="PF('#{cc.attrs.widgetVar}').show()" title="Excluir" rendered="#{cc.attrs.controller.entity.id != null}"
-                     icon="ui-icon-trash"/>
-
-    <p:hotkey bind="ctrl+shift+s" update="#{cc.attrs.update}" actionListener="#{cc.attrs.controller.save}" immediate="false"
-              process="#{!empty cc.attrs.process ? cc.attrs.process : '@form'}" oncomplete="#{cc.attrs.saveComplete}"/>
-
+    <p:commandButton process="@this" action="#{cc.attrs.controller.setId(cc.attrs.controller.entity.id)}"
+                     update="@none" oncomplete="PF('#{cc.attrs.widgetVar}').show()" title="#{form.excluir}" rendered="#{cc.attrs.controller.entity.id != null and cc.attrs.renderedBtnExcluir}"
+                     icon="fa fa-trash-o"/>
 </composite:implementation>
 
 </html>

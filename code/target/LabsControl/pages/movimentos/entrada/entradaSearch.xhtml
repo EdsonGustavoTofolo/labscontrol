@@ -6,10 +6,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="titulo">
-        <h:outputText value="#{form.pesquisaEntrada}"/>
+        <h:outputText value="#{form.listaEntrada}"/>
     </ui:define>
 
     <ui:define name="metadata">
@@ -19,15 +20,11 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="1">
             <p:commandButton value="#{form.novo}" action="/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true"
-                            immediate="true" ajax="false" style="float: left;" icon="ui-icon-plus"/>
+                            immediate="true" ajax="false" style="float: left;" icon="fa fa-file-o"/>
         </p:panelGrid>
 
         <p:dataTable value="#{entradaController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom">
-            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
-                <h:outputText value="#{objeto.id}" />
-            </p:column>
-
+                     paginator="true" rows="10" paginatorPosition="bottom" filterEvent="enter">
             <p:column headerText="#{form.data}" sortBy="#{objeto.data}" filterBy="#{objeto.data}" styleClass="columnData">
                 <h:outputText value="#{objeto.data}">
                     <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
@@ -55,6 +52,9 @@
             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
                 <labs:commandButtonSearch controller="#{entradaController}"/>
             </p:column>
+            <f:facet name="footer">
+                #{fn:length(entradaController.lsEntity)} registros encontrados.
+            </f:facet>
         </p:dataTable>
     </ui:define>
 

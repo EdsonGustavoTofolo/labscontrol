@@ -15,12 +15,23 @@ public class Pais implements Serializable {
     private Integer id;
     @Column(name = "nome", length = 80, nullable = false, unique = true)
     private String nome;
+    @Column(name = "sigla", length = 2, nullable = false, unique = true)
+    private String sigla;
 
     public Pais() {
     }
 
-    public Pais(String nome) {
+    public Pais(String nome, String sigla) {
         this.nome = nome;
+        this.sigla = sigla;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
     }
 
     public String getNome() {

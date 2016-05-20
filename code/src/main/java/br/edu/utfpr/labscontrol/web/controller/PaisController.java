@@ -26,4 +26,9 @@ public class PaisController extends CrudController<Pais, Integer> {
     protected String getUrlFormPage() {
         return "/pages/cadastros/pais/paisForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/pais/paisSearch.xhtml?faces-redirect=true";
+    }
 }

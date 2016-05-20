@@ -6,11 +6,12 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
 <ui:decorate template="../template/padrao.xhtml">
     <ui:define name="titulo">
-        <h:outputText value="#{form.pesquisaEmprestimo}"/>
+        <h:outputText value="#{form.listaEmprestimo}"/>
     </ui:define>
 
     <ui:define name="metadata">
@@ -20,7 +21,7 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="2">
             <p:commandButton value="#{form.novo}" action="/pages/emprestimo/emprestimoForm.xhtml?faces-redirect=true"
-                            immediate="true" ajax="false" style="float: left" icon="ui-icon-plus"/>
+                            immediate="true" ajax="false" style="float: left" icon="fa fa-file-o"/>
 
             <p:panelGrid columns="3">
                 <h:outputLabel value="#{form.pendenciasSolicitante}"/>
@@ -48,17 +49,14 @@
             </p:panelGrid>
         </p:panelGrid>
         <p:dataTable value="#{emprestimoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom" id="tabelaEmprestimos">
+                     paginator="true" rows="10" paginatorPosition="bottom" id="tabelaEmprestimos" filterEvent="enter">
             <p:column style="width:2%">
                 <p:rowToggler />
-            </p:column>
-            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
-                <h:outputText value="#{objeto.id}"/>
             </p:column>
             <p:column headerText="#{form.solicitante}" sortBy="#{objeto.solicitante}" filterBy="#{objeto.solicitante}">
                 <h:outputText value="#{objeto.solicitante.nome} - #{objeto.solicitante.identificacao}"/>
             </p:column>
-            <p:column headerText="#{form.data}" sortBy="#{objeto.data}">
+            <p:column headerText="#{form.data}" sortBy="#{objeto.data}" filterBy="#{objeto.data}" styleClass="columnData">
                 <h:outputText value="#{objeto.data}">
                     <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
                 </h:outputText>
@@ -126,6 +124,9 @@
                     </p:column>
                 </p:dataTable>
             </p:rowExpansion>
+            <f:facet name="footer">
+                #{fn:length(emprestimoController.lsEntity)} registros encontrados.
+            </f:facet>
         </p:dataTable>
     </ui:define>
 

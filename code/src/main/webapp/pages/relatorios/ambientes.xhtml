@@ -12,7 +12,11 @@
         <h:outputText value="#{form.relatorioAmbiente}"/>
     </ui:define>
     <ui:define name="conteudo">
-        <p:commandLink value="Imprimir" action="#{relatoriosController.printAmbientes()}" ajax="false" process="@all"/>
+        <p:commandButton value="#{form.visualizar}" actionListener="#{relatoriosController.printAmbientes}" ajax="false"
+                         process="@this" onclick="this.form.target='_blank'" icon="ui-icon-document"/>
+        <p:commandButton value="#{form.downloadPdf}" actionListener="#{relatoriosController.printAmbientesPdf}"
+                         ajax="false" process="@this" onclick="this.form.target='_blank'"
+                         icon="ui-icon-arrowreturnthick-1-s"/>
     </ui:define>
 </ui:decorate>
 </html>

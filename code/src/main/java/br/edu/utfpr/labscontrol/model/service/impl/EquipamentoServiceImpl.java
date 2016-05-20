@@ -64,5 +64,10 @@ public class EquipamentoServiceImpl extends CrudService<Equipamento, Integer> im
         return this.equipamentoData.getEquipamentoEmManutencao(dataIni, dataFim, semRetorno);
     }
 
+    @Override
+    public Equipamento findByPatrimonioAndMarca_IdAndModelo_IdAndCategoria_Id(String patrimonio, Integer marcaId, Integer modeloId, Integer categoriaId) {
+        return this.equipamentoData.findByPatrimonioAndMarca_IdAndModelo_IdAndCategoria_Id(patrimonio, marcaId, modeloId, categoriaId);
+    }
+
 
 }

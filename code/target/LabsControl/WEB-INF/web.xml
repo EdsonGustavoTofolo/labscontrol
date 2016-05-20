@@ -13,8 +13,8 @@
     <!-- Estado do projeto -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Production</param-value>
-        <!--<param-value>Development</param-value>-->
+        <!--<param-value>Production</param-value>-->
+        <param-value>Development</param-value>
     </context-param>
 
     <context-param>
@@ -188,4 +188,29 @@
         <url-pattern>/compress/*</url-pattern>
     </filter-mapping>
 
+    <!-- ADICIONA MIME TYPES PARA FUNCIONAR O FONT AWESOME -->
+    <mime-mapping>
+        <extension>eot</extension>
+        <mime-type>application/vnd.ms-fontobject</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>otf</extension>
+        <mime-type>font/opentype</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>ttf</extension>
+        <mime-type>application/x-font-ttf</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>application/x-font-woff</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>svg</extension>
+        <mime-type>image/svg+xml</mime-type>
+    </mime-mapping>
 </web-app>

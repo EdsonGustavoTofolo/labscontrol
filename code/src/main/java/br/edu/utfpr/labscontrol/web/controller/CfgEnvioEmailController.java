@@ -32,6 +32,11 @@ public class CfgEnvioEmailController extends CrudController<CfgEnvioEmail, Integ
     }
 
     @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/cfgenvioemail/cfgEnvioEmailSearch.xhtml?faces-redirect=true";
+    }
+
+    @Override
     protected Boolean validacaoSave(CfgEnvioEmail entity) {
         CfgEnvioEmail byAtiva = cfgEnvioEmailService.findByAtiva(Boolean.TRUE);
         if (byAtiva != null && entity.getAtiva() && byAtiva.getId() != entity.getId()) {

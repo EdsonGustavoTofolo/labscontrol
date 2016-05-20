@@ -2,7 +2,7 @@ body {
     margin: 0px;
 }
 .loader {
-    background: url("/labscontrol/resources/images/ajax-loader.gif") center center no-repeat;
+    /*background: url("images/ajax-loader.gif") center center no-repeat;*/
     width: 220px !important;
     height: 85px !important;
     padding-top: 100px;

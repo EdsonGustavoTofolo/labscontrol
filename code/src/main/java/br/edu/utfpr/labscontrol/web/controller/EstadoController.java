@@ -33,6 +33,11 @@ public class EstadoController extends CrudController<Estado, Integer> {
         return "/pages/cadastros/estado/estadoForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/estado/estadoSearch.xhtml?faces-redirect=true";
+    }
+
     public List<Pais> completePais(String nome) {
         return paisService.findByNomeContaining(nome);
     }

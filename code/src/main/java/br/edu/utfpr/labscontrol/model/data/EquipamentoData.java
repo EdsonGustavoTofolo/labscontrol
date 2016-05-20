@@ -29,4 +29,6 @@ public interface EquipamentoData  extends JpaRepository<Equipamento, Integer> {
     @Query(value = "SELECT e.* FROM equipamentos e INNER JOIN historicos_de_manutencoes h on h.equipamentoId = e.id" +
             "        WHERE h.dataDeEnvio between ?1 AND ?2 and ( (?3 = true and h.dataDeRetorno is null) or (?3 = false) )", nativeQuery = true)
     List<Equipamento> getEquipamentoEmManutencao(Date dataIni, Date dataFim, Boolean semRetorno);
+
+    Equipamento findByPatrimonioAndMarca_IdAndModelo_IdAndCategoria_Id(String patrimonio, Integer marcaId, Integer modeloId, Integer categoriaId);
 }

@@ -6,10 +6,10 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol" xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="titulo">
-        <h:outputText value="#{form.pesquisaPais}"/>
+        <h:outputText value="#{form.listaPais}"/>
     </ui:define>
 
     <ui:define name="metadata">
@@ -19,20 +19,23 @@
     <ui:define name="conteudo">
         <p:panelGrid columns="1">
             <p:commandButton value="#{form.novo}" action="/pages/cadastros/pais/paisForm.xhtml?faces-redirect=true"
-                             immediate="true" ajax="false" style="float: left" icon="ui-icon-plus"/>
+                             immediate="true" ajax="false" style="float: left" icon="fa fa-file-o"/>
         </p:panelGrid>
 
         <p:dataTable value="#{paisController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom">
-            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
-                <h:outputText value="#{objeto.id}" />
-            </p:column>
+                     paginator="true" rows="10" paginatorPosition="bottom" filterEvent="enter">
             <p:column headerText="#{form.nome}" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.nome}" />
+            </p:column>
+            <p:column headerText="#{form.sigla}" sortBy="#{objeto.sigla}" filterBy="#{objeto.sigla}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.sigla}" />
             </p:column>
             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
                 <labs:commandButtonSearch controller="#{paisController}"/>
             </p:column>
+            <f:facet name="footer">
+                #{fn:length(paisController.lsEntity)} registros encontrados.
+            </f:facet>
         </p:dataTable>
     </ui:define>
 
@@ -48,6 +51,7 @@
                     <p:panelGrid columns="2" columnClasses="columnBold">
                         <h:outputText value="#{form.nome}"/>
                         <h:outputText value="#{paisController.entityView.nome}"/>
+                        <h:outputText value="#{paisController.entityView.sigla}"/>
                     </p:panelGrid>
                 </p:outputPanel>
             </p:dialog>

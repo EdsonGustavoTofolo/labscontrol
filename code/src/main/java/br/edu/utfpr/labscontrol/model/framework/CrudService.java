@@ -1,8 +1,10 @@
 package br.edu.utfpr.labscontrol.model.framework;
 
 import org.apache.log4j.Logger;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.validation.ConstraintViolationException;
@@ -287,6 +289,18 @@ public abstract class CrudService<T, ID extends Serializable> implements ICrudSe
         return getData().findOne(id);
     }
 
+    @Override
+    public T findFirst() {
+        Page<T> page = getData().findAll(new PageRequest(0, 1, Sort.Direction.ASC, "id"));
+        return page.getContent().get(0);
+    }
+
+    @Override
+    public T findLast() {
+        Page<T> page = getData().findAll(new PageRequest(0, 1, Sort.Direction.DESC, "id"));
+        return page.getContent().get(0);
+    }
+
     /**
      * Metodo responsavel por criar uma paginacao do SPRING DATA iniciando
      * na pagina 0 e setando ao maximo 10 registros
@@ -297,7 +311,7 @@ public abstract class CrudService<T, ID extends Serializable> implements ICrudSe
     }
 
     /**
-     * Depois que o pedido for salvo ou deletado este metodo eh executado
+     * Depois que o objeto for salvo ou deletado este metodo eh executado
      * geralmente utilizado para remover informacoes gravadas em cache
      */
     public void afterSaveOrDelete() {

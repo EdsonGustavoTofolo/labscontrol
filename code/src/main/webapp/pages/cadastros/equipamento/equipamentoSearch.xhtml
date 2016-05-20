@@ -10,7 +10,7 @@
       xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="titulo">
-        <h:outputText value="#{form.pesquisaEquipamento}"/>
+        <h:outputText value="#{form.listaEquipamento}"/>
     </ui:define>
 
     <ui:define name="metadata">
@@ -21,33 +21,31 @@
         <p:panelGrid columns="1">
             <p:commandButton value="#{form.novo}" action="/pages/cadastros/equipamento/equipamentoForm.xhtml?faces-redirect=true"
                             immediate="true" ajax="false" style="float: left;"
-                            icon="ui-icon-plus"/>
+                            icon="fa fa-file-o"/>
         </p:panelGrid>
 
-        <p:dataTable value="#{equipamentoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom">
+        <p:dataTable  value="#{equipamentoController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
+                     paginator="true" rows="10" paginatorPosition="bottom" filterEvent="enter">
             <p:column style="width:2%">
                 <p:rowToggler />
-            </p:column>
-            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
-                <h:outputText value="#{objeto.id}"/>
             </p:column>
             <p:column headerText="#{form.nome}" sortBy="#{objeto.nome}" filterBy="#{objeto.nome}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.nome}"/>
             </p:column>
-            <p:column headerText="#{form.partNumber}" sortBy="#{objeto.partNumber}" filterBy="#{objeto.partNumber}" filterMatchMode="contains">
-                <h:outputText value="#{objeto.partNumber}"/>
-            </p:column>
             <p:column headerText="#{form.patrimonio}" sortBy="#{objeto.patrimonio}" filterBy="#{objeto.patrimonio}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.patrimonio}"/>
             </p:column>
-            <p:column headerText="#{form.dataDeAquisicao}" sortBy="#{objeto.dataDeAquisicao}" styleClass="columnData">
-                <h:outputText value="#{objeto.dataDeAquisicao}">
-                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="GMT-3"/>
-                </h:outputText>
-            </p:column>
             <p:column headerText="#{form.obs}">
                 <h:outputText value="#{objeto.observacao}"/>
+            </p:column>
+            <p:column headerText="#{form.categoria}" filterBy="#{objeto.categoria.nome}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.categoria.nome}"/>
+            </p:column>
+            <p:column headerText="#{form.marca}" filterBy="#{objeto.marca.nome}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.marca.nome}"/>
+            </p:column>
+            <p:column headerText="#{form.modelo}" filterBy="#{objeto.modelo.nome}" filterMatchMode="contains">
+                <h:outputText value="#{objeto.modelo.nome}"/>
             </p:column>
             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
                 <labs:commandButtonSearch controller="#{equipamentoController}"/>
@@ -130,6 +128,9 @@
                     </p:column>
                 </p:dataTable>
             </p:rowExpansion>
+            <f:facet name="footer">
+                #{fn:length(equipamentoController.lsEntity)} registros encontrados.
+            </f:facet>
         </p:dataTable>
     </ui:define>
 

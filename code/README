@@ -1,2 +1,30 @@
 This file was created by IntelliJ IDEA 12.1.6 for binding GitHub repository
 This file was modified by IntelliJ IDEA 12.1.6 for binding GitHub repository
+
+Arquivos para mudar ao compilar para DAINF e DAELE
+Persistence.xml
+padrao.xhtml
+novoUsuario.xhtml
+web.xml
+BackupController.java
+JsfUtil.java
+
+Exemplo de envio de email com JavaMail
+http://crunchify.com/java-mailapi-example-send-an-email-via-gmail-smtp/
+
+** Adicionando bibliotecas externas no maven
+http://charlie.cu.cc/2012/06/how-add-external-libraries-maven/
+- "/groupId/artifactId/version/artifactId-verion.jar"
+Exemplo:
+<!– In Project repository –>
+<repository>
+<id>in-project</id>
+<name>In Project Repo</name>
+<url>file://${project.basedir}/libs</url> -> criar a pasta libs e adicionar a estrutura "/groupId/artifactId/version/artifactId-verion.jar"
+</repository>
+
+<dependency>
+    <groupId>dropbox</groupId>
+    <artifactId>dropbox-sdk</artifactId>
+    <version>1.3.1</version>
+</dependency>

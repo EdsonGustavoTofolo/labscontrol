@@ -23,4 +23,9 @@ public class CategoriaMaterialController extends CrudController<CategoriaMateria
     protected String getUrlFormPage() {
         return "/pages/cadastros/categoria/material/categoriaMaterialForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/categoria/material/categoriaMaterialSearch.xhtml?faces-redirect=true";
+    }
 }

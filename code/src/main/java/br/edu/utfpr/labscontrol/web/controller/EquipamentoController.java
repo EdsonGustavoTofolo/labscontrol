@@ -30,6 +30,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static javax.faces.application.FacesMessage.SEVERITY_ERROR;
+
 /**
  * Created by edson on 23/08/2014.
  */
@@ -57,11 +59,31 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
     }
 
     @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/equipamento/equipamentoSearch.xhtml?faces-redirect=true";
+    }
+
+    @Override
     protected void preProcessorDelete() throws Exception {
         if (JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER"))) {
             throw new Exception("Você não possui permissão para excluir!");
         }
         removeImageFile();
+    }
+
+    @Override
+    protected Boolean validacaoSave(Equipamento e) {
+        if (e.getPatrimonio() != null && !"".equals(e.getPatrimonio())) {
+            Equipamento equip = equipamentoService.findByPatrimonioAndMarca_IdAndModelo_IdAndCategoria_Id(e.getPatrimonio(), e.getMarca().getId(), e.getModelo().getId(), e.getCategoria().getId());
+            if (equip != null) {
+                addMessage("Já existe Equipamento com Patrimônio, Marca, Modelo e Categoria informados!", FacesMessage.SEVERITY_ERROR);
+                return Boolean.FALSE;
+            } else {
+                return Boolean.TRUE;
+            }
+        } else {
+            return Boolean.TRUE;
+        }
     }
 
     public List<CategoriaEquipamento> completeCategoria(String nome) {
@@ -90,7 +112,7 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
             this.historicoDeManutencaoService.save(historicoDeManutencao);
             addMessage("Histórico salvo com sucesso!", FacesMessage.SEVERITY_INFO);
         } catch (Exception e) {
-            addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
+            addMessage(e.getMessage(), SEVERITY_ERROR);
         }
     }
 
@@ -106,7 +128,7 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
             entity.getHistoricoDeManutencoes();
             addMessage("Histórico de manutenção removido com sucesso!", FacesMessage.SEVERITY_INFO);
         } catch (Exception e) {
-            addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
+            addMessage(e.getMessage(), SEVERITY_ERROR);
         }
     }
 
@@ -204,4 +226,5 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
     public void setUploadedFile(UploadedFile uploadedFile) {
         this.uploadedFile = uploadedFile;
     }
+
 }

@@ -60,6 +60,11 @@ public class MaterialDeConsumoController extends CrudController<MaterialDeConsum
     }
 
     @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml?faces-redirect=true";
+    }
+
+    @Override
     protected void preProcessorDelete()throws Exception {
         if (JsfUtil.getUsuarioLogado().getPermissoes().contains(permissaoService.findByPermissao("ROLE_USER"))) {
             throw new Exception("Você não possui permissão para excluir!");

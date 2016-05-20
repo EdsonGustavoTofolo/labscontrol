@@ -24,5 +24,10 @@ public class CategoriaEquipamentoController extends CrudController<CategoriaEqui
         return "/pages/cadastros/categoria/equipamento/categoriaEquipamentoForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/categoria/equipamento/categoriaEquipamentoSearch.xhtml?faces-redirect=true";
+    }
+
 
 }

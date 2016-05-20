@@ -56,5 +56,8 @@ public interface ICrudService<T extends Object, ID extends Serializable> {
      */
     T findById(ID id);
 
+    T findFirst();
+
+    T findLast();
 }
 

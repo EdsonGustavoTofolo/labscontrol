@@ -23,4 +23,9 @@ public class ModeloEquipamentoController extends CrudController<ModeloEquipament
     protected String getUrlFormPage() {
         return "/pages/cadastros/modelo/equipamento/modeloEquipamentoForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/modelo/equipamento/modeloEquipamentoSearch.xhtml?faces-redirect=true";
+    }
 }

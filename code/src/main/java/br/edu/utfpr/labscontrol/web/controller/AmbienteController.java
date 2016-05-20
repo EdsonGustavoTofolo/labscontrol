@@ -23,4 +23,9 @@ public class AmbienteController extends CrudController<Ambiente, Integer> {
     protected String getUrlFormPage() {
         return "/pages/cadastros/ambiente/ambienteForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/ambiente/ambienteSearch.xhtml?faces-redirect=true";
+    }
 }

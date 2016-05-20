@@ -21,8 +21,9 @@ import java.util.*;
 @Controller
 @Scope("view")
 public class BackupController extends BaseController {
+    private static String PATH_BKP = "D:/bkp/";
 //    private static String PATH_BKP = "/var/www/html/edson/bkps_labscontrol_dainf/";
-    private static String PATH_BKP = "/var/www/html/edson/bkps_labscontrol/";
+//    private static String PATH_BKP = "/var/www/html/edson/bkps_labscontrol/";
     private List<File> arquivos = new ArrayList<>();
     private String dbName;
     private String dbUser;
@@ -83,7 +84,7 @@ public class BackupController extends BaseController {
             String[] executeCmd = null;
 
             if (JsfUtil.isDevelopmentProjectStage()) {
-                executeCmd = new String[]{"c:/Program Files/MySQL/MySQL Server 5.6/bin/mysql.exe", dbName, "-u" + dbUser, "-p" + dbPass, "-e", " source " + restorePath};
+                executeCmd = new String[]{"C:/Program Files/MySQL/MySQL Server 5.7/bin/mysql.exe", dbName, "-u" + dbUser, "-p" + dbPass, "-e", " source " + restorePath};
             } else {
                 executeCmd = new String[]{"mysql", dbName, "-u" + dbUser, "-p" + dbPass, "-e", " source " + restorePath};
 //                executeCmd = new String[]{"mysql", "-u" + dbUser, "-p" + dbPass, dbName, " < " + restorePath};
@@ -123,7 +124,7 @@ public class BackupController extends BaseController {
             String executeCmd = "";
 
             if (JsfUtil.isDevelopmentProjectStage()) {
-                executeCmd = "c:/Program Files/MySQL/MySQL Server 5.6/bin/mysqldump.exe -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
+                executeCmd = "C:/Program Files/MySQL/MySQL Server 5.7/bin/mysqldump.exe -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
             } else {
                 executeCmd = "mysqldump --single-transaction -u" + dbUser + " -p" + dbPass + " --database " + dbName + " -r " + savePath;
             }

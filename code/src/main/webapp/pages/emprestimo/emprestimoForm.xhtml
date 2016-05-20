@@ -9,14 +9,7 @@
       xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
 <ui:decorate template="../template/padrao.xhtml">
     <ui:define name="botoesParaForm">
-        <p:panelGrid columns="2">
-            <p:commandButton process="@this" value="#{form.novo}" action="#{emprestimoController.reset}" update="@form" immediate="true"
-                             icon="ui-icon-plus" style="float: left"/>
-
-            <p:commandButton value="#{form.pesquisa}" action="/pages/emprestimo/emprestimoSearch.xhtml?faces-redirect=true"
-                             immediate="true" ajax="false" style="float: left"
-                             icon="ui-icon ui-icon-search"/>
-        </p:panelGrid>
+        <labs:toolbarTopForm update="@form" controller="#{emprestimoController}"/>
     </ui:define>
 
     <ui:define name="titulo">
@@ -46,9 +39,10 @@
                     </p:column>
                 </p:autoComplete>
 
-                <h:outputLabel value="#{form.data}*" />
-                <p:calendar value="#{emprestimoController.entity.data}" pattern="dd/MM/yyyy" mask="true"
-                            locale="pt_BR" navigator="true" showButtonPanel="true" size="10" showOn="button" required="true" requiredMessage="#{msg.campoDataRequired}"/>
+                <h:outputLabel value="#{form.data}*" for="data" />
+                <p:calendar value="#{emprestimoController.entity.data}" pattern="dd/MM/yyyy" mask="true" id="data"
+                            locale="pt_BR" navigator="true" showButtonPanel="true" size="10" showOn="button" required="true" requiredMessage="#{msg.campoDataRequired}"
+                            validator="dataEmprestimoValidator"/>
 
                 <h:outputLabel value="#{form.obs}"/>
                 <p:inputText value="#{emprestimoController.entity.observacao}" size="60" maxlength="255"/>
@@ -57,7 +51,7 @@
         <p:fieldset legend="#{form.itens}" toggleable="true">
             <p:panelGrid columns="2">
                 <h:outputLabel value="#{form.tipo}"/>
-                <p:selectOneRadio id="tipo" value="#{emprestimoController.tipo}">
+                <p:selectOneRadio id="tipo" value="#{emprestimoController.tipo}" required="true" requiredMessage="Campo Tipo: Preenchimento Obrigatório!">
                     <f:selectItem itemLabel="#{form.materialDeConsumo}" itemValue="M"  />
                     <f:selectItem itemLabel="#{form.equipamento}" itemValue="E" />
                     <p:ajax event="change" update="materialDeConsumo, equipamento, qtdEstoque" global="false" oncomplete="$('#form\\:equipamento_input').focus();"/>
@@ -96,13 +90,13 @@
                     </p:column>
                 </p:autoComplete>
 
-                <h:outputLabel value="#{form.quantidade}"/>
-                <p:inputText value="#{emprestimoController.quantidade}" id="quantidade">
+                <h:outputLabel value="#{form.quantidade}" for="quantidade"/>
+                <p:inputText value="#{emprestimoController.quantidade}" id="quantidade" disabled="#{emprestimoController.tipo.equals('E')}">
                     <f:convertNumber locale="pt_BR" pattern="#,##0.00" />
                 </p:inputText>
 
                 <f:facet name="footer">
-                    <p:commandButton value="#{form.adicionar}" action="#{emprestimoController.addItem}" ajax="true" update="form" process="@form"/>
+                    <p:commandButton value="#{form.adicionar}" action="#{emprestimoController.addItem}" ajax="true" update="form" process="@form" icon="fa fa-plus-circle" />
                 </f:facet>
             </p:panelGrid>
 
@@ -118,7 +112,7 @@
                         </h:outputText>
                     </p:column>
                     <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
-                        <p:commandButton icon="ui-icon-trash" action="#{emprestimoController.excluirItem(objeto)}" process="@this" update="tableItens" title="#{form.excluir}"/>
+                        <p:commandButton icon="fa fa-trash-o" action="#{emprestimoController.excluirItem(objeto)}" process="@this" update="tableItens" title="#{form.excluir}"/>
                     </p:column>
                 </p:dataTable>
             </p:panelGrid>
@@ -126,11 +120,18 @@
     </ui:define>
 
     <ui:define name="rodape">
-        <labs:commandButtonForm update="@form" controller="#{emprestimoController}"/>
+
     </ui:define>
 
     <ui:define name="foraDoForm">
         <labs:confirmExclusaoSimples update=":form" action="#{emprestimoController.deleteFromForm}"/>
     </ui:define>
+
+    <script type="text/javascript">
+//        $(document).ready(function () {
+//            var firstInvalid = document.getElementsByClassName('ui-state-error')[0];
+//            if (typeof firstInvalid !== 'undefined') firstInvalid.focus();
+//        });
+    </script>
 </ui:decorate>
 </html>

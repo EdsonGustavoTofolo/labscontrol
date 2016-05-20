@@ -6,10 +6,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="titulo">
-        <h:outputText value="#{form.pesquisaFornecedor}"/>
+        <h:outputText value="#{form.listaFornecedor}"/>
     </ui:define>
 
     <ui:define name="metadata">
@@ -20,16 +21,13 @@
         <p:panelGrid columns="1">
             <p:commandButton value="#{form.novo}" action="/pages/cadastros/fornecedor/fornecedorForm.xhtml?faces-redirect=true"
                             immediate="true" ajax="false" style="float: left;"
-                            icon="ui-icon-plus"/>
+                            icon="fa fa-file-o"/>
         </p:panelGrid>
 
         <p:dataTable value="#{fornecedorController.lsEntity}" var="objeto" emptyMessage="#{form.nenhumRegistroEncontrado}"
-                     paginator="true" rows="10" paginatorPosition="bottom">
+                     paginator="true" rows="10" paginatorPosition="bottom" filterEvent="enter">
             <p:column style="width:2%">
                 <p:rowToggler />
-            </p:column>
-            <p:column headerText="#{form.id}" sortBy="#{objeto.id}" filterBy="#{objeto.id}" styleClass="columnId">
-                <h:outputText value="#{objeto.id}"/>
             </p:column>
             <p:column headerText="#{form.razaoSocial}" sortBy="#{objeto.razaoSocial}" filterBy="#{objeto.razaoSocial}" filterMatchMode="contains">
                 <h:outputText value="#{objeto.razaoSocial}"/>
@@ -63,6 +61,9 @@
                     </p:column>
                 </p:dataTable>
             </p:rowExpansion>
+            <f:facet name="footer">
+                #{fn:length(fornecedorController.lsEntity)} registros encontrados.
+            </f:facet>
         </p:dataTable>
     </ui:define>
 

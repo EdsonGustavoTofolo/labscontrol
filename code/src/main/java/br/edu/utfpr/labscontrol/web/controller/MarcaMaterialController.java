@@ -23,4 +23,9 @@ public class MarcaMaterialController extends CrudController<MarcaMaterial, Integ
     protected String getUrlFormPage() {
         return "/pages/cadastros/marca/material/marcaMaterialForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/marca/material/marcaMaterialSearch.xhtml?faces-redirect=true";
+    }
 }

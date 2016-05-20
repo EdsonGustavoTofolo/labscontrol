@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:labs="http://java.sun.com/jsf/composite/labscontrol"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+    <composite:attribute name="controller"  required="true" />
+    <composite:attribute name="update" required="true" />
+    <composite:attribute name="process" required="false" />
+    <composite:attribute name="saveComplete" required="false" />
+    <composite:attribute name="disabledSave" required="false" default="false" />
+    <composite:attribute name="renderedBtnNovo" required="false" default="true" />
+    <composite:attribute name="renderedBtnExcluir" required="false" default="true" />
+    <composite:attribute name="renderedContextMenu" required="false" default="true"/>
+    <composite:attribute name="widgetVarBtnExc" required="false" default="confirm" />
+    <composite:attribute name="displayToolbarGroupRight" required="false" default="false"/>
+</composite:interface>
+
+<composite:implementation>
+    <p:toolbar>
+        <f:facet name="left">
+            <p:toolbarGroup align="left">
+                <p:commandButton process="@this" action="#{cc.attrs.controller.reset}" title="#{form.novo}"
+                                 update="#{cc.attrs.update}" immediate="true"
+                                 icon="fa fa-file-o" style="float: left"
+                                 rendered="#{cc.attrs.renderedBtnNovo}"/>
+
+                <p:commandButton title="#{form.listagem}"
+                                 action="#{cc.attrs.controller.getUrlSearchPage}"
+                                 immediate="true" ajax="false" style="float: left"
+                                 icon="fa fa-list-alt"/>
+
+                    <span class="ui-separator">
+                       <span class="ui-icon ui-icon-grip-dotted-vertical"/>
+                    </span>
+
+                <labs:commandButtonForm update="#{cc.attrs.update}" controller="#{cc.attrs.controller}"
+                                        widgetVar="#{cc.attrs.widgetVarBtnExc}" renderedBtnExcluir="#{cc.attrs.renderedBtnExcluir}"/>
+
+                <span class="ui-separator">
+                       <span class="ui-icon ui-icon-grip-dotted-vertical"/>
+                </span>
+
+                <p:commandButton process="@this" action="#{cc.attrs.controller.copy}" update="@form" immediate="true" icon="fa fa-copy" title="Copiar"/>
+                <p:commandButton process="@this" action="#{cc.attrs.controller.paste}" update="@form" immediate="true" icon="fa fa-paste" title="Colar"/>
+
+                <span class="ui-separator">
+                       <span class="ui-icon ui-icon-grip-dotted-vertical"/>
+                </span>
+
+                <p:commandButton process="@this" action="#{cc.attrs.controller.first}" update="@form" immediate="true" icon="fa fa-step-backward" title="Primeiro registro"/>
+                <p:commandButton process="@this" action="#{cc.attrs.controller.previous}" update="@form" immediate="true" icon="fa fa-backward" title="Voltar registro"/>
+                <p:commandButton process="@this" action="#{cc.attrs.controller.next}" update="@form" immediate="true" icon="fa fa-forward" title="Próximo registro"/>
+                <p:commandButton process="@this" action="#{cc.attrs.controller.last}" update="@form" immediate="true" icon="fa fa-step-forward" title="Último registro"/>
+            </p:toolbarGroup>
+        </f:facet>
+        <f:facet name="right">
+            <p:toolbarGroup align="rigth" rendered="#{cc.attrs.displayToolbarGroupRight}">
+                <p:menuButton value="#{form.movimentos}">
+                    <p:menuitem value="#{form.lancarSaida}"
+                                action="#{cc.attrs.controller.lancarSaida(cc.attrs.controller.entity)}"
+                                immediate="true" ajax="false" icon="fa fa-arrow-right"/>
+
+                    <p:menuitem value="#{form.lancarEntrada}"
+                                action="#{cc.attrs.controller.lancarEntrada(cc.attrs.controller.entity)}"
+                                immediate="true" ajax="false" icon="fa fa-arrow-left"/>
+                </p:menuButton>
+            </p:toolbarGroup>
+        </f:facet>
+    </p:toolbar>
+</composite:implementation>
+
+</html>

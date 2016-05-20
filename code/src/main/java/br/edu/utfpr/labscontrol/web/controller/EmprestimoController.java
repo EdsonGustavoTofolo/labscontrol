@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -53,16 +54,41 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
     }
 
     @Override
+    public String getUrlSearchPage() {
+        return "/pages/emprestimo/emprestimoSearch.xhtml?faces-redirect=true";
+    }
+
+    @Override
     protected void postCreate() {
         super.postCreate();
         this.entity.setUsuario(JsfUtil.getUsuarioLogado());
         this.qtdEstoque = BigDecimal.ZERO;
+        this.quantidade = BigDecimal.ZERO;
         this.pesquisandoPorSolicitante = Boolean.FALSE;
+        this.entity.setData(Calendar.getInstance().getTime());
+        this.materialDeConsumo = null;
+        this.equipamento = null;
+        this.tipo = "";
+        this.entity.setSolicitante(null);
+    }
+
+    @Override
+    public void reset() {
+        super.reset();
+    }
+
+    private void validaItem() throws IllegalArgumentException {
+        if (this.tipo.equals("M") && this.materialDeConsumo == null) {
+            throw new IllegalArgumentException("Informe um Material de Consumo válido!");
+        } else if (this.tipo.equals("E") && this.equipamento == null) {
+            throw new IllegalArgumentException("Informe um Equipamento válido!");
+        }
     }
 
     public void addItem() {
         try {
             validaCabecalho();
+            validaItem();
             validaQuantidadeEmEstoque();
 
             EmprestimoItem emprestimoItem = new EmprestimoItem();
@@ -218,6 +244,10 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
         if (this.tipo.equals("M")) {
             if (this.materialDeConsumo.getQtdAtual().subtract(this.quantidade, MathContext.DECIMAL64).compareTo(BigDecimal.ZERO) == -1) {
                 throw new IllegalArgumentException("Não há quantidade em estoque o suficiente!");
+            } else if (this.quantidade.compareTo(BigDecimal.ZERO) == 0) {
+//                FacesContext context = FacesContext.getCurrentInstance();
+//                UIInput input = (UIInput)context.getViewRoot().findComponent(":form:quantidade");
+                throw new IllegalArgumentException("Informe uma quantidade!");
             }
         }
     }
@@ -266,7 +296,7 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
         Object o = event.getObject();
         if (o instanceof Equipamento) {
             this.quantidade = BigDecimal.ONE;
-            addItem();
+//            addItem();
         }
     }
 

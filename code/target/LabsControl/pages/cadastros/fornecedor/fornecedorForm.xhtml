@@ -9,15 +9,7 @@
       xmlns:labs="http://java.sun.com/jsf/composite/labscontrol">
 <ui:decorate template="../../template/padrao.xhtml">
     <ui:define name="botoesParaForm">
-        <p:panelGrid columns="2">
-            <p:commandButton process="@this" value="#{form.novo}" action="#{fornecedorController.reset}" update="@form" immediate="true"
-                             icon="ui-icon-plus"
-                             style="float: left"/>
-
-            <p:commandButton value="#{form.pesquisa}" action="/pages/cadastros/fornecedor/fornecedorSearch.xhtml?faces-redirect=true"
-                             immediate="true" ajax="false" style="float: left"
-                             icon="ui-icon ui-icon-search"/>
-        </p:panelGrid>
+        <labs:toolbarTopForm update="@form" controller="#{fornecedorController}" widgetVarBtnExc="confirmExcMaster"/>
     </ui:define>
 
     <ui:define name="titulo">
@@ -54,6 +46,12 @@
                             label="#{form.cidade}" id="cidade" var="cidade"
                             itemLabel="#{cidade.nome}" itemValue="#{cidade}"
                             dropdown="true" forceSelection="true" size="60" required="true" requiredMessage="#{msg.cidadeRequired}">
+                <p:column>
+                    <h:outputText value="#{cidade.nome}"/>
+                </p:column>
+                <p:column>
+                    <h:outputText value="#{cidade.estado.sigla}"/>
+                </p:column>
                 <p:ajax event="itemSelect" update="estado" />
             </p:autoComplete>
 
@@ -69,8 +67,6 @@
     </ui:define>
 
     <ui:define name="rodape">
-        <labs:commandButtonForm update="@form" controller="#{fornecedorController}" widgetVar="confirmExcMaster"/>
-        <div style="clear: both"></div>
     </ui:define>
 
     <ui:define name="otherContent">
@@ -79,7 +75,7 @@
                 <h:outputLabel value="#{form.contatos}"/>
             </f:facet>
             <p:panelGrid columns="1">
-                <p:commandButton value="#{form.novo}" immediate="true" style="float: left" icon="ui-icon-plus"
+                <p:commandButton value="#{form.novo}" immediate="true" style="float: left" icon="fa fa-file-o"
                                  action="#{fornecedorController.novoContato}" process="@this" update=":formEmbedded:viewDetailForm" oncomplete="PF('viewForm').show()" />
             </p:panelGrid>
             <p:dataTable value="#{fornecedorController.entity.contatos}" var="entityEmbedded" emptyMessage="#{form.nenhumRegistroEncontrado}"
@@ -129,7 +125,7 @@
                         <p:inputText value="#{fornecedorController.entityEmbedded.observacao}" size="60"/>
                         <h:outputText value=""/>
                         <f:facet name="footer">
-                            <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}"
+                            <p:commandButton value="#{form.salvar}" action="#{fornecedorController.saveContato}" icon="fa fa-save"
                                              ajax="true" validateClient="true" update=":form, grid" process="@form"
                                              oncomplete="closeDialogOnComplete(xhr, status, args, PF('viewForm'), 'dialog')"/>
                         </f:facet>

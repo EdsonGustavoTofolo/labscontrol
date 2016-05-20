@@ -6,6 +6,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!--<jta-data-source>jdbc/labscontroldainf</jta-data-source>-->
         <jta-data-source>jdbc/labscontrol</jta-data-source>
+        <!--<jta-data-source>java:/jdbc/LabsControlDS</jta-data-source>-->
         <properties>
             <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.SunOneJtaPlatform"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
@@ -14,8 +15,7 @@
             <property name="hibernate.connection.useUnicode" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.format_sql" value="true" />
-
-            <!-- configuracao do Envers (Auditoria) -->
+                    <!-- configuracao do Envers (Auditoria) -->
             <property name="post-insert" value="org.hibernate.ejb.event.EJB3PostInsertEventListener, org.hibernate.envers.event.EnversListener" />
             <property name="post-update" value="org.hibernate.ejb.event.EJB3PostUpdateEventListener, org.hibernate.envers.event.EnversListener" />
             <property name="post-delete" value="org.hibernate.ejb.event.EJB3PostDeleteEventListener, org.hibernate.envers.event.EnversListener"/>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,5 +27,16 @@ public class EmprestimoServiceImpl extends CrudService<Emprestimo, Integer> impl
     @Override
     public List<Emprestimo> findByPendenciasDoSolicitanteId(Integer solicitanteId) {
         return emprestimoData.findByPendenciasDoSolicitanteId(solicitanteId);
+    }
+
+    @Override
+    public List<Emprestimo> findByDataBetweenAndSolicitante_IdAndEmprestimoItens_Baixado(Date dataInicial, Date dataFinal, Integer solicitanteId, Boolean baixado) {
+        return emprestimoData.findByDataBetweenAndSolicitante_IdAndEmprestimoItens_Baixado(dataInicial, dataFinal, solicitanteId, baixado);
+    }
+
+
+    @Override
+    public List findBySolicitanteId(Integer id) {
+        return null;
     }
 }

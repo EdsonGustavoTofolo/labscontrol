@@ -13,9 +13,9 @@
 
 <composite:implementation>
 
-    <p:commandButton icon="ui-icon-pencil" action="#{cc.attrs.controller.editar(objeto)}" ajax="false" title="Editar"/>
-    <p:commandButton icon="ui-icon-trash" action="#{cc.attrs.controller.setId(objeto.id)}" process="@this" update="@none" oncomplete="PF('confirm').show()" title="Excluir"/>
-    <p:commandButton icon="ui-icon-zoomin" action="#{cc.attrs.controller.setEntityView(objeto)}" process="@this" update=":formDlg:viewDetail" oncomplete="PF('viewDlg').show()" title="Visualizar"/>
+    <p:commandButton icon="fa fa-edit" action="#{cc.attrs.controller.editar(objeto)}" ajax="false" title="#{form.editar}"/>
+    <p:commandButton icon="fa fa-trash-o" action="#{cc.attrs.controller.setId(objeto.id)}" process="@this" update="@none" oncomplete="PF('confirm').show()" title="#{form.excluir}"/>
+    <p:commandButton icon="fa fa-search" action="#{cc.attrs.controller.setEntityView(objeto)}" process="@this" update=":formDlg:viewDetail" oncomplete="PF('viewDlg').show()" title="#{form.visualizar}"/>
 
 </composite:implementation>
 

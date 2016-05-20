@@ -2,14 +2,20 @@ package br.edu.utfpr.labscontrol.web.framework;
 
 import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
+import org.apache.commons.lang.SerializationUtils;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.validation.ConstraintViolationException;
 import java.io.Serializable;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -29,6 +35,11 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
      * Field corresponde a entidade passada por generics utilizada para persistir/alterar/deletar no banco de dados
      */
     protected T entity;
+
+    /**
+     * Field correspondente a entidade copiada by Edson G Tofolo
+     */
+    protected T entityCopied;
 
     /**
      * Field correspondente a entidade apenas utilizada para exibir informacoes
@@ -68,7 +79,9 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
      * Método a ser executado ao inicializar o metodo init
      */
     protected void inicializar() {
-
+        if (this.entity != null) {
+            setId((ID) getIdFromObj());
+        }
     }
 
     /**
@@ -149,10 +162,114 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
     }
 
     /**
+     * Faz um clone do objeto 'entity' para o objeto 'entityCopied'
+     */
+    public void copy() {
+        this.entityCopied = (T) SerializationUtils.clone((Serializable) this.entity);
+    }
+
+    /**
+     * Faz um clone do objeto 'entityCopied'para o objeto 'entity'
+     */
+    public void paste() {
+        try {
+            this.entity = (T) SerializationUtils.clone((Serializable) this.entityCopied);
+
+            String name = "";
+            for (int i = 0; i < type.getMethods().length - 1; i++) {
+                name = type.getMethods()[i].getName();
+                if (name.equals("setId")) {
+                    Method method = type.getMethods()[i];
+                    method.invoke(this.entity, 0);
+                    break;
+                }
+            }
+            //TODO verificar se o Payara aceita java 8, lambdas e et
+            //Arrays.asList(type.getMethods()).stream().filter(m -> m.getName().equals("setId")).findFirst().get().invoke(this.entity, 0);
+            addMessage("Registro colado!", FacesMessage.SEVERITY_INFO);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Retorna o valor do atributo "id" do objeto em questão
+     * @return
+     */
+    private Integer getIdFromObj() {
+        try {
+            String name = "";
+            Integer id = null;
+            for (int i = 0; i < type.getMethods().length - 1; i++) {
+                name = type.getMethods()[i].getName();
+                if (name.equals("getId")) {
+                    Method method = type.getMethods()[i];
+                    id = (Integer) method.invoke(this.entity);
+                    break;
+                }
+            }
+            return id;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    /**
+     * Passa para o próximo registro
+     */
+    public void next() {
+        Integer id = (Integer) getId();
+        T object = getService().findById((ID) (++id));
+        if (object == null) {
+            addMessage("Último registro!", FacesMessage.SEVERITY_WARN);
+        } else {
+            this.entity = object;
+            setId((ID) getIdFromObj());
+        }
+    }
+
+    /**
+     * Volta um registro
+     */
+    public void previous() {
+        Integer id = (Integer) getId();
+        T object = getService().findById((ID) (--id));
+        if (object == null) {
+            addMessage("Primeiro registro!", FacesMessage.SEVERITY_WARN);
+        } else {
+            this.entity = object;
+            setId((ID) getIdFromObj());
+        }
+    }
+
+    /**
+     * Vai para o último registro
+     */
+    public void last() {
+        this.entity = getService().findLast();
+        setId((ID) getIdFromObj());
+    }
+
+    /**
+     * Vai para o primeiro registro
+     */
+    public void first() {
+        this.entity = getService().findFirst();
+        setId((ID) getIdFromObj());
+    }
+
+    /**
      * Este metodo deve retornar a pagina de cadastro da entidade
      * @return pagina de cadastro da entidade
      */
     protected abstract String getUrlFormPage();
+
+    public abstract String getUrlSearchPage();
 
     /**
      * Método responsavel executar validacoes e invocar metodos de pre e post

@@ -42,4 +42,6 @@ public interface EquipamentoService extends ICrudService<Equipamento, Integer> {
     List<Equipamento> getEquipamentoDataBetweenDataIniAndDataFim(Date dataIni, Date dataFim);
 
     List<Equipamento> getEquipamentoEmManutencao(Date dataIni, Date dataFim, Boolean semRetorno);
+
+    Equipamento findByPatrimonioAndMarca_IdAndModelo_IdAndCategoria_Id(String patrimonio, Integer marcaId, Integer modeloId, Integer categoriaId);
 }

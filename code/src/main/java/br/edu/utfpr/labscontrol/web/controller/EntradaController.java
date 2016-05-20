@@ -82,6 +82,11 @@ public class EntradaController extends CrudController<Entrada, Integer> {
         return "/pages/movimentos/entrada/entradaForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/movimentos/entrada/entradaSearch.xhtml?faces-redirect=true";
+    }
+
     public List<Equipamento> completeEquipamento(String nome) {
         return equipamentoService.findByNomeContaining(nome);
     }

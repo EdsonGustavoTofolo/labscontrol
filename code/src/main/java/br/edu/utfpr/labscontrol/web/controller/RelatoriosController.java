@@ -15,6 +15,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Como criar um template no Jaspersoft TIBCO
+ * http://community.jaspersoft.com/wiki/creating-custom-template-jaspersoft-studio
+ * > Criar um report, ir em File > Export as Report Template...
+ * Após isso, ir em Window > Preferences, Report Template Locations, e adicionar a pasta
  * Created by EdsonGustavo on 02/07/2015.
  */
 @Controller
@@ -25,6 +29,8 @@ public class RelatoriosController {
     @Autowired private CategoriaEquipamentoService categoriaEquipamentoService;
     @Autowired private CategoriaMaterialService categoriaMaterialService;
     @Autowired private ReservaService reservaService;
+    @Autowired private SolicitanteService solicitanteService;
+    @Autowired private EmprestimoService emprestimoService;
     private Equipamento equipamento;
     private MaterialDeConsumo materialDeConsumo;
     private CategoriaEquipamento categoriaEquipamento;
@@ -32,6 +38,8 @@ public class RelatoriosController {
     private Boolean considerarPeriodo, semDataDeRetorno;
     private Date dIni;
     private Date dFin;
+    private Boolean listarItensBaixados;
+    private Solicitante solicitante;
 
     @PostConstruct
     public void init() {
@@ -55,6 +63,25 @@ public class RelatoriosController {
     public void printAmbientes() {
         List<Reserva> lista = reservaService.findAll();
         JsfUtil.printAndShowOnBrowser(lista, "AmbientesReport.jasper", new HashMap<>(), "RelAmbientes");
+    }
+
+    public void printAmbientesPdf() {
+        List<Reserva> lista = reservaService.findAll();
+        JsfUtil.printAndDownloadPdf(lista, "AmbientesReport.jasper", new HashMap<>(), "RelReservaDeAmbientes");
+    }
+
+    public void printEmprestimos() {
+        List<Emprestimo> lista = emprestimoService.findByDataBetweenAndSolicitante_IdAndEmprestimoItens_Baixado(dIni, dFin,solicitante.getId(), listarItensBaixados);
+        Map params = new HashMap<>();
+        params.put("FILTROS", "TODOS");
+        JsfUtil.printAndShowOnBrowser(lista, "EmprestimosReport.jasper", params, "RelEmprestimos");
+    }
+
+    public void printEmprestimosPdf() {
+        List<Emprestimo> lista = emprestimoService.findByDataBetweenAndSolicitante_IdAndEmprestimoItens_Baixado(dIni, dFin,solicitante.getId(), listarItensBaixados);
+        Map params = new HashMap<>();
+        params.put("FILTROS", "TODOS");
+        JsfUtil.printAndDownloadPdf(lista, "EmprestimosReport.jasper", params, "RelEmprestimos");
     }
 
     public void printEquipamentosEmManutencao() {
@@ -113,6 +140,10 @@ public class RelatoriosController {
             lista = this.materialDeConsumoService.findAll();
         }
         JsfUtil.printAndShowOnBrowser(lista, "MateriaisDeConsumoEmprestadosReport.jasper", new HashMap<>(), "RelMateriaisDeConsumoEmprestados");
+    }
+
+    public List<Solicitante> completeSolicitante(String value) {
+        return solicitanteService.findByNomeContainingOrIdentificacaoContaining(value, value);
     }
 
     public List<Equipamento> completeEquipamento(String nome) {
@@ -193,5 +224,21 @@ public class RelatoriosController {
 
     public void setSemDataDeRetorno(Boolean semDataDeRetorno) {
         this.semDataDeRetorno = semDataDeRetorno;
+    }
+
+    public Solicitante getSolicitante() {
+        return solicitante;
+    }
+
+    public void setSolicitante(Solicitante solicitante) {
+        this.solicitante = solicitante;
+    }
+
+    public Boolean getListarItensBaixados() {
+        return listarItensBaixados;
+    }
+
+    public void setListarItensBaixados(Boolean listarItensBaixados) {
+        this.listarItensBaixados = listarItensBaixados;
     }
 }

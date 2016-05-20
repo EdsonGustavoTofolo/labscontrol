@@ -1,5 +1,8 @@
 package br.edu.utfpr.labscontrol.model.entity;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -16,6 +19,7 @@ public class Cidade implements Serializable {
     private String nome;
     @ManyToOne
     @JoinColumn(name = "estadoId", referencedColumnName = "id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Estado estado;
 
     public Cidade() {

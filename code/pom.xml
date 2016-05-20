@@ -36,9 +36,31 @@
             <url>http://repository.primefaces.org</url>
             <layout>default</layout>
         </repository>
+        <repository>
+            <id>local-repo</id>
+            <name>Repositorio Local</name>
+            <url>file://${project.basedir}/libs</url>
+        </repository>
     </repositories>
 
     <dependencies>
+        <dependency>
+            <groupId>font</groupId>
+            <artifactId>font-awesome</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>javax.mail-api</artifactId>
+            <version>1.5.2</version>
+        </dependency>
         <!-- usada para consumir o webservice do endereço -->
         <dependency>
             <groupId>dom4j</groupId>
@@ -420,21 +442,9 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>1.4.3</version>
-        </dependency>
-
-        <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.4</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports</artifactId>
-            <version>5.5.0</version>
         </dependency>
     </dependencies>
 

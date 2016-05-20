@@ -26,4 +26,9 @@ public class SolicitanteController extends CrudController<Solicitante, Integer> 
     protected String getUrlFormPage() {
         return "/pages/cadastros/solicitante/solicitanteForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/solicitante/solicitanteSearch.xhtml?faces-redirect=true";
+    }
 }

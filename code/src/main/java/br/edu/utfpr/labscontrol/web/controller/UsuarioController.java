@@ -17,6 +17,7 @@ import br.edu.utfpr.labscontrol.web.util.StringEncrypt;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
+import org.primefaces.context.RequestContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -31,6 +32,11 @@ import org.springframework.stereotype.Controller;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.mail.Message;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
@@ -148,6 +154,11 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
     }
 
     @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/usuario/usuarioSearch.xhtml?faces-redirect=true";
+    }
+
+    @Override
     protected void preProcessorDelete() throws Exception {
         Usuario u = usuarioService.findById(getId());
         if (u.getPermissoes().contains(permissaoService.findByPermissao("ROLE_ADMIN"))) {
@@ -255,7 +266,10 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
             }
         }
     }
-
+    //https://commons.apache.org/proper/commons-email/userguide.html
+    //https://www.google.com/settings/security/lesssecureapps
+    //http://www.google.com/accounts/DisplayUnlockCaptcha
+    //https://support.google.com/accounts/answer/185834?hl=en#ASPs
     private SimpleEmail constructResetTokenEmail(String contextPath, String token, Usuario user) throws Exception {
         String url = contextPath + "/mudarSenha.xhtml?id=" + user.getId() + "&token=" + token;
         String message = "Recuperação/Alteração de senha";
@@ -276,6 +290,7 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
         email.setMsg(message + "\n\n" + url);
         //Para autenticar no servidor é necessário chamar os dois métodos abaixo
         email.setSSL(true);
+        email.setTLS(true);
         System.out.println("autenticando...");
         email.setAuthenticator(new DefaultAuthenticator(cfgEnvioEmail.getEmail(), StringEncrypt.decrypt(StringEncrypt.KEY, StringEncrypt.IV, cfgEnvioEmail.getSenha())));
         return email;
@@ -300,6 +315,10 @@ public class UsuarioController extends CrudController<Usuario, Integer> {
             }
         }
     }
+
+//    public void showAbout() {
+//        RequestContext.getCurrentInstance().execute("PF('dlgSobre').show()");
+//    }
 
     public Usuario getUsuarioLogado() {
         return usuarioLogado;

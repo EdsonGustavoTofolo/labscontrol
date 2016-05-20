@@ -77,6 +77,11 @@ public class SaidaController extends CrudController<Saida, Integer> {
         return "/pages/movimentos/saida/saidaForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/movimentos/saida/saidaSearch.xhtml?faces-redirect=true";
+    }
+
     public List<Equipamento> completeEquipamento(String nome) {
         return equipamentoService.findByNomeContaining(nome);
     }

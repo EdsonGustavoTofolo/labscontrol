@@ -9,7 +9,7 @@
     </ui:define>
 
     <ui:define name="conteudo">
-        <h1>Calendário com as reservas</h1>
+        <h1><h:outputText value="#{form.calendarioDasReservas}"/></h1>
 
         <div class="reservasSchedule">
             <p:schedule id="reservas" widgetVar="widgetReservasSchedule" value="#{reservaController.scheduleModel}" timeZone="GMT-3"
@@ -92,7 +92,8 @@
                             <f:facet name="footer">
                                 <p:commandButton value="#{form.adicionar}" action="#{reservaController.addItem}" ajax="true"
                                                  update="gridItens, tableItens, msgsReserva" process="@this, msgsReserva, otherUsuario, horario, ambiente, tipo, materialDeConsumo, categoriaEquipamento, quantidade"
-                                                 disabled="#{reservaController.entity.confirmada}"/>
+                                                 disabled="#{reservaController.entity.confirmada}"
+                                                 icon="fa fa-plus-circle"/>
                             </f:facet>
                         </p:panelGrid>
 
@@ -120,7 +121,7 @@
                                 <p:rowEditor rendered="#{!reservaController.entity.confirmada}" />
                             </p:column>
                             <p:column headerText="#{form.acoes}" styleClass="columnAcoes">
-                                <p:commandButton icon="ui-icon-trash" action="#{reservaController.excluirItem(objeto)}" process="@this" update="tableItens" title="#{form.excluir}"
+                                <p:commandButton icon="fa fa-trash-o" action="#{reservaController.excluirItem(objeto)}" process="@this" update="tableItens" title="#{form.excluir}"
                                                  disabled="#{reservaController.entity.confirmada}"/>
                             </p:column>
                         </p:dataTable>
@@ -131,12 +132,14 @@
                                          update="eventDetails, :formEvent:msgsReserva" process="@form"
                                          oncomplete="updateScheduleAndCloseDialogOnComplete(xhr, status, args, PF('widgetReservasSchedule'), 'formEvent:eventDialogReserva', PF('eventDialog'))"
                                          disabled="#{reservaController.entity.confirmada}"
-                                         rendered="#{reservaController.podeSalvar()}"/>
+                                         rendered="#{reservaController.podeSalvar()}"
+                                         icon="fa fa-save" />
 
                         <p:commandButton value="#{form.excluir}" action="#{reservaController.delete()}" immediate="true" oncomplete="PF('eventDialog').hide();PF('widgetReservasSchedule').update();"
-                                         rendered="#{reservaController.podeExcluir()}" update="eventDetails"/>
+                                         rendered="#{reservaController.podeExcluir()}" update="eventDetails"
+                                         icon="fa fa-trash-o"/>
 
-                        <p:commandButton value="#{form.sair}" immediate="true" oncomplete="PF('eventDialog').hide();" />
+                        <p:commandButton value="#{form.sair}" immediate="true" oncomplete="PF('eventDialog').hide();" icon="fa fa-arrow-circle-down" />
 
                         <h:outputLabel value="#{form.confirmarReserva}" rendered="#{reservaController.podeConfirmar()}"/>
                         <p:selectBooleanCheckbox value="#{reservaController.entity.confirmada}" rendered="#{reservaController.podeConfirmar()}" id="chkConfirm">
@@ -206,7 +209,8 @@
                         </p:panelGrid>
                     </p:panel>
                     <f:facet name="footer">
-                        <p:commandButton value="#{form.ok}" action="#{reservaController.incluirHorario}" process="@form" update=":formEvent:horario" oncomplete="PF('dialogHorarios').hide();" />
+                        <p:commandButton value="#{form.ok}" action="#{reservaController.incluirHorario}" process="@form" update=":formEvent:horario" oncomplete="PF('dialogHorarios').hide();"
+                                         icon="fa fa-check-circle" />
                     </f:facet>
                 </p:panelGrid>
             </p:dialog>

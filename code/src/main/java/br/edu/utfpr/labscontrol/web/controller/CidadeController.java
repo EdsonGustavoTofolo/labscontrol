@@ -34,6 +34,11 @@ public class CidadeController extends CrudController<Cidade, Integer> {
         return "/pages/cadastros/cidade/cidadeForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/cidade/cidadeSearch.xhtml?faces-redirect=true";
+    }
+
     public List<Estado> completeEstado(String nome) {
         return estadoService.findByNomeContaining(nome);
     }

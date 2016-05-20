@@ -37,6 +37,11 @@ public class ObservacaoController extends CrudController<Observacao, Integer> {
         return "/pages/cadastros/observacao/observacaoForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/observacao/observacaoSearch.xhtml?faces-redirect=true";
+    }
+
     public List<CategoriaObservacao> completeCategoriaObs(String descricao) {
         return categoriaObservacaoService.findByDescricaoContaining(descricao);
     }

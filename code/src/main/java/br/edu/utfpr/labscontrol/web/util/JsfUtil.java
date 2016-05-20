@@ -181,10 +181,10 @@ public class JsfUtil {
             dados.put("dbUser", "root");
             dados.put("dbPass", "root");
         } else {
-//            dados.put("dbName", "edsondainf");
-            dados.put("dbName", "edson");
+            dados.put("dbName", "labscontroldainf");
+//            dados.put("dbName", "labscontroldaele");
             dados.put("dbUser", "edson");
-            dados.put("dbPass", "edson123");
+            dados.put("dbPass", "labscontrol@2016");
         }
         return dados;
     }

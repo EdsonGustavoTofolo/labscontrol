@@ -49,6 +49,11 @@ public class FornecedorController extends CrudController<Fornecedor, Integer> {
         return "/pages/cadastros/fornecedor/fornecedorForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/fornecedor/fornecedorSearch.xhtml?faces-redirect=true";
+    }
+
     public void novoContato() {
         this.contato = new Contato();
         this.contato.setFornecedor(this.entity);

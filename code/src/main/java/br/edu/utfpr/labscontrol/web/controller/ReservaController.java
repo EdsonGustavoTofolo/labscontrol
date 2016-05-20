@@ -103,6 +103,11 @@ public class ReservaController extends CrudController<Reserva, Integer> {
         return "/pages/reserva/reservaForm.xhtml?faces-redirect=true";
     }
 
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/reserva/reservaSearch.xhtml?faces-redirect=true";
+    }
+
     public List<CategoriaEquipamento> completeCategoriaEquipamento(String nome) {
         return categoriaEquipamentoService.findByNomeContaining(nome);
     }

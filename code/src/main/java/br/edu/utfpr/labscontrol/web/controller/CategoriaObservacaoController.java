@@ -26,4 +26,9 @@ public class CategoriaObservacaoController extends CrudController<CategoriaObser
     protected String getUrlFormPage() {
         return "/pages/cadastros/observacao/categoria/categoriaObsForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/observacao/categoria/categoriaObsSearch.xhtml?faces-redirect=true";
+    }
 }

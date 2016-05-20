@@ -23,4 +23,9 @@ public class MarcaEquipamentoController extends CrudController<MarcaEquipamento,
     protected String getUrlFormPage() {
         return "/pages/cadastros/marca/equipamento/marcaEquipamentoForm.xhtml?faces-redirect=true";
     }
+
+    @Override
+    public String getUrlSearchPage() {
+        return "/pages/cadastros/marca/equipamento/marcaEquipamentoSearch.xhtml?faces-redirect=true";
+    }
 }
