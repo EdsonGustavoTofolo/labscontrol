@@ -41,7 +41,6 @@
             <p:inputText value="#{equipamentoController.entity.observacao}" size="60" maxlength="255"/>
 
             <h:outputLabel value="#{form.categoria}*" for="categoria"/>
-            <p:panel style="border: 0px">
                 <p:autoComplete value="#{equipamentoController.entity.categoria}"
                                 completeMethod="#{equipamentoController.completeCategoria}"
                                 converter="#{categoriaEquipamentoConverter}"
@@ -51,10 +50,9 @@
                                 requiredMessage="#{msg.categoriaRequired}" style="padding: 0;margin-left: 17px"/>
 
                 <p:commandButton value="..." />
-            </p:panel>
 
             <h:outputLabel value="#{form.marca}*" for="marca"/>
-            <p:panel style="border: 0px">
+            <p:panel style="border: 0">
                 <p:autoComplete value="#{equipamentoController.entity.marca}"
                                 completeMethod="#{equipamentoController.completeMarca}"
                                 converter="#{marcaEquipamentoConverter}"
@@ -67,7 +65,7 @@
 
 
             <h:outputLabel value="#{form.modelo}*" for="modelo"/>
-            <p:panel style="border: 0px">
+            <p:panel style="border: 0">
                 <p:autoComplete value="#{equipamentoController.entity.modelo}"
                                 completeMethod="#{equipamentoController.completeModelo}"
                                 converter="#{modeloEquipamentoConverter}"
