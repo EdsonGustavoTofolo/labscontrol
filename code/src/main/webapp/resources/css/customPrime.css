@@ -24,3 +24,6 @@ button.ui-button.ui-state-focus, .ui-button.ui-state-focus {
     width: 2.4em;
     right: -2px;
 }
+.no-padding {
+    padding: 0 !important;
+}
