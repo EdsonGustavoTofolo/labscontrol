@@ -136,7 +136,7 @@
                 </p:submenu>
 
                 <p:submenu label="#{form.relatorios}" rendered="#{usuarioController.somenteAdmEatendente()}">
-                    <p:menuitem value="#{form.emprestimos}" url="/pages/relatorios/emprestimos.xhtml?faces-redirect=true"/>
+                    <p:menuitem value="#{form.emprestimos}" url="/pages/relatorios/emprestimos.xhtml?faces-redirect=true" rendered="false"/>
                     <p:menuitem value="#{form.equipamento}" url="/pages/relatorios/equipamentos.xhtml?faces-redirect=true"/>
                     <p:menuitem value="#{form.materialDeConsumo}" url="/pages/relatorios/materiaisDeConsumos.xhtml?faces-redirect=true"/>
                     <p:menuitem value="#{form.equipamentoEmprestado}" url="/pages/relatorios/equipamentosEmprestados.xhtml?faces-redirect=true"/>
