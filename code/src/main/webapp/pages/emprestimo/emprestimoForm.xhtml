@@ -23,21 +23,25 @@
                 <p:inputText id="usuario" value="#{emprestimoController.entity.usuario.nome}" disabled="true"/>
 
                 <h:outputLabel for="solicitante" value="#{form.solicitante}*" />
-                <p:autoComplete value="#{emprestimoController.entity.solicitante}"
-                                completeMethod="#{emprestimoController.completeSolicitante}"
-                                converter="#{solicitanteConverter}"
-                                label="#{form.solicitante}" id="solicitante" var="solicitante"
-                                itemLabel="#{solicitante.nome}" itemValue="#{solicitante}"
-                                dropdown="true" forceSelection="true" size="60"
-                                placeholder="#{form.placeHolderNomeOuIdentificacaoSolicitante}"
-                                onkeydown="bloquearCtrlJ();" required="true" requiredMessage="#{msg.campoSolicitanteRequired}">
-                    <p:column>
-                        <h:outputText value="#{solicitante.nome}"/>
-                    </p:column>
-                    <p:column>
-                        <h:outputText value="#{solicitante.identificacao}"/>
-                    </p:column>
-                </p:autoComplete>
+                <p:panel styleClass="pnlBtnCadastrarNovo" style="border: 0;padding: 0">
+                    <p:autoComplete value="#{emprestimoController.entity.solicitante}"
+                                    completeMethod="#{emprestimoController.completeSolicitante}"
+                                    converter="#{solicitanteConverter}"
+                                    label="#{form.solicitante}" id="solicitante" var="solicitante"
+                                    itemLabel="#{solicitante.nome}" itemValue="#{solicitante}"
+                                    dropdown="true" forceSelection="true" size="60"
+                                    placeholder="#{form.placeHolderNomeOuIdentificacaoSolicitante}"
+                                    onkeydown="bloquearCtrlJ();" required="true" requiredMessage="#{msg.campoSolicitanteRequired}">
+                        <p:column>
+                            <h:outputText value="#{solicitante.nome}"/>
+                        </p:column>
+                        <p:column>
+                            <h:outputText value="#{solicitante.identificacao}"/>
+                        </p:column>
+                    </p:autoComplete>
+                    <p:commandButton icon="fa fa-plus" value="#{form.novo}" immediate="true"
+                                     action="#{solicitanteController.reset}" process="@this" update=":formSolicitante" oncomplete="PF('wdgSolicitante').show()" />
+                </p:panel>
 
                 <h:outputLabel value="#{form.data}*" for="data" />
                 <p:calendar value="#{emprestimoController.entity.data}" pattern="dd/MM/yyyy" mask="true" id="data"
@@ -120,18 +124,46 @@
     </ui:define>
 
     <ui:define name="rodape">
-
     </ui:define>
 
     <ui:define name="foraDoForm">
         <labs:confirmExclusaoSimples update=":form" action="#{emprestimoController.deleteFromForm}"/>
+        <h:form id="formSolicitante">
+            <p:dialog header="Cadastro de Solicitante" name="dialogCadSolicitante" id="dlgSolicitante" widgetVar="wdgSolicitante" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+                <p:outputPanel id="pnlDlgSolicitante">
+                    <p:panelGrid columns="3" columnClasses="columnBold" id="gridDlgSolicitante">
+                        <h:outputLabel value="#{form.nome}"/>
+                        <p:inputText value="#{solicitanteController.entity.nome}" size="60" maxlength="20" required="true"
+                                     requiredMessage="#{msg.nomeRequired}" id="nome"/>
+                        <p:message for="nome"/>
+                        <h:outputLabel value="#{form.identificacao}"/>
+                        <p:inputText value="#{solicitanteController.entity.identificacao}" size="60" maxlength="255" required="true"
+                                     requiredMessage="#{msg.identificacaoRequired}"
+                                     placeholder="#{msg.placeHolderIdentificacaoSolicitante}" onkeydown="bloquearCtrlJ();" id="identificacao"/>
+                        <p:message for="identificacao"/>
+                        <h:outputLabel value="#{form.email}*"/>
+                        <p:inputText value="#{solicitanteController.entity.email}" size="60" maxlength="255" required="true"
+                                     requiredMessage="#{msg.emailRequired}" validator="emailValidator"
+                                     validatorMessage="#{msg.email_invalido}" id="email"/>
+                        <p:message for="email"/>
+                        <h:outputLabel value="#{form.telefone}*"/>
+                        <p:inputMask value="#{solicitanteController.entity.telefone}" mask="(99) 9999-9999" required="true"
+                                     requiredMessage="#{msg.telefoneRequired}" id="telefone"/>
+                        <p:message for="telefone"/>
+                        <f:facet name="footer">
+                            <p:commandButton value="#{form.salvar}" action="#{solicitanteController.save}" icon="fa fa-save"
+                                             ajax="true" validateClient="true" update="gridDlgSolicitante" process="formSolicitante"
+                                             oncomplete="closeDialogAndSetFocusOnComplete(xhr, status, args, PF('wdgSolicitante'), 'form:solicitante_input')"/>
+                        </f:facet>
+                    </p:panelGrid>
+                </p:outputPanel>
+            </p:dialog>
+        </h:form>
     </ui:define>
-
-    <script type="text/javascript">
-//        $(document).ready(function () {
-//            var firstInvalid = document.getElementsByClassName('ui-state-error')[0];
-//            if (typeof firstInvalid !== 'undefined') firstInvalid.focus();
-//        });
-    </script>
 </ui:decorate>
+<h:outputScript>
+    $(document).ready(function() {
+        $('.pnlBtnCadastrarNovo').find('div').addClass('no-padding');
+    });
+</h:outputScript>
 </html>
