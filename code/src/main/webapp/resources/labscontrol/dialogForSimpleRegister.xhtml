@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+<composite:interface>
+    <composite:attribute name="controller"  required="true" />
+    <composite:attribute name="header"  required="true" type="java.lang.String"/>
+    <composite:attribute name="widgetVar"  required="true" type="java.lang.String"/>
+    <composite:attribute name="inputId"  required="true" type="java.lang.String"/>
+</composite:interface>
+
+<composite:implementation>
+    <h:form id="formSplRgst">
+        <p:dialog header="#{cc.attrs.header}" name="dialogSimpleRegister" id="dlgSplRgst" widgetVar="#{cc.attrs.widgetVar}" modal="true" resizable="false" showEffect="fade" hideEffect="fade">
+            <p:outputPanel id="pnlDlgSplRgst">
+                <p:panelGrid columns="3" columnClasses="columnBold" id="gridDlgSplRgst">
+                    <h:outputLabel value="#{form.nome}"/>
+                    <p:inputText id="nome" value="#{cc.attrs.controller.entity.nome}" size="45" maxlength="45" required="true" requiredMessage="#{msg.nomeRequired}"/>
+                    <p:message for="nome"/>
+                    <h:outputLabel value="#{form.descricao}"/>
+                    <p:inputText id="descricao" value="#{cc.attrs.controller.entity.descricao}" size="45" maxlength="60"/>
+                    <p:message for="descricao"/>
+                    <f:facet name="footer">
+                        <p:commandButton value="#{form.salvar}" action="#{cc.attrs.controller.save}" icon="fa fa-save"
+                                         ajax="true" validateClient="true" update="gridDlgSplRgst" process="formSplRgst"
+                                         oncomplete="closeDialogAndSetFocusOnComplete(xhr, status, args, PF('#{cc.attrs.widgetVar}'), '#{cc.attrs.inputId}')"/>
+                    </f:facet>
+                </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+</composite:implementation>
+</html>

@@ -16,7 +16,14 @@ function closeDialogOnComplete(xhr, status, args, dialogWidget, dialogId) {
         dialogWidget.hide();
     }
 }
-
+function closeDialogAndSetFocusOnComplete(xhr, status, args, dialogWidget, inputId) {
+    if (! (args.validationFailed || args.KEEP_DIALOG_OPENED)) {
+        dialogWidget.hide();
+        console.log(inputId);
+        jQuery("input[id='"+ inputId +"']").focus();
+        PrimeFaces.focus(inputId);
+    }
+}
 function updateScheduleAndCloseDialogOnComplete(xhr, status, args, widgetSchedule, dialogId, dialogToHide) {
     if (args.validationFailed || args.KEEP_DIALOG_OPENED) {
         jQuery(PrimeFaces.escapeClientId(dialogId)).effect("bounce", {times : 4, distance : 20}, 100);
@@ -25,7 +32,6 @@ function updateScheduleAndCloseDialogOnComplete(xhr, status, args, widgetSchedul
 //        dialogToHide.hide();
     }
 }
-
 function redirectToLoginAfterSaveUser(xhr, status, args) {
     if (!(args.validationFailed || args.KEEP_DIALOG_OPENED)) {
         window.location = "/labscontrol/"

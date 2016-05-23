@@ -49,8 +49,8 @@
                                 itemLabel="#{categoria.nome}" itemValue="#{categoria}"
                                 dropdown="true" forceSelection="true" size="60" required="true"
                                 requiredMessage="#{msg.categoriaRequired}" style=""/>
-
-                <p:commandButton value="Novo" icon="fa fa-plus"/>
+                <p:commandButton icon="fa fa-plus" value="#{form.novo}" immediate="true"
+                                 action="#{categoriaEquipamentoController.reset}" process="@this" update=":dlgSplRgstCategEquip:formSplRgst" oncomplete="PF('wdgSplRgstCategEquip').show()" />
             </p:panel>
 
             <h:outputLabel value="#{form.marca}*" for="marca"/>
@@ -62,7 +62,8 @@
                                 itemLabel="#{marca.nome}" itemValue="#{marca}"
                                 dropdown="true" forceSelection="true" size="60" required="true"
                                 requiredMessage="#{msg.marcaRequired}"/>
-                <p:commandButton value="Novo" icon="fa fa-plus"/>
+                <p:commandButton icon="fa fa-plus" value="#{form.novo}" immediate="true"
+                                 action="#{marcaEquipamentoController.reset}" process="@this" update=":dlgSplRgstMarcaEquip:formSplRgst" oncomplete="PF('wdgSplRgstMarcaEquip').show()" />
             </p:panel>
 
             <h:outputLabel value="#{form.modelo}*" for="modelo"/>
@@ -74,7 +75,8 @@
                                 itemLabel="#{modelo.nome}" itemValue="#{modelo}"
                                 dropdown="true" forceSelection="true" size="60" required="true"
                                 requiredMessage="#{msg.modeloRequired}"/>
-                <p:commandButton value="Novo" icon="fa fa-plus"/>
+                <p:commandButton icon="fa fa-plus" value="#{form.novo}" immediate="true"
+                                 action="#{modeloEquipamentoController.reset}" process="@this" update=":dlgSplRgstModeloEquip:formSplRgst" oncomplete="PF('wdgSplRgstModeloEquip').show()" />
             </p:panel>
 
             <h:outputLabel value="#{form.fornecedor}" for="fornecedor"/>
@@ -149,6 +151,12 @@
     </ui:define>
 
     <ui:define name="foraDoForm">
+        <labs:dialogForSimpleRegister id="dlgSplRgstCategEquip" controller="#{categoriaEquipamentoController}" header="Cadastro de Categoria para Equipamentos"
+                                      widgetVar="wdgSplRgstCategEquip" inputId="form:categoria_input"/>
+        <labs:dialogForSimpleRegister id="dlgSplRgstMarcaEquip" controller="#{marcaEquipamentoController}" header="Cadastro de Marca para Equipamentos" widgetVar="wdgSplRgstMarcaEquip"
+                                      inputId="form:marca_input"/>
+        <labs:dialogForSimpleRegister id="dlgSplRgstModeloEquip" controller="#{modeloEquipamentoController}" header="Cadastro de Modelo para Equipamentos" widgetVar="wdgSplRgstModeloEquip"
+                                      inputId="form:modelo_input"/>
         <labs:confirmExclusaoSimples update=":form" action="#{equipamentoController.deleteFromForm}"
                                      widgetVar="confirmExcMaster"/>
         <labs:confirmExclusaoSimples update=":formEmbedded" action="#{equipamentoController.deleteHistorico}"
