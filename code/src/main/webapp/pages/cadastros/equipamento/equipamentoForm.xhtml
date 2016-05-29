@@ -151,8 +151,8 @@
     </ui:define>
 
     <ui:define name="foraDoForm">
-        <labs:dialogForSimpleRegister id="dlgSplRgstCategEquip" controller="#{categoriaEquipamentoController}" header="Cadastro de Categoria para Equipamentos"
-                                      widgetVar="wdgSplRgstCategEquip" inputId="form:categoria_input"/>
+        <labs:dialogForSimpleRegister id="dlgSplRgstCategEquip" controller="#{categoriaEquipamentoController}" header="Cadastro de Categoria para Equipamentos" widgetVar="wdgSplRgstCategEquip"
+                                      inputId="form:categoria_input"/>
         <labs:dialogForSimpleRegister id="dlgSplRgstMarcaEquip" controller="#{marcaEquipamentoController}" header="Cadastro de Marca para Equipamentos" widgetVar="wdgSplRgstMarcaEquip"
                                       inputId="form:marca_input"/>
         <labs:dialogForSimpleRegister id="dlgSplRgstModeloEquip" controller="#{modeloEquipamentoController}" header="Cadastro de Modelo para Equipamentos" widgetVar="wdgSplRgstModeloEquip"
@@ -254,9 +254,4 @@
         </h:form>
     </ui:define>
 </ui:decorate>
-<h:outputScript>
-    $(document).ready(function() {
-        $('.pnlBtnCadastrarNovo').find('div').addClass('no-padding');
-    });
-</h:outputScript>
 </html>

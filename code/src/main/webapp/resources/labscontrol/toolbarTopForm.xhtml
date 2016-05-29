@@ -27,7 +27,7 @@
                 <p:commandButton process="@this" action="#{cc.attrs.controller.reset}" title="#{form.novo}"
                                  update="#{cc.attrs.update}" immediate="true"
                                  icon="fa fa-file-o" style="float: left"
-                                 rendered="#{cc.attrs.renderedBtnNovo}" oncomplete="$('.pnlBtnCadastrarNovo').find('div').addClass('no-padding');"/>
+                                 rendered="#{cc.attrs.renderedBtnNovo}"/>
 
                 <p:commandButton title="#{form.listagem}"
                                  action="#{cc.attrs.controller.getUrlSearchPage}"

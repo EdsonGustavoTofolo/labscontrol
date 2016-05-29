@@ -75,7 +75,7 @@ public class EquipamentoController extends CrudController<Equipamento, Integer> 
     protected Boolean validacaoSave(Equipamento e) {
         if (e.getPatrimonio() != null && !"".equals(e.getPatrimonio())) {
             Equipamento equip = equipamentoService.findByPatrimonioAndMarca_IdAndModelo_IdAndCategoria_Id(e.getPatrimonio(), e.getMarca().getId(), e.getModelo().getId(), e.getCategoria().getId());
-            if (equip != null) {
+            if (equip != null && equip.getId() != this.entity.getId()) {
                 addMessage("Já existe Equipamento com Patrimônio, Marca, Modelo e Categoria informados!", FacesMessage.SEVERITY_ERROR);
                 return Boolean.FALSE;
             } else {

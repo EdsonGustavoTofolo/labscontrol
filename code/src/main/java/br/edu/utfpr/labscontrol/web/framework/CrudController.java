@@ -79,8 +79,10 @@ public abstract class CrudController<T extends Object, ID extends Serializable> 
      * Método a ser executado ao inicializar o metodo init
      */
     protected void inicializar() {
-        if (this.entity != null) {
+        if (this.entity.getClass().equals(this.type)) {
             setId((ID) getIdFromObj());
+        } else {
+            entity = newRecord();
         }
     }
 
