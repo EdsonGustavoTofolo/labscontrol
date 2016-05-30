@@ -17,6 +17,7 @@
     </ui:define>
 
     <ui:define name="conteudo">
+        <p:focus for="nome"/>
         <p:panelGrid columns="2">
             <h:outputLabel value="#{form.foto}"/>
             <p:fileUpload value="#{equipamentoController.uploadedFile}" mode="advanced" dragDropSupport="true"
@@ -27,9 +28,8 @@
                           update="form:imgEquip"/>
             <h:outputLabel value=""/>
             <p:graphicImage id="imgEquip" value="#{equipamentoController.getFullPath()}" width="15%" height="15%"/>
-            <h:outputLabel value="#{form.nome}"/>
-            <p:inputText value="#{equipamentoController.entity.nome}" size="45" maxlength="80" required="true"
-                         requiredMessage="#{msg.nomeRequired}"/>
+            <h:outputLabel for="nome" value="#{form.nome}"/>
+            <p:inputText id="nome" value="#{equipamentoController.entity.nome}" size="45" maxlength="80" required="true" requiredMessage="#{msg.nomeRequired}"/>
             <h:outputLabel value="#{form.partNumber}"/>
             <p:inputText value="#{equipamentoController.entity.partNumber}" size="45" maxlength="45"/>
             <h:outputLabel value="#{form.patrimonio}"/>

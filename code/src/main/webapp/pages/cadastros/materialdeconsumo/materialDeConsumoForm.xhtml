@@ -17,6 +17,7 @@
     </ui:define>
 
     <ui:define name="conteudo">
+        <p:focus for="nome"/>
         <p:panelGrid columns="2">
             <h:outputLabel value="#{form.foto}"/>
             <p:fileUpload value="#{materialDeConsumoController.uploadedFile}" mode="advanced" dragDropSupport="true" allowTypes="/(\.|\/)(gif|jpe?g|png|bmp)$/" fileLimit="1"
@@ -26,8 +27,8 @@
                           update="form:imgMaterial"/>
             <h:outputLabel value=""/>
             <p:graphicImage id="imgMaterial" value="#{materialDeConsumoController.getFullPath()}" width="15%" height="15%"/>
-            <h:outputLabel value="#{form.nome}"/>
-            <p:inputText value="#{materialDeConsumoController.entity.nome}" size="60" maxlength="80" required="true" requiredMessage="#{msg.nomeRequired}"/>
+            <h:outputLabel for="nome" value="#{form.nome}"/>
+            <p:inputText id="nome" value="#{materialDeConsumoController.entity.nome}" size="60" maxlength="80" required="true" requiredMessage="#{msg.nomeRequired}"/>
             <h:outputLabel value="#{form.descricao}"/>
             <p:inputText value="#{materialDeConsumoController.entity.descricao}" size="60" maxlength="255"/>
             <h:outputLabel value="#{form.quantidadeEmEstoque}"/>
