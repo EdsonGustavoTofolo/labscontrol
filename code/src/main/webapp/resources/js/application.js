@@ -37,4 +37,8 @@ function redirectToLoginAfterSaveUser(xhr, status, args) {
         window.location = "/labscontrol/"
     }
 }
+function markErrorAndSetFocus(inputId) {
+    $(PrimeFaces.escapeClientId(inputId)).addClass('ui-state-error');
+    PrimeFaces.focus(inputId);
+}
 

@@ -5,6 +5,7 @@ import br.edu.utfpr.labscontrol.model.framework.ICrudService;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.framework.CrudController;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
+import org.primefaces.context.RequestContext;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.ToggleEvent;
@@ -113,6 +114,7 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
             this.equipamento = null;
             this.quantidade = BigDecimal.ZERO;
             this.qtdEstoque = BigDecimal.ZERO;
+//            RequestContext.getCurrentInstance().execute("PrimeFaces.focus(inputId);"); TODO setar o foco no componente que está habilidado: Material de consumo ou equipamento
         } catch (Exception e) {
             addMessage(e.getMessage(), FacesMessage.SEVERITY_ERROR);
             e.printStackTrace();
@@ -245,8 +247,7 @@ public class EmprestimoController extends CrudController<Emprestimo, Integer> {
             if (this.materialDeConsumo.getQtdAtual().subtract(this.quantidade, MathContext.DECIMAL64).compareTo(BigDecimal.ZERO) == -1) {
                 throw new IllegalArgumentException("Não há quantidade em estoque o suficiente!");
             } else if (this.quantidade.compareTo(BigDecimal.ZERO) == 0) {
-//                FacesContext context = FacesContext.getCurrentInstance();
-//                UIInput input = (UIInput)context.getViewRoot().findComponent(":form:quantidade");
+                RequestContext.getCurrentInstance().execute("markErrorAndSetFocus('form:quantidade')");
                 throw new IllegalArgumentException("Informe uma quantidade!");
             }
         }
