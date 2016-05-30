@@ -64,9 +64,9 @@
                 <p:graphicImage value="/resources/images/logo.png" width="20%" height="20%"/>
             </div>
             <div id="infoLogin">
-                <h:outputText value="Você está logado como #{usuarioController.getUsuarioLogadoNome()} || " />
-                <h:outputLink value="#{request.contextPath}/j_spring_security_logout">
-                    <h:outputLabel value="#{form.sair}"/>
+                <h:outputText value="Você está logado como #{usuarioController.getUsuarioLogadoNome()}  " style="font-weight: bold" />
+                <h:outputLink value="#{request.contextPath}/j_spring_security_logout" title="Sair">
+                    <span class="fa fa-sign-out"/>
                 </h:outputLink>
             </div>
         </div>
