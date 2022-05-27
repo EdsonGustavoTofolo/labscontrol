@@ -3,7 +3,6 @@ package br.edu.utfpr.labscontrol.web.controller;
 import br.edu.utfpr.labscontrol.model.entity.*;
 import br.edu.utfpr.labscontrol.model.service.*;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
-import javafx.scene.paint.Material;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

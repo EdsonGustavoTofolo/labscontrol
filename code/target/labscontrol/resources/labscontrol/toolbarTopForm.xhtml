@@ -34,12 +34,12 @@
                                  immediate="true" ajax="false" style="float: left"
                                  icon="fa fa-list-alt"/>
 
-                    <span class="ui-separator">
-                       <span class="ui-icon ui-icon-grip-dotted-vertical"/>
-                    </span>
+                <span class="ui-separator">
+                   <span class="ui-icon ui-icon-grip-dotted-vertical"/>
+                </span>
 
                 <labs:commandButtonForm update="#{cc.attrs.update}" controller="#{cc.attrs.controller}"
-                                        widgetVar="#{cc.attrs.widgetVarBtnExc}" renderedBtnExcluir="#{cc.attrs.renderedBtnExcluir}"/>
+                                        widgetVar="#{cc.attrs.widgetVarBtnExc}" renderedBtnExcluir="#{cc.attrs.renderedBtnExcluir}" saveComplete="$('.pnlBtnCadastrarNovo').find('div').addClass('no-padding');"/>
 
                 <span class="ui-separator">
                        <span class="ui-icon ui-icon-grip-dotted-vertical"/>

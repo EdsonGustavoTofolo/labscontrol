@@ -11,32 +11,27 @@ import br.edu.utfpr.labscontrol.web.util.HorariosManha;
 import br.edu.utfpr.labscontrol.web.util.HorariosNoite;
 import br.edu.utfpr.labscontrol.web.util.HorariosTarde;
 import br.edu.utfpr.labscontrol.web.util.JsfUtil;
-import javafx.scene.paint.Material;
 import org.primefaces.event.RowEditEvent;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
-import org.primefaces.model.*;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.LazyScheduleModel;
+import org.primefaces.model.ScheduleEvent;
+import org.primefaces.model.ScheduleModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.event.ActionEvent;
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 import java.math.MathContext;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
-import java.util.*;
-import java.util.concurrent.ExecutionException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 
 /**

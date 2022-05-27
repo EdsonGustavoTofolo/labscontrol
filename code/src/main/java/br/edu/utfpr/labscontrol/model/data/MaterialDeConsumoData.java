@@ -1,9 +1,7 @@
 package br.edu.utfpr.labscontrol.model.data;
 
 import br.edu.utfpr.labscontrol.model.entity.CategoriaMaterial;
-import br.edu.utfpr.labscontrol.model.entity.Equipamento;
 import br.edu.utfpr.labscontrol.model.entity.MaterialDeConsumo;
-import javafx.scene.paint.Material;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

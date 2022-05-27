@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal">
+  <component name="dataSourceStorageLocal" created-in="IU-213.5744.223">
     <data-source name="MySQL" uuid="400518e4-6255-48fb-8ccd-6f7696dc0224">
+      <database-info product="MySQL" version="5.6.19-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )" dbms="MYSQL" exact-version="5.6.19">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <user-name>root</user-name>
-      <user-password>dfd8dfc5dfc5dfde</user-password>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="schema">
+            <name qname="information_schema" />
+            <name qname="labscontrol" />
+            <name qname="lojaweb" />
+            <name qname="mysql" />
+            <name qname="performance_schema" />
+            <name qname="sakila" />
+            <name qname="test" />
+            <name qname="world" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
   </component>
 </project>
