@@ -9,466 +9,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81a2fbe4-635d-42ff-8a1c-530b125686c2" name="Default" comment="criado um composite para cadastro de marcas, modelos e categorias. Criada funcao js para que caso nao ocorra erro na validacao feche a dialog e sete o foco no componente input.&#10;No cadastro de equipamento ao lado dos inputs de marca, modelo e categoria criado um botao para que chame uma dialog padrao para que seja possível cadastrar rapidamente as mesmas">
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_castor_castor_core_1_4_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_ecj_3_21_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jcommon_1_0_23.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jfree_jfreechart_1_0_19.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/labscontrol_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/labscontrol_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/labscontrol_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/labscontrol_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_12_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_12_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_12_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__eclipse_jdtcore_3_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__font_font_awesome_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_regexp_jakarta_regexp_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jcommon_1_0_15.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jfree_jfreechart_1_0_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_31.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_jasperreports_jasperreports_5_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_jasperreports_jasperreports_6_18_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_analyzers_common_4_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_4_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queries_4_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queryparser_4_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_sandbox_4_5_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_castor_castor_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_castor_castor_xml_1_4_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_olap4j_olap4j_0_9_7_309_JS_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_primefaces_themes_bootstrap_1_0_10.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labscontrol.iml" beforeDir="false" afterPath="$PROJECT_DIR$/labscontrol.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/MaterialDeConsumoData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/model/data/MaterialDeConsumoData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/RelatoriosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/RelatoriosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/ReservaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/controller/ReservaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/applicationContext-job.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/applicationContext-jpa.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/applicationContext-mail.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/applicationContext-security.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/applicationContext.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/META-INF/persistence.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/AmbienteData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaEquipamentoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaMaterialData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaObservacaoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CfgEnvioEmailData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CidadeData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ContatoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoItemData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EntradaData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EquipamentoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EstadoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/FornecedorData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/HistoricoDeManutencaoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MarcaEquipamentoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MarcaMaterialData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MaterialDeConsumoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ModeloEquipamentoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ModeloMaterialData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ObservacaoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PaisData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PasswordResetTokenData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PermissaoData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ReservaData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ReservaItemData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/SaidaData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/SolicitanteData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/UsuarioData.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Ambiente.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaEquipamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaMaterial.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaObservacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CfgEnvioEmail.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Cidade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Contato.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Emprestimo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/EmprestimoItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Entrada.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Equipamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Estado.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Fornecedor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/HistoricoDeManutencao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MarcaEquipamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MarcaMaterial.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MaterialDeConsumo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ModeloEquipamento.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ModeloMaterial.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Observacao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Pais.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/PasswordResetToken.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Permissao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Reserva.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ReservaItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Saida.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Solicitante.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Usuario.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/EnumLabel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/RolesEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/TiposDeContatoEnum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/BaseRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/CrudService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/ICrudService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/AmbienteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaEquipamentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaMaterialService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaObservacaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CfgEnvioEmailService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CidadeService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ContatoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoItemService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EntradaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EquipamentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EstadoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/FornecedorService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/HistoricoDeManutencaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MarcaEquipamentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MarcaMaterialService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MaterialDeConsumoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ModeloEquipamentoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ModeloMaterialService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ObservacaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PaisService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PasswordResetTokenService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PermissaoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ReservaItemService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ReservaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/SaidaService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/SolicitanteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/UsuarioService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/AmbienteServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaEquipamentoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaMaterialServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaObservacaoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CfgEnvioEmailServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CidadeServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ContatoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoItemServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EntradaServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EquipamentoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EstadoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/FornecedorServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/HistoricoDeManutencaoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaEquipamentoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaMaterialServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MaterialDeConsumoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloEquipamentoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloMaterialServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ObservacaoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PaisServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PasswordResetTokenServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PermissaoServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaItemServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/SaidaServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/SolicitanteServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/UsuarioServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/AmbienteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/BackupController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/BackupController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaEquipamentoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaMaterialController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaObservacaoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CfgEnvioEmailController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CidadeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EmprestimoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EntradaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EstadoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/FornecedorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MarcaEquipamentoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MarcaMaterialController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MaterialDeConsumoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ModeloEquipamentoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ModeloMaterialController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ObservacaoController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/PaisController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/RelatoriosController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/SaidaController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/SolicitanteController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/UsuarioController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/AmbienteConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaEquipamentoConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaMaterialConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaObservacaoConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CidadeConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EnumConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EquipamentoConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EstadoConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/FornecedorConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MarcaEquipamentoConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MarcaMaterialConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MaterialDeConsumoConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/ModeloEquipamentoConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/ModeloMaterialConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/PaisConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/SolicitanteConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandlerFactory.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/IllegalHorarioException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/ReservaException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/BaseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/BaseConverter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/CrudController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/primefaces/FileUploadRenderer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/scope/ViewScope.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/scope/ViewScopeCallbackRegistrar.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/CepWebService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/EnumUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/Horarios.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosManha.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosNoite.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosTarde.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/JsfUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/StringEncrypt.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/CnpjValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/CpfValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/EmailValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/IdentificacaoValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/LoginValidator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/formulario.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/jsfMessages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/log4j.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/messages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/classes/wro.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/ehcache.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/faces-config.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/activation-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/antlr-2.7.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/asm-3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/aspectjrt-1.7.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/bcmail-jdk14-1.38.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/bcmail-jdk14-138.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/bcprov-jdk14-1.38.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/bcprov-jdk14-138.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/bctsp-jdk14-1.38.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/bootstrap-1.0.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/castor-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/cglib-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/classmate-0.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-beanutils-1.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-codec-1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-collections-3.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-digester-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-email-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-fileupload-1.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-io-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-lang-2.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-lang3-3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/commons-logging-1.1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/concurrent-1.3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/dom4j-1.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/ehcache-core-2.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/ehcache-spring-annotations-1.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/gson-2.2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/guava-11.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/hibernate-commons-annotations-4.0.4.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/hibernate-core-4.3.5.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/hibernate-entitymanager-4.3.5.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/hibernate-envers-4.3.5.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/hibernate-jpa-2.0-api-1.0.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/hibernate-validator-5.0.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/httpclient-4.2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/httpcore-4.2.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/itext-2.1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jackson-annotations-2.1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jackson-core-2.1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jackson-core-asl-1.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jackson-databind-2.1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jackson-jaxrs-1.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jackson-mapper-asl-1.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jandex-1.1.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/javassist-3.18.1-GA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/javax.inject-1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jboss-logging-3.1.3.GA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jboss-logging-annotations-1.2.0.Beta1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jboss-transaction-api_1.2_spec-1.0.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jcl-over-slf4j-1.7.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jcommon-1.0.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jdtcore-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jfreechart-1.0.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jsf-api-2.2.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jsf-impl-2.2.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jsr305-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jsr305-1.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/jstl-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/log4j-1.2.16.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/mysema-commons-lang-0.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/mysql-connector-java-5.1.31.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/org.apache.commons.io-2.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/poi-3.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/primefaces-5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/quartz-1.6.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/querydsl-core-2.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/querydsl-jpa-2.5.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/servlet-api-2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/slf4j-api-1.7.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/slf4j-log4j12-1.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-aop-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-asm-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-beans-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-context-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-core-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-data-commons-1.6.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-data-jpa-1.4.2.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-expression-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-jdbc-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-orm-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-property-annotations-0.1.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-security-acl-3.1.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-security-config-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-security-core-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-security-crypto-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-security-taglibs-3.1.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-security-web-3.1.4.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-support-2.0.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-test-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-tx-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-web-3.1.1.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/spring-webmvc-3.2.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/standard-1.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/validation-api-1.1.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/wro4j-core-1.6.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/xml-apis-1.0.b2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/xmlpull-1.1.3.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/xpp3_min-1.1.4c.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/lib/xstream-1.4.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/tld/c-1.1.2.tld" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/WEB-INF/wro.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/access-denied.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/esqueciAsenha.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/login.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/mudarSenha.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/novoUsuario.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/backup/backupSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/ambiente/ambienteForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/ambiente/ambienteSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/categoria/equipamento/categoriaEquipamentoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/categoria/equipamento/categoriaEquipamentoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/categoria/material/categoriaMaterialForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/categoria/material/categoriaMaterialSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/cfgenvioemail/cfgEnvioEmailForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/cfgenvioemail/cfgEnvioEmailSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/cidade/cidadeForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/cidade/cidadeSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/equipamento/equipamentoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/equipamento/equipamentoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/estado/estadoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/estado/estadoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/fornecedor/fornecedorForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/fornecedor/fornecedorSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/marca/equipamento/marcaEquipamentoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/marca/equipamento/marcaEquipamentoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/marca/material/marcaMaterialForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/marca/material/marcaMaterialSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/materialdeconsumo/materialDeConsumoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/materialdeconsumo/materialDeConsumoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/modelo/equipamento/modeloEquipamentoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/modelo/equipamento/modeloEquipamentoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/modelo/material/modeloMaterialForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/modelo/material/modeloMaterialSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/observacao/categoria/categoriaObsForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/observacao/categoria/categoriaObsSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/observacao/observacaoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/observacao/observacaoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/pais/paisForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/pais/paisSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/solicitante/solicitanteForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/solicitante/solicitanteSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/usuario/usuarioForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/cadastros/usuario/usuarioSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/emprestimo/emprestimoForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/emprestimo/emprestimoSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/index.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/movimentos/entrada/entradaForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/movimentos/entrada/entradaSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/movimentos/saida/saidaForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/movimentos/saida/saidaSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/AmbientesReport.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/AmbientesReport.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/EquipamentosEmManutencaoReport.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/EquipamentosEmManutencaoReport.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/EquipamentosEmprestados.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/EquipamentosEmprestados.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/EquipamentosReport.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/EquipamentosReport.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/MateriaisDeConsumoEmFaltaReport.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/MateriaisDeConsumoEmFaltaReport.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/MateriaisDeConsumoEmprestadosReport.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/MateriaisDeConsumoEmprestadosReport.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/MateriaisDeConsumosReport.jasper" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/MateriaisDeConsumosReport.jrxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/ambientes.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/equipamentos.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/equipamentosEmManutencao.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/equipamentosEmprestados.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/materiaisDeConsumoEmprestados.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/materiaisDeConsumos.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/relatorios/materiaisEmFalta.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/pages/template/padrao.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/css/alertify.core.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/css/alertify.default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/css/cores.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/css/customPrime.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/css/default.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/css/menu.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/images/ajax-loader.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/images/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/alertify.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/application.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/jquery-1.10.2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/locale-primefaces.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/starter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/jquery.validationEngine.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-ca.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-cz.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-da.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-de.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-el.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-en.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-es.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-et.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-fa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-fi.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-fr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-he.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-hr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-hu.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-id.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-it.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-ja.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-lt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-nl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-no.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-pl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-pt.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-pt_BR.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-ro.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-ru.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-sv.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/languages/jquery.validationEngine-tr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/js/validationEngine/validationEngine.jquery.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/labscontrol/commandButtonForm.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/labscontrol/commandButtonSearch.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/labscontrol/commandButtonSearchEmbedded.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/LabsControl/resources/labscontrol/confirmExclusaoSimples.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/AmbienteData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/AmbienteData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CategoriaEquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CategoriaEquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CategoriaMaterialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CategoriaMaterialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CategoriaObservacaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CategoriaObservacaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CfgEnvioEmailData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CfgEnvioEmailData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CidadeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/CidadeData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ContatoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ContatoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoItemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoItemData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EntradaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EntradaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EstadoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/EstadoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/FornecedorData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/FornecedorData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/HistoricoDeManutencaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/HistoricoDeManutencaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/MarcaEquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/MarcaEquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/MarcaMaterialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/MarcaMaterialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/MaterialDeConsumoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/MaterialDeConsumoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ModeloEquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ModeloEquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ModeloMaterialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ModeloMaterialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ObservacaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ObservacaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/PaisData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/PaisData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/PasswordResetTokenData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/PasswordResetTokenData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/PermissaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/PermissaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ReservaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ReservaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ReservaItemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/ReservaItemData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/SaidaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/SaidaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/SolicitanteData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/SolicitanteData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/UsuarioData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/data/UsuarioData.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Ambiente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Ambiente.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaEquipamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaEquipamento.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaMaterial.class" afterDir="false" />
@@ -490,27 +65,121 @@
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/ModeloMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/ModeloMaterial.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Observacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Observacao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Pais.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Pais.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/PasswordResetToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/PasswordResetToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Permissao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Permissao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Reserva.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Reserva.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/ReservaItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/ReservaItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Saida.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Saida.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Solicitante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Solicitante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/entity/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/enumeration/EnumLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/enumeration/EnumLabel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/enumeration/RolesEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/enumeration/RolesEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/enumeration/TiposDeContatoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/enumeration/TiposDeContatoEnum.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/framework/BaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/framework/BaseRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/framework/CrudService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/framework/CrudService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/framework/ICrudService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/framework/ICrudService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/AmbienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/AmbienteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CategoriaEquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CategoriaEquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CategoriaMaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CategoriaMaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CategoriaObservacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CategoriaObservacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CfgEnvioEmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CfgEnvioEmailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CidadeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/CidadeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ContatoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ContatoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EntradaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EntradaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EstadoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/EstadoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/FornecedorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/FornecedorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/HistoricoDeManutencaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/HistoricoDeManutencaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/MarcaEquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/MarcaEquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/MarcaMaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/MarcaMaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/MaterialDeConsumoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/MaterialDeConsumoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ModeloEquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ModeloEquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ModeloMaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ModeloMaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ObservacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ObservacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/PaisService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/PaisService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/PasswordResetTokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/PasswordResetTokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/PermissaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/PermissaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ReservaItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ReservaItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ReservaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/ReservaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/SaidaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/SaidaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/SolicitanteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/SolicitanteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/UsuarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/UsuarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/AmbienteServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/AmbienteServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaEquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaEquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaMaterialServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaMaterialServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaObservacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaObservacaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CfgEnvioEmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CfgEnvioEmailServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CidadeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/CidadeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ContatoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ContatoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EntradaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EntradaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EstadoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/EstadoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/FornecedorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/FornecedorServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/HistoricoDeManutencaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/HistoricoDeManutencaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaEquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaEquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaMaterialServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaMaterialServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/MaterialDeConsumoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/MaterialDeConsumoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloEquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloEquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloMaterialServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloMaterialServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ObservacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ObservacaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/PaisServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/PaisServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/PasswordResetTokenServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/PasswordResetTokenServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/PermissaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/PermissaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/SaidaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/SaidaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/SolicitanteServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/SolicitanteServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/model/service/impl/UsuarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/AmbienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/AmbienteController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/BackupController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/BackupController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/BackupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/BackupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaEquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaEquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaMaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaMaterialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaObservacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaObservacaoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CfgEnvioEmailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CfgEnvioEmailController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CidadeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/CidadeController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EmprestimoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EmprestimoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EntradaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EntradaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EstadoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/EstadoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/FornecedorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/FornecedorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/MarcaEquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/MarcaEquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/MarcaMaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/MarcaMaterialController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/MaterialDeConsumoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/MaterialDeConsumoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ModeloEquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ModeloEquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ModeloMaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ModeloMaterialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ObservacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ObservacaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/PaisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/PaisController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/RelatoriosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/RelatoriosController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/SaidaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/SaidaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/SolicitanteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/SolicitanteController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/controller/UsuarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/AmbienteConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/AmbienteConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaEquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaEquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaMaterialConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaMaterialConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaObservacaoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaObservacaoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CidadeConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/CidadeConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/EnumConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/EnumConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/EquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/EquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/EstadoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/EstadoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/FornecedorConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/FornecedorConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/MarcaEquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/MarcaEquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/MarcaMaterialConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/MarcaMaterialConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/MaterialDeConsumoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/MaterialDeConsumoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/ModeloEquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/ModeloEquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/ModeloMaterialConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/ModeloMaterialConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/PaisConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/PaisConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/SolicitanteConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/converter/SolicitanteConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandlerFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandlerFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/IllegalHorarioException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/IllegalHorarioException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/ReservaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/exceptions/ReservaException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/framework/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/framework/BaseController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/framework/BaseConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/framework/BaseConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/framework/CrudController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/framework/CrudController.class" afterDir="false" />
@@ -518,10 +187,13 @@
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/scope/ViewScope.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/scope/ViewScope.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/scope/ViewScopeCallbackRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/scope/ViewScopeCallbackRegistrar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/CepWebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/CepWebService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/EnumUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/EnumUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/Horarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/Horarios.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/HorariosManha.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/HorariosManha.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/HorariosNoite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/HorariosNoite.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/HorariosTarde.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/HorariosTarde.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/JsfUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/JsfUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/StringEncrypt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/util/StringEncrypt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/CnpjValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/CnpjValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/CpfValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/CpfValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/DataEmprestimoValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/DataEmprestimoValidator.class" afterDir="false" />
@@ -529,19 +201,195 @@
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/IdentificacaoValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/IdentificacaoValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/LoginValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/edu/utfpr/labscontrol/web/validator/LoginValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/labscontrol.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/AmbienteData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/AmbienteData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaEquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaEquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaMaterialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaMaterialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaObservacaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CategoriaObservacaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CfgEnvioEmailData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CfgEnvioEmailData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CidadeData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/CidadeData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ContatoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ContatoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoItemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EmprestimoItemData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EntradaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EntradaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EstadoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/EstadoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/FornecedorData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/FornecedorData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/HistoricoDeManutencaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/HistoricoDeManutencaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MarcaEquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MarcaEquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MarcaMaterialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MarcaMaterialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MaterialDeConsumoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/MaterialDeConsumoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ModeloEquipamentoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ModeloEquipamentoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ModeloMaterialData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ModeloMaterialData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ObservacaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ObservacaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PaisData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PaisData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PasswordResetTokenData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PasswordResetTokenData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PermissaoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/PermissaoData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ReservaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ReservaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ReservaItemData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/ReservaItemData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/SaidaData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/SaidaData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/SolicitanteData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/SolicitanteData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/UsuarioData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/data/UsuarioData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Ambiente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Ambiente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaEquipamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaEquipamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaMaterial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaObservacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CategoriaObservacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CfgEnvioEmail.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/CfgEnvioEmail.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Cidade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Cidade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Contato.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Contato.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Emprestimo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Emprestimo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/EmprestimoItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/EmprestimoItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Entrada.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Entrada.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Equipamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Equipamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Estado.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Estado.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Fornecedor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Fornecedor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/HistoricoDeManutencao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/HistoricoDeManutencao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MarcaEquipamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MarcaEquipamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MarcaMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MarcaMaterial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MaterialDeConsumo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/MaterialDeConsumo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ModeloEquipamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ModeloEquipamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ModeloMaterial.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ModeloMaterial.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Observacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Observacao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Pais.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Pais.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/PasswordResetToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/PasswordResetToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Permissao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Permissao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Reserva.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Reserva.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ReservaItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/ReservaItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Saida.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Saida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Solicitante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Solicitante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/entity/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/EnumLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/EnumLabel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/RolesEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/RolesEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/TiposDeContatoEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/enumeration/TiposDeContatoEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/BaseRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/BaseRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/CrudService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/CrudService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/ICrudService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/framework/ICrudService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/AmbienteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/AmbienteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaEquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaEquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaMaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaMaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaObservacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CategoriaObservacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CfgEnvioEmailService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CfgEnvioEmailService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CidadeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/CidadeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ContatoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ContatoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EmprestimoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EntradaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EntradaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EstadoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/EstadoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/FornecedorService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/FornecedorService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/HistoricoDeManutencaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/HistoricoDeManutencaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MarcaEquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MarcaEquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MarcaMaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MarcaMaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MaterialDeConsumoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/MaterialDeConsumoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ModeloEquipamentoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ModeloEquipamentoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ModeloMaterialService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ModeloMaterialService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ObservacaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ObservacaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PaisService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PaisService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PasswordResetTokenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PasswordResetTokenService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PermissaoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/PermissaoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ReservaItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ReservaItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ReservaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/ReservaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/SaidaService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/SaidaService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/SolicitanteService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/SolicitanteService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/UsuarioService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/UsuarioService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/AmbienteServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/AmbienteServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaEquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaEquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaMaterialServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaMaterialServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaObservacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CategoriaObservacaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CfgEnvioEmailServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CfgEnvioEmailServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CidadeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/CidadeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ContatoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ContatoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EmprestimoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EntradaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EntradaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EstadoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/EstadoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/FornecedorServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/FornecedorServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/HistoricoDeManutencaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/HistoricoDeManutencaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaEquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaEquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaMaterialServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MarcaMaterialServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MaterialDeConsumoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/MaterialDeConsumoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloEquipamentoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloEquipamentoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloMaterialServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ModeloMaterialServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ObservacaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ObservacaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PaisServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PaisServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PasswordResetTokenServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PasswordResetTokenServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PermissaoServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/PermissaoServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaItemServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaItemServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/ReservaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/SaidaServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/SaidaServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/SolicitanteServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/SolicitanteServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/UsuarioServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/model/service/impl/UsuarioServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/AmbienteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/AmbienteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/BackupController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/BackupController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/BackupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/BackupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaEquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaEquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaMaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaMaterialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaObservacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CategoriaObservacaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CfgEnvioEmailController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CfgEnvioEmailController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CidadeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/CidadeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EmprestimoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EmprestimoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EntradaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EntradaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EstadoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/EstadoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/FornecedorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/FornecedorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MarcaEquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MarcaEquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MarcaMaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MarcaMaterialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MaterialDeConsumoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/MaterialDeConsumoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ModeloEquipamentoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ModeloEquipamentoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ModeloMaterialController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ModeloMaterialController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ObservacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ObservacaoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/PaisController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/PaisController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/RelatoriosController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/RelatoriosController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/ReservaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/SaidaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/SaidaController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/SolicitanteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/SolicitanteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/controller/UsuarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/AmbienteConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/AmbienteConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaEquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaEquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaMaterialConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaMaterialConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaObservacaoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CategoriaObservacaoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CidadeConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/CidadeConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EnumConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EnumConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EstadoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/EstadoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/FornecedorConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/FornecedorConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MarcaEquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MarcaEquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MarcaMaterialConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MarcaMaterialConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MaterialDeConsumoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/MaterialDeConsumoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/ModeloEquipamentoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/ModeloEquipamentoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/ModeloMaterialConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/ModeloMaterialConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/PaisConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/PaisConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/SolicitanteConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/converter/SolicitanteConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandlerFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/CustomExceptionHandlerFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/IllegalHorarioException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/IllegalHorarioException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/ReservaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/exceptions/ReservaException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/BaseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/BaseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/BaseConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/BaseConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/CrudController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/framework/CrudController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/primefaces/FileUploadRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/primefaces/FileUploadRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/scope/ViewScope.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/scope/ViewScope.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/scope/ViewScopeCallbackRegistrar.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/scope/ViewScopeCallbackRegistrar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/CepWebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/CepWebService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/EnumUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/EnumUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/Horarios.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/Horarios.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosManha.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosManha.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosNoite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosNoite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosTarde.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/HorariosTarde.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/JsfUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/JsfUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/StringEncrypt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/util/StringEncrypt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/CnpjValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/CnpjValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/CpfValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/CpfValidator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/DataEmprestimoValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/DataEmprestimoValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/font-awesome-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/jakarta-regexp-1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/jasperreports-5.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/lucene-analyzers-common-4.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/lucene-core-4.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/lucene-queries-4.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/lucene-queryparser-4.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/lucene-sandbox-4.5.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/olap4j-0.9.7.309-JS-3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/labscontrol/resources/labscontrol/toolbarTopForm.xhtml" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/resources/labscontrol/toolbarTopForm.xhtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/EmailValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/EmailValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/IdentificacaoValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/IdentificacaoValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/LoginValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/classes/br/edu/utfpr/labscontrol/web/validator/LoginValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/lib/bootstrap-1.0.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labscontrol/WEB-INF/tld/c-1.1.2.tld" beforeDir="false" afterPath="$PROJECT_DIR$/target/labscontrol/WEB-INF/tld/c-1.1.2.tld" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -564,9 +412,6 @@
     <option name="PRINT_LINE_NUMBERS" value="true" />
     <option name="OPEN_IN_BROWSER" value="true" />
     <option name="OUTPUT_DIRECTORY" value="C:\Users\EdsonGustavo\Documents" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="curso" />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -658,7 +503,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="/usr/share/maven" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../Env/apache-maven-3.6.3" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -830,34 +675,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="Xhtml" />
-    <property name="FullScreen" value="false" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="LayoutCode.rearrangeEntriesJSPX" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="OverrideImplement.combined" value="true" />
-    <property name="OverrideImplement.overriding.sorted" value="false" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="inicializar&#9;PSI&#9;JAVA://br.edu.utfpr.labscontrol.web.framework.CrudController#inicializar" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="options.lastSelected" value="vcs.Git" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.splitter.main.proportions" value="0.23785426" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Workspace/Projects/labscontrol/code",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "c576a9cd36467575e0f876ba7555f1b4"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\bkp_vaio_20160401\TCC\Trabalho_Final_Faculdade\projeto\code\src\main\webapp\pages\relatorios" />
@@ -982,6 +812,17 @@
       <option name="moduleName" value="" />
       <option name="trusted" value="true" />
       <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="grailsApplicationRoot" value="" />
+      <setting name="launchBrowser" value="false" />
+      <setting name="launchBrowserUrl" value="" />
+      <setting name="depsClasspath" value="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method v="2" />
     </configuration>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1140,17 +981,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
-      <setting name="vmparams" value="" />
-      <setting name="cmdLine" value="run-app" />
-      <setting name="passParentEnv" value="true" />
-      <setting name="grailsApplicationRoot" value="" />
-      <setting name="launchBrowser" value="false" />
-      <setting name="launchBrowserUrl" value="" />
-      <setting name="depsClasspath" value="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <method v="2" />
     </configuration>
     <configuration name="WildFly 10.Final" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 8.1.0.Final" ALTERNATIVE_JRE_ENABLED="false" show_console_on_std_err="true" show_console_on_std_out="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/labscontrol" />
@@ -1517,6 +1347,7 @@
       <workItem from="1463790037469" duration="4206000" />
       <workItem from="1463957619464" duration="5322000" />
       <workItem from="1653562347455" duration="9942000" />
+      <workItem from="1655737207353" duration="3247000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1463713168440</created>
@@ -1822,7 +1653,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/development/mavens/maven-3.2.2/lib/maven-model-builder-3.2.2.jar!/org/apache/maven/model/pom-4.0.0.xml">
+    <entry file="jar://$PROJECT_DIR$/../../../../development/mavens/maven-3.2.2/lib/maven-model-builder-3.2.2.jar!/org/apache/maven/model/pom-4.0.0.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="627" max-vertical-offset="2652">
           <caret line="53" column="15" selection-start-line="53" selection-start-column="15" selection-end-line="53" selection-end-column="15" />

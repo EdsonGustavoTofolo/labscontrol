@@ -25,7 +25,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="labscontrol" options="-endorseddirs $PROJECT_DIR$/target/endorsed" />
+      <module name="labscontrol" options="-endorseddirs C:\Workspace\Projects\labscontrol\code\target/endorsed" />
     </option>
   </component>
 </project>
