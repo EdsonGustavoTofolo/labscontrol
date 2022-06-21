@@ -15,17 +15,28 @@ Utilizado link para configuracao do mysql no payara [Using MySQL with Payara](ht
    2. Resource Type: javax.sql.DataSource
    3. Database Driver Vendor: MySql8
    4. Press Next
-   5. Em Additional Properties, selecione todos e remova 
-   6. Adicione as seguintes propriedades e valores
-      1. User: informe o usuario
-      2. Password: informe a senha
-      3. PortNumber: 3306
-      4. ServerName: localhost
-      5. Url: jdbc:mysql://:3306/labscontrol
-      6. URL: jdbc:mysql://:3306/labscontrol
-      7. UseSSL: false
-      8. DatabaseName: labscontrol
-      9. Port: 3306
+   5. Em Additional Properties, selecione todos e remova
+   6. Adicione as seguintes propriedades e valores:
+      1. MySQL rodando na máquina local
+         1. User: informe o usuario
+         2. Password: informe a senha
+         3. PortNumber: 3306
+         4. ServerName: localhost
+         5. Url: jdbc:mysql://:3306/labscontrol
+         6. URL: jdbc:mysql://:3306/labscontrol
+         7. UseSSL: false
+         8. DatabaseName: labscontrol
+         9. Port: 3306
+      2. MySQL rodando via Docker
+         1. User: informe o usuario
+         2. Password: informe a senha
+         3. PortNumber: porta disponivel via Docker
+         4. Url: jdbc:mysql://usuario:senha@localhost:<porta disponivel via docker>/labscontrol
+         5. URL: jdbc:mysql://usuario:senha@localhost:<porta disponivel via docker>/labscontrol
+         6. UseSSL: false
+         7. DatabaseName: labscontrol
+         8. Port: porta disponivel via Docker
+         9. allowPublicKeyRetrieval: true
    7. Salve
 10. Criar um JDBC Resources da seguinte forma:
     1. JNDI Name: jdbc/labscontrol
