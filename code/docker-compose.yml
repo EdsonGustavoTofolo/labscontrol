@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  mysql:
+    container_name: mysql_57
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=labscontrol
+    ports:
+      - "3306:3306"
+  payara-server:
+    container_name: payara_server
+    build:
+      context: dockerfiles
+      dockerfile: Dockerfile-payara-server
+    ports:
+      - "4848:4848"
+      - "8080:8080"
+      - "8081:8081"
+    depends_on:
+      - mysql
