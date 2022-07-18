@@ -9,6 +9,8 @@ EXPOSE 4848:4848
 # DEBUG
 EXPOSE 9009:9009
 
+ARG MYSQL_CONTAINER_NAME=mysql_57
+
 USER root
 
 RUN \
@@ -21,5 +23,13 @@ RUN \
     && mv mysql-connector.jar /opt/connector/mysql-connector.jar
 
 RUN echo add-library /opt/connector/mysql-connector.jar >> $POSTBOOT_COMMANDS
-RUN echo create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype javax.sql.DataSource --property User=root:Password=root:PortNumber=3306:ServerName=localhost:UseSSL=false:DatabaseName=labscontrol:Port=3306:Url='jdbc\:mysql\://root\:root@localhost\:\/labscontrol':allowPublicKeyRetrieval=true labscontrolpool >> $POSTBOOT_COMMANDS
+RUN echo create-jdbc-connection-pool --datasourceclassname com.mysql.cj.jdbc.MysqlDataSource --restype javax.sql.DataSource --property User=root:Password=root:PortNumber=3306:ServerName=localhost:UseSSL=false:DatabaseName=labscontrol:Port=3306:URL="jdbc\:mysql\://$MYSQL_CONTAINER_NAME\:3306\/labscontrol":AllowPublicKeyRetrieval=true labscontrolpool >> $POSTBOOT_COMMANDS
 RUN echo create-jdbc-resource --connectionpoolid labscontrolpool jdbc/labscontrol >> $POSTBOOT_COMMANDS
+
+RUN mkdir /opt/deployment
+
+VOLUME /opt/deployment
+
+WORKDIR /opt/deployment
+
+COPY . ${DEPLOY_DIR}

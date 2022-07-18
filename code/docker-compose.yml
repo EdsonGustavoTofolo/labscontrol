@@ -1,5 +1,12 @@
-version: "3.7"
+version: "3.9"
 services:
+  app:
+    container_name: labscontrolapp
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile-application
+    volumes:
+      - war:/home/target
   mysql:
     container_name: mysql_57
     image: mysql:5.7
@@ -17,5 +24,11 @@ services:
       - "4848:4848"
       - "8080:8080"
       - "8081:8081"
+    volumes:
+      - war:/opt/deployment
     depends_on:
       - mysql
+      - app
+volumes:
+  war:
+    external: false
