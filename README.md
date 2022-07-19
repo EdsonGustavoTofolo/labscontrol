@@ -1,5 +1,15 @@
 # LabsControl
-# Configurando
+
+# Subindo aplicação via Docker
+
+1. [Download and install Docker](https://docs.docker.com/desktop/#download-and-install)
+2. Abrir linha de comando na pasta <code>/code</code> que é onde contém os arquivos Dockerfile e docker-compose.yml
+3. Executar o comando 
+   <br/><code>docker-compose up</code>
+4. Abrir no browser o link http://localhost:8080/labscontrol
+
+# Configurando manualmente
+
 Utilizado o vídeo para demonstração [Getting Started with Payara Server](https://www.youtube.com/watch?v=tl8UbAETM68) <br/>
 Utilizado link para configuracao do mysql no payara [Using MySQL with Payara](https://blog.payara.fish/using-mysql-with-payara) <br/>
 1. Baixar o payara 5.2022.2 através do link [Payara 5.2022.2](https://www.payara.fish/downloads/payara-platform-community-edition/)
